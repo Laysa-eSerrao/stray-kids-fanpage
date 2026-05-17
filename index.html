@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stray Kids — Guia para Novos STAYs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --purple: #9b72f0;
+      --purple-dim: #9b72f020;
+      --purple-border: #9b72f040;
+      --purple-light: #c4a3ff;
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #ffffff0f;
+      --text: #f0f0f0;
+      --muted: #888888;
+      --subtle: #555555;
+    }
+ 
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+ 
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #0d0d0d 0%, #1a0a2e 50%, #0d0d0d 100%);
+      border-bottom: 1px solid #ffffff10;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, #6c3fc820 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-size: 12px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(60px, 12vw, 96px);
+      letter-spacing: 8px;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .hero-title span { color: var(--purple); }
+    .hero-sub {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+    }
+    .hero-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .tag {
+      font-size: 11px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 1px solid #ffffff20;
+      color: #aaa;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .tag.purple {
+      border-color: var(--purple-border);
+      background: var(--purple-dim);
+      color: var(--purple-light);
+    }
+ 
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid #ffffff10;
+    }
+    @media (max-width: 600px) { .stats-bar { grid-template-columns: repeat(2, 1fr); } }
+    .stat-item {
+      padding: 1.5rem 1rem;
+      text-align: center;
+      border-right: 1px solid #ffffff10;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--purple);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: var(--subtle);
+      margin-top: 5px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+ 
+    /* ── NAV TABS ── */
+    .nav-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid #ffffff10;
+      padding: 0 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      overflow-x: auto;
+    }
+    .nav-tab {
+      padding: 1rem 1.5rem;
+      font-size: 13px;
+      color: var(--subtle);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+      background: none;
+      border-left: none; border-right: none; border-top: none;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-tab:hover { color: #aaa; }
+    .nav-tab.active { color: var(--purple-light); border-bottom-color: var(--purple); }
+ 
+    /* ── SECTION ── */
+    .section { padding: 3rem 2rem; max-width: 900px; margin: 0 auto; }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      letter-spacing: 3px;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+    .section-line { width: 44px; height: 2px; background: var(--purple); margin-bottom: 2rem; }
+ 
+    /* ── MEMBERS ── */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+    }
+    .member-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .member-card:hover { border-color: var(--purple-border); transform: translateY(-3px); }
+    .member-card.active { border-color: var(--purple); background: #1a0a2e; }
+    .member-avatar {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      margin-bottom: 1rem;
+    }
+    .member-name { font-weight: 600; font-size: 15px; margin-bottom: 3px; }
+    .member-real-name { font-size: 12px; color: var(--subtle); margin-bottom: 10px; }
+    .member-position {
+      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--purple-dim);
+      border: 1px solid var(--purple-border);
+      color: var(--purple-light);
+      display: inline-block;
+      letter-spacing: 0.5px;
+    }
+    .member-unit { font-size: 11px; color: var(--subtle); margin-top: 8px; }
+ 
+    /* ── DETAIL ── */
+    .member-detail {
+      background: var(--surface);
+      border: 1px solid var(--purple-border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 1.25rem;
+      display: none;
+    }
+    .member-detail.visible { display: block; }
+    .detail-header { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem; }
+    .detail-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+    .detail-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 2px;
+    }
+    .detail-name-kr { font-size: 13px; color: var(--subtle); margin-top: 3px; }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 500px) { .detail-grid { grid-template-columns: repeat(2, 1fr); } }
+    .detail-item { background: var(--bg); border-radius: 8px; padding: 12px 14px; }
+    .detail-item-label {
+      font-size: 10px;
+      color: var(--subtle);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .detail-item-val { font-size: 13px; color: #e0e0e0; font-weight: 500; }
+    .detail-fact {
+      font-size: 14px;
+      color: var(--muted);
+      border-left: 2px solid var(--purple);
+      padding-left: 14px;
+      line-height: 1.7;
+    }
+    .close-btn {
+      float: right;
+      background: none;
+      border: 1px solid #333;
+      border-radius: 6px;
+      color: var(--subtle);
+      font-size: 12px;
+      padding: 4px 10px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+    .close-btn:hover { color: #aaa; border-color: #666; }
+ 
+    /* ── ABOUT ── */
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      line-height: 1.9;
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 1rem;
+    }
+    .about-card strong { color: var(--purple-light); font-weight: 500; }
+    .about-card em { color: #aaa; font-style: italic; }
+ 
+    /* ── ALBUMS ── */
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    .album-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .album-card:hover { border-color: var(--purple-border); transform: translateY(-2px); }
+    .album-year { font-size: 10px; color: var(--subtle); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+    .album-name { font-size: 14px; font-weight: 600; color: #e0e0e0; margin-bottom: 8px; line-height: 1.4; }
+    .album-badge {
+      font-size: 10px;
+      padding: 3px 9px;
+      border-radius: 10px;
+      background: var(--purple-dim);
+      border: 1px solid var(--purple-border);
+      color: var(--purple);
+      display: inline-block;
+    }
+    .album-badge.gold { background: #f0a50015; border-color: #f0a50030; color: #f0a500; }
+ 
+    /* ── UNITS ── */
+    .units-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    @media (max-width: 600px) { .units-grid { grid-template-columns: 1fr; } }
+    .unit-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-align: center;
+    }
+    .unit-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 2px;
+      color: var(--purple);
+      margin-bottom: 8px;
+    }
+    .unit-desc { font-size: 12px; color: var(--subtle); margin-bottom: 12px; }
+    .unit-members { font-size: 13px; color: var(--muted); line-height: 1.8; }
+ 
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      border-top: 1px solid #ffffff10;
+      font-size: 12px;
+      color: var(--subtle);
+      letter-spacing: 0.5px;
+    }
+    footer a { color: var(--purple); text-decoration: none; }
+    footer a:hover { color: var(--purple-light); }
+ 
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+  </style>
+</head>
+<body>
+ 
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-label">JYP Entertainment · Desde 2018</div>
+    <h1 class="hero-title">STRAY <span>KIDS</span></h1>
+    <p class="hero-sub">스트레이 키즈 · Boy group sul-coreano · 8 membros</p>
+    <div class="hero-tags">
+      <span class="tag purple">4th Gen</span>
+      <span class="tag">Self-produced</span>
+      <span class="tag">STAY fandom</span>
+      <span class="tag">"You make Stray Kids stay"</span>
+    </div>
+  </header>
+ 
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">19</div><div class="stat-label">Daesangs</div></div>
+    <div class="stat-item"><div class="stat-num">5×</div><div class="stat-label">Billboard #1</div></div>
+    <div class="stat-item"><div class="stat-num">20M</div><div class="stat-label">YouTube subs</div></div>
+    <div class="stat-item"><div class="stat-num">10B</div><div class="stat-label">Spotify streams</div></div>
+  </div>
+ 
+  <!-- TABS -->
+  <nav class="nav-tabs">
+    <button class="nav-tab active" onclick="showTab('membros', this)">Membros</button>
+    <button class="nav-tab" onclick="showTab('sobre', this)">Sobre</button>
+    <button class="nav-tab" onclick="showTab('discografia', this)">Discografia</button>
+    <button class="nav-tab" onclick="showTab('unidades', this)">Unidades</button>
+  </nav>
+ 
+  <!-- TAB: MEMBROS -->
+  <div class="tab-content active" id="tab-membros">
+    <div class="section">
+      <div class="section-title">Membros</div>
+      <div class="section-line"></div>
+      <div class="members-grid" id="members-grid"></div>
+      <div class="member-detail" id="member-detail">
+        <button class="close-btn" onclick="closeDetail()">fechar ×</button>
+        <div class="detail-header">
+          <div class="detail-avatar" id="d-avatar"></div>
+          <div>
+            <div class="detail-name" id="d-name"></div>
+            <div class="detail-name-kr" id="d-realname"></div>
+          </div>
+        </div>
+        <div class="detail-grid" id="d-grid"></div>
+        <div class="detail-fact" id="d-fact"></div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- TAB: SOBRE -->
+  <div class="tab-content" id="tab-sobre">
+    <div class="section">
+      <div class="section-title">Sobre o grupo</div>
+      <div class="section-line"></div>
+      <div class="about-card">
+        <strong>Stray Kids</strong> é um grupo masculino sul-coreano de 8 membros formado pela <strong>JYP Entertainment</strong> em 2018, por meio de um reality show de sobrevivência homônimo. O diferencial do grupo é o conceito de <strong>self-production</strong>: os membros do sub-grupo <strong>3RACHA</strong> (Bang Chan, Han e Changbin) produzem e compõem a maior parte das músicas.
+      </div>
+      <div class="about-card">
+        Seu som mistura <strong>hip-hop, EDM, rock e noise music</strong> — um estilo reconhecível na indústria. Músicas como <em>God's Menu</em>, <em>MANIAC</em>, <em>Thunderous</em> e <em>S-Class</em> definiram sua identidade sonora ousada e distinta na 4ª geração do K-pop.
+      </div>
+      <div class="about-card">
+        Em 2024, <strong>renovaram contrato com a JYP</strong>, participaram do <strong>Met Gala</strong> (primeiros artistas K-pop a comparecer juntos), lançaram o álbum <em>ATE</em> — seu 5º álbum consecutivo a estrear em #1 no Billboard 200 — e headlinaram o <strong>Lollapalooza Chicago</strong>. Em 2026, vão headlinar o <strong>Rock in Rio</strong>.
+      </div>
+      <div class="about-card">
+        O fandom se chama <strong>STAY</strong>, e o slogan do grupo é <em>"You make Stray Kids stay"</em> — uma forma de dizer que são os fãs que completam o grupo e o fazem continuar.
+      </div>
+    </div>
+  </div>
+ 
+  <!-- TAB: DISCOGRAFIA -->
+  <div class="tab-content" id="tab-discografia">
+    <div class="section">
+      <div class="section-title">Discografia</div>
+      <div class="section-line"></div>
+      <div class="album-grid" id="album-grid"></div>
+    </div>
+  </div>
+ 
+  <!-- TAB: UNIDADES -->
+  <div class="tab-content" id="tab-unidades">
+    <div class="section">
+      <div class="section-title">Unidades</div>
+      <div class="section-line"></div>
+      <div class="units-grid">
+        <div class="unit-card">
+          <div class="unit-name">3RACHA</div>
+          <div class="unit-desc">Hip-hop &amp; produção musical</div>
+          <div class="unit-members">Bang Chan<br>Han<br>Changbin</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-name">Dance Racha</div>
+          <div class="unit-desc">Dançarinos principais</div>
+          <div class="unit-members">Lee Know<br>Hyunjin<br>Felix</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-name">Vocal Racha</div>
+          <div class="unit-desc">Vocalistas principais</div>
+          <div class="unit-members">Han<br>Seungmin<br>I.N</div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <footer>
+    Feito por <a href="https://github.com/Laysa-eSerrao">Laysa Serrão</a> · Fã-page não oficial · Dados: JYP Entertainment &amp; Portal de fãs
+  </footer>
+ 
+  <script>
+    const members = [
+      { name:"Bang Chan", kr:"방찬 · Christopher Bang", pos:"Leader / Rapper / Vocal", unit:"3RACHA", avatar:"BC", color:"#9b72f0",
+        birthday:"3 out 1997", height:"171 cm", mbti:"ENFJ", nationality:"Coreia / Austrália",
+        fact:"Líder e produtor principal do grupo. Passou 7 anos como trainee na JYP. Criou o sub-grupo 3RACHA antes do debut. Realiza lives semanais chamadas 'Chan's Room'. Fala coreano, inglês, japonês e um pouco de chinês." },
+      { name:"Lee Know", kr:"리노 · Lee Min-ho", pos:"Dancer / Rapper / Vocal", unit:"Dance Racha", avatar:"LK", color:"#5c9eff",
+        birthday:"25 out 1998", height:"172 cm", mbti:"ISFP", nationality:"Sul-coreano",
+        fact:"Considerado um dos melhores dançarinos da 4ª geração do K-pop. Tem 3 gatos chamados Sooni, Doongi e Dori. Embaixador global da Gucci desde 2025. Seu lema de vida: 'Vamos comer bem e viver bem.'" },
+      { name:"Changbin", kr:"창빈 · Seo Chang-bin", pos:"Rapper / Vocal / Producer", unit:"3RACHA", avatar:"CB", color:"#f05f5f",
+        birthday:"11 ago 1999", height:"167 cm", mbti:"ESTP", nationality:"Sul-coreano",
+        fact:"Famoso pelo flow de rap extremamente rápido. Apesar de ser o menor do grupo (167cm), tem enorme presença de palco. Produz e escreve grande parte das letras do SKZ ao lado de Bang Chan e Han." },
+      { name:"Hyunjin", kr:"황현진 · Hwang Hyun-jin", pos:"Dancer / Rapper / Vocal", unit:"Dance Racha", avatar:"HJ", color:"#d4a843",
+        birthday:"20 mar 2000", height:"179 cm", mbti:"INFP", nationality:"Sul-coreano",
+        fact:"O mais alto do grupo. Além de idol, é pintor e já realizou exposições de arte. Embaixador da Versace (2023) e Cartier (2024). Reconhecido como um dos melhores dançarinos da sua geração." },
+      { name:"Han", kr:"한 · Han Ji-sung", pos:"Rapper / Vocal / Producer", unit:"3RACHA / Vocal Racha", avatar:"HN", color:"#3fbf8c",
+        birthday:"14 set 2000", height:"170 cm", mbti:"INFP", nationality:"Coreano (criado na Malásia)",
+        fact:"Parte do trio produtor 3RACHA. Considerado um dos letristas mais criativos e emocionais do K-pop. Cresceu na Malásia e voltou à Coreia para perseguir o sonho de ser idol. Faz impressões de personagens de desenho animado." },
+      { name:"Felix", kr:"필릭스 · Lee Yong-bok", pos:"Dancer / Rapper / Vocal", unit:"Dance Racha", avatar:"FL", color:"#f0a500",
+        birthday:"15 set 2000", height:"171 cm", mbti:"ENFP", nationality:"Australiano",
+        fact:"Único membro nascido fora da Ásia (Sydney, Austrália). Famoso por sua voz profunda inconfundível e por ser um dos dançarinos mais expressivos do grupo. Embaixador da Louis Vuitton desde agosto de 2023 e desfilou em Paris em 2024." },
+      { name:"Seungmin", kr:"승민 · Kim Seung-min", pos:"Vocalist", unit:"Vocal Racha", avatar:"SM", color:"#7dc4e4",
+        birthday:"22 set 2000", height:"178 cm", mbti:"ISFJ", nationality:"Sul-coreano",
+        fact:"Principal vocalista do grupo. Grande fã de beisebol — seu sonho alternativo era ser jogador profissional. Embaixador da Burberry. Apelido carinhoso dos fãs: 'puppy Seungmin', por conta do seu sorriso." },
+      { name:"I.N", kr:"아이엔 · Yang Jeong-in", pos:"Vocalist / Dancer", unit:"Vocal Racha", avatar:"IN", color:"#c45ef0",
+        birthday:"8 fev 2001", height:"173 cm", mbti:"INFP", nationality:"Sul-coreano",
+        fact:"Maknae (caçula) do grupo, nascido em 2001. Tem como habilidade especial cantar trot (estilo musical coreano tradicional). Sua irmã mais nova é Haerin, do grupo NewJeans. Embaixador da Bottega Veneta e Damiani." },
+    ];
+ 
+    const albums = [
+      { year:"2018", name:"Mixtape", badge:"Pré-debut" },
+      { year:"2018", name:"I Am NOT", badge:"Mini album" },
+      { year:"2019", name:"Clé 1: MIROH", badge:"Mini album" },
+      { year:"2020", name:"GO LIVE", badge:"Full album" },
+      { year:"2021", name:"NOEASY", badge:"Full album", gold:true },
+      { year:"2022", name:"ODDINARY", badge:"Billboard #1", gold:true },
+      { year:"2022", name:"MAXIDENT", badge:"Billboard #1", gold:true },
+      { year:"2023", name:"★★★★★ (5-STAR)", badge:"Billboard #1", gold:true },
+      { year:"2023", name:"ROCK-STAR", badge:"Billboard #1", gold:true },
+      { year:"2024", name:"ATE", badge:"Billboard #1", gold:true },
+    ];
+ 
+    function renderMembers() {
+      const grid = document.getElementById('members-grid');
+      members.forEach((m, i) => {
+        const card = document.createElement('div');
+        card.className = 'member-card';
+        card.innerHTML = `
+          <div class="member-avatar" style="background:${m.color}22; border: 1.5px solid ${m.color}50; color:${m.color}">${m.avatar}</div>
+          <div class="member-name">${m.name}</div>
+          <div class="member-real-name">${m.kr.split('·')[1]?.trim() || ''}</div>
+          <span class="member-position">${m.pos.split('/')[0].trim()}</span>
+          <div class="member-unit">${m.unit}</div>
+        `;
+        card.onclick = () => showMember(i, card);
+        grid.appendChild(card);
+      });
+    }
+ 
+    function showMember(i, card) {
+      document.querySelectorAll('.member-card').forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      const m = members[i];
+      const detail = document.getElementById('member-detail');
+      const av = document.getElementById('d-avatar');
+      av.style.background = m.color + '22';
+      av.style.border = `2px solid ${m.color}60`;
+      av.style.color = m.color;
+      av.textContent = m.avatar;
+      document.getElementById('d-name').textContent = m.name;
+      document.getElementById('d-realname').textContent = m.kr;
+      document.getElementById('d-grid').innerHTML = `
+        <div class="detail-item"><div class="detail-item-label">Aniversário</div><div class="detail-item-val">${m.birthday}</div></div>
+        <div class="detail-item"><div class="detail-item-label">Altura</div><div class="detail-item-val">${m.height}</div></div>
+        <div class="detail-item"><div class="detail-item-label">MBTI</div><div class="detail-item-val">${m.mbti}</div></div>
+        <div class="detail-item"><div class="detail-item-label">Posição</div><div class="detail-item-val">${m.pos}</div></div>
+        <div class="detail-item"><div class="detail-item-label">Unidade</div><div class="detail-item-val">${m.unit}</div></div>
+        <div class="detail-item"><div class="detail-item-label">Nacionalidade</div><div class="detail-item-val">${m.nationality}</div></div>
+      `;
+      document.getElementById('d-fact').textContent = m.fact;
+      detail.classList.add('visible');
+      detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+ 
+    function closeDetail() {
+      document.getElementById('member-detail').classList.remove('visible');
+      document.querySelectorAll('.member-card').forEach(c => c.classList.remove('active'));
+    }
+ 
+    function renderAlbums() {
+      const grid = document.getElementById('album-grid');
+      albums.forEach(a => {
+        const card = document.createElement('div');
+        card.className = 'album-card';
+        card.innerHTML = `
+          <div class="album-year">${a.year}</div>
+          <div class="album-name">${a.name}</div>
+          <span class="album-badge ${a.gold ? 'gold' : ''}">${a.badge}</span>
+        `;
+        grid.appendChild(card);
+      });
+    }
+ 
+    function showTab(id, btn) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+ 
+    renderMembers();
+    renderAlbums();
+  </script>
+</body>
+</html>
+ 
