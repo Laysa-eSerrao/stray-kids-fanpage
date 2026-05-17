@@ -28,28 +28,6 @@ Sem frameworks, sem dependências — HTML, CSS e JS puro.
  
 ---
  
-## 🚀 Como rodar localmente
- 
-```bash
-# Clone o repositório
-git clone https://github.com/Laysa-eSerrao/stray-kids-fanpage.git
- 
-# Abra o arquivo no navegador
-open index.html
-```
- 
-Ou simplesmente arraste o `index.html` para o seu navegador.
- 
----
- 
-## 🌍 Como publicar com GitHub Pages
- 
-1. Acesse **Settings** do repositório
-2. Vá em **Pages** (menu lateral)
-3. Em "Branch", selecione `main` e clique em **Save**
-4. Aguarde alguns minutos — sua página estará em `https://SEU-USUARIO.github.io/stray-kids-fanpage/`
----
- 
 ## 👩‍💻 Autora
  
 **Laysa Serrão** — Engenharia de Software · UniBH · Estagiária na Autis Analytics
