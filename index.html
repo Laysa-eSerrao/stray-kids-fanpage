@@ -155,6 +155,26 @@
     .footer-logo { font-family:'Bebas Neue',sans-serif; font-size:28px; letter-spacing:6px; color:#fff; margin-bottom:1rem; }
     .footer-logo span { color:var(--red); }
 
+
+    /* STREAM */
+    .stream-section { margin-bottom: 2.5rem; }
+    .stream-section-title { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:3px; color:#fff; margin-bottom:1rem; padding-bottom:.5rem; border-bottom:1px solid var(--border); }
+    .platform-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:10px; margin-bottom:1rem; }
+    .platform-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.25rem 1.5rem; display:flex; align-items:center; gap:1rem; text-decoration:none; transition:border-color .2s, transform .2s; }
+    .platform-card:hover { border-color:var(--red-border); transform:translateY(-2px); }
+    .platform-icon { width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+    .platform-info { flex:1; }
+    .platform-name { font-weight:600; font-size:14px; color:#fff; margin-bottom:2px; }
+    .platform-desc { font-size:11px; color:var(--subtle); }
+    .platform-arrow { font-size:16px; color:var(--subtle); }
+    .guide-steps { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px; }
+    .guide-step { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.25rem 1.5rem; display:flex; gap:1rem; align-items:flex-start; }
+    .step-num { font-family:'Bebas Neue',sans-serif; font-size:32px; color:var(--red); line-height:1; flex-shrink:0; width:32px; }
+    .step-title { font-weight:600; font-size:13px; color:#fff; margin-bottom:4px; }
+    .step-desc { font-size:12px; color:var(--muted); line-height:1.6; }
+    .tip-card { background:var(--red-dim); border:1px solid var(--red-border); border-radius:12px; padding:1.25rem 1.5rem; font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:10px; }
+    .tip-card strong { color:var(--red-light); font-weight:500; }
+
     .tab-content { display:none; }
     .tab-content.active { display:block; }
 
@@ -189,6 +209,7 @@
   <button class="nav-tab" onclick="showTab('sobre',this)">Sobre</button>
   <button class="nav-tab" onclick="showTab('discografia',this)">Discografia</button>
   <button class="nav-tab" onclick="showTab('unidades',this)">Unidades</button>
+  <button class="nav-tab" onclick="showTab('stream',this)">Stream & Votar</button>
 </nav>
 
 <!-- MEMBROS -->
@@ -263,6 +284,91 @@
     </div>
   </div>
 </div>
+
+<!-- STREAM & VOTAR -->
+<div class="tab-content" id="tab-stream">
+  <div class="section">
+    <div class="section-header"><div class="section-title">Stream & Votar</div></div>
+
+    <div class="tip-card">💡 Como novo STAY, streamar e votar é uma das formas mais importantes de apoiar o grupo. Cada stream conta para os charts e cada voto ajuda o SKZ a ganhar premiações. <strong>Qualidade > Quantidade — evite bots!</strong></div>
+
+    <div class="stream-section">
+      <div class="stream-section-title">🎵 Onde Streamar</div>
+      <div class="platform-grid">
+        <a href="https://open.spotify.com/artist/2HRC8v0B6iuvobv99lFRPx" target="_blank" class="platform-card">
+          <div class="platform-icon" style="background:#1DB95420">🎧</div>
+          <div class="platform-info"><div class="platform-name">Spotify</div><div class="platform-desc">Stream principal — conta para charts globais</div></div>
+          <div class="platform-arrow">→</div>
+        </a>
+        <a href="https://music.apple.com/us/artist/stray-kids/1136825422" target="_blank" class="platform-card">
+          <div class="platform-icon" style="background:#fc3c4420">🍎</div>
+          <div class="platform-info"><div class="platform-name">Apple Music</div><div class="platform-desc">Importante para charts americanos</div></div>
+          <div class="platform-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="platform-card">
+          <div class="platform-icon" style="background:#FF000020">▶️</div>
+          <div class="platform-info"><div class="platform-name">YouTube</div><div class="platform-desc">MVs oficiais — deixe rodar com som</div></div>
+          <div class="platform-arrow">→</div>
+        </a>
+        <a href="https://www.melon.com/artist/timeline.htm?artistId=845405" target="_blank" class="platform-card">
+          <div class="platform-icon" style="background:#00C85020">🍈</div>
+          <div class="platform-info"><div class="platform-name">MelOn</div><div class="platform-desc">Principal chart coreano — requer conta</div></div>
+          <div class="platform-arrow">→</div>
+        </a>
+        <a href="https://www.genie.co.kr" target="_blank" class="platform-card">
+          <div class="platform-icon" style="background:#0057ff20">🎶</div>
+          <div class="platform-info"><div class="platform-name">Genie</div><div class="platform-desc">Chart coreano — conta para Hanteo</div></div>
+          <div class="platform-arrow">→</div>
+        </a>
+        <a href="https://music.bugs.co.kr" target="_blank" class="platform-card">
+          <div class="platform-icon" style="background:#e8192c20">🐛</div>
+          <div class="platform-info"><div class="platform-name">Bugs</div><div class="platform-desc">Plataforma coreana de streaming</div></div>
+          <div class="platform-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="stream-section">
+      <div class="stream-section-title">🗳️ Onde Votar</div>
+      <div class="platform-grid">
+        <a href="https://www.mwave.me" target="_blank" class="platform-card">
+          <div class="platform-icon" style="background:#9b59b620">📡</div>
+          <div class="platform-info"><div class="platform-name">Mwave</div><div class="platform-desc">Votação para MAMA Awards</div></div>
+          <div class="platform-arrow">→</div>
+        </a>
+        <a href="https://idol.champ.interest.me" target="_blank" class="platform-card">
+          <div class="platform-icon" style="background:#e8192c20">🏆</div>
+          <div class="platform-info"><div class="platform-name">Idol Champ</div><div class="platform-desc">Votação para Music Bank e outros shows</div></div>
+          <div class="platform-arrow">→</div>
+        </a>
+        <a href="https://www.hiphopplaya.com" target="_blank" class="platform-card">
+          <div class="platform-icon" style="background:#f0a50020">⭐</div>
+          <div class="platform-info"><div class="platform-name">Mubeat</div><div class="platform-desc">Votação para The Show e outros</div></div>
+          <div class="platform-arrow">→</div>
+        </a>
+        <a href="https://star.universe-official.io" target="_blank" class="platform-card">
+          <div class="platform-icon" style="background:#5c9eff20">🌌</div>
+          <div class="platform-info"><div class="platform-name">Universe</div><div class="platform-desc">App oficial com votações exclusivas</div></div>
+          <div class="platform-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="stream-section">
+      <div class="stream-section-title">📖 Como Streamar Corretamente</div>
+      <div class="guide-steps">
+        <div class="guide-step"><div class="step-num">01</div><div><div class="step-title">Use uma conta real</div><div class="step-desc">Nunca use bots. Streams de bots são detectados e removidos dos charts, prejudicando o grupo.</div></div></div>
+        <div class="guide-step"><div class="step-num">02</div><div><div class="step-title">Streaming no Spotify</div><div class="step-desc">Ouça com áudio, sem pular. Playlists privadas funcionam melhor que públicas para evitar remoção.</div></div></div>
+        <div class="guide-step"><div class="step-num">03</div><div><div class="step-title">YouTube MV</div><div class="step-desc">Assista com o som ligado e até o final. Evite pausar muitas vezes. Contas logadas contam mais.</div></div></div>
+        <div class="guide-step"><div class="step-num">04</div><div><div class="step-title">Horário estratégico</div><div class="step-desc">Na Coreia, das 00h às 01h (KST) é o horário que mais impacta os charts diários. Converta para seu fuso!</div></div></div>
+        <div class="guide-step"><div class="step-num">05</div><div><div class="step-title">Hanteo e Gaon</div><div class="step-desc">Compre álbuns em lojas certificadas Hanteo para que as vendas contem nos charts físicos oficiais.</div></div></div>
+        <div class="guide-step"><div class="step-num">06</div><div><div class="step-title">Siga perfis de streaming</div><div class="step-desc">Perfis como @SKZ_streaming no X/Twitter organizam campanhas e informam sobre períodos importantes.</div></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
 <footer>
   <div class="footer-logo">STRAY <span>KIDS</span></div>
