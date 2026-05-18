@@ -150,6 +150,36 @@
     .footer-logo { font-family:'Bebas Neue',sans-serif; font-size:28px; letter-spacing:6px; color:#fff; margin-bottom:1rem; }
     .footer-logo span { color:var(--red); }
 
+
+    /* TOURS */
+    .tour-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.5rem; transition:.2s; margin-bottom:10px; display:flex; gap:1.5rem; align-items:flex-start; }
+    .tour-card:hover { border-color:var(--red-border); transform:translateY(-2px); }
+    .tour-year { font-family:'Bebas Neue',sans-serif; font-size:40px; color:var(--red); line-height:1; flex-shrink:0; width:60px; }
+    .tour-info { flex:1; }
+    .tour-name { font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:2px; color:#fff; margin-bottom:6px; }
+    .tour-details { font-size:13px; color:var(--muted); line-height:1.7; }
+    .tour-stat { display:inline-block; font-size:10px; padding:3px 10px; border-radius:20px; border:1px solid var(--red-border); color:var(--red-light); background:var(--red-dim); margin-right:6px; margin-top:8px; }
+    .tour-stat.gold { border-color:#d4a84340; color:#d4a843; background:#d4a84315; }
+
+    /* CONTEUDO */
+    .content-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px; }
+    .content-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.5rem; text-decoration:none; display:block; transition:.2s; }
+    .content-card:hover { border-color:var(--red-border); transform:translateY(-2px); }
+    .content-icon { font-size:28px; margin-bottom:10px; }
+    .content-name { font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:2px; color:#fff; margin-bottom:6px; }
+    .content-desc { font-size:13px; color:var(--muted); line-height:1.6; }
+    .content-platform { font-size:10px; color:var(--red); margin-top:8px; letter-spacing:1px; text-transform:uppercase; }
+
+    /* NOVIDADES */
+    .news-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin-bottom:10px; position:relative; overflow:hidden; transition:.2s; }
+    .news-card:hover { border-color:var(--red-border); }
+    .news-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--red); }
+    .news-date { font-size:10px; color:var(--subtle); letter-spacing:2px; text-transform:uppercase; margin-bottom:6px; }
+    .news-title { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:2px; color:#fff; margin-bottom:8px; }
+    .news-text { font-size:14px; color:var(--muted); line-height:1.75; }
+    .news-text strong { color:#fff; font-weight:500; }
+    .news-badge { display:inline-block; font-size:9px; padding:3px 10px; border-radius:20px; border:1px solid var(--red-border); color:var(--red); background:var(--red-dim); margin-top:10px; letter-spacing:1px; text-transform:uppercase; }
+
     .tab-content { display:none; }
     .tab-content.active { display:block; }
 
@@ -171,10 +201,10 @@
 </header>
 
 <div class="stats-bar">
-  <div class="stat-item"><div class="stat-num">19</div><div class="stat-label">Daesangs</div></div>
-  <div class="stat-item"><div class="stat-num">5×</div><div class="stat-label">Billboard #1</div></div>
-  <div class="stat-item"><div class="stat-num">20M</div><div class="stat-label">YouTube subs</div></div>
-  <div class="stat-item"><div class="stat-num">10B</div><div class="stat-label">Spotify streams</div></div>
+  <div class="stat-item"><div class="stat-num">19+</div><div class="stat-label">Daesangs</div></div>
+  <div class="stat-item"><div class="stat-num">7×</div><div class="stat-label">Billboard #1</div></div>
+  <div class="stat-item"><div class="stat-num">1.3M</div><div class="stat-label">Ingressos dominATE</div></div>
+  <div class="stat-item"><div class="stat-num">10B+</div><div class="stat-label">Spotify streams</div></div>
 </div>
 
 <nav class="nav-tabs">
@@ -185,6 +215,9 @@
   <button class="nav-tab" onclick="showTab('discografia',this)">Discografia</button>
   <button class="nav-tab" onclick="showTab('unidades',this)">Unidades</button>
   <button class="nav-tab" onclick="showTab('stream',this)">Stream e Votação</button>
+  <button class="nav-tab" onclick="showTab('tours',this)">Tours</button>
+  <button class="nav-tab" onclick="showTab('conteudo',this)">Conteúdo</button>
+  <button class="nav-tab" onclick="showTab('novidades',this)">2026</button>
 </nav>
 
 <!-- MEMBROS -->
@@ -338,6 +371,178 @@
   </div>
 </div>
 
+<!-- TOURS -->
+<div class="tab-content" id="tab-tours">
+  <div class="section">
+    <div class="section-header"><div class="section-title">Tours</div></div>
+
+    <div class="tour-card">
+      <div class="tour-year">2026</div>
+      <div class="tour-info">
+        <div class="tour-name">NOVA WORLD TOUR — Em breve</div>
+        <div class="tour-details">JYP confirmou nova world tour para 2026, esperada para o segundo semestre. O grupo promete shows em estádios pela Ásia, América do Norte, Europa, América Latina e Austrália. Antecipação altíssima após o sucesso do dominATE.</div>
+        <span class="tour-stat">Em preparação</span>
+        <span class="tour-stat">Inclui Rock in Rio 🇧🇷</span>
+      </div>
+    </div>
+
+    <div class="tour-card">
+      <div class="tour-year">2025</div>
+      <div class="tour-info">
+        <div class="tour-name">dominATE World Tour — North America & Europe</div>
+        <div class="tour-details">Continuação do dominATE Tour com shows na América do Norte e Europa de março a julho de 2025. Incluiu datas em Nova York, Los Angeles, Londres, Paris, Santiago e São Paulo. Show em Toronto foi o primeiro artista a se apresentar no Rogers Stadium.</div>
+        <span class="tour-stat gold">1.3M ingressos</span>
+        <span class="tour-stat gold">US$185.9M faturados</span>
+        <span class="tour-stat">#2 Pollstar Global Tours</span>
+      </div>
+    </div>
+
+    <div class="tour-card">
+      <div class="tour-year">2024</div>
+      <div class="tour-info">
+        <div class="tour-name">dominATE World Tour — Asia & Australia</div>
+        <div class="tour-details">Início do dominATE Tour em Seul (agosto 2024) passando por Hong Kong, Cingapura, Melbourne, Sydney, Tóquio, Bangkok, Kaohsiung e Macau até janeiro de 2025. 35 shows em 23 cidades. Primeiro show solo em estádio na Coreia na conclusão em Incheon.</div>
+        <span class="tour-stat gold">Maior tour K-pop da história</span>
+        <span class="tour-stat">35 shows · 23 cidades</span>
+      </div>
+    </div>
+
+    <div class="tour-card">
+      <div class="tour-year">2023</div>
+      <div class="tour-info">
+        <div class="tour-name">5-STAR World Tour</div>
+        <div class="tour-details">Tour mundial em suporte ao álbum 5-STAR, percorrendo América do Norte, Europa e Ásia. Shows em grandes arenas com a produção mais ambiciosa até então do grupo.</div>
+        <span class="tour-stat">América do Norte · Europa · Ásia</span>
+      </div>
+    </div>
+
+    <div class="tour-card">
+      <div class="tour-year">2022</div>
+      <div class="tour-info">
+        <div class="tour-name">MANIAC World Tour</div>
+        <div class="tour-details">Primeira grande world tour do Stray Kids após a pandemia, marcando o retorno triunfal do grupo aos palcos internacionais com shows na América do Norte, Europa e Ásia.</div>
+        <span class="tour-stat">Primeiro grande retorno pós-pandemia</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CONTEÚDO -->
+<div class="tab-content" id="tab-conteudo">
+  <div class="section">
+    <div class="section-header"><div class="section-title">Conteúdo</div></div>
+    <div class="about-card" style="margin-bottom:1.5rem;">O Stray Kids é conhecido por produzir muito conteúdo para os fãs além de música — séries de variedade, vlogs, lives e muito mais. Ótimo para conhecer a personalidade de cada membro!</div>
+
+    <div style="margin-bottom:1.5rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:#fff;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);">📺 Séries Oficiais</div>
+      <div class="content-grid">
+        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="content-card">
+          <div class="content-icon">🏠</div>
+          <div class="content-name">2 Kids Room</div>
+          <div class="content-desc">Série onde dois membros conversam em um quarto intimista — momentos sinceros e divertidos. Uma das séries mais amadas pelos STAYs.</div>
+          <div class="content-platform">YouTube → @StrayKids</div>
+        </a>
+        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="content-card">
+          <div class="content-icon">🎙️</div>
+          <div class="content-name">RACHA LOG</div>
+          <div class="content-desc">Vlogs do 3RACHA (Bang Chan, Han e Changbin) mostrando o processo criativo e bastidores da produção musical.</div>
+          <div class="content-platform">YouTube → @StrayKids</div>
+        </a>
+        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="content-card">
+          <div class="content-icon">🎮</div>
+          <div class="content-name">SKZ CODE</div>
+          <div class="content-desc">Série de variedade com missões, jogos e desafios entre os membros. Muitas risadas garantidas!</div>
+          <div class="content-platform">YouTube → @StrayKids</div>
+        </a>
+        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="content-card">
+          <div class="content-icon">🎵</div>
+          <div class="content-name">SKZ-RECORD</div>
+          <div class="content-desc">Série de covers e performances especiais dos membros, mostrando suas habilidades individuais de forma mais íntima.</div>
+          <div class="content-platform">YouTube → @StrayKids</div>
+        </a>
+        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="content-card">
+          <div class="content-icon">📻</div>
+          <div class="content-name">Chan's Room</div>
+          <div class="content-desc">Live semanal do Bang Chan onde conversa com os fãs, toca músicas e compartilha bastidores. Tradição desde os primeiros anos do grupo.</div>
+          <div class="content-platform">YouTube & VLive</div>
+        </a>
+        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="content-card">
+          <div class="content-icon">🎬</div>
+          <div class="content-name">SKZ-REPLAY 2026</div>
+          <div class="content-desc">Novo conteúdo especial confirmado para 2026 — compilação de momentos marcantes e material inédito para os STAYs.</div>
+          <div class="content-platform">Em breve · YouTube</div>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:#fff;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);">🎥 Filme de Concerto</div>
+      <div class="content-grid">
+        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="content-card">
+          <div class="content-icon">🎞️</div>
+          <div class="content-name">The dominATE Experience</div>
+          <div class="content-desc">Filme de concerto filmado no SoFi Stadium em Los Angeles. 145 minutos de show com segmentos documentário. Estreou em fevereiro de 2026 nos cinemas.</div>
+          <div class="content-platform">Disponível digitalmente</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- NOVIDADES 2026 -->
+<div class="tab-content" id="tab-novidades">
+  <div class="section">
+    <div class="section-header"><div class="section-title">Novidades 2026</div></div>
+    <div class="about-card" style="margin-bottom:1.5rem;">O Stray Kids entra em 2026 com planos ambiciosos anunciados no vídeo <strong>STEP OUT 2026</strong>. Acompanhe aqui as últimas novidades!</div>
+
+    <div class="news-card">
+      <div class="news-date">Mar 2026</div>
+      <div class="news-title">Single de Aniversário — 별, 빛 (STAY)</div>
+      <div class="news-text">No dia 25 de março de 2026, data de aniversário de 8 anos de debut, o Stray Kids lançou o single digital <strong>"별, 빛 (STAY)"</strong> (Star, Light - STAY) — uma faixa emotiva dedicada ao fandom. A música faz parte do álbum especial <em>REPLAY: STAY WITH YOUR WINGS</em>.</div>
+      <span class="news-badge">Disponível no Spotify</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">Mar/Abr 2026</div>
+      <div class="news-title">6º Fan Meeting — STAY in Our Little House</div>
+      <div class="news-text">O grupo realizou seu 6º fan meeting oficial na <strong>Inspire Arena em Incheon</strong> nos dias 28-29 de março e 4-5 de abril. Incluiu performances, jogos e conversas íntimas com os fãs. Alguns dias foram transmitidos ao vivo pelo Beyond LIVE para fãs internacionais.</div>
+      <span class="news-badge">Concluído</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">2026 — Em breve</div>
+      <div class="news-title">Novo Álbum em Preparação</div>
+      <div class="news-text">A JYP confirmou que um <strong>novo álbum completo</strong> está em preparação, com expectativa de lançamento no segundo semestre de 2026. Será o próximo grande capítulo após o álbum KARMA de 2025.</div>
+      <span class="news-badge">Aguardando</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">Set 2026</div>
+      <div class="news-title">Rock in Rio 🇧🇷</div>
+      <div class="news-text">O Stray Kids vai headlinar o <strong>Rock in Rio</strong> em setembro de 2026 no Brasil — um marco histórico para o K-pop e para os fãs brasileiros. Será a primeira vez do grupo em solo brasileiro.</div>
+      <span class="news-badge">Rock in Rio · Setembro 2026</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">2026</div>
+      <div class="news-title">SKZOO Pop-up Stores Globais</div>
+      <div class="news-text">O grupo anunciou a expansão do universo <strong>SKZOO</strong> com pop-up stores globais tanto na Coreia quanto no exterior — uma oportunidade para os fãs de todo o mundo interagir com os personagens oficiais dos membros.</div>
+      <span class="news-badge">Em breve</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">2026</div>
+      <div class="news-title">Retorno do Kids Room</div>
+      <div class="news-text">Uma das séries mais amadas pelo fandom retorna em 2026 com o nome <strong>♥ Kids Room Returns</strong>, confirmado como parte dos planos do grupo para o ano.</div>
+      <span class="news-badge">Em breve · YouTube</span>
+    </div>
+
+  </div>
+</div>
+
+
 <footer>
   <div class="footer-logo">STRAY <span>KIDS</span></div>
   <div>Feito por <a href="https://github.com/Laysa-eSerrao">Laysa Serrão</a> · Fã-page não oficial · JYP Entertainment</div>
@@ -397,6 +602,9 @@ const albums=[
   {year:"2023",name:"★★★★★ (5-STAR)",badge:"Billboard #1",gold:true},
   {year:"2023",name:"ROCK-STAR",badge:"Billboard #1",gold:true},
   {year:"2024",name:"ATE",badge:"Billboard #1",gold:true},
+  {year:"2025",name:"KARMA",badge:"Billboard #1",gold:true},
+  {year:"2025",name:"SKZ IT TAPE",badge:"Do It — Hot 100",gold:true},
+  {year:"2026",name:"별, 빛 (STAY)",badge:"Single aniversário"},
 ];
 
 const skzoo=[
