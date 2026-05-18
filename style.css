@@ -1,0 +1,604 @@
+/* ============================================================
+   BLOCO 1 — FONTE OFICIAL AUTIS ANALYTICS
+   Carrega a Inclusive Sans do Google Fonts gratuitamente.
+   A fonte tem dois pesos: Regular (400) e Bold (700).
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap');
+
+
+/* ============================================================
+   BLOCO 2 — VARIÁVEIS GLOBAIS (Design Tokens)
+   Aqui ficam todas as cores, tamanhos e espaçamentos da Autis.
+   Para mudar uma cor em toda a plataforma, altere só aqui.
+   ============================================================ */
+:root {
+  /* --- Paleta Azul Autis --- */
+  --azul-50:  #EEF4FF;   /* fundo suave, badges */
+  --azul-100: #D4E6FF;   /* hover suave */
+  --azul-300: #8EB5FF;   /* bordas ativas */
+  --azul-400: #6695FF;   /* links, ícones */
+  --azul-500: #1A51F4;   /* COR PRINCIPAL — botões, destaques */
+  --azul-600: #0136C2;   /* hover dos botões */
+  --azul-700: #071B98;   /* variação escura */
+  --azul-900: #00102E;   /* navbar, fundo escuro */
+
+  /* --- Paleta Neutro Autis --- */
+  --neutro-50:  #FFFFFF;
+  --neutro-100: #FBFBFB; /* fundo da página */
+  --neutro-200: #F1F1F1; /* fundo de cards alternado */
+  --neutro-300: #E2E2E2; /* bordas suaves */
+  --neutro-400: #CDCDCD; /* bordas de input */
+  --neutro-500: #B2B2B2; /* placeholder */
+  --neutro-600: #919191; /* texto secundário */
+  --neutro-800: #464646; /* texto de apoio */
+  --neutro-900: #212121; /* texto principal */
+
+  /* --- Tokens de uso (modo claro) --- */
+  --bg-pagina:     var(--neutro-100);   /* fundo da página inteira */
+  --bg-card:       var(--neutro-50);    /* fundo dos cards */
+  --bg-nav:        var(--azul-900);     /* fundo da navbar */
+  --texto:         var(--neutro-900);   /* texto principal */
+  --texto-suave:   var(--neutro-600);   /* texto secundário/muted */
+  --borda:         var(--neutro-300);   /* bordas de componentes */
+  --destaque:      var(--azul-500);     /* cor de ação principal */
+  --destaque-hover:var(--azul-600);     /* hover do botão */
+  --destaque-bg:   var(--azul-50);      /* fundo suave de badge */
+
+  /* --- Tipografia --- */
+  --fonte: 'Inclusive Sans', sans-serif;
+
+  /* --- Tamanhos de fonte (escala da Autis) --- */
+  --texto-body: 16px;
+  --texto-h5:   24px;
+  --texto-h4:   36px;
+  --texto-h3:   54px;
+
+  /* --- Espaçamentos e bordas --- */
+  --raio:    8px;    /* borda arredondada padrão */
+  --raio-lg: 14px;   /* cards */
+  --sombra:  0 2px 12px rgba(0, 0, 0, 0.07);
+  --sombra-lg: 0 6px 28px rgba(0, 16, 46, 0.12);
+
+  /* --- Altura da navbar --- */
+  --nav-h: 64px;
+}
+
+
+/* ============================================================
+   BLOCO 3 — RESET
+   Zera comportamentos inconsistentes entre browsers.
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte);
+  font-size: var(--texto-body);
+  line-height: 1.6;
+  background-color: var(--bg-pagina);
+  color: var(--texto);
+  min-height: 100vh;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--destaque);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button, input, select, textarea {
+  font-family: var(--fonte);
+  font-size: var(--texto-body);
+}
+
+
+/* ============================================================
+   BLOCO 4 — COMPONENTES BASE
+   Elementos reutilizáveis em todas as telas.
+   ============================================================ */
+
+/* --- NAVBAR --- */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background-color: var(--bg-nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.nav-logo-nome {
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.nav-logo-sub {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--azul-400);
+  line-height: 1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-links a {
+  color: var(--azul-100);
+  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: var(--raio);
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255,255,255,0.08);
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links a.active {
+  color: #fff;
+  background-color: var(--azul-500);
+}
+
+.nav-direita {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Botão de tema claro/escuro na navbar */
+.btn-tema {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--raio);
+  color: #fff;
+  width: 36px; height: 36px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+}
+
+.btn-tema:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Avatar do usuário */
+.nav-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background-color: var(--azul-500);
+  border: 2px solid var(--azul-300);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+/* --- PÁGINA (empurra o conteúdo abaixo da navbar fixa) --- */
+.pagina {
+  padding-top: var(--nav-h);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+
+/* --- BOTÕES --- */
+/* Botão principal — azul sólido */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: var(--raio);
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: background-color 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.btn-primario {
+  background-color: var(--destaque);
+  color: #ffffff;
+}
+
+.btn-primario:hover {
+  background-color: var(--destaque-hover);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* Botão secundário — contorno azul */
+.btn-secundario {
+  background-color: transparent;
+  color: var(--destaque);
+  border: 1.5px solid var(--destaque);
+}
+
+.btn-secundario:hover {
+  background-color: var(--destaque-bg);
+  text-decoration: none;
+}
+
+/* Botão pequeno */
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 13px;
+}
+
+
+/* --- CARDS --- */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-lg);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-lg);
+}
+
+.card-corpo {
+  padding: 1.25rem;
+}
+
+.card-titulo {
+  font-size: 17px;
+  font-weight: bold;
+  color: var(--texto);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.card-descricao {
+  font-size: 14px;
+  color: var(--texto-suave);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.card-rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--borda);
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+
+
+/* --- BADGE (etiqueta de categoria) --- */
+.badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.badge-azul {
+  background-color: var(--azul-50);
+  color: var(--azul-600);
+}
+
+.badge-cinza {
+  background-color: var(--neutro-200);
+  color: var(--neutro-800);
+}
+
+
+/* --- PLAYER DE VÍDEO SIMULADO --- */
+.player-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--azul-900);
+  border-radius: var(--raio-lg);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Thumbnail do vídeo */
+.player-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.player-wrap:hover .player-thumb {
+  opacity: 0.5;
+}
+
+/* Sobreposição com o botão de play */
+.player-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn-play {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background-color: var(--azul-500);
+  border: 3px solid rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  box-shadow: 0 4px 24px rgba(26, 81, 244, 0.5);
+}
+
+.btn-play:hover {
+  transform: scale(1.1);
+  background-color: var(--azul-600);
+}
+
+/* Triângulo de play */
+.play-icone {
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 11px 0 11px 20px;
+  border-color: transparent transparent transparent #ffffff;
+  margin-left: 4px;
+}
+
+.player-titulo {
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+/* Barra de progresso do vídeo */
+.player-barra {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background-color: rgba(255,255,255,0.2);
+}
+
+.player-progresso {
+  height: 100%;
+  background-color: var(--azul-500);
+  width: 0%;
+  transition: width 0.3s;
+}
+
+
+/* --- FORMULÁRIOS --- */
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--texto);
+}
+
+.form-input,
+.form-select {
+  padding: 10px 14px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  background-color: var(--bg-card);
+  color: var(--texto);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: var(--azul-500);
+  box-shadow: 0 0 0 3px rgba(26, 81, 244, 0.15);
+}
+
+/* Toggle (chave on/off) */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 44px; height: 24px;
+}
+
+.toggle input { opacity: 0; width: 0; height: 0; }
+
+.toggle-slider {
+  position: absolute; inset: 0;
+  background-color: var(--neutro-400);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 18px; height: 18px;
+  left: 3px; top: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: transform 0.2s;
+}
+
+.toggle input:checked + .toggle-slider {
+  background-color: var(--azul-500);
+}
+
+.toggle input:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+
+/* --- BARRA DE PROGRESSO DO CURSO --- */
+.progresso-barra {
+  height: 6px;
+  background-color: var(--neutro-300);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progresso-fill {
+  height: 100%;
+  background-color: var(--azul-500);
+  border-radius: 999px;
+  transition: width 0.4s;
+}
+
+
+/* --- TÍTULOS DE SEÇÃO --- */
+.secao-titulo {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--texto);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.secao-subtitulo {
+  font-size: 15px;
+  color: var(--texto-suave);
+  margin-bottom: 2rem;
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+
+/* ============================================================
+   BLOCO 5 — TEMA ESCURO
+   Ativado quando <html data-theme="escuro"> está presente.
+   Só redefine as variáveis — o resto do CSS herda automaticamente.
+   ============================================================ */
+[data-theme="escuro"] {
+  --bg-pagina:      #0D1117;
+  --bg-card:        #161B26;
+  --texto:          #E2E8F4;
+  --texto-suave:    #8892B0;
+  --borda:          #1E2A3A;
+  --sombra:         0 2px 12px rgba(0,0,0,0.4);
+  --sombra-lg:      0 6px 28px rgba(0,0,0,0.55);
+}
+
+
+/* ============================================================
+   BLOCO 6 — UTILITÁRIOS E RESPONSIVIDADE
+   Classes auxiliares de layout e adaptação para mobile.
+   ============================================================ */
+
+/* Grids */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+/* Layout com sidebar (player) */
+.layout-sidebar {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Espaçamentos de seção */
+.secao { padding: 3rem 0; }
+.secao-topo { padding-top: 3rem; }
+
+/* Divisor */
+.divisor {
+  border: none;
+  border-top: 1px solid var(--borda);
+  margin: 2rem 0;
+}
+
+/* Texto auxiliar */
+.texto-suave { color: var(--texto-suave); }
+.texto-sm    { font-size: 13px; }
+.negrito     { font-weight: bold; }
+
+/* Flex helpers */
+.flex         { display: flex; }
+.flex-centro  { display: flex; align-items: center; }
+.flex-entre   { display: flex; align-items: center; justify-content: space-between; }
+.gap-sm       { gap: 8px; }
+.gap-md       { gap: 16px; }
+
+/* --- Mobile (telas menores que 768px) --- */
+@media (max-width: 768px) {
+  .nav-links   { display: none; }        /* esconde menu (adicionar hamburguer depois) */
+  .grid-2,
+  .grid-3,
+  .grid-4      { grid-template-columns: 1fr; }
+  .layout-sidebar { grid-template-columns: 1fr; }
+  .container   { padding: 0 1rem; }
+  .secao       { padding: 2rem 0; }
+}
+
+/* --- Tablet (entre 768px e 1024px) --- */
+@media (max-width: 1024px) {
+  .grid-3      { grid-template-columns: repeat(2, 1fr); }
+  .grid-4      { grid-template-columns: repeat(2, 1fr); }
+  .layout-sidebar { grid-template-columns: 1fr 300px; }
+}
+
+/* --- Animação de entrada suave --- */
+@keyframes entrada {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animar { animation: entrada 0.35s ease both; }
