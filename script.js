@@ -490,3 +490,89 @@ function renderTimeline() {
 }
 
 renderTimeline();
+
+/* ================================================
+   15. Scroll Reveal — Animações de entrada
+================================================ */
+function initScrollReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  // Animar about cards
+  document.querySelectorAll('.about-card').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.classList.add(`delay-${(i % 4) + 1}`);
+    observer.observe(el);
+  });
+
+  // Animar fact cards
+  document.querySelectorAll('.fact-card').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.classList.add(`delay-${(i % 4) + 1}`);
+    observer.observe(el);
+  });
+
+  // Animar album cards
+  document.querySelectorAll('.album-card-v2').forEach((el, i) => {
+    el.classList.add('reveal-scale');
+    el.style.transitionDelay = `${(i % 6) * 0.07}s`;
+    observer.observe(el);
+  });
+
+  // Animar member cards
+  document.querySelectorAll('.member-card').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = `${(i % 8) * 0.06}s`;
+    observer.observe(el);
+  });
+
+  // Animar gallery items
+  document.querySelectorAll('.g-item').forEach((el, i) => {
+    el.classList.add('reveal-scale');
+    el.style.transitionDelay = `${(i % 4) * 0.08}s`;
+    observer.observe(el);
+  });
+
+  // Animar mv cards
+  document.querySelectorAll('.mv-card').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = `${(i % 3) * 0.1}s`;
+    observer.observe(el);
+  });
+
+  // Animar tour cards
+  document.querySelectorAll('.tour-card').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.classList.add(i % 2 === 0 ? 'reveal-left' : 'reveal-right');
+    observer.observe(el);
+  });
+
+  // Animar news cards
+  document.querySelectorAll('.news-card').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = `${(i % 4) * 0.08}s`;
+    observer.observe(el);
+  });
+
+  // Animar platform cards
+  document.querySelectorAll('.platform-card, .guide-step, .content-card').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = `${(i % 4) * 0.07}s`;
+    observer.observe(el);
+  });
+
+  // Animar section headers
+  document.querySelectorAll('.section-header').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+}
+
+// Inicializar após render de todos os elementos
+setTimeout(initScrollReveal, 100);
