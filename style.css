@@ -398,3 +398,114 @@ body.light-mode div[style*="Bebas Neue"][style*="color:#fff"] { color: #111111 !
 body.light-mode .stream-section-title,
 body.light-mode div[style*="letter-spacing:3px"][style*="color:#fff"],
 body.light-mode div[style*="letter-spacing: 3px"][style*="color: #fff"] { color: #111111 !important; -webkit-text-fill-color: #111111 !important; }
+
+/* ================================================
+   Fix modo claro — News cards e formatação geral
+================================================ */
+
+/* Barra lateral vermelha visível no modo claro */
+body.light-mode .news-card::before { background: var(--red); }
+body.light-mode .about-card { border-left-color: var(--red); }
+
+/* Títulos dos news cards */
+body.light-mode .news-title {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  background: none;
+}
+
+/* Section titles no modo claro */
+body.light-mode .section-title {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  background: none;
+}
+
+/* Hero title no modo claro */
+body.light-mode .hero-title {
+  color: #111111 !important;
+  text-shadow: none;
+}
+body.light-mode .hero-title .red {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gradientes de texto só no modo escuro */
+body.light-mode .section-count {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* d-name no detalhe do membro */
+body.light-mode .d-name {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Tour year */
+body.light-mode .tour-year {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Stat numbers mantêm gradiente */
+body.light-mode .stat-num {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Nav tab ativo */
+body.light-mode .nav-tab.active {
+  color: #111111;
+  border-bottom-color: var(--red);
+}
+
+/* Fact tag */
+body.light-mode .fact-tag { color: var(--red); }
+
+/* Album badge */
+body.light-mode .album-badge { color: var(--red); background: var(--red-dim); }
+body.light-mode .album-badge.gold { color: #b8860b; background: #b8860b15; border-color: #b8860b40; }
+
+/* Unit name */
+body.light-mode .unit-name {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Step number */
+body.light-mode .step-num {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* News date */
+body.light-mode .news-date { color: #888888; }
+
+/* News badge */
+body.light-mode .news-badge { color: var(--red); background: var(--red-dim); border-color: var(--red-border); }
+
+/* Content platform */
+body.light-mode .content-platform { color: var(--red); }
+
+/* Tour stat */
+body.light-mode .tour-stat { color: var(--red); background: var(--red-dim); border-color: var(--red-border); }
+body.light-mode .tour-stat.gold { color: #b8860b; background: #b8860b15; border-color: #b8860b40; }
+
+/* Footer logo */
+body.light-mode .footer-logo {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Member position badge */
+body.light-mode .m-pos { color: var(--red); background: var(--red-dim); border-color: var(--red-border); }
