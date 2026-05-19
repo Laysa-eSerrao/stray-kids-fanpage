@@ -170,3 +170,32 @@ function showTabById(id){
 }
 
 renderMembers(); renderGallery(); renderFacts(); renderAlbums(); renderSkzoo();
+/* ================================================
+   09. Botão Voltar ao Topo
+================================================ */
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('back-to-top');
+  if (window.scrollY > 300) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+});
+
+/* ================================================
+   10. Toggle Modo Claro/Escuro
+================================================ */
+function toggleTheme() {
+  const body = document.body;
+  const btn = document.getElementById('theme-toggle');
+  body.classList.toggle('light-mode');
+  const isLight = body.classList.contains('light-mode');
+  btn.textContent = isLight ? '☀️' : '🌙';
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+}
+
+// Carregar tema salvo
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.body.classList.add('light-mode');
+    document.getElementById('theme-toggle').textContent = '☀️';
+  }
+})();
