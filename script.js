@@ -55,68 +55,63 @@ const albums=[
   {
     year:"2018", name:"Mixtape", badge:"Pré-debut", type:"EP",
     title:"Hellevator", tracks:6,
-    img:"https://i.scdn.co/image/ab67616d0000b273b0cf64d2ec37a27c8f3a3678"
+    img:"https://i.pinimg.com/736x/f7/aa/d3/f7aad376f59e919671923bcc923e3e86.jpg"
   },
   {
     year:"2018", name:"I Am NOT", badge:"Mini album", type:"Mini",
     title:"District 9", tracks:7,
-    img:"https://i.scdn.co/image/ab67616d0000b2739b2b1b3e0d0e2a5f4c0f1a5c"
+    img:"https://i.pinimg.com/1200x/ad/59/13/ad59134576356e430fc1c86ac7bf3a88.jpg"
   },
   {
     year:"2019", name:"Clé 1: MIROH", badge:"Mini album", type:"Mini",
     title:"MIROH", tracks:6,
-    img:"https://i.scdn.co/image/ab67616d0000b273e4e8a3f1c0b4e5b4e2c5a8b3"
+    img:"https://i.pinimg.com/736x/4e/b0/db/4eb0dbc3c15866a8e6044e5e5dfc3f37.jpg"
   },
   {
     year:"2020", name:"GO LIVE", badge:"Full album", type:"Full",
     title:"God's Menu", tracks:14,
-    img:"https://i.scdn.co/image/ab67616d0000b273f1bf1e62a0b5c0b5f5a5a5a5"
+    img:"https://i.pinimg.com/736x/c1/60/92/c1609251bb23b2b2c5038c8a418a9c40.jpg"
   },
   {
     year:"2021", name:"NOEASY", badge:"Full album", type:"Full", gold:true,
     title:"Thunderous", tracks:14,
-    img:"https://i.scdn.co/image/ab67616d0000b273d5a9b5e5e5e5e5e5e5e5e5e5"
+    img:"https://i.pinimg.com/1200x/72/25/51/7225515ff73a11383d014120bccc9230.jpg"
   },
   {
     year:"2022", name:"ODDINARY", badge:"Billboard #1", type:"Mini", gold:true,
     title:"MANIAC", tracks:6,
-    img:"https://i.scdn.co/image/ab67616d0000b273a1a1a1a1a1a1a1a1a1a1a1a1"
+    img:"https://i.pinimg.com/1200x/b8/14/bb/b814bb3264e08248eb424dadbe9ae843.jpg"
   },
   {
     year:"2022", name:"MAXIDENT", badge:"Billboard #1", type:"Mini", gold:true,
     title:"Case 143", tracks:7,
-    img:"https://i.scdn.co/image/ab67616d0000b273b2b2b2b2b2b2b2b2b2b2b2b2"
+    img:"https://i.pinimg.com/1200x/22/3b/43/223b431c74e196436552f764654fa25c.jpg"
   },
   {
     year:"2023", name:"★★★★★ (5-STAR)", badge:"Billboard #1", type:"Full", gold:true,
     title:"S-Class", tracks:13,
-    img:"https://i.scdn.co/image/ab67616d0000b273c3c3c3c3c3c3c3c3c3c3c3c3"
+    img:"https://i.pinimg.com/736x/b7/00/63/b700635c05f277c71386149f61981bed.jpg"
   },
   {
     year:"2023", name:"ROCK-STAR", badge:"Billboard #1", type:"Mini", gold:true,
     title:"LALALALA", tracks:6,
-    img:"https://i.scdn.co/image/ab67616d0000b273d4d4d4d4d4d4d4d4d4d4d4d4"
+    img:"https://i.pinimg.com/1200x/cf/df/97/cfdf97cbbcfe4f1e877ff9db280c84f5.jpg"
   },
   {
     year:"2024", name:"ATE", badge:"Billboard #1", type:"Mini", gold:true,
     title:"Chk Chk Boom", tracks:9,
-    img:"https://i.scdn.co/image/ab67616d0000b273e5e5e5e5e5e5e5e5e5e5e5e5"
+    img:"https://i.pinimg.com/736x/eb/36/95/eb369561e109f1a2c719786dc9586440.jpg"
   },
   {
     year:"2025", name:"KARMA", badge:"Billboard #1 · 7º", type:"Full", gold:true,
     title:"CEREMONY", tracks:11,
-    img:"https://i.scdn.co/image/ab67616d0000b273f6f6f6f6f6f6f6f6f6f6f6f6"
+    img:"https://i.pinimg.com/736x/c4/84/f3/c484f39d8ec19c219e5df2d0ac7aea90.jpg"
   },
   {
     year:"2025", name:"DO IT", badge:"Billboard #1 · 8º", type:"Special", gold:true,
     title:"Do It / DIVINE", tracks:5,
-    img:"https://i.scdn.co/image/ab67616d0000b273a7a7a7a7a7a7a7a7a7a7a7a7"
-  },
-  {
-    year:"2026", name:"별, 빛 (STAY)", badge:"Single aniversário", type:"Single",
-    title:"별, 빛 (STAY)", tracks:1,
-    img:null
-  },
+    img:"https://i.pinimg.com/736x/9d/20/bf/9d20bfdd0846c9fa44160593d31879df.jpg"
+  }
 ];
 
 const skzoo=[
