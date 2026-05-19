@@ -216,3 +216,82 @@ function applyLightModeInlineFixes(isLight) {
     }
   });
 }
+
+/* ================================================
+   11. Contador Rock in Rio
+================================================ */
+function updateCountdown() {
+  const target = new Date('2026-09-19T20:00:00-03:00'); // Rock in Rio estimado
+  const now = new Date();
+  const diff = target - now;
+
+  if (diff <= 0) {
+    document.getElementById('rircountdown').innerHTML = '<span style="font-family:Bebas Neue,sans-serif;font-size:32px;color:#fff;letter-spacing:4px;">JÁ ACONTECEU! 🎉</span>';
+    return;
+  }
+
+  const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById('rircountdown').innerHTML = `
+    <div class="rir-unit"><span class="rir-num">${days}</span><span class="rir-label">Dias</span></div>
+    <div class="rir-unit"><span class="rir-num">${String(hours).padStart(2,'0')}</span><span class="rir-label">Horas</span></div>
+    <div class="rir-unit"><span class="rir-num">${String(minutes).padStart(2,'0')}</span><span class="rir-label">Min</span></div>
+    <div class="rir-unit"><span class="rir-num">${String(seconds).padStart(2,'0')}</span><span class="rir-label">Seg</span></div>
+  `;
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* ================================================
+   12. Compartilhar — Copiar link
+================================================ */
+function copyLink() {
+  navigator.clipboard.writeText('https://laysa-eserrao.github.io/stray-kids-fanpage/').then(() => {
+    const btn = document.getElementById('share-copy');
+    btn.textContent = '✅ Copiado!';
+    setTimeout(() => btn.textContent = '🔗 Copiar link', 2000);
+  });
+}
+
+/* ================================================
+   13. MVs
+================================================ */
+const mvs = [
+  { title:"God's Menu",       year:"2020", views:"300M+ views", id:"WnSXFiBRBZI" },
+  { title:"MIROH",            year:"2019", views:"200M+ views", id:"Yz6sAFqTmSc" },
+  { title:"THUNDEROUS",       year:"2021", views:"250M+ views", id:"TQTlCHxyuu8" },
+  { title:"MANIAC",           year:"2022", views:"200M+ views", id:"VcnCMBqjrk4" },
+  { title:"S-CLASS",          year:"2023", views:"150M+ views", id:"fPyCtGQ1OVM" },
+  { title:"LOSE MY BREATH",   year:"2023", views:"120M+ views", id:"tLQLa9nMDxk" },
+  { title:"SOCIAL PATH",      year:"2023", views:"100M+ views", id:"kNXkMmqWPrk" },
+  { title:"CHK CHK BOOM",     year:"2024", views:"80M+ views",  id:"gwXFkOrMVwU" },
+  { title:"MOUNTAINS",        year:"2024", views:"60M+ views",  id:"gXFRvSEPxVY" },
+  { title:"HALL OF FAME",     year:"2025", views:"50M+ views",  id:"r5sLGgHGMFg" },
+];
+
+function renderMVs() {
+  const grid = document.getElementById('mvs-grid');
+  if (!grid) return;
+  mvs.forEach(mv => {
+    const thumb = `https://img.youtube.com/vi/${mv.id}/mqdefault.jpg`;
+    const url   = `https://www.youtube.com/watch?v=${mv.id}`;
+    const card  = document.createElement('a');
+    card.className = 'mv-card';
+    card.href = url;
+    card.target = '_blank';
+    card.innerHTML = `
+      <img class="mv-thumb" src="${thumb}" alt="${mv.title}" loading="lazy">
+      <div class="mv-play">▶</div>
+      <div class="mv-info">
+        <div class="mv-title">${mv.title}</div>
+        <div class="mv-year">${mv.year}</div>
+        <div class="mv-views">▶ ${mv.views}</div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+renderMVs();

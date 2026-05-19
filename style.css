@@ -509,3 +509,84 @@ body.light-mode .footer-logo {
 
 /* Member position badge */
 body.light-mode .m-pos { color: var(--red); background: var(--red-dim); border-color: var(--red-border); }
+
+/* ================================================
+   23. Contador Rock in Rio
+================================================ */
+.rir-unit {
+  text-align: center;
+  min-width: 70px;
+}
+.rir-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 8vw, 64px);
+  color: #fff;
+  line-height: 1;
+  display: block;
+  text-shadow: 0 2px 20px #00000040;
+}
+.rir-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffffaa;
+  margin-top: 4px;
+  display: block;
+}
+
+/* ================================================
+   24. Share buttons hover
+================================================ */
+#share-twitter:hover { background: #1d9bf020 !important; border-color: #1d9bf060 !important; color: #1d9bf0 !important; }
+#share-whatsapp:hover { background: #25D36630 !important; }
+#share-copy:hover { background: #e8192c20 !important; border-color: var(--red-border) !important; color: var(--red) !important; }
+
+/* ================================================
+   25. MVs Grid
+================================================ */
+.mv-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  display: block;
+  transition: all .25s;
+  position: relative;
+}
+.mv-card:hover { transform: translateY(-5px); box-shadow: 0 12px 35px #00000050; border-color: var(--red-border); }
+.mv-thumb {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.9);
+  transition: filter .3s;
+}
+.mv-card:hover .mv-thumb { filter: brightness(1.05); }
+.mv-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  background: #e8192ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+.mv-card:hover .mv-play { opacity: 1; }
+.mv-info { padding: 1rem; }
+.mv-title { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 2px; color: #fff; margin-bottom: 4px; }
+.mv-year { font-size: 11px; color: var(--subtle); letter-spacing: 1px; }
+.mv-views { font-size: 11px; color: var(--red); margin-top: 4px; }
+
+/* Light mode MVs */
+body.light-mode .mv-title { color: #111111; }
+body.light-mode .mv-card { background: #ffffff; border-color: #e0e0e0; }
