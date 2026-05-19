@@ -294,3 +294,135 @@ function renderMVs() {
   });
 }
 renderMVs();
+
+/* ================================================
+   14. Linha do Tempo
+================================================ */
+const timelineEvents = [
+  {
+    year: "2017",
+    title: "Nasce o Stray Kids",
+    desc: "A JYP Entertainment anuncia o reality show <strong>Stray Kids</strong>, onde 9 trainees competem por uma vaga no grupo. Bang Chan, Lee Know, Changbin, Hyunjin, Han, Felix, Seungmin e I.N são selecionados. Woojin também fazia parte da formação original.",
+    badge: "Origem",
+    right: false
+  },
+  {
+    year: "25 Mar 2018",
+    title: "Debut Oficial",
+    desc: "O grupo faz seu debut oficial com o mini-álbum <strong>Mixtape</strong>, lançado pela JYP Entertainment. A faixa de estreia já mostrava o DNA de self-production que definiria o grupo.",
+    badge: "Marco histórico",
+    badge2: "gold",
+    right: true
+  },
+  {
+    year: "2019",
+    title: "MIROH — Primeiro Grande Hit",
+    desc: "O mini-álbum <strong>Clé 1: MIROH</strong> marca a virada do grupo. A faixa título se torna um hit e o grupo conquista seu primeiro grande público internacional. Lee Know retorna após lesão.",
+    badge: "Breakthrough",
+    right: false
+  },
+  {
+    year: "2019",
+    title: "Saída do Woojin",
+    desc: "Em outubro de 2019, <strong>Woojin</strong> anuncia sua saída do grupo por motivos pessoais. O grupo continua como octeto — os 8 membros atuais que conhecemos hoje.",
+    badge: "Mudança na formação",
+    right: true
+  },
+  {
+    year: "2020",
+    title: "God's Menu — A Era da Identidade",
+    desc: "O álbum <strong>GO LIVE</strong> com a faixa God's Menu define o som característico do SKZ — intenso, experimental e cheio de personalidade. O grupo consolida sua identidade musical única.",
+    badge: "Identidade definida",
+    right: false
+  },
+  {
+    year: "2021",
+    title: "NOEASY — Primeiro #1 no Billboard",
+    desc: "O álbum <strong>NOEASY</strong> entra em #2 no Billboard 200, resultado histórico. A faixa Thunderous se torna viral globalmente. O grupo firma seu status como um dos maiores do K-pop.",
+    badge: "Billboard #2",
+    badge2: "gold",
+    right: true
+  },
+  {
+    year: "2022",
+    title: "ODDINARY — Primeiro #1 no Billboard 200",
+    desc: "<strong>ODDINARY</strong> estreia em #1 no Billboard 200, tornando o Stray Kids apenas o segundo grupo de K-pop da história a alcançar esse feito. O mundo para para ouvir o SKZ.",
+    badge: "Billboard #1 histórico",
+    badge2: "gold",
+    right: false
+  },
+  {
+    year: "2022",
+    title: "MAXIDENT & MANIAC World Tour",
+    desc: "<strong>MAXIDENT</strong> estreia em #1 no Billboard 200 — segundo álbum consecutivo no topo. O grupo realiza o MANIAC World Tour, retornando aos palcos internacionais após a pandemia com shows sold out.",
+    badge: "Billboard #1",
+    badge2: "gold",
+    right: true
+  },
+  {
+    year: "2023",
+    title: "5-STAR, ROCK-STAR & Lollapalooza",
+    desc: "Dois álbuns consecutivos em #1 no Billboard 200. O grupo headlina o <strong>Lollapalooza Chicago</strong> — primeiro grupo de K-pop a headlinar um dos maiores festivais de rock do mundo.",
+    badge: "Lollapalooza",
+    badge2: "gold",
+    right: false
+  },
+  {
+    year: "2024",
+    title: "Met Gala & ATE",
+    desc: "O grupo vai ao <strong>Met Gala</strong> — primeiros artistas K-pop a comparecerem juntos. Lançam <strong>ATE</strong>, 5º álbum consecutivo em #1 no Billboard 200. Iniciam o dominATE World Tour.",
+    badge: "Met Gala · Billboard #1",
+    badge2: "gold",
+    right: true
+  },
+  {
+    year: "2025",
+    title: "KARMA & dominATE Tour — Recorde Mundial",
+    desc: "Lançam <strong>KARMA</strong>, 7º álbum em #1 no Billboard 200. O dominATE World Tour fatura <strong>US$185,9 milhões</strong> com 1,3 milhão de ingressos — o maior tour K-pop da história.",
+    badge: "Maior tour K-pop da história",
+    badge2: "gold",
+    right: false
+  },
+  {
+    year: "2026",
+    title: "Rock in Rio & Novo Álbum",
+    desc: "O grupo confirma <strong>novo álbum</strong> para o segundo semestre e se prepara para headlinar o <strong>Rock in Rio</strong> em setembro — primeira vez em solo brasileiro, marcando história para os STAYs.",
+    badge: "Rock in Rio 🇧🇷",
+    badge2: "gold",
+    right: true
+  },
+];
+
+function renderTimeline() {
+  const container = document.getElementById('timeline-container');
+  if (!container) return;
+
+  timelineEvents.forEach((ev, i) => {
+    const item = document.createElement('div');
+    item.className = `tl-item${ev.right ? ' right' : ''}`;
+    item.innerHTML = `
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year">${ev.year}</div>
+        <div class="tl-title">${ev.title}</div>
+        <div class="tl-desc">${ev.desc}</div>
+        ${ev.badge ? `<span class="tl-badge ${ev.badge2 === 'gold' ? 'gold' : ''}">${ev.badge}</span>` : ''}
+      </div>
+    `;
+    container.appendChild(item);
+  });
+
+  // Animação de entrada ao rolar
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.tl-item').forEach(item => observer.observe(item));
+}
+
+renderTimeline();
