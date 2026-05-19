@@ -199,3 +199,31 @@ function toggleTheme() {
     document.getElementById('theme-toggle').textContent = '☀️';
   }
 })();
+
+/* Fix modo claro — forçar cor em elementos com estilo inline */
+function applyLightModeInlineFixes(isLight) {
+  document.querySelectorAll('[style*="color:#fff"], [style*="color: #fff"]').forEach(el => {
+    el.style.setProperty('--inline-color-override', isLight ? '#111111' : '');
+    if (isLight) {
+      el.setAttribute('data-original-color', el.style.color);
+      el.style.color = '#111111';
+      el.style.webkitTextFillColor = '#111111';
+    } else {
+      const orig = el.getAttribute('data-original-color');
+      if (orig) el.style.color = orig;
+      el.style.webkitTextFillColor = '';
+    }
+  });
+}
+
+const _originalToggle = toggleTheme;
+function toggleTheme() {
+  _originalToggle();
+  const isLight = document.body.classList.contains('light-mode');
+  applyLightModeInlineFixes(isLight);
+}
+
+// Aplicar no carregamento se modo claro estiver salvo
+if (localStorage.getItem('theme') === 'light') {
+  applyLightModeInlineFixes(true);
+}
