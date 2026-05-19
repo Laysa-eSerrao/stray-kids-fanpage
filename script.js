@@ -260,16 +260,15 @@ function copyLink() {
    13. MVs
 ================================================ */
 const mvs = [
-  { title:"God's Menu",       year:"2020", views:"300M+ views", id:"WnSXFiBRBZI" },
-  { title:"MIROH",            year:"2019", views:"200M+ views", id:"Yz6sAFqTmSc" },
   { title:"THUNDEROUS",       year:"2021", views:"250M+ views", id:"TQTlCHxyuu8" },
-  { title:"MANIAC",           year:"2022", views:"200M+ views", id:"VcnCMBqjrk4" },
-  { title:"S-CLASS",          year:"2023", views:"150M+ views", id:"fPyCtGQ1OVM" },
-  { title:"LOSE MY BREATH",   year:"2023", views:"120M+ views", id:"tLQLa9nMDxk" },
-  { title:"SOCIAL PATH",      year:"2023", views:"100M+ views", id:"kNXkMmqWPrk" },
-  { title:"CHK CHK BOOM",     year:"2024", views:"80M+ views",  id:"gwXFkOrMVwU" },
-  { title:"MOUNTAINS",        year:"2024", views:"60M+ views",  id:"gXFRvSEPxVY" },
-  { title:"HALL OF FAME",     year:"2025", views:"50M+ views",  id:"r5sLGgHGMFg" },
+  { title:"MANIAC",           year:"2022", views:"200M+ views", id:"Dab4EENTW5I" },
+  { title:"S-CLASS",          year:"2023", views:"150M+ views", id:"EaswWiwMVs8" },
+  { title:"MIROH",            year:"2019", views:"200M+ views", id:"OvioeS1ZZ7o" },
+  { title:"God's Menu",       year:"2020", views:"300M+ views", id:"JsOOis4bBFg" },
+  { title:"LOSE MY BREATH",   year:"2023", views:"120M+ views", id:"SQ1yPMTIwCU" },
+  { title:"SOCIAL PATH",      year:"2023", views:"100M+ views", id:"M0c04xfBtyc" },
+  { title:"CHK CHK BOOM",     year:"2024", views:"80M+ views",  id:"0P0aQreFs8w" },
+  { title:"MOUNTAINS",        year:"2024", views:"60M+ views",  id:"80H_-aHTUws" },
 ];
 
 function renderMVs() {
