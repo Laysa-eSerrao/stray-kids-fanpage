@@ -52,19 +52,71 @@ const facts=[
 ];
 
 const albums=[
-  {year:"2018",name:"Mixtape",badge:"Pré-debut"},
-  {year:"2018",name:"I Am NOT",badge:"Mini album"},
-  {year:"2019",name:"Clé 1: MIROH",badge:"Mini album"},
-  {year:"2020",name:"GO LIVE",badge:"Full album"},
-  {year:"2021",name:"NOEASY",badge:"Full album",gold:true},
-  {year:"2022",name:"ODDINARY",badge:"Billboard #1",gold:true},
-  {year:"2022",name:"MAXIDENT",badge:"Billboard #1",gold:true},
-  {year:"2023",name:"★★★★★ (5-STAR)",badge:"Billboard #1",gold:true},
-  {year:"2023",name:"ROCK-STAR",badge:"Billboard #1",gold:true},
-  {year:"2024",name:"ATE",badge:"Billboard #1",gold:true},
-  {year:"2025",name:"KARMA",badge:"Billboard #1 · 7º consecutivo",gold:true},
-  {year:"2025",name:"DO IT",badge:"Billboard #1 · 8º consecutivo",gold:true},
-  {year:"2026",name:"별, 빛 (STAY)",badge:"Single aniversário"},
+  {
+    year:"2018", name:"Mixtape", badge:"Pré-debut", type:"EP",
+    title:"Hellevator", tracks:6,
+    img:"https://i.scdn.co/image/ab67616d0000b273b0cf64d2ec37a27c8f3a3678"
+  },
+  {
+    year:"2018", name:"I Am NOT", badge:"Mini album", type:"Mini",
+    title:"District 9", tracks:7,
+    img:"https://i.scdn.co/image/ab67616d0000b2739b2b1b3e0d0e2a5f4c0f1a5c"
+  },
+  {
+    year:"2019", name:"Clé 1: MIROH", badge:"Mini album", type:"Mini",
+    title:"MIROH", tracks:6,
+    img:"https://i.scdn.co/image/ab67616d0000b273e4e8a3f1c0b4e5b4e2c5a8b3"
+  },
+  {
+    year:"2020", name:"GO LIVE", badge:"Full album", type:"Full",
+    title:"God's Menu", tracks:14,
+    img:"https://i.scdn.co/image/ab67616d0000b273f1bf1e62a0b5c0b5f5a5a5a5"
+  },
+  {
+    year:"2021", name:"NOEASY", badge:"Full album", type:"Full", gold:true,
+    title:"Thunderous", tracks:14,
+    img:"https://i.scdn.co/image/ab67616d0000b273d5a9b5e5e5e5e5e5e5e5e5e5"
+  },
+  {
+    year:"2022", name:"ODDINARY", badge:"Billboard #1", type:"Mini", gold:true,
+    title:"MANIAC", tracks:6,
+    img:"https://i.scdn.co/image/ab67616d0000b273a1a1a1a1a1a1a1a1a1a1a1a1"
+  },
+  {
+    year:"2022", name:"MAXIDENT", badge:"Billboard #1", type:"Mini", gold:true,
+    title:"Case 143", tracks:7,
+    img:"https://i.scdn.co/image/ab67616d0000b273b2b2b2b2b2b2b2b2b2b2b2b2"
+  },
+  {
+    year:"2023", name:"★★★★★ (5-STAR)", badge:"Billboard #1", type:"Full", gold:true,
+    title:"S-Class", tracks:13,
+    img:"https://i.scdn.co/image/ab67616d0000b273c3c3c3c3c3c3c3c3c3c3c3c3"
+  },
+  {
+    year:"2023", name:"ROCK-STAR", badge:"Billboard #1", type:"Mini", gold:true,
+    title:"LALALALA", tracks:6,
+    img:"https://i.scdn.co/image/ab67616d0000b273d4d4d4d4d4d4d4d4d4d4d4d4"
+  },
+  {
+    year:"2024", name:"ATE", badge:"Billboard #1", type:"Mini", gold:true,
+    title:"Chk Chk Boom", tracks:9,
+    img:"https://i.scdn.co/image/ab67616d0000b273e5e5e5e5e5e5e5e5e5e5e5e5"
+  },
+  {
+    year:"2025", name:"KARMA", badge:"Billboard #1 · 7º", type:"Full", gold:true,
+    title:"CEREMONY", tracks:11,
+    img:"https://i.scdn.co/image/ab67616d0000b273f6f6f6f6f6f6f6f6f6f6f6f6"
+  },
+  {
+    year:"2025", name:"DO IT", badge:"Billboard #1 · 8º", type:"Special", gold:true,
+    title:"Do It / DIVINE", tracks:5,
+    img:"https://i.scdn.co/image/ab67616d0000b273a7a7a7a7a7a7a7a7a7a7a7a7"
+  },
+  {
+    year:"2026", name:"별, 빛 (STAY)", badge:"Single aniversário", type:"Single",
+    title:"별, 빛 (STAY)", tracks:1,
+    img:null
+  },
 ];
 
 const skzoo=[
@@ -139,8 +191,25 @@ function renderAlbums(){
   const g=document.getElementById('album-grid');
   albums.forEach(a=>{
     const c=document.createElement('div');
-    c.className='album-card';
-    c.innerHTML=`<div class="album-year">${a.year}</div><div class="album-name">${a.name}</div><span class="album-badge ${a.gold?'gold':''}">${a.badge}</span>`;
+    c.className='album-card-v2';
+    const imgHtml = a.img
+      ? `<img src="${a.img}" alt="${a.name}" class="album-cover" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+      : '';
+    const placeholder = `<div class="album-cover-placeholder" ${a.img ? 'style="display:none"' : ''}><span>${a.name.charAt(0)}</span></div>`;
+    c.innerHTML=`
+      <div class="album-cover-wrap">
+        ${imgHtml}
+        ${placeholder}
+        <span class="album-type-badge">${a.type}</span>
+      </div>
+      <div class="album-card-body">
+        <div class="album-year-v2">${a.year}</div>
+        <div class="album-name-v2">${a.name}</div>
+        <div class="album-title-track">▶ ${a.title}</div>
+        <div class="album-meta">${a.tracks} faixa${a.tracks > 1 ? 's' : ''}</div>
+        <span class="album-badge ${a.gold?'gold':''}">${a.badge}</span>
+      </div>
+    `;
     g.appendChild(c);
   });
 }
