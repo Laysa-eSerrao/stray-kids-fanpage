@@ -66,19 +66,6 @@ stray-kids-fanpage/
 
 ---
 
-## 🚀 Como rodar localmente
-
-```bash
-# Clone o repositório
-git clone https://github.com/Laysa-eSerrao/stray-kids-fanpage.git
-
-# Entre na pasta
-cd stray-kids-fanpage
-
-# Abra no navegador
-open index.html
-```
-
 ---
 
 ## 👩‍💻 Autora
