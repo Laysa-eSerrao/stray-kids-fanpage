@@ -62,8 +62,8 @@ const albums=[
   {year:"2023",name:"★★★★★ (5-STAR)",badge:"Billboard #1",gold:true},
   {year:"2023",name:"ROCK-STAR",badge:"Billboard #1",gold:true},
   {year:"2024",name:"ATE",badge:"Billboard #1",gold:true},
-  {year:"2025",name:"KARMA",badge:"Billboard #1",gold:true},
-  {year:"2025",name:"SKZ IT TAPE",badge:"Do It — Hot 100",gold:true},
+  {year:"2025",name:"KARMA",badge:"Billboard #1 · 7º consecutivo",gold:true},
+  {year:"2025",name:"DO IT",badge:"Billboard #1 · 8º consecutivo",gold:true},
   {year:"2026",name:"별, 빛 (STAY)",badge:"Single aniversário"},
 ];
 
