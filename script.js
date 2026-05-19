@@ -426,7 +426,7 @@ const timelineEvents = [
   {
     year: "2023",
     title: "5-STAR, ROCK-STAR & Lollapalooza",
-    desc: "Dois álbuns consecutivos em #1 no Billboard 200. O grupo headlina o <strong>Lollapalooza Chicago</strong> — primeiro grupo de K-pop a headlinar um dos maiores festivais de rock do mundo.",
+    desc: "Dois álbuns consecutivos em #1 no Billboard 200. O grupo headlina o <strong>Lollapalooza Chicago</strong> — primeiro grupo de K-pop a headlinar um dos maiores festivais de rock do mundo. Realizam também o <strong>5-STAR Dome Tour</strong> no Japão e na Ásia.",
     badge: "Lollapalooza",
     badge2: "gold",
     right: false
@@ -450,7 +450,7 @@ const timelineEvents = [
   {
     year: "2026",
     title: "Rock in Rio & Novo Álbum",
-    desc: "O grupo confirma <strong>novo álbum</strong> para o segundo semestre e se prepara para headlinar o <strong>Rock in Rio</strong> em setembro — primeira vez em solo brasileiro, marcando história para os STAYs.",
+    desc: "O grupo confirma <strong>novo álbum</strong> para o segundo semestre e headlina o <strong>Rock in Rio</strong> em setembro — primeira vez em solo brasileiro. Uma nova tour pela <strong>Ásia</strong> também está nos planos para 2026.",
     badge: "Rock in Rio 🇧🇷",
     badge2: "gold",
     right: true
