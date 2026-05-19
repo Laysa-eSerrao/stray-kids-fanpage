@@ -389,3 +389,12 @@ body.light-mode .footer-logo { -webkit-text-fill-color: transparent; }
 
 /* Theme toggle */
 body.light-mode #theme-toggle { background: #ffffff; border-color: #dddddd; }
+
+/* Fix modo claro — aba Conteúdo */
+body.light-mode .content-name { color: #111111 !important; -webkit-text-fill-color: #111111 !important; }
+body.light-mode [style*="font-family:'Bebas Neue'"],
+body.light-mode [style*="font-family: 'Bebas Neue'"] { color: #111111 !important; -webkit-text-fill-color: #111111 !important; }
+body.light-mode div[style*="Bebas Neue"][style*="color:#fff"] { color: #111111 !important; }
+body.light-mode .stream-section-title,
+body.light-mode div[style*="letter-spacing:3px"][style*="color:#fff"],
+body.light-mode div[style*="letter-spacing: 3px"][style*="color: #fff"] { color: #111111 !important; -webkit-text-fill-color: #111111 !important; }
