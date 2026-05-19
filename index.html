@@ -45,6 +45,7 @@
   <button class="nav-tab" onclick="showTab('tours',this)">Tours</button>
   <button class="nav-tab" onclick="showTab('conteudo',this)">Conteúdo</button>
   <button class="nav-tab" onclick="showTab('novidades',this)">2026</button>
+  <button class="nav-tab" onclick="showTab('mvs',this)">MVs</button>
 </nav>
 
 <!-- MEMBROS -->
@@ -366,6 +367,33 @@
       <span class="news-badge">Em breve · YouTube</span>
     </div>
 
+  </div>
+</div>
+
+
+<!-- CONTADOR ROCK IN RIO -->
+<div id="rir-banner" style="background:linear-gradient(135deg,#e8192c,#ff3d6e,#ff6b35);padding:1.5rem 2rem;text-align:center;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 60px,#ffffff08 60px,#ffffff08 61px);pointer-events:none;"></div>
+  <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:4px;color:#ffffffcc;margin-bottom:.5rem;">🇧🇷 STRAY KIDS NO BRASIL</div>
+  <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,6vw,48px);letter-spacing:6px;color:#fff;margin-bottom:.75rem;">ROCK IN RIO 2026</div>
+  <div id="rircountdown" style="display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1rem;"></div>
+  <div style="font-size:12px;color:#ffffffaa;letter-spacing:2px;">SETEMBRO 2026 · CIDADE DO ROCK · RIO DE JANEIRO</div>
+</div>
+
+<!-- SHARE BUTTONS -->
+<div id="share-section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+  <span style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--subtle);font-weight:600;">Compartilhar:</span>
+  <a href="https://twitter.com/intent/tweet?text=Conheça+o+Stray+Kids+nessa+fan+page+incrível+🎵&url=https://laysa-eserrao.github.io/stray-kids-fanpage/" target="_blank" id="share-twitter" style="display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;background:#00000020;border:1px solid var(--border2);color:var(--text);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:1px;transition:.2s;">𝕏 Twitter</a>
+  <a href="https://wa.me/?text=Conheça+o+Stray+Kids+nessa+fan+page!+https://laysa-eserrao.github.io/stray-kids-fanpage/" target="_blank" id="share-whatsapp" style="display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;background:#25D36620;border:1px solid #25D36640;color:#25D366;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:1px;transition:.2s;">💬 WhatsApp</a>
+  <button onclick="copyLink()" id="share-copy" style="display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;background:#00000020;border:1px solid var(--border2);color:var(--text);font-size:12px;font-weight:600;letter-spacing:1px;cursor:pointer;transition:.2s;font-family:'Inter',sans-serif;">🔗 Copiar link</button>
+</div>
+
+<!-- MVs -->
+<div class="tab-content" id="tab-mvs">
+  <div class="section">
+    <div class="section-header"><div class="section-title">MVs</div><div class="section-count">10</div></div>
+    <div class="about-card" style="margin-bottom:1.5rem;">Os principais MVs do Stray Kids — clique para assistir no YouTube. Cada MV marca uma era importante na trajetória do grupo.</div>
+    <div id="mvs-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;"></div>
   </div>
 </div>
 
