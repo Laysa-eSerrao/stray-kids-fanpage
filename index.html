@@ -46,6 +46,7 @@
   <button class="nav-tab" onclick="showTab('conteudo',this)">Conteúdo</button>
   <button class="nav-tab" onclick="showTab('novidades',this)">2026</button>
   <button class="nav-tab" onclick="showTab('mvs',this)">MVs</button>
+  <button class="nav-tab" onclick="showTab('timeline',this)">História</button>
 </nav>
 
 <!-- MEMBROS -->
@@ -394,6 +395,16 @@
     <div class="section-header"><div class="section-title">MVs</div><div class="section-count">10</div></div>
     <div class="about-card" style="margin-bottom:1.5rem;">Os principais MVs do Stray Kids — clique para assistir no YouTube. Cada MV marca uma era importante na trajetória do grupo.</div>
     <div id="mvs-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;"></div>
+  </div>
+</div>
+
+
+<!-- LINHA DO TEMPO -->
+<div class="tab-content" id="tab-timeline">
+  <div class="section">
+    <div class="section-header"><div class="section-title">História</div><div class="section-count">8+</div></div>
+    <div class="about-card" style="margin-bottom:2rem;">A trajetória do Stray Kids desde o reality de estreia em 2017 até se tornarem um dos maiores grupos do K-pop mundial.</div>
+    <div class="timeline" id="timeline-container"></div>
   </div>
 </div>
 

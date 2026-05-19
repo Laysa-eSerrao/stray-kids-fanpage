@@ -701,3 +701,185 @@ body.light-mode .mv-card { background: #ffffff; border-color: #e0e0e0; }
   .d-grid { grid-template-columns: 1fr 1fr; }
 
 }
+
+/* ================================================
+   28. Linha do Tempo
+================================================ */
+.timeline {
+  position: relative;
+  padding: 0 0 2rem 0;
+}
+
+/* Linha central */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--red), #ff3d6e, #ff6b35, transparent);
+}
+
+.tl-item {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: calc(50% + 2.5rem);
+  margin-bottom: 2.5rem;
+  position: relative;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+.tl-item.right {
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: calc(50% + 2.5rem);
+  transform: translateX(30px);
+}
+
+.tl-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Ponto central */
+.tl-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1.25rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--grad);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--red);
+  z-index: 2;
+  transition: transform .3s;
+}
+
+.tl-item:hover .tl-dot {
+  transform: translateX(-50%) scale(1.4);
+  box-shadow: 0 0 15px #e8192c80;
+}
+
+/* Card */
+.tl-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  max-width: 380px;
+  width: 100%;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+  position: relative;
+}
+
+.tl-card:hover {
+  border-color: var(--red-border);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px #00000040;
+}
+
+/* Seta do card */
+.tl-item:not(.right) .tl-card::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 1.5rem;
+  width: 0; height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid var(--border);
+}
+
+.tl-item.right .tl-card::after {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 1.5rem;
+  width: 0; height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid var(--border);
+}
+
+.tl-year {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 4px;
+}
+
+.tl-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.tl-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.tl-desc strong { color: #fff; font-weight: 500; }
+
+.tl-badge {
+  display: inline-block;
+  font-size: 9px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--red-border);
+  color: var(--red-light);
+  background: var(--red-dim);
+  margin-top: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.tl-badge.gold {
+  border-color: #d4a84340;
+  color: #d4a843;
+  background: #d4a84315;
+}
+
+/* Mobile timeline */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 16px;
+  }
+  .tl-item,
+  .tl-item.right {
+    justify-content: flex-start;
+    padding-left: 3rem;
+    padding-right: 0;
+    transform: translateX(20px);
+  }
+  .tl-item.visible { transform: translateX(0); }
+  .tl-dot {
+    left: 16px;
+  }
+  .tl-card { max-width: 100%; }
+  .tl-item:not(.right) .tl-card::after,
+  .tl-item.right .tl-card::after {
+    display: none;
+  }
+}
+
+/* Light mode timeline */
+body.light-mode .timeline::before {
+  background: linear-gradient(to bottom, var(--red), #ff3d6e, #ff6b35, transparent);
+}
+body.light-mode .tl-card { background: #ffffff; border-color: #e0e0e0; }
+body.light-mode .tl-card:hover { border-color: var(--red-border); }
+body.light-mode .tl-title { color: #111111; }
+body.light-mode .tl-dot { border-color: var(--bg); }
