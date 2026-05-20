@@ -311,12 +311,17 @@ const streamLinks = [
   { icon:"🌏", name:"AAA",        action:"Votar agora",  url:"https://www.asiaartistawards.com/" },
 ];
 
+document.addEventListener('DOMContentLoaded', function(){
+
 /* ── INTRO ── */
-document.getElementById('introEnterBtn').addEventListener('click', () => {
-  document.getElementById('introScreen').classList.add('out');
-  setTimeout(() => { document.getElementById('introScreen').style.display='none'; }, 800);
-});
-setTimeout(() => { document.getElementById('introEnterBtn').style.opacity='1'; }, 2300);
+const introBtn = document.getElementById('introEnterBtn');
+const introScreen = document.getElementById('introScreen');
+if(introBtn && introScreen){
+  introBtn.addEventListener('click', () => {
+    introScreen.classList.add('out');
+    setTimeout(() => { introScreen.style.display='none'; }, 800);
+  });
+}
 
 /* ── HERO CANVAS ── */
 (function(){
@@ -637,3 +642,5 @@ renderGallery();
 renderSkzoo();
 renderStream();
 setTimeout(initReveal, 150);
+
+}); // DOMContentLoaded
