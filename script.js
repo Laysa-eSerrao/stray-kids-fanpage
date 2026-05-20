@@ -69,26 +69,39 @@ const members = [
 ];
 
 const albums = [
-  { year:"2018", name:"Mixtape",          badge:"Pré-debut",       type:"special", track:"Hellevator",   tracks:6,  img:"https://i.pinimg.com/736x/f7/aa/d3/f7aad376f59e919671923bcc923e3e86.jpg" },
-  { year:"2018", name:"I Am NOT",         badge:"Mini album",      type:"mini",    track:"District 9",   tracks:7,  img:"https://i.pinimg.com/1200x/ad/59/13/ad59134576356e430fc1c86ac7bf3a88.jpg" },
-  { year:"2019", name:"Clé 1: MIROH",    badge:"Mini album",      type:"mini",    track:"MIROH",         tracks:6,  img:"https://i.pinimg.com/736x/4e/b0/db/4eb0dbc3c15866a8e6044e5e5dfc3f37.jpg" },
-  { year:"2020", name:"GO LIVE",         badge:"Full album",      type:"full",    track:"God's Menu",    tracks:14, img:"https://i.pinimg.com/736x/c1/60/92/c1609251bb23b2b2c5038c8a418a9c40.jpg" },
-  { year:"2021", name:"NOEASY",          badge:"Full album",      type:"full",    track:"Thunderous",    tracks:14, img:"https://i.pinimg.com/1200x/72/25/51/7225515ff73a11383d014120bccc9230.jpg" },
-  { year:"2022", name:"ODDINARY",        badge:"Billboard #1",    type:"mini",    track:"MANIAC",        tracks:6,  img:"https://i.pinimg.com/1200x/b8/14/bb/b814bb3264e08248eb424dadbe9ae843.jpg" },
-  { year:"2022", name:"MAXIDENT",        badge:"Billboard #1",    type:"mini",    track:"Case 143",      tracks:7,  img:"https://i.pinimg.com/1200x/22/3b/43/223b431c74e196436552f764654fa25c.jpg" },
-  { year:"2023", name:"★★★★★ (5-STAR)", badge:"Billboard #1",    type:"full",    track:"S-Class",       tracks:13, img:"https://i.pinimg.com/736x/b7/00/63/b700635c05f277c71386149f61981bed.jpg" },
-  { year:"2023", name:"ROCK-STAR",       badge:"Billboard #1",    type:"mini",    track:"LALALALA",      tracks:6,  img:"https://i.pinimg.com/1200x/cf/df/97/cfdf97cbbcfe4f1e877ff9db280c84f5.jpg" },
-  { year:"2024", name:"ATE",             badge:"Billboard #1",    type:"mini",    track:"Chk Chk Boom",  tracks:9,  img:"https://i.pinimg.com/736x/eb/36/95/eb369561e109f1a2c719786dc9586440.jpg" },
-  { year:"2025", name:"KARMA",           badge:"Billboard #1 · 7º", type:"full",  track:"CEREMONY",     tracks:11, img:"https://i.pinimg.com/736x/c4/84/f3/c484f39d8ec19c219e5df2d0ac7aea90.jpg" },
-  { year:"2025", name:"DO IT",           badge:"Billboard #1 · 8º", type:"special",track:"Do It / DIVINE",tracks:5, img:"https://i.pinimg.com/736x/9d/20/bf/9d20bfdd0846c9fa44160593d31879df.jpg" },
-  /* Mini álbums anteriores */
-  { year:"2019", name:"Clé 2: Yellow Wood", badge:"Mini album",   type:"mini",   track:"Side Effects",   tracks:6,  img:null },
-  { year:"2020", name:"Clé: LEVANTER",     badge:"Mini album",   type:"mini",   track:"Levanter",       tracks:6,  img:null },
-  { year:"2020", name:"IN生 (IN LIFE)",    badge:"Full album",   type:"full",   track:"Back Door",      tracks:14, img:null },
-  { year:"2021", name:"SKZ-REPACKAGE",     badge:"Repackage",    type:"special",track:"Thunderous (소리꾼)",tracks:16,img:null },
-  { year:"2023", name:"5-STAR (Japanese)", badge:"Japanese Full",type:"full",   track:"Mirror Mirror",  tracks:12, img:null },
-  { year:"2024", name:"樂-STAR (JAPAN)",   badge:"Japanese Mini",type:"mini",   track:"MIROH (Japanese)",tracks:7, img:null },
+  /* ── MINI ALBUMS / EPs (coreano) ── */
+  { year:"2018", name:"Mixtape",           badge:"Pré-debut EP",    type:"mini",    track:"Hellevator",      tracks:7,  img:"https://i.pinimg.com/736x/f7/aa/d3/f7aad376f59e919671923bcc923e3e86.jpg" },
+  { year:"2018", name:"I Am NOT",          badge:"Mini album",      type:"mini",    track:"District 9",      tracks:8,  img:"https://i.pinimg.com/1200x/ad/59/13/ad59134576356e430fc1c86ac7bf3a88.jpg" },
+  { year:"2018", name:"I Am WHO",          badge:"Mini album",      type:"mini",    track:"My Pace",         tracks:7,  img:null },
+  { year:"2018", name:"I Am YOU",          badge:"Mini album",      type:"mini",    track:"I Am YOU",        tracks:7,  img:null },
+  { year:"2019", name:"Clé 1: MIROH",     badge:"Mini album",      type:"mini",    track:"MIROH",           tracks:6,  img:"https://i.pinimg.com/736x/4e/b0/db/4eb0dbc3c15866a8e6044e5e5dfc3f37.jpg" },
+  { year:"2019", name:"Clé 2: Yellow Wood",badge:"Mini album",     type:"mini",    track:"Side Effects",    tracks:6,  img:null },
+  { year:"2019", name:"Clé: Levanter",    badge:"Mini album",      type:"mini",    track:"Levanter",        tracks:7,  img:null },
+  /* ── STUDIO ALBUMS (coreano) ── */
+  { year:"2020", name:"GO LIVE",           badge:"Full album",      type:"full",    track:"God's Menu",      tracks:14, img:"https://i.pinimg.com/736x/c1/60/92/c1609251bb23b2b2c5038c8a418a9c40.jpg" },
+  { year:"2020", name:"IN生 (IN LIFE)",   badge:"Repackage",       type:"special", track:"Back Door",       tracks:16, img:null },
+  { year:"2021", name:"NOEASY",            badge:"Full album",      type:"full",    track:"Thunderous",      tracks:14, img:"https://i.pinimg.com/1200x/72/25/51/7225515ff73a11383d014120bccc9230.jpg" },
+  { year:"2022", name:"ODDINARY",          badge:"Billboard #1",   type:"mini",    track:"MANIAC",          tracks:6,  img:"https://i.pinimg.com/1200x/b8/14/bb/b814bb3264e08248eb424dadbe9ae843.jpg" },
+  { year:"2022", name:"MAXIDENT",          badge:"Billboard #1",   type:"mini",    track:"Case 143",        tracks:7,  img:"https://i.pinimg.com/1200x/22/3b/43/223b431c74e196436552f764654fa25c.jpg" },
+  { year:"2023", name:"★★★★★ (5-STAR)",  badge:"Billboard #1",   type:"full",    track:"S-Class",         tracks:13, img:"https://i.pinimg.com/736x/b7/00/63/b700635c05f277c71386149f61981bed.jpg" },
+  { year:"2023", name:"ROCK-STAR",         badge:"Billboard #1",   type:"mini",    track:"LALALALA",        tracks:6,  img:"https://i.pinimg.com/1200x/cf/df/97/cfdf97cbbcfe4f1e877ff9db280c84f5.jpg" },
+  { year:"2024", name:"ATE",               badge:"Billboard #1",   type:"mini",    track:"Chk Chk Boom",    tracks:9,  img:"https://i.pinimg.com/736x/eb/36/95/eb369561e109f1a2c719786dc9586440.jpg" },
+  { year:"2025", name:"KARMA",             badge:"Billboard #1 · 7º",type:"full",  track:"CEREMONY",        tracks:11, img:"https://i.pinimg.com/736x/c4/84/f3/c484f39d8ec19c219e5df2d0ac7aea90.jpg" },
+  { year:"2025", name:"DO IT",             badge:"Billboard #1 · 8º",type:"special",track:"Do It",          tracks:5,  img:"https://i.pinimg.com/736x/9d/20/bf/9d20bfdd0846c9fa44160593d31879df.jpg" },
+  /* ── COMPILAÇÕES ── */
+  { year:"2020", name:"SKZ2020",           badge:"Compilação",      type:"special", track:"Levanter (JP)",  tracks:14, img:null },
+  { year:"2021", name:"SKZ2021",           badge:"Compilação",      type:"special", track:"Scars (KR ver)", tracks:14, img:null },
+  { year:"2022", name:"SKZ2022",           badge:"Compilação",      type:"special", track:"Christmas EveL", tracks:14, img:null },
+  /* ── MIXTAPES ── */
+  { year:"2024", name:"HOP",               badge:"Mixtape",         type:"special", track:"Miroh (HOP ver)",tracks:6,  img:null },
+  { year:"2025", name:"Mixtape: dominATE", badge:"Mixtape · 7º Aniv",type:"special",track:"Giant",          tracks:5,  img:null },
+  /* ── JAPONÊS ── */
+  { year:"2020", name:"All In",            badge:"Japanese EP",     type:"mini",    track:"All In",          tracks:6,  img:null },
+  { year:"2022", name:"Circus",            badge:"Japanese EP",     type:"mini",    track:"Circus",          tracks:6,  img:null },
+  { year:"2023", name:"Social Path / Super Bowl",badge:"Japanese EP",type:"mini",  track:"Social Path",     tracks:5,  img:null },
+  { year:"2024", name:"Hokori to Hokou",   badge:"Japanese EP",     type:"mini",    track:"Hokori to Hokou", tracks:5,  img:null },
 ];
+
 
 const timelineEvents = [
   { year:"2017", event:"Nasce o Stray Kids", desc:"A JYP Entertainment anuncia o reality show onde 9 trainees competem por uma vaga no grupo. Bang Chan, Lee Know, Changbin, Hyunjin, Han, Felix, Seungmin e I.N são selecionados.", badge:"Origem" },
@@ -108,7 +121,7 @@ const timelineEvents = [
 const tours = [
   { era:"2022", name:"MANIAC World Tour", desc:"Primeiro grande retorno aos palcos internacionais após a pandemia. América do Norte, Europa e Ásia.", badges:["América do Norte","Europa","Ásia"] },
   { era:"2023", name:"5-STAR Dome Tour", desc:"Tour em dômes no Japão e Ásia. Realizaram também o Lollapalooza Chicago — primeiros artistas K-pop a headlinar o festival.", badges:["Japão","Lollapalooza Chicago","Ásia"], gold:true },
-  { era:"2024–2025", name:"dominATE World Tour", desc:"O maior tour da história do K-pop. 35 shows em 23 cidades. 1,3 milhão de ingressos. US$185,9M faturados. Headlinaram o Lollapalooza São Paulo.", badges:["1.3M ingressos","US$186M","35 cidades","#2 Pollstar Global"], gold:true },
+  { era:"2024–2025", name:"dominATE World Tour", desc:"O maior tour da história do K-pop. 35 shows em 23 cidades. +1,3 milhão de ingressos. US$185,9M faturados. Headlinaram o Lollapalooza São Paulo.", badges:["+1.3M ingressos","US$186M","35 cidades","#2 Pollstar Global"], gold:true },
   { era:"Set 2026", name:"Rock in Rio", desc:"Headliners confirmados do Rock in Rio, no Brasil — a primeira vez do grupo em solo brasileiro. Um momento histórico para os STAYs.", badges:["Rock in Rio 🇧🇷","Setembro 2026"], gold:true },
   { era:"2026", name:"Nova Tour Asiática", desc:"Nova tour pela Ásia confirmada para 2026. Datas e cidades a serem anunciadas pela JYP Entertainment.", badges:["Em breve","Ásia"] },
 ];
@@ -367,10 +380,10 @@ function renderTours(){
     if(diff<=0){ document.getElementById('rirCountdown').innerHTML='<span style="font-family:Bebas Neue,sans-serif;font-size:2rem;color:var(--acg)">JÁ ACONTECEU! 🎉</span>'; return; }
     const d=Math.floor(diff/86400000), h=Math.floor((diff%86400000)/3600000), m=Math.floor((diff%3600000)/60000), s=Math.floor((diff%60000)/1000);
     document.getElementById('rirCountdown').innerHTML = `
-      <div><span>${d}</span><small>dias</small></div>
-      <div><span>${String(h).padStart(2,'0')}</span><small>horas</small></div>
-      <div><span>${String(m).padStart(2,'0')}</span><small>min</small></div>
-      <div><span>${String(s).padStart(2,'0')}</span><small>seg</small></div>
+      <div class="cd-unit"><span class="cd-num">${d}</span><span class="cd-label">Dias</span></div>
+      <div class="cd-unit"><span class="cd-num">${String(h).padStart(2,'0')}</span><span class="cd-label">Horas</span></div>
+      <div class="cd-unit"><span class="cd-num">${String(m).padStart(2,'0')}</span><span class="cd-label">Min</span></div>
+      <div class="cd-unit"><span class="cd-num">${String(s).padStart(2,'0')}</span><span class="cd-label">Seg</span></div>
     `;
   }
   updateCountdown(); setInterval(updateCountdown,1000);
@@ -477,7 +490,7 @@ btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
 /* ── SHARE BAR ── */
 const shareBar = document.getElementById('shareBar');
-window.addEventListener('scroll',()=>{ shareBar.classList.toggle('visible', window.scrollY>600); });
+window.addEventListener('scroll',()=>{ const maxScroll=document.body.scrollHeight-window.innerHeight; shareBar.classList.toggle('visible', window.scrollY>500 && window.scrollY<maxScroll-400); });
 function shareTwitter(){ window.open(`https://twitter.com/intent/tweet?text=Conheça o Stray Kids nessa fan page!&url=${encodeURIComponent(location.href)}`,'_blank'); }
 function shareWhatsapp(){ window.open(`https://wa.me/?text=Conheça o Stray Kids! ${encodeURIComponent(location.href)}`,'_blank'); }
 function copyLink(){ navigator.clipboard.writeText(location.href).then(()=>{ const btn=shareBar.querySelectorAll('button')[2]; btn.textContent='✅ Copiado!'; setTimeout(()=>btn.textContent='🔗 Copiar',2000); }); }
