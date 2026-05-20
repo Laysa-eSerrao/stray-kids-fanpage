@@ -70,7 +70,7 @@ const members = [
 
 const albums = [
   { year:"2026", name:"별, 빛 (STAY)",            badge:"Single",           type:"single",  track:"별, 빛 (STAY)",    tracks:1,  img:"https://akamai.sscdn.co/letras/360x360/albuns/4/7/7/3/4809391776718807.jpg" },
-  { year:"2025", name:"DO IT",                    badge:"EP · BB #1",       type:"mixtape", track:"Do It",            tracks:5,  img:"https://akamai.sscdn.co/letras/360x360/albuns/4/6/3/9/4219271763739713.jpg" },
+  { year:"2025", name:"DO IT",                    badge:"EP · BB #1",       type:"ep",      track:"Do It",            tracks:5,  img:"https://akamai.sscdn.co/letras/360x360/albuns/4/6/3/9/4219271763739713.jpg" },
   { year:"2025", name:"KARMA",                    badge:"Álbum · BB #1",    type:"full",    track:"CEREMONY",         tracks:11, img:"https://akamai.sscdn.co/letras/360x360/albuns/9/0/1/7/3671491759770818.jpg" },
   { year:"2025", name:"Hollow",                   badge:"EP · Japonês",     type:"ep",      track:"Hollow",           tracks:5,  img:"https://akamai.sscdn.co/letras/360x360/albuns/f/2/5/4/3219971753127268.jpg" },
   { year:"2025", name:"Mixtape: dominATE",        badge:"EP · 7º Aniv.",    type:"ep",      track:"Truman",            tracks:5,  img:"https://akamai.sscdn.co/letras/360x360/albuns/7/f/e/9/2891771742554519.jpg" },
@@ -81,11 +81,11 @@ const albums = [
   { year:"2024", name:"Lose My Breath",           badge:"Single",           type:"single",  track:"Lose My Breath",   tracks:1,  img:"https://akamai.sscdn.co/letras/360x360/albuns/e/f/a/d/2241071717439651.jpg" },
   { year:"2024", name:"Come Play (Arcane)",       badge:"Single",           type:"single",  track:"Come Play",        tracks:1,  img:"https://akamai.sscdn.co/letras/360x360/albuns/4/b/d/e/2407601729245928.jpg" },
   { year:"2023", name:"★★★★★ (5-STAR)",          badge:"Álbum · BB #1",    type:"full",    track:"S-Class",          tracks:12, img:"https://akamai.sscdn.co/letras/360x360/albuns/6/0/b/b/1586341706541058.jpg" },
-  { year:"2023", name:"ROCK-STAR",                badge:"EP · BB #1",       type:"ep",      track:"LALALALA",         tracks:6,  img:"https://i.pinimg.com/1200x/cf/df/97/cfdf97cbbcfe4f1e877ff9db280c84f5.jpg" },
+  { year:"2023", name:"ROCK-STAR",                badge:"Álbum · BB #1",    type:"full",    track:"LALALALA",         tracks:6,  img:"https://i.pinimg.com/1200x/cf/df/97/cfdf97cbbcfe4f1e877ff9db280c84f5.jpg" },
   { year:"2022", name:"SKZ-REPLAY",               badge:"Álbum",            type:"comp",    track:"Limbo",        tracks:14, img:"https://akamai.sscdn.co/letras/360x360/albuns/4/a/0/c/1444131681997935.jpg" },
   { year:"2022", name:"MAXIDENT",                 badge:"Álbum · BB #1",    type:"full",    track:"Case 143",         tracks:7,  img:"https://akamai.sscdn.co/letras/360x360/albuns/b/3/d/4/1392111681997927.jpg" },
   { year:"2022", name:"ODDINARY",                 badge:"Álbum · BB #1",    type:"full",    track:"MANIAC",           tracks:6,  img:"https://akamai.sscdn.co/letras/360x360/albuns/d/4/3/4/1255491681997918.jpg" },
-  { year:"2022", name:"Circus",                   badge:"EP · Japonês",     type:"ep",      track:"Circus",           tracks:6,  img:null },
+  { year:"2022", name:"Circus",                   badge:"Single/EP · JP",   type:"ep",      track:"Circus",           tracks:6,  img:"https://akamai.sscdn.co/letras/360x360/albuns/6/b/6/d/1400281682347938.jpg" },
   { year:"2021", name:"SKZ2021",                  badge:"Álbum",            type:"comp",    track:"Scars (KR ver)",   tracks:14, img:"https://akamai.sscdn.co/letras/360x360/albuns/5/b/5/9/1220471681997909.jpg" },
   { year:"2021", name:"Christmas EveL",           badge:"EP",               type:"ep",      track:"Christmas EveL",   tracks:3,  img:"https://akamai.sscdn.co/letras/360x360/albuns/c/e/e/c/1205891682347933.jpg" },
   { year:"2021", name:"NOEASY",                   badge:"Álbum",            type:"full",    track:"Thunderous",       tracks:14, img:"https://akamai.sscdn.co/letras/360x360/albuns/e/6/8/e/1136961681997899.jpg" },
