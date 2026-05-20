@@ -456,3 +456,41 @@ body.light-mode .member-stage { color: #ffffff !important; }
 body.light-mode .member-name { color: rgba(255,255,255,0.85) !important; }
 body.light-mode .member-role { color: rgba(255,200,200,0.9) !important; }
 body.light-mode .member-skzoo { color: rgba(255,200,200,0.8) !important; }
+
+/* ── Discografia — botão ver mais/menos ── */
+.disco-toggle-btn {
+  display: block;
+  margin: 2rem auto 0;
+  background: none;
+  border: 1px solid var(--bdh);
+  color: var(--acl);
+  padding: .7rem 2.5rem;
+  border-radius: 50px;
+  font-size: .82rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all .3s;
+}
+.disco-toggle-btn:hover {
+  background: var(--glass);
+  transform: translateY(-2px);
+  border-color: var(--ac);
+  color: var(--ac);
+}
+
+/* ── Countdown — separador ── */
+.cd-sep {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  padding-bottom: 1.2rem;
+  align-self: flex-end;
+}
+.countdown-units {
+  align-items: flex-end;
+}

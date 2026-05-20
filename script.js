@@ -1,3 +1,14 @@
+/* ── SHARE — funções globais ── */
+function shareTwitter(){ window.open('https://twitter.com/intent/tweet?text=Conhe%C3%A7a+o+Stray+Kids!&url='+encodeURIComponent(location.href),'_blank'); }
+function shareWhatsapp(){ window.open('https://wa.me/?text=Conhe%C3%A7a+o+Stray+Kids!+'+encodeURIComponent(location.href),'_blank'); }
+function copyLink(){
+  navigator.clipboard.writeText(location.href).then(()=>{
+    const btns = document.querySelectorAll('#shareBar button');
+    const btn = btns[btns.length-1];
+    if(btn){ btn.textContent='✅ Copiado!'; setTimeout(()=>btn.textContent='🔗 Copiar',2000); }
+  });
+}
+
 /* Stray Kids Fan Page — script.js | Autora: Laysa Serrão */
 
 /* ── DADOS ── */
@@ -329,31 +340,61 @@ function closeMemberModal(){ document.getElementById('memberModal').classList.ad
 /* ── DISCOGRAFIA ── */
 function renderDiscografia(){
   const grid = document.getElementById('discoGrid');
-  albums.forEach(a=>{
-    const card = document.createElement('div');
-    card.className = `disco-card reveal`;
-    card.dataset.type = a.type;
-    card.innerHTML = `
-      <div class="disco-cover">
-        <img src="${a.img}" alt="${a.name}" loading="lazy">
-        <span class="disco-type-tag">${a.type}</span>
-      </div>
-      <div class="disco-info">
-        <div class="disco-name">${a.name}</div>
-        <div class="disco-year">${a.year} · ${a.tracks} faixas</div>
-        <div class="disco-track">▶ ${a.track}</div>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
+  const SHOW_INITIAL = 12;
+  let showAll = false;
+
+  function buildCards(){
+    grid.innerHTML = '';
+    const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
+    const filtered = activeFilter === 'all' ? albums : albums.filter(a => a.dataset ? a.dataset.type === activeFilter : a.type === activeFilter);
+    const toShow = activeFilter === 'all' && !showAll ? albums.slice(0, SHOW_INITIAL) : (activeFilter === 'all' ? albums : albums.filter(a => a.type === activeFilter));
+
+    toShow.forEach(a=>{
+      const card = document.createElement('div');
+      card.className = 'disco-card reveal';
+      card.dataset.type = a.type;
+      const imgHtml = a.img ? `<img src="${a.img}" alt="${a.name}" loading="lazy">` : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--ac);opacity:.3">${a.name.charAt(0)}</div>`;
+      card.innerHTML = `
+        <div class="disco-cover">
+          ${imgHtml}
+          <span class="disco-type-tag">${a.badge}</span>
+        </div>
+        <div class="disco-info">
+          <div class="disco-name">${a.name}</div>
+          <div class="disco-year">${a.year} · ${a.tracks} faixa${a.tracks>1?'s':''}</div>
+          <div class="disco-track">▶ ${a.track}</div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    // Botão ver mais/menos só no filtro "todos"
+    const existing = document.getElementById('discoToggleBtn');
+    if(existing) existing.remove();
+    if(activeFilter === 'all'){
+      const btn = document.createElement('button');
+      btn.id = 'discoToggleBtn';
+      btn.className = 'disco-toggle-btn';
+      btn.textContent = showAll ? '▲ Ver menos' : `▼ Ver todos os ${albums.length} álbuns`;
+      btn.addEventListener('click', ()=>{
+        showAll = !showAll;
+        buildCards();
+        if(!showAll) grid.scrollIntoView({behavior:'smooth', block:'start'});
+        setTimeout(initReveal, 50);
+      });
+      grid.insertAdjacentElement('afterend', btn);
+    }
+    setTimeout(initReveal, 50);
+  }
+
+  buildCards();
+
   document.querySelectorAll('.filter-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      document.querySelectorAll('.disco-card').forEach(c=>{
-        c.classList.toggle('hidden', filter!=='all' && c.dataset.type!==filter);
-      });
+      showAll = false;
+      buildCards();
     });
   });
 }
@@ -393,13 +434,33 @@ function renderTours(){
   const target = new Date('2026-09-19T20:00:00-03:00');
   function updateCountdown(){
     const diff = target - new Date();
-    if(diff<=0){ document.getElementById('rirCountdown').innerHTML='<span style="font-family:Bebas Neue,sans-serif;font-size:2rem;color:var(--acg)">JÁ ACONTECEU! 🎉</span>'; return; }
-    const d=Math.floor(diff/86400000), h=Math.floor((diff%86400000)/3600000), m=Math.floor((diff%3600000)/60000), s=Math.floor((diff%60000)/1000);
-    document.getElementById('rirCountdown').innerHTML = `
-      <div class="cd-unit"><span class="cd-num">${d}</span><span class="cd-label">Dias</span></div>
-      <div class="cd-unit"><span class="cd-num">${String(h).padStart(2,'0')}</span><span class="cd-label">Horas</span></div>
-      <div class="cd-unit"><span class="cd-num">${String(m).padStart(2,'0')}</span><span class="cd-label">Min</span></div>
-      <div class="cd-unit"><span class="cd-num">${String(s).padStart(2,'0')}</span><span class="cd-label">Seg</span></div>
+    const el = document.getElementById('rirCountdown');
+    if(!el) return;
+    if(diff<=0){ el.innerHTML='<div class="cd-unit" style="min-width:200px"><span class="cd-num" style="font-size:2rem">JÁ ACONTECEU!</span><span class="cd-label">🎉 Que show incrível!</span></div>'; return; }
+    const d=Math.floor(diff/86400000);
+    const h=Math.floor((diff%86400000)/3600000);
+    const m=Math.floor((diff%3600000)/60000);
+    const s=Math.floor((diff%60000)/1000);
+    el.innerHTML = `
+      <div class="cd-unit">
+        <span class="cd-num">${d}</span>
+        <span class="cd-label">Dias</span>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit">
+        <span class="cd-num">${String(h).padStart(2,'0')}</span>
+        <span class="cd-label">Horas</span>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit">
+        <span class="cd-num">${String(m).padStart(2,'0')}</span>
+        <span class="cd-label">Min</span>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit">
+        <span class="cd-num">${String(s).padStart(2,'0')}</span>
+        <span class="cd-label">Seg</span>
+      </div>
     `;
   }
   updateCountdown(); setInterval(updateCountdown,1000);
@@ -507,9 +568,7 @@ btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 /* ── SHARE BAR ── */
 const shareBar = document.getElementById('shareBar');
 window.addEventListener('scroll',()=>{ const max=document.body.scrollHeight-window.innerHeight; shareBar.classList.toggle('visible', window.scrollY>600 && window.scrollY<max-600); });
-function shareTwitter(){ window.open(`https://twitter.com/intent/tweet?text=Conheça o Stray Kids nessa fan page!&url=${encodeURIComponent(location.href)}`,'_blank'); }
-function shareWhatsapp(){ window.open(`https://wa.me/?text=Conheça o Stray Kids! ${encodeURIComponent(location.href)}`,'_blank'); }
-function copyLink(){ navigator.clipboard.writeText(location.href).then(()=>{ const btn=shareBar.querySelectorAll('button')[2]; btn.textContent='✅ Copiado!'; setTimeout(()=>btn.textContent='🔗 Copiar',2000); }); }
+
 
 /* ── SCROLL REVEAL ── */
 function initReveal(){
