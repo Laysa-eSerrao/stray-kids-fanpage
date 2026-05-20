@@ -158,6 +158,13 @@ const factsData = {
 };
 
 const mvs = [
+  { title:"CEREMONY",       year:"2025", views:"",      id:"P7vBoGWoReg" },
+  { title:"Do It",          year:"2025", views:"",      id:"NED7nev2ywQ" },
+  { title:"DIVINE",         year:"2025", views:"",      id:"E8i32NXMxnc" },
+  { title:"Walkin On Water",year:"2024", views:"",      id:"ovHoY8UBIu8" },
+  { title:"CASE 143",       year:"2022", views:"",      id:"jYSlpC6Ud2A" },
+  { title:"Back Door",      year:"2020", views:"",      id:"X-uJtV8ScYk" },
+  { title:"Topline",        year:"2024", views:"",      id:"b3GYcA7j5mg" },
   { title:"God's Menu",     year:"2020", views:"300M+", id:"TQTlCHxyuu8" },
   { title:"MIROH",          year:"2019", views:"200M+", id:"Dab4EENTW5I" },
   { title:"THUNDEROUS",     year:"2021", views:"250M+", id:"EaswWiwMVs8" },
@@ -437,7 +444,7 @@ function renderMVs(){
       <div class="mv-info">
         <div class="mv-title">${mv.title}</div>
         <div class="mv-year">${mv.year}</div>
-        <div class="mv-views">▶ ${mv.views} views</div>
+        ${mv.views ? `<div class="mv-views">▶ ${mv.views} views</div>` : ""}
       </div>
     `;
     grid.appendChild(card);
