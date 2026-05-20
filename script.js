@@ -69,46 +69,40 @@ const members = [
 ];
 
 const albums = [
-  /* 2026 */
-  { year:"2026", name:"별, 빛 (STAY)",            badge:"Single/EP",        type:"single", track:"별, 빛 (STAY)",     tracks:1,  img:null },
-  /* 2025 */
-  { year:"2025", name:"DO IT",                    badge:"Mixtape · BB #1",  type:"mixtape",track:"Do It",            tracks:5,  img:"https://i.pinimg.com/736x/9d/20/bf/9d20bfdd0846c9fa44160593d31879df.jpg" },
-  { year:"2025", name:"Hollow",                   badge:"Japanese EP",      type:"ep",     track:"Hollow",           tracks:5,  img:null },
-  { year:"2025", name:"CEREMONY (Remixes)",       badge:"Single/EP",        type:"single", track:"CEREMONY",         tracks:5,  img:null },
-  { year:"2025", name:"KARMA",                    badge:"Full album · BB #1",type:"full",  track:"CEREMONY",         tracks:11, img:"https://i.pinimg.com/736x/c4/84/f3/c484f39d8ec19c219e5df2d0ac7aea90.jpg" },
-  { year:"2025", name:"Mixtape: dominATE",        badge:"Single album",     type:"single", track:"Giant",            tracks:5,  img:null },
-  /* 2024 */
-  { year:"2024", name:"ATE",                      badge:"EP · BB #1",       type:"ep",     track:"Chk Chk Boom",     tracks:9,  img:"https://i.pinimg.com/736x/eb/36/95/eb369561e109f1a2c719786dc9586440.jpg" },
-  { year:"2024", name:"HOP",                      badge:"Mixtape · BB #1",  type:"mixtape",track:"MIROH (HOP ver)",  tracks:6,  img:null },
-  { year:"2024", name:"Giant",                    badge:"Japanese Full",    type:"full",   track:"Giant",            tracks:5,  img:null },
-  /* 2023 */
-  { year:"2023", name:"ROCK-STAR",                badge:"EP · BB #1",       type:"ep",     track:"LALALALA",         tracks:6,  img:"https://i.pinimg.com/1200x/cf/df/97/cfdf97cbbcfe4f1e877ff9db280c84f5.jpg" },
-  { year:"2023", name:"★★★★★ (5-STAR)",          badge:"Full album · BB #1",type:"full",  track:"S-Class",          tracks:13, img:"https://i.pinimg.com/736x/b7/00/63/b700635c05f277c71386149f61981bed.jpg" },
-  { year:"2023", name:"Social Path / Super Bowl", badge:"Japanese EP",      type:"ep",     track:"Social Path",      tracks:5,  img:null },
-  { year:"2023", name:"SKZ-Replay",               badge:"Compilação",       type:"comp",   track:"MEGAVERSE",        tracks:14, img:null },
-  /* 2022 */
-  { year:"2022", name:"MAXIDENT",                 badge:"EP · BB #1",       type:"ep",     track:"Case 143",         tracks:7,  img:"https://i.pinimg.com/1200x/22/3b/43/223b431c74e196436552f764654fa25c.jpg" },
-  { year:"2022", name:"ODDINARY",                 badge:"EP · BB #1",       type:"ep",     track:"MANIAC",           tracks:6,  img:"https://i.pinimg.com/1200x/b8/14/bb/b814bb3264e08248eb424dadbe9ae843.jpg" },
-  { year:"2022", name:"Circus",                   badge:"Japanese EP",      type:"ep",     track:"Circus",           tracks:6,  img:null },
-  { year:"2022", name:"Christmas EveL",           badge:"Single album",     type:"single", track:"Christmas EveL",   tracks:3,  img:null },
-  /* 2021 */
-  { year:"2021", name:"NOEASY",                   badge:"Full album",       type:"full",   track:"Thunderous",       tracks:14, img:"https://i.pinimg.com/1200x/72/25/51/7225515ff73a11383d014120bccc9230.jpg" },
-  { year:"2021", name:"SKZ2021",                  badge:"Compilação",       type:"comp",   track:"Scars (KR ver)",   tracks:14, img:null },
-  /* 2020 */
-  { year:"2020", name:"IN生 (IN LIFE)",           badge:"Reissue",          type:"full",   track:"Back Door",        tracks:16, img:null },
-  { year:"2020", name:"GO LIVE",                  badge:"Full album",       type:"full",   track:"God's Menu",       tracks:14, img:"https://i.pinimg.com/736x/c1/60/92/c1609251bb23b2b2c5038c8a418a9c40.jpg" },
-  { year:"2020", name:"All In",                   badge:"Japanese EP",      type:"ep",     track:"All In",           tracks:6,  img:null },
-  { year:"2020", name:"Step Out of Clé",          badge:"Single album",     type:"single", track:"Double Knot (EN)", tracks:3,  img:null },
-  { year:"2020", name:"SKZ2020",                  badge:"Compilação JP",    type:"comp",   track:"Levanter (JP)",    tracks:14, img:null },
-  /* 2019 */
-  { year:"2019", name:"Clé: Levanter",           badge:"EP",               type:"ep",     track:"Levanter",         tracks:7,  img:null },
-  { year:"2019", name:"Clé 2: Yellow Wood",      badge:"EP",               type:"ep",     track:"Side Effects",     tracks:6,  img:null },
-  { year:"2019", name:"Clé 1: MIROH",            badge:"EP",               type:"ep",     track:"MIROH",            tracks:6,  img:"https://i.pinimg.com/736x/4e/b0/db/4eb0dbc3c15866a8e6044e5e5dfc3f37.jpg" },
-  /* 2018 */
-  { year:"2018", name:"I Am YOU",                badge:"EP",               type:"ep",     track:"I Am YOU",         tracks:7,  img:null },
-  { year:"2018", name:"I Am WHO",                badge:"EP",               type:"ep",     track:"My Pace",          tracks:7,  img:null },
-  { year:"2018", name:"I Am NOT",               badge:"EP",               type:"ep",     track:"District 9",       tracks:8,  img:"https://i.pinimg.com/1200x/ad/59/13/ad59134576356e430fc1c86ac7bf3a88.jpg" },
-  { year:"2018", name:"Mixtape",                 badge:"EP · Pré-debut",   type:"ep",     track:"Hellevator",       tracks:7,  img:"https://i.pinimg.com/736x/f7/aa/d3/f7aad376f59e919671923bcc923e3e86.jpg" },
+  { year:"2026", name:"별, 빛 (STAY)",            badge:"Single",           type:"single",  track:"별, 빛 (STAY)",    tracks:1,  img:"https://akamai.sscdn.co/letras/360x360/albuns/4/7/7/3/4809391776718807.jpg" },
+  { year:"2025", name:"DO IT",                    badge:"EP · BB #1",       type:"mixtape", track:"Do It",            tracks:5,  img:"https://akamai.sscdn.co/letras/360x360/albuns/4/6/3/9/4219271763739713.jpg" },
+  { year:"2025", name:"KARMA",                    badge:"Álbum · BB #1",    type:"full",    track:"CEREMONY",         tracks:11, img:"https://akamai.sscdn.co/letras/360x360/albuns/9/0/1/7/3671491759770818.jpg" },
+  { year:"2025", name:"Hollow",                   badge:"EP · Japonês",     type:"ep",      track:"Hollow",           tracks:5,  img:"https://akamai.sscdn.co/letras/360x360/albuns/f/2/5/4/3219971753127268.jpg" },
+  { year:"2025", name:"Mixtape: dominATE",        badge:"EP · 7º Aniv.",    type:"ep",      track:"Giant",            tracks:5,  img:"https://akamai.sscdn.co/letras/360x360/albuns/7/f/e/9/2891771742554519.jpg" },
+  { year:"2024", name:"HOP",                      badge:"Álbum · BB #1",    type:"full",    track:"MIROH (HOP ver)",  tracks:6,  img:"https://akamai.sscdn.co/letras/360x360/albuns/a/d/7/5/2218701734439880.jpg" },
+  { year:"2024", name:"GIANT",                    badge:"Álbum · Japonês",  type:"full",    track:"Giant",            tracks:5,  img:"https://akamai.sscdn.co/letras/360x360/albuns/6/c/4/c/2437281731521663.jpg" },
+  { year:"2024", name:"SLASH",                    badge:"Single",           type:"single",  track:"SLASH",            tracks:1,  img:"https://akamai.sscdn.co/letras/360x360/albuns/3/2/8/5/2309341721749059.jpg" },
+  { year:"2024", name:"ATE",                      badge:"Álbum · BB #1",    type:"full",    track:"Chk Chk Boom",     tracks:9,  img:"https://akamai.sscdn.co/letras/360x360/albuns/1/8/c/4/2304721721390720.jpg" },
+  { year:"2024", name:"Lose My Breath",           badge:"Single",           type:"single",  track:"Lose My Breath",   tracks:1,  img:"https://akamai.sscdn.co/letras/360x360/albuns/e/f/a/d/2241071717439651.jpg" },
+  { year:"2024", name:"Come Play (Arcane)",       badge:"Single",           type:"single",  track:"Come Play",        tracks:1,  img:"https://akamai.sscdn.co/letras/360x360/albuns/4/b/d/e/2407601729245928.jpg" },
+  { year:"2023", name:"樂-STAR",                  badge:"Álbum · Japonês",  type:"full",    track:"MIROH (JP)",       tracks:12, img:"https://akamai.sscdn.co/letras/360x360/albuns/e/a/3/7/2018461699629799.jpg" },
+  { year:"2023", name:"★★★★★ (5-STAR)",          badge:"Álbum · BB #1",    type:"full",    track:"S-Class",          tracks:13, img:"https://akamai.sscdn.co/letras/360x360/albuns/6/0/b/b/1586341706541058.jpg" },
+  { year:"2023", name:"ROCK-STAR",                badge:"EP · BB #1",       type:"ep",      track:"LALALALA",         tracks:6,  img:"https://i.pinimg.com/1200x/cf/df/97/cfdf97cbbcfe4f1e877ff9db280c84f5.jpg" },
+  { year:"2023", name:"Social Path / Super Bowl", badge:"EP · Japonês",     type:"ep",      track:"Social Path",      tracks:5,  img:null },
+  { year:"2022", name:"SKZ-REPLAY",               badge:"Álbum",            type:"comp",    track:"MEGAVERSE",        tracks:14, img:"https://akamai.sscdn.co/letras/360x360/albuns/4/a/0/c/1444131681997935.jpg" },
+  { year:"2022", name:"MAXIDENT",                 badge:"Álbum · BB #1",    type:"full",    track:"Case 143",         tracks:7,  img:"https://akamai.sscdn.co/letras/360x360/albuns/b/3/d/4/1392111681997927.jpg" },
+  { year:"2022", name:"ODDINARY",                 badge:"Álbum · BB #1",    type:"full",    track:"MANIAC",           tracks:6,  img:"https://akamai.sscdn.co/letras/360x360/albuns/d/4/3/4/1255491681997918.jpg" },
+  { year:"2022", name:"Circus",                   badge:"EP · Japonês",     type:"ep",      track:"Circus",           tracks:6,  img:null },
+  { year:"2021", name:"SKZ2021",                  badge:"Álbum",            type:"comp",    track:"Scars (KR ver)",   tracks:14, img:"https://akamai.sscdn.co/letras/360x360/albuns/5/b/5/9/1220471681997909.jpg" },
+  { year:"2021", name:"Christmas EveL",           badge:"EP",               type:"ep",      track:"Christmas EveL",   tracks:3,  img:"https://akamai.sscdn.co/letras/360x360/albuns/c/e/e/c/1205891682347933.jpg" },
+  { year:"2021", name:"NOEASY",                   badge:"Álbum",            type:"full",    track:"Thunderous",       tracks:14, img:"https://akamai.sscdn.co/letras/360x360/albuns/e/6/8/e/1136961681997899.jpg" },
+  { year:"2020", name:"IN生 (IN LIFE)",           badge:"Álbum",            type:"full",    track:"Back Door",        tracks:16, img:"https://akamai.sscdn.co/letras/360x360/albuns/4/b/4/c/962401681997889.jpg" },
+  { year:"2020", name:"GO LIVE",                  badge:"Álbum",            type:"full",    track:"God's Menu",       tracks:14, img:"https://akamai.sscdn.co/uploadfile/letras/albuns/9/8/1/d/917981681997881.jpg" },
+  { year:"2020", name:"All In",                   badge:"EP · Japonês",     type:"ep",      track:"All In",           tracks:6,  img:null },
+  { year:"2020", name:"Step Out of Clé",          badge:"Single",           type:"single",  track:"Double Knot (EN)", tracks:3,  img:null },
+  { year:"2020", name:"SKZ2020",                  badge:"Álbum · JP",       type:"comp",    track:"Levanter (JP)",    tracks:14, img:null },
+  { year:"2019", name:"Clé: Levanter",           badge:"Álbum",            type:"full",    track:"Levanter",         tracks:7,  img:"https://akamai.sscdn.co/uploadfile/letras/albuns/1/8/6/4/820831681997786.jpg" },
+  { year:"2019", name:"Clé 2: Yellow Wood",      badge:"Álbum",            type:"full",    track:"Side Effects",     tracks:6,  img:"https://akamai.sscdn.co/uploadfile/letras/albuns/f/a/4/2/739351681997869.jpg" },
+  { year:"2019", name:"Clé 1: MIROH",            badge:"Álbum",            type:"full",    track:"MIROH",            tracks:6,  img:"https://akamai.sscdn.co/uploadfile/letras/albuns/4/e/a/e/710451681997861.jpg" },
+  { year:"2018", name:"I Am YOU",                badge:"Álbum",            type:"full",    track:"I Am YOU",         tracks:7,  img:"https://akamai.sscdn.co/uploadfile/letras/albuns/a/7/5/8/667931681997795.jpg" },
+  { year:"2018", name:"I Am WHO",                badge:"Álbum",            type:"full",    track:"My Pace",          tracks:7,  img:"https://akamai.sscdn.co/uploadfile/letras/albuns/9/1/5/8/657101681997849.jpg" },
+  { year:"2018", name:"I Am NOT",               badge:"Álbum",            type:"full",    track:"District 9",       tracks:8,  img:"https://akamai.sscdn.co/uploadfile/letras/albuns/0/a/9/3/633621681997843.jpg" },
+  { year:"2018", name:"Mixtape",                 badge:"Álbum · Pré-debut",type:"full",    track:"Hellevator",       tracks:7,  img:"https://akamai.sscdn.co/uploadfile/letras/albuns/3/0/e/c/615131708092816.jpg" },
 ];
 
 
