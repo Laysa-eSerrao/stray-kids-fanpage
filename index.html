@@ -4,452 +4,224 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stray Kids — Guia para Novos STAYs</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23e8192c'/><text y='.9em' font-size='80' font-family='Arial Black,sans-serif' font-weight='900' fill='white' x='15'>K</text></svg>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <!-- SEO & Open Graph -->
-  <meta name="description" content="Guia completo sobre o Stray Kids para novos STAYs — membros, discografia, MVs, curiosidades, tours e muito mais." />
+  <meta name="description" content="Fan page completa do Stray Kids — membros, discografia, SKZoo, MVs, tours, curiosidades e muito mais." />
   <meta name="keywords" content="Stray Kids, SKZ, K-pop, STAY, Bang Chan, Lee Know, Changbin, Hyunjin, Han, Felix, Seungmin, I.N, JYP" />
-  <meta name="author" content="Laysa Serrão" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://laysa-eserrao.github.io/stray-kids-fanpage/" />
-
-  <!-- Open Graph (WhatsApp, Facebook, Discord) -->
-  <meta property="og:type" content="website" />
   <meta property="og:title" content="Stray Kids — Guia para Novos STAYs" />
-  <meta property="og:description" content="Tudo sobre o Stray Kids: membros, discografia, MVs, curiosidades, tours e muito mais. Feito para novos STAYs!" />
-  <meta property="og:url" content="https://laysa-eserrao.github.io/stray-kids-fanpage/" />
+  <meta property="og:description" content="Tudo sobre o Stray Kids: membros, discografia, MVs, curiosidades, tours e muito mais!" />
   <meta property="og:image" content="https://i.pinimg.com/1200x/72/25/51/7225515ff73a11383d014120bccc9230.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="1200" />
-  <meta property="og:locale" content="pt_BR" />
-  <meta property="og:site_name" content="Stray Kids Fan Page" />
-
-  <!-- Twitter Card -->
+  <meta property="og:url" content="https://laysa-eserrao.github.io/stray-kids-fanpage/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Stray Kids — Guia para Novos STAYs" />
-  <meta name="twitter:description" content="Tudo sobre o Stray Kids: membros, discografia, MVs, curiosidades e muito mais!" />
-  <meta name="twitter:image" content="https://i.pinimg.com/1200x/72/25/51/7225515ff73a11383d014120bccc9230.jpg" />
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WPNMTCYJ6Q"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-WPNMTCYJ6Q");
-  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23e8192c'/><text y='.9em' font-size='80' font-family='Arial Black' font-weight='900' fill='white' x='15'>K</text></svg>" />
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WPNMTCYJ6Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WPNMTCYJ6Q');</script>
 </head>
 <body>
 
-<header class="hero">
-  <div class="hero-eyebrow">JYP Entertainment · Desde 2018 · 스트레이 키즈</div>
-  <h1 class="hero-title">STRAY <span class="red">KIDS</span></h1>
-  <div class="hero-subtitle">Guia para novos STAYs</div>
-  <p class="hero-desc">Tudo que você precisa saber sobre o grupo de K-pop que está dominando o mundo — membros, discografia, curiosidades e muito mais.</p>
-  <a href="#" class="hero-cta" onclick="showTabById('membros');return false;">Conhecer o grupo</a>
-</header>
-
-<div class="stats-bar">
-  <div class="stat-item"><div class="stat-num">19+</div><div class="stat-label">Daesangs</div></div>
-  <div class="stat-item"><div class="stat-num">7×</div><div class="stat-label">Billboard #1</div></div>
-  <div class="stat-item"><div class="stat-num">1.3M</div><div class="stat-label">Ingressos dominATE</div></div>
-  <div class="stat-item"><div class="stat-num">10B+</div><div class="stat-label">Spotify streams</div></div>
+<!-- INTRO -->
+<div id="introScreen">
+  <div class="intro-logo">STRAY <span>KIDS</span></div>
+  <div class="intro-sub">스트레이 키즈 · JYP Entertainment · Est. 2018</div>
+  <div class="intro-bar"><div class="intro-fill"></div></div>
+  <button class="intro-enter-btn" id="introEnterBtn">Entrar no Universo SKZ</button>
 </div>
 
-<nav class="nav-tabs">
-  <button class="nav-tab active" onclick="showTab('membros',this)">Membros</button>
-  <button class="nav-tab" onclick="showTab('galeria',this)">Galeria</button>
-  <button class="nav-tab" onclick="showTab('curiosidades',this)">Curiosidades</button>
-  <button class="nav-tab" onclick="showTab('sobre',this)">Sobre</button>
-  <button class="nav-tab" onclick="showTab('discografia',this)">Discografia</button>
-  <button class="nav-tab" onclick="showTab('unidades',this)">Unidades</button>
-  <button class="nav-tab" onclick="showTab('stream',this)">Stream e Votação</button>
-  <button class="nav-tab" onclick="showTab('tours',this)">Tours</button>
-  <button class="nav-tab" onclick="showTab('conteudo',this)">Conteúdo</button>
-  <button class="nav-tab" onclick="showTab('novidades',this)">2026</button>
-  <button class="nav-tab" onclick="showTab('mvs',this)">MVs</button>
-  <button class="nav-tab" onclick="showTab('timeline',this)">História</button>
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="#hero">스트레이 키즈</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#membros">Membros</a></li>
+    <li><a href="#discografia">Discografia</a></li>
+    <li><a href="#timeline">História</a></li>
+    <li><a href="#tours">Tours</a></li>
+    <li><a href="#curiosidades">Curiosidades</a></li>
+    <li><a href="#mvs">MVs</a></li>
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#skzoo">SKZoo</a></li>
+  </ul>
+  <div class="nav-controls">
+    <button id="themeToggleBtn" class="nav-btn">🌙</button>
+    <button class="nav-toggle" id="navToggle">☰</button>
+  </div>
 </nav>
 
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="badge-dot"></span><span>Rock in Rio 2026 · Setembro 🇧🇷</span></div>
+    <p class="hero-eyebrow">스트레이 키즈 · BANGTAN — Self-produced · Est. 2018</p>
+    <h1 class="hero-title">STRAY <span>KIDS</span></h1>
+    <p class="hero-tagline">"You make Stray Kids stay"</p>
+    <div class="hero-members">
+      <span>Bang Chan</span><span>·</span><span>Lee Know</span><span>·</span>
+      <span>Changbin</span><span>·</span><span>Hyunjin</span><span>·</span>
+      <span>Han</span><span>·</span><span>Felix</span><span>·</span>
+      <span>Seungmin</span><span>·</span><span>I.N</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#membros" class="btn btn-primary">Conhecer os membros →</a>
+      <a href="#discografia" class="btn btn-outline">Ver discografia</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar" id="statsBar">
+  <div class="stat-item"><span class="stat-num" data-target="8">0</span><span class="stat-label">membros</span></div>
+  <div class="stat-item"><span class="stat-num" data-target="8">0</span><span class="stat-label">anos de história</span></div>
+  <div class="stat-item"><span class="stat-num" data-target="8">0</span><span class="stat-label">Billboard #1 consecutivos</span></div>
+  <div class="stat-item"><span class="stat-num" data-target="19">0</span><span class="stat-label">daesangs</span></div>
+  <div class="stat-item"><span class="stat-num" data-target="10">0</span><span class="stat-label">álbuns</span></div>
+</div>
+
 <!-- MEMBROS -->
-<div class="tab-content active" id="tab-membros">
-  <div class="section">
-    <div class="section-header"><div class="section-title">Membros</div><div class="section-count">08</div></div>
-    <div class="members-grid" id="members-grid"></div>
-    <div class="member-detail" id="member-detail">
-      <button class="close-btn" onclick="closeDetail()">Fechar ×</button>
-      <div class="d-top">
-        <div class="d-avatar" id="d-avatar"></div>
-        <div><div class="d-name" id="d-name"></div><div class="d-kr" id="d-kr"></div></div>
-      </div>
-      <div class="d-grid" id="d-grid"></div>
-      <div class="d-fact" id="d-fact"></div>
-    </div>
+<section id="membros" class="section">
+  <div class="section-header">
+    <span class="section-label">OT8</span>
+    <h2 class="section-title">Os 8 do Stray Kids</h2>
+    <p class="section-desc">Clique em qualquer membro para ver o perfil completo</p>
   </div>
-</div>
+  <div class="members-grid" id="membersGrid"></div>
+</section>
 
-<!-- GALERIA -->
-<div class="tab-content" id="tab-galeria">
-  <div class="section">
-    <div class="section-header"><div class="section-title">Galeria</div><div class="section-count">08</div></div>
-    <div class="gallery-grid" id="gallery-grid"></div>
-  </div>
-</div>
-
-<!-- CURIOSIDADES -->
-<div class="tab-content" id="tab-curiosidades">
-  <div class="section">
-    <div class="section-header"><div class="section-title">Curiosidades</div><div class="section-count">12</div></div>
-    <div class="facts-grid" id="facts-grid"></div>
-  </div>
-</div>
-
-<!-- SOBRE -->
-<div class="tab-content" id="tab-sobre">
-  <div class="section">
-    <div class="section-header"><div class="section-title">Sobre</div></div>
-    <div class="about-card"><strong>Stray Kids</strong> é um grupo masculino sul-coreano de 8 membros formado pela <strong>JYP Entertainment</strong> em 2018. O diferencial é o conceito de <strong>self-production</strong>: o sub-grupo <strong>3RACHA</strong> (Bang Chan, Han e Changbin) produz e compõe a maioria das músicas.</div>
-    <div class="about-card">Seu som mistura <strong>hip-hop, EDM, rock e noise music</strong>. Músicas como <em>God's Menu</em>, <em>MANIAC</em>, <em>Thunderous</em> e <em>S-Class</em> definiram sua identidade ousada na 4ª geração do K-pop.</div>
-    <div class="about-card">Em 2024, <strong>renovaram contrato com a JYP</strong>, foram ao <strong>Met Gala</strong> (primeiros artistas K-pop a ir juntos), lançaram <em>ATE</em> — 5º álbum consecutivo #1 no Billboard 200 — e headlinaram o <strong>Lollapalooza Chicago</strong>. Em 2026, headlinarão o <strong>Rock in Rio</strong>.</div>
-    <div class="about-card">O fandom se chama <strong>STAY</strong> e o slogan é <em>"You make Stray Kids stay"</em> — os fãs completam o grupo.</div>
-    <div style="margin-top:2.5rem;">
-      <div class="section-header" style="margin-bottom:1rem;"><div class="section-title">SKZoo</div><div class="section-count">08</div></div>
-      <div class="about-card" style="margin-bottom:1.5rem;"><strong>SKZoo</strong> é o universo de personagens oficiais do Stray Kids — cada membro tem um animal que representa sua personalidade. Os personagens aparecem em merchandise, animações e redes sociais do grupo, e são muito amados pelos STAYs.</div>
-      <div class="members-grid" id="skzoo-grid"></div>
-    </div>
+<!-- MODAL -->
+<div id="memberModal" class="modal-backdrop hidden">
+  <div class="member-modal">
+    <button class="modal-close-btn" id="modalCloseBtn">✕</button>
+    <div class="modal-img-side" id="modalImgSide"></div>
+    <div class="modal-info-side" id="modalInfoSide"></div>
   </div>
 </div>
 
 <!-- DISCOGRAFIA -->
-<div class="tab-content" id="tab-discografia">
-  <div class="section">
-    <div class="section-header"><div class="section-title">Discografia</div></div>
-    <div class="album-grid" id="album-grid"></div>
+<section id="discografia" class="section-alt">
+  <div class="section-header">
+    <span class="section-label">Música</span>
+    <h2 class="section-title">Discografia</h2>
   </div>
-</div>
-
-<!-- UNIDADES -->
-<div class="tab-content" id="tab-unidades">
-  <div class="section">
-    <div class="section-header"><div class="section-title">Unidades</div></div>
-    <div class="units-grid">
-      <div class="unit-card"><div class="unit-name">3RACHA</div><div class="unit-desc">Rap e produção</div><div class="unit-members">Bang Chan<br>Han<br>Changbin</div></div>
-      <div class="unit-card"><div class="unit-name">Dance Racha</div><div class="unit-desc">Dançarinos principais</div><div class="unit-members">Lee Know<br>Hyunjin<br>Felix</div></div>
-      <div class="unit-card"><div class="unit-name">Vocal Racha</div><div class="unit-desc">Vocalistas principais</div><div class="unit-members">Seungmin<br>I.N</div></div>
-    </div>
+  <div class="disco-filter" id="discoFilter">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="full">Full Album</button>
+    <button class="filter-btn" data-filter="mini">Mini Album</button>
+    <button class="filter-btn" data-filter="special">Special</button>
   </div>
-</div>
+  <div class="disco-grid" id="discoGrid"></div>
+</section>
 
-<!-- STREAM E VOTAÇÃO -->
-<div class="tab-content" id="tab-stream">
-  <div class="section">
-    <div class="section-header"><div class="section-title">Stream e Votação</div></div>
-    <div class="tip-card">💡 Como novo STAY, streamar e votar é uma das formas mais importantes de apoiar o grupo. Cada stream conta para os charts e cada voto ajuda o SKZ a ganhar premiações. <strong>Qualidade > Quantidade — evite bots!</strong></div>
-
-    <div class="stream-section">
-      <div class="stream-section-title">🎵 Onde Streamar</div>
-      <div class="platform-grid">
-        <a href="https://open.spotify.com/artist/2dIgFjalVxs4ThymZ67YCE" target="_blank" class="platform-card">
-          <div class="platform-icon" style="background:#1DB95420">🎧</div>
-          <div class="platform-info"><div class="platform-name">Spotify</div><div class="platform-desc">Stream principal — conta para charts globais</div></div>
-          <div class="platform-arrow">→</div>
-        </a>
-        <a href="https://music.apple.com/us/artist/stray-kids/1304823362" target="_blank" class="platform-card">
-          <div class="platform-icon" style="background:#fc3c4420">🍎</div>
-          <div class="platform-info"><div class="platform-name">Apple Music</div><div class="platform-desc">Importante para charts americanos</div></div>
-          <div class="platform-arrow">→</div>
-        </a>
-        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="platform-card">
-          <div class="platform-icon" style="background:#FF000020">▶️</div>
-          <div class="platform-info"><div class="platform-name">YouTube</div><div class="platform-desc">MVs oficiais — deixe rodar com som</div></div>
-          <div class="platform-arrow">→</div>
-        </a>
-        <a href="https://www.melon.com/artist/timeline.htm?artistId=845405" target="_blank" class="platform-card">
-          <div class="platform-icon" style="background:#00C85020">🍈</div>
-          <div class="platform-info"><div class="platform-name">MelOn</div><div class="platform-desc">Principal chart coreano</div></div>
-          <div class="platform-arrow">→</div>
-        </a>
-        <a href="https://www.genie.co.kr/detail/artistInfo?xxnm=80437038" target="_blank" class="platform-card">
-          <div class="platform-icon" style="background:#0057ff20">🎶</div>
-          <div class="platform-info"><div class="platform-name">Genie</div><div class="platform-desc">Chart coreano — conta para Hanteo</div></div>
-          <div class="platform-arrow">→</div>
-        </a>
-        <a href="https://music.bugs.co.kr/artist/80305828" target="_blank" class="platform-card">
-          <div class="platform-icon" style="background:#e8192c20">🐛</div>
-          <div class="platform-info"><div class="platform-name">Bugs</div><div class="platform-desc">Plataforma coreana de streaming</div></div>
-          <div class="platform-arrow">→</div>
-        </a>
-      </div>
-    </div>
-
-    <div class="stream-section">
-      <div class="stream-section-title">🗳️ Onde Votar</div>
-      <div class="platform-grid">
-        <a href="https://mama.mnetplus.world/" target="_blank" class="platform-card">
-          <div class="platform-icon" style="background:#e8192c20">🏆</div>
-          <div class="platform-info"><div class="platform-name">MAMA Awards</div><div class="platform-desc">Mnet Asian Music Awards</div></div>
-          <div class="platform-arrow">→</div>
-        </a>
-        <a href="https://www.theamas.com/" target="_blank" class="platform-card">
-          <div class="platform-icon" style="background:#f0a50020">⭐</div>
-          <div class="platform-info"><div class="platform-name">AMAs</div><div class="platform-desc">American Music Awards</div></div>
-          <div class="platform-arrow">→</div>
-        </a>
-        <a href="https://seoulmusicawards.com/en/overview/awards" target="_blank" class="platform-card">
-          <div class="platform-icon" style="background:#5c9eff20">🎵</div>
-          <div class="platform-info"><div class="platform-name">SMA</div><div class="platform-desc">Seoul Music Awards</div></div>
-          <div class="platform-arrow">→</div>
-        </a>
-        <a href="https://www.asiaartistawards.com/" target="_blank" class="platform-card">
-          <div class="platform-icon" style="background:#3fbf8c20">🌏</div>
-          <div class="platform-info"><div class="platform-name">AAA</div><div class="platform-desc">Asia Artist Awards</div></div>
-          <div class="platform-arrow">→</div>
-        </a>
-      </div>
-    </div>
-
-    <div class="stream-section">
-      <div class="stream-section-title">📖 Como Streamar Corretamente</div>
-      <div class="guide-steps">
-        <div class="guide-step"><div class="step-num">01</div><div><div class="step-title">Use uma conta real</div><div class="step-desc">Nunca use bots. Streams de bots são detectados e removidos dos charts, prejudicando o grupo.</div></div></div>
-        <div class="guide-step"><div class="step-num">02</div><div><div class="step-title">Streaming no Spotify</div><div class="step-desc">Ouça com áudio, sem pular. Playlists privadas funcionam melhor que públicas para evitar remoção.</div></div></div>
-        <div class="guide-step"><div class="step-num">03</div><div><div class="step-title">YouTube MV</div><div class="step-desc">Assista com o som ligado e até o final. Evite pausar muitas vezes. Contas logadas contam mais.</div></div></div>
-        <div class="guide-step"><div class="step-num">04</div><div><div class="step-title">Horário estratégico</div><div class="step-desc">Na Coreia, das 00h às 01h (KST) é o horário que mais impacta os charts diários.</div></div></div>
-        <div class="guide-step"><div class="step-num">05</div><div><div class="step-title">Hanteo e Gaon</div><div class="step-desc">Compre álbuns em lojas certificadas Hanteo para que as vendas contem nos charts físicos.</div></div></div>
-        <div class="guide-step"><div class="step-num">06</div><div><div class="step-title">Siga perfis de streaming</div><div class="step-desc">Perfis como @SKZ_streaming no X/Twitter organizam campanhas e informam sobre períodos importantes.</div></div></div>
-      </div>
-    </div>
+<!-- TIMELINE -->
+<section id="timeline" class="section">
+  <div class="section-header">
+    <span class="section-label">História</span>
+    <h2 class="section-title">Linha do Tempo</h2>
   </div>
-</div>
+  <div class="timeline-container" id="timelineContainer"></div>
+</section>
 
 <!-- TOURS -->
-<div class="tab-content" id="tab-tours">
-  <div class="section">
-    <div class="section-header"><div class="section-title">Tours</div></div>
-
-    <div class="tour-card">
-      <div class="tour-year">2026</div>
-      <div class="tour-info">
-        <div class="tour-name">NOVA WORLD TOUR — Em breve</div>
-        <div class="tour-details">JYP confirmou nova world tour para 2026, esperada para o segundo semestre. O grupo promete shows em estádios pela Ásia, América do Norte, Europa, América Latina e Austrália. Antecipação altíssima após o sucesso do dominATE.</div>
-        <span class="tour-stat">Em preparação</span>
-        <span class="tour-stat">Inclui Rock in Rio 🇧🇷</span>
-      </div>
-    </div>
-
-    <div class="tour-card">
-      <div class="tour-year">2025</div>
-      <div class="tour-info">
-        <div class="tour-name">dominATE World Tour — North America & Europe</div>
-        <div class="tour-details">Continuação do dominATE Tour com shows na América do Norte e Europa de março a julho de 2025. Incluiu datas em Nova York, Los Angeles, Londres, Paris, Santiago e São Paulo. Show em Toronto foi o primeiro artista a se apresentar no Rogers Stadium.</div>
-        <span class="tour-stat gold">1.3M ingressos</span>
-        <span class="tour-stat gold">US$185.9M faturados</span>
-        <span class="tour-stat">#2 Pollstar Global Tours</span>
-      </div>
-    </div>
-
-    <div class="tour-card">
-      <div class="tour-year">2024</div>
-      <div class="tour-info">
-        <div class="tour-name">dominATE World Tour — Asia & Australia</div>
-        <div class="tour-details">Início do dominATE Tour em Seul (agosto 2024) passando por Hong Kong, Cingapura, Melbourne, Sydney, Tóquio, Bangkok, Kaohsiung e Macau até janeiro de 2025. 35 shows em 23 cidades. Primeiro show solo em estádio na Coreia na conclusão em Incheon.</div>
-        <span class="tour-stat gold">Maior tour K-pop da história</span>
-        <span class="tour-stat">35 shows · 23 cidades</span>
-      </div>
-    </div>
-
-    <div class="tour-card">
-      <div class="tour-year">2023</div>
-      <div class="tour-info">
-        <div class="tour-name">5-STAR World Tour</div>
-        <div class="tour-details">Tour mundial em suporte ao álbum 5-STAR, percorrendo América do Norte, Europa e Ásia. Shows em grandes arenas com a produção mais ambiciosa até então do grupo.</div>
-        <span class="tour-stat">América do Norte · Europa · Ásia</span>
-      </div>
-    </div>
-
-    <div class="tour-card">
-      <div class="tour-year">2022</div>
-      <div class="tour-info">
-        <div class="tour-name">MANIAC World Tour</div>
-        <div class="tour-details">Primeira grande world tour do Stray Kids após a pandemia, marcando o retorno triunfal do grupo aos palcos internacionais com shows na América do Norte, Europa e Ásia.</div>
-        <span class="tour-stat">Primeiro grande retorno pós-pandemia</span>
-      </div>
-    </div>
-
+<section id="tours" class="section-alt">
+  <div class="section-header">
+    <span class="section-label">Tours</span>
+    <h2 class="section-title">Histórico de Tours</h2>
+    <p class="section-desc">De 2022 até hoje — do MANIAC ao Rock in Rio</p>
   </div>
-</div>
-
-<!-- CONTEÚDO -->
-<div class="tab-content" id="tab-conteudo">
-  <div class="section">
-    <div class="section-header"><div class="section-title">Conteúdo</div></div>
-    <div class="about-card" style="margin-bottom:1.5rem;">O Stray Kids é conhecido por produzir muito conteúdo para os fãs além de música — séries de variedade, vlogs, lives e muito mais. Ótimo para conhecer a personalidade de cada membro!</div>
-
-    <div style="margin-bottom:1.5rem;">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:#fff;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);">📺 Séries Oficiais</div>
-      <div class="content-grid">
-        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="content-card">
-          <div class="content-icon">🏠</div>
-          <div class="content-name">2 Kids Room</div>
-          <div class="content-desc">Série onde dois membros conversam em um quarto intimista — momentos sinceros e divertidos. Uma das séries mais amadas pelos STAYs.</div>
-          <div class="content-platform">YouTube → @StrayKids</div>
-        </a>
-        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="content-card">
-          <div class="content-icon">🎙️</div>
-          <div class="content-name">RACHA LOG</div>
-          <div class="content-desc">Vlogs do 3RACHA (Bang Chan, Han e Changbin) mostrando o processo criativo e bastidores da produção musical.</div>
-          <div class="content-platform">YouTube → @StrayKids</div>
-        </a>
-        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="content-card">
-          <div class="content-icon">🎮</div>
-          <div class="content-name">SKZ CODE</div>
-          <div class="content-desc">Série de variedade com missões, jogos e desafios entre os membros. Muitas risadas garantidas!</div>
-          <div class="content-platform">YouTube → @StrayKids</div>
-        </a>
-        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="content-card">
-          <div class="content-icon">🎵</div>
-          <div class="content-name">SKZ-RECORD</div>
-          <div class="content-desc">Série de covers e performances especiais dos membros, mostrando suas habilidades individuais de forma mais íntima.</div>
-          <div class="content-platform">YouTube → @StrayKids</div>
-        </a>
-        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="content-card">
-          <div class="content-icon">📻</div>
-          <div class="content-name">Chan's Room</div>
-          <div class="content-desc">Live semanal do Bang Chan onde conversa com os fãs, toca músicas e compartilha bastidores. Tradição desde os primeiros anos do grupo.</div>
-          <div class="content-platform">YouTube & VLive</div>
-        </a>
-        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="content-card">
-          <div class="content-icon">🎬</div>
-          <div class="content-name">SKZ-REPLAY 2026</div>
-          <div class="content-desc">Novo conteúdo especial confirmado para 2026 — compilação de momentos marcantes e material inédito para os STAYs.</div>
-          <div class="content-platform">Em breve · YouTube</div>
-        </a>
-      </div>
-    </div>
-
-    <div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:#fff;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);">🎥 Filme de Concerto</div>
-      <div class="content-grid">
-        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="content-card">
-          <div class="content-icon">🎞️</div>
-          <div class="content-name">The dominATE Experience</div>
-          <div class="content-desc">Filme de concerto filmado no SoFi Stadium em Los Angeles. 145 minutos de show com segmentos documentário. Estreou em fevereiro de 2026 nos cinemas.</div>
-          <div class="content-platform">Disponível digitalmente</div>
-        </a>
-      </div>
-    </div>
-
+  <div class="tour-stats-row">
+    <div class="tour-stat-card"><span class="tour-stat-num">1.3M</span><span class="tour-stat-label">ingressos vendidos</span></div>
+    <div class="tour-stat-card"><span class="tour-stat-num">US$186M</span><span class="tour-stat-label">faturados em 2025</span></div>
+    <div class="tour-stat-card"><span class="tour-stat-num">35+</span><span class="tour-stat-label">países visitados</span></div>
   </div>
-</div>
-
-<!-- NOVIDADES 2026 -->
-<div class="tab-content" id="tab-novidades">
-  <div class="section">
-    <div class="section-header"><div class="section-title">Novidades 2026</div></div>
-    <div class="about-card" style="margin-bottom:1.5rem;">O Stray Kids entra em 2026 com planos ambiciosos anunciados no vídeo <strong>STEP OUT 2026</strong>. Acompanhe aqui as últimas novidades!</div>
-
-    <div class="news-card">
-      <div class="news-date">Mar 2026</div>
-      <div class="news-title">Single de Aniversário — 별, 빛 (STAY)</div>
-      <div class="news-text">No dia 25 de março de 2026, data de aniversário de 8 anos de debut, o Stray Kids lançou o single digital <strong>"별, 빛 (STAY)"</strong> (Star, Light - STAY) — uma faixa emotiva dedicada ao fandom. A música faz parte do álbum especial <em>REPLAY: STAY WITH YOUR WINGS</em>.</div>
-      <span class="news-badge">Disponível no Spotify</span>
-    </div>
-
-    <div class="news-card">
-      <div class="news-date">Mar/Abr 2026</div>
-      <div class="news-title">6º Fan Meeting — STAY in Our Little House</div>
-      <div class="news-text">O grupo realizou seu 6º fan meeting oficial na <strong>Inspire Arena em Incheon</strong> nos dias 28-29 de março e 4-5 de abril. Incluiu performances, jogos e conversas íntimas com os fãs. Alguns dias foram transmitidos ao vivo pelo Beyond LIVE para fãs internacionais.</div>
-      <span class="news-badge">Concluído</span>
-    </div>
-
-    <div class="news-card">
-      <div class="news-date">2026 — Em breve</div>
-      <div class="news-title">Novo Álbum em Preparação</div>
-      <div class="news-text">A JYP confirmou que um <strong>novo álbum completo</strong> está em preparação, com expectativa de lançamento no segundo semestre de 2026. Será o próximo grande capítulo após o álbum KARMA de 2025.</div>
-      <span class="news-badge">Aguardando</span>
-    </div>
-
-    <div class="news-card">
-      <div class="news-date">Set 2026</div>
-      <div class="news-title">Rock in Rio 🇧🇷</div>
-      <div class="news-text">O Stray Kids vai headlinar o <strong>Rock in Rio</strong> em setembro de 2026 no Brasil — um marco histórico para o K-pop e para os fãs brasileiros. Será a primeira vez do grupo em solo brasileiro.</div>
-      <span class="news-badge">Rock in Rio · Setembro 2026</span>
-    </div>
-
-    <div class="news-card">
-      <div class="news-date">2026</div>
-      <div class="news-title">SKZOO Pop-up Stores Globais</div>
-      <div class="news-text">O grupo anunciou a expansão do universo <strong>SKZOO</strong> com pop-up stores globais tanto na Coreia quanto no exterior — uma oportunidade para os fãs de todo o mundo interagir com os personagens oficiais dos membros.</div>
-      <span class="news-badge">Em breve</span>
-    </div>
-
-    <div class="news-card">
-      <div class="news-date">2026</div>
-      <div class="news-title">Retorno do Kids Room</div>
-      <div class="news-text">Uma das séries mais amadas pelo fandom retorna em 2026 com o nome <strong>♥ Kids Room Returns</strong>, confirmado como parte dos planos do grupo para o ano.</div>
-      <span class="news-badge">Em breve · YouTube</span>
-    </div>
-
+  <div class="tours-grid" id="toursGrid"></div>
+  <div class="countdown-wrap">
+    <p class="countdown-label">🇧🇷 Countdown — Rock in Rio 2026</p>
+    <div class="countdown" id="rirCountdown"></div>
   </div>
-</div>
+</section>
 
-
-<!-- CONTADOR ROCK IN RIO -->
-<div id="rir-banner" style="background:linear-gradient(135deg,#e8192c,#ff3d6e,#ff6b35);padding:1.5rem 2rem;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 60px,#ffffff08 60px,#ffffff08 61px);pointer-events:none;"></div>
-  <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:4px;color:#ffffffcc;margin-bottom:.5rem;">🇧🇷 STRAY KIDS NO BRASIL</div>
-  <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,6vw,48px);letter-spacing:6px;color:#fff;margin-bottom:.75rem;">ROCK IN RIO 2026</div>
-  <div id="rircountdown" style="display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1rem;"></div>
-  <div style="font-size:12px;color:#ffffffaa;letter-spacing:2px;">SETEMBRO 2026 · CIDADE DO ROCK · RIO DE JANEIRO</div>
-</div>
-
-<!-- SHARE BUTTONS -->
-<div id="share-section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
-  <span style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--subtle);font-weight:600;" class="share-label">Compartilhar:</span>
-  <a href="https://twitter.com/intent/tweet?text=Conheça+o+Stray+Kids+nessa+fan+page+incrível+🎵&url=https://laysa-eserrao.github.io/stray-kids-fanpage/" target="_blank" id="share-twitter" style="display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;background:#00000020;border:1px solid var(--border2);color:var(--text);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:1px;transition:.2s;">𝕏 Twitter</a>
-  <a href="https://wa.me/?text=Conheça+o+Stray+Kids+nessa+fan+page!+https://laysa-eserrao.github.io/stray-kids-fanpage/" target="_blank" id="share-whatsapp" style="display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;background:#25D36620;border:1px solid #25D36640;color:#25D366;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:1px;transition:.2s;">💬 WhatsApp</a>
-  <button onclick="copyLink()" id="share-copy" style="display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;background:#00000020;border:1px solid var(--border2);color:var(--text);font-size:12px;font-weight:600;letter-spacing:1px;cursor:pointer;transition:.2s;font-family:'Inter',sans-serif;">🔗 Copiar link</button>
-</div>
+<!-- CURIOSIDADES -->
+<section id="curiosidades" class="section">
+  <div class="section-header">
+    <span class="section-label">Você Sabia?</span>
+    <h2 class="section-title">Curiosidades</h2>
+  </div>
+  <div class="facts-tabs" id="factsTabs">
+    <button class="facts-tab active" data-tab="geral">Geral</button>
+    <button class="facts-tab" data-tab="recordes">Recordes</button>
+    <button class="facts-tab" data-tab="membros">Por Membro</button>
+  </div>
+  <div class="facts-grid" id="factsGrid"></div>
+</section>
 
 <!-- MVs -->
-<div class="tab-content" id="tab-mvs">
-  <div class="section">
-    <div class="section-header"><div class="section-title">MVs</div><div class="section-count">10</div></div>
-    <div class="about-card" style="margin-bottom:1.5rem;">Os principais MVs do Stray Kids — clique para assistir no YouTube. Cada MV marca uma era importante na trajetória do grupo.</div>
-    <div id="mvs-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;"></div>
+<section id="mvs" class="section-alt">
+  <div class="section-header">
+    <span class="section-label">Videoclipes</span>
+    <h2 class="section-title">MVs Icônicos</h2>
   </div>
+  <div class="mvs-grid" id="mvsGrid"></div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria" class="section">
+  <div class="section-header">
+    <span class="section-label">Fotos</span>
+    <h2 class="section-title">Galeria</h2>
+    <p class="section-desc">Clique em qualquer imagem para ampliar</p>
+  </div>
+  <div class="gallery-masonry" id="galleryGrid"></div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox hidden">
+  <button id="lbClose" class="lb-btn lb-close">✕</button>
+  <img id="lbImg" src="" alt="" />
 </div>
 
-
-<!-- LINHA DO TEMPO -->
-<div class="tab-content" id="tab-timeline">
-  <div class="section">
-    <div class="section-header"><div class="section-title">História</div><div class="section-count">8+</div></div>
-    <div class="about-card" style="margin-bottom:2rem;">A trajetória do Stray Kids desde o reality de estreia em 2017 até se tornarem um dos maiores grupos do K-pop mundial.</div>
-    <div class="timeline" id="timeline-container"></div>
+<!-- SKZOO -->
+<section id="skzoo" class="section-alt">
+  <div class="section-header">
+    <span class="section-label">Personagens Oficiais</span>
+    <h2 class="section-title">SKZoo</h2>
+    <p class="section-desc">Cada membro tem um personagem animal que representa sua personalidade</p>
   </div>
+  <div class="skzoo-grid" id="skzooGrid"></div>
+</section>
+
+<!-- STREAM -->
+<section id="stream" class="section">
+  <div class="section-header">
+    <span class="section-label">STAY em Ação</span>
+    <h2 class="section-title">Stream & Votar</h2>
+  </div>
+  <div class="stream-grid" id="streamGrid"></div>
+</section>
+
+<!-- SHARE -->
+<div class="share-bar" id="shareBar">
+  <span>Compartilhar</span>
+  <button onclick="shareTwitter()">𝕏 Twitter</button>
+  <button onclick="shareWhatsapp()">WhatsApp</button>
+  <button onclick="copyLink()">🔗 Copiar</button>
 </div>
 
+<button id="backToTop" class="back-to-top">↑</button>
 
-<footer>
-  <div class="footer-logo">STRAY <span>KIDS</span></div>
-  <div>Feito por <a href="https://github.com/Laysa-eSerrao">Laysa Serrão</a> · Fã-page não oficial · JYP Entertainment</div>
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-logo">STRAY KIDS</div>
+  <p class="footer-tagline">"You make Stray Kids stay" — STAY</p>
+  <div class="footer-links">
+    <a href="https://open.spotify.com/artist/2dIgFjalVxs4ThymZ67YCE" target="_blank">Spotify</a>
+    <a href="https://www.youtube.com/@StrayKids" target="_blank">YouTube</a>
+    <a href="https://www.melon.com/artist/timeline.htm?artistId=845405" target="_blank">MelOn</a>
+    <a href="https://mama.mnetplus.world/" target="_blank">MAMA</a>
+  </div>
+  <p class="footer-copy">Fan page feita com ❤️ pela Laysa Serrão · Não afiliada à JYP Entertainment · 2026</p>
 </footer>
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lb-close">×</button>
-  <img id="lb-img" src="" alt="" />
-</div>
-
-
-<!-- BOTÃO VOLTAR AO TOPO -->
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Voltar ao topo">↑</button>
-
-<!-- TOGGLE MODO CLARO/ESCURO -->
-<button id="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
