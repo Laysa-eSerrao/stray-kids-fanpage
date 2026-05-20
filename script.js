@@ -124,7 +124,7 @@ const timelineEvents = [
   { year:"2022", event:"MAXIDENT & MANIAC World Tour", desc:"MAXIDENT estreia em #1 no Billboard 200 — segundo consecutivo. MANIAC World Tour: retorno aos palcos internacionais com shows sold out.", badge:"Billboard #1", gold:true },
   { year:"2023", event:"5-STAR Dome Tour & Lollapalooza", desc:"Dois álbuns em #1 no Billboard. Realizam o 5-STAR Dome Tour no Japão e Ásia. Headlinam o Lollapalooza Chicago — primeiros artistas K-pop a fazer isso.", badge:"Lollapalooza", gold:true },
   { year:"2024", event:"Met Gala & ATE", desc:"Vão ao Met Gala — primeiros artistas K-pop a comparecerem juntos. Lançam ATE, 5º álbum consecutivo em #1 no Billboard 200. Iniciam o dominATE World Tour.", badge:"Met Gala", gold:true },
-  { year:"2025", event:"KARMA & Recorde Mundial de Tour", desc:"KARMA: 7º álbum em #1 no Billboard 200. O dominATE World Tour fatura US$185,9M com 1,3 milhão de ingressos — o maior tour K-pop da história.", badge:"Maior tour K-pop", gold:true },
+  { year:"2025", event:"KARMA & Recorde Mundial de Tour", desc:"KARMA: 7º álbum em #1 no Billboard 200. O dominATE World Tour fatura US$185,9M com +1,3 milhão de ingressos — o maior tour K-pop da história.", badge:"Maior tour K-pop", gold:true },
   { year:"2026", event:"Rock in Rio & Novo Álbum", desc:"Novo álbum confirmado para o segundo semestre. Headlinarão o Rock in Rio em setembro — primeira vez em solo brasileiro.", badge:"Rock in Rio 🇧🇷", gold:true },
 ];
 
@@ -365,11 +365,13 @@ function renderTimeline(){
   timelineEvents.forEach((ev,i)=>{
     const item = document.createElement('div');
     item.className = 'timeline-item reveal';
-    const side1 = `<div class="timeline-side"><div class="timeline-year">${ev.year}</div><div class="timeline-event">${ev.event}</div><div class="timeline-desc">${ev.desc}</div>${ev.badge?`<span class="timeline-badge ${ev.gold?'gold':''}">${ev.badge}</span>`:''}</div>`;
-    const dot = `<div class="timeline-dot"></div>`;
-    const spacer = `<div class="timeline-spacer"></div>`;
-    const side2 = `<div class="timeline-side tl-right"><div class="timeline-year">${ev.year}</div><div class="timeline-event">${ev.event}</div><div class="timeline-desc">${ev.desc}</div>${ev.badge?`<span class="timeline-badge ${ev.gold?'gold':''}">${ev.badge}</span>`:''}</div>`;
-    item.innerHTML = i%2===0 ? side1+dot+spacer : spacer+dot+side2;
+    const badge = ev.badge ? `<span class="timeline-badge ${ev.gold?'gold':''}">${ev.badge}</span>` : '';
+    const cardHtml = `<div class="timeline-year">${ev.year}</div><div class="timeline-event">${ev.event}</div><div class="timeline-desc">${ev.desc}</div>${badge}`;
+    if(i%2===0){
+      item.innerHTML = `<div class="timeline-side tl-left">${cardHtml}</div><div class="timeline-dot"></div><div class="timeline-spacer"></div>`;
+    } else {
+      item.innerHTML = `<div class="timeline-spacer"></div><div class="timeline-dot"></div><div class="timeline-side tl-right-content">${cardHtml}</div>`;
+    }
     container.appendChild(item);
   });
 }
