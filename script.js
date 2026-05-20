@@ -436,32 +436,16 @@ function renderTours(){
     const diff = target - new Date();
     const el = document.getElementById('rirCountdown');
     if(!el) return;
-    if(diff<=0){ el.innerHTML='<div class="cd-unit" style="min-width:200px"><span class="cd-num" style="font-size:2rem">JÁ ACONTECEU!</span><span class="cd-label">🎉 Que show incrível!</span></div>'; return; }
-    const d=Math.floor(diff/86400000);
-    const h=Math.floor((diff%86400000)/3600000);
-    const m=Math.floor((diff%3600000)/60000);
-    const s=Math.floor((diff%60000)/1000);
-    el.innerHTML = `
-      <div class="cd-unit">
-        <span class="cd-num">${d}</span>
-        <span class="cd-label">Dias</span>
-      </div>
-      <div class="cd-sep">:</div>
-      <div class="cd-unit">
-        <span class="cd-num">${String(h).padStart(2,'0')}</span>
-        <span class="cd-label">Horas</span>
-      </div>
-      <div class="cd-sep">:</div>
-      <div class="cd-unit">
-        <span class="cd-num">${String(m).padStart(2,'0')}</span>
-        <span class="cd-label">Min</span>
-      </div>
-      <div class="cd-sep">:</div>
-      <div class="cd-unit">
-        <span class="cd-num">${String(s).padStart(2,'0')}</span>
-        <span class="cd-label">Seg</span>
-      </div>
-    `;
+    if(diff<=0){
+      el.innerHTML='<div class="cd-unit" style="min-width:220px"><span class="cd-num" style="font-size:2rem;letter-spacing:2px">JÁ ACONTECEU!</span><span class="cd-label">🎉 Que show incrível!</span></div>';
+      return;
+    }
+    const d = Math.floor(diff/86400000);
+    const h = Math.floor((diff%86400000)/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+    const unit = (num, label) => `<div class="cd-unit"><span class="cd-num">${num}</span><span class="cd-label">${label}</span></div>`;
+    el.innerHTML = unit(d,'Dias') + '<div class="cd-sep">:</div>' + unit(String(h).padStart(2,'0'),'Horas') + '<div class="cd-sep">:</div>' + unit(String(m).padStart(2,'0'),'Min') + '<div class="cd-sep">:</div>' + unit(String(s).padStart(2,'0'),'Seg');
   }
   updateCountdown(); setInterval(updateCountdown,1000);
 }
