@@ -450,3 +450,9 @@ body.light-mode .intro-logo span { background: var(--grad); -webkit-background-c
   font-size: 1.5rem;
   margin-bottom: .4rem;
 }
+
+/* Fix modo claro — nomes dos membros */
+body.light-mode .member-stage { color: #ffffff !important; }
+body.light-mode .member-name { color: rgba(255,255,255,0.85) !important; }
+body.light-mode .member-role { color: rgba(255,200,200,0.9) !important; }
+body.light-mode .member-skzoo { color: rgba(255,200,200,0.8) !important; }
