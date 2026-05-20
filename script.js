@@ -142,11 +142,13 @@ const factsData = {
     { tag:"Self-production", text:"O sub-grupo <strong>3RACHA</strong> (Bang Chan, Han e Changbin) produz e escreve a maioria das músicas. Eles têm controle criativo quase total sobre o som do grupo." },
     { tag:"Logo", text:"O logo completo do Stray Kids foi desenhado à mão pelo próprio <strong>Bang Chan</strong> antes do debut. A cor muda a cada nova era, refletindo o conceito do álbum." },
     { tag:"Fandom", text:"O fandom <strong>STAY</strong> completa o slogan: <em>'You make Stray Kids stay'</em>. Sem os fãs, o grupo estaria 'stray' (perdido) — relação simbólica entre nome e fandom." },
+    { tag:"Deadpool", text:"A performance do Stray Kids com tema do Deadpool gerou elogios de <strong>Ryan Reynolds e Hugh Jackman</strong>, levando o grupo a participar da trilha sonora de <em>Deadpool & Wolverine</em> (2024)." },
+    { tag:"Arcane", text:"O Stray Kids participou da trilha sonora de <strong>Arcane</strong>, a animação da Netflix inspirada no universo de <em>League of Legends</em> — jogo favorito do <strong>Felix</strong>, que é fã assumido do game." },
   ],
   recordes: [
     { tag:"Record", text:"O SKZ é um dos poucos grupos do K-pop a ter <strong>8 álbuns consecutivos</strong> estreando em #1 no Billboard 200, ao lado de nomes como BTS e Taylor Swift." },
     { tag:"Met Gala 2024", text:"Em maio de 2024, o Stray Kids se tornou o <strong>primeiro grupo K-pop</strong> cujos todos os membros compareceram juntos ao Met Gala, como convidados do designer Tommy Hilfiger." },
-    { tag:"Deadpool", text:"A performance com tema do Deadpool gerou elogios de <strong>Ryan Reynolds e Hugh Jackman</strong>, levando o grupo a participar da trilha sonora de Deadpool & Wolverine (2024)." },
+
     { tag:"Spotify", text:"Em 2025, o SKZ se tornou o <strong>terceiro artista coreano</strong> a atingir 10 bilhões de streams no Spotify, após BTS e BLACKPINK." },
     { tag:"dominATE Tour", text:"O dominATE World Tour (2024–2025) se tornou o <strong>maior tour K-pop da história</strong> em arrecadação: US$185,9 milhões com +1,3 milhão de ingressos vendidos. Alcançou o #2 no ranking global da Pollstar." },
     { tag:"Lollapalooza", text:"Em 2023, o Stray Kids headlinou o <strong>Lollapalooza Chicago</strong>, se tornando os primeiros artistas K-pop a headlinar um dos maiores festivais de música do mundo." },
@@ -155,6 +157,7 @@ const factsData = {
   ],
   membros: [
     { tag:"Felix", text:"<strong>Felix</strong> tem uma das vozes mais reconhecíveis do K-pop — sua profundidade vocal contrasta com sua aparência. Em 2025, colaborou com LiSA na abertura do anime <em>Solo Leveling</em> 2ª temporada." },
+    { tag:"Felix & Taekwondo", text:"Antes de se tornar idol, <strong>Felix</strong> praticou Taekwondo e conquistou impressionantes <strong>63 medalhas</strong> na modalidade. Uma prova de que a disciplina e dedicação sempre fizeram parte de sua personalidade." },
     { tag:"Hyunjin artista", text:"Além de idol, <strong>Hyunjin</strong> é pintor sério. Já realizou exposições de arte e seus trabalhos foram leiloados. Usa a arte visual para expressar as eras do grupo." },
     { tag:"Chan's Room", text:"De 2019 a 2023, <strong>Bang Chan</strong> realizava lives semanais chamadas <em>'Chan's Room'</em> — conteúdo muito amado pelos STAYs. A série foi encerrada em agosto de 2023." },
     { tag:"Lee Know & gatos", text:"<strong>Lee Know</strong> tem 3 gatos chamados Soonie, Doongie e Dori. Os felinos são tão famosos entre os STAYs que têm fã-clube próprio e aparecem constantemente nos vlogs do grupo." },
