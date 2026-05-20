@@ -81,6 +81,13 @@ const albums = [
   { year:"2024", name:"ATE",             badge:"Billboard #1",    type:"mini",    track:"Chk Chk Boom",  tracks:9,  img:"https://i.pinimg.com/736x/eb/36/95/eb369561e109f1a2c719786dc9586440.jpg" },
   { year:"2025", name:"KARMA",           badge:"Billboard #1 · 7º", type:"full",  track:"CEREMONY",     tracks:11, img:"https://i.pinimg.com/736x/c4/84/f3/c484f39d8ec19c219e5df2d0ac7aea90.jpg" },
   { year:"2025", name:"DO IT",           badge:"Billboard #1 · 8º", type:"special",track:"Do It / DIVINE",tracks:5, img:"https://i.pinimg.com/736x/9d/20/bf/9d20bfdd0846c9fa44160593d31879df.jpg" },
+  /* Mini álbums anteriores */
+  { year:"2019", name:"Clé 2: Yellow Wood", badge:"Mini album",   type:"mini",   track:"Side Effects",   tracks:6,  img:null },
+  { year:"2020", name:"Clé: LEVANTER",     badge:"Mini album",   type:"mini",   track:"Levanter",       tracks:6,  img:null },
+  { year:"2020", name:"IN生 (IN LIFE)",    badge:"Full album",   type:"full",   track:"Back Door",      tracks:14, img:null },
+  { year:"2021", name:"SKZ-REPACKAGE",     badge:"Repackage",    type:"special",track:"Thunderous (소리꾼)",tracks:16,img:null },
+  { year:"2023", name:"5-STAR (Japanese)", badge:"Japanese Full",type:"full",   track:"Mirror Mirror",  tracks:12, img:null },
+  { year:"2024", name:"樂-STAR (JAPAN)",   badge:"Japanese Mini",type:"mini",   track:"MIROH (Japanese)",tracks:7, img:null },
 ];
 
 const timelineEvents = [
@@ -115,15 +122,23 @@ const factsData = {
   ],
   recordes: [
     { tag:"Record", text:"O SKZ é um dos poucos grupos do K-pop a ter <strong>8 álbuns consecutivos</strong> estreando em #1 no Billboard 200, ao lado de nomes como BTS e Taylor Swift." },
-    { tag:"Met Gala 2024", text:"Em maio de 2024, o Stray Kids se tornou o <strong>primeiro grupo K-pop</strong> cujos todos os membros compareceram juntos ao Met Gala." },
-    { tag:"Deadpool", text:"A performance com tema do Deadpool gerou elogios de <strong>Ryan Reynolds e Hugh Jackman</strong>, levando o grupo a participar da trilha de Deadpool & Wolverine (2024)." },
+    { tag:"Met Gala 2024", text:"Em maio de 2024, o Stray Kids se tornou o <strong>primeiro grupo K-pop</strong> cujos todos os membros compareceram juntos ao Met Gala, como convidados do designer Tommy Hilfiger." },
+    { tag:"Deadpool", text:"A performance com tema do Deadpool gerou elogios de <strong>Ryan Reynolds e Hugh Jackman</strong>, levando o grupo a participar da trilha sonora de Deadpool & Wolverine (2024)." },
     { tag:"Spotify", text:"Em 2025, o SKZ se tornou o <strong>terceiro artista coreano</strong> a atingir 10 bilhões de streams no Spotify, após BTS e BLACKPINK." },
+    { tag:"dominATE Tour", text:"O dominATE World Tour (2024–2025) se tornou o <strong>maior tour K-pop da história</strong> em arrecadação: US$185,9 milhões com +1,3 milhão de ingressos vendidos. Alcançou o #2 no ranking global da Pollstar." },
+    { tag:"Lollapalooza", text:"Em 2023, o Stray Kids headlinou o <strong>Lollapalooza Chicago</strong>, se tornando os primeiros artistas K-pop a headlinar um dos maiores festivais de música do mundo." },
+    { tag:"Billboard 200", text:"O SKZ é o único grupo K-pop além do BTS a ter <strong>múltiplos álbuns consecutivos</strong> estreando em #1 no Billboard 200 — feito que coloca o grupo em seleta companhia na história da música pop." },
+    { tag:"Primeiro show no Rogers Stadium", text:"Durante o dominATE Tour, o SKZ foi o <strong>primeiro artista a se apresentar</strong> no novo Rogers Stadium em Toronto, Canadá — abrindo a história do local." },
   ],
   membros: [
     { tag:"Felix", text:"<strong>Felix</strong> tem uma das vozes mais reconhecíveis do K-pop — sua profundidade vocal contrasta com sua aparência. Em 2025, colaborou com LiSA na abertura do anime <em>Solo Leveling</em> 2ª temporada." },
     { tag:"Hyunjin artista", text:"Além de idol, <strong>Hyunjin</strong> é pintor sério. Já realizou exposições de arte e seus trabalhos foram leiloados. Usa a arte visual para expressar as eras do grupo." },
     { tag:"Chan's Room", text:"De 2019 a 2023, <strong>Bang Chan</strong> realizava lives semanais chamadas <em>'Chan's Room'</em> — conteúdo muito amado pelos STAYs. A série foi encerrada em agosto de 2023." },
-    { tag:"Rock in Rio 2026", text:"Em setembro de 2026, o Stray Kids headlinarão o <strong>Rock in Rio</strong> no Brasil — consolidando seu alcance global e aproximando o grupo dos fãs brasileiros." },
+    { tag:"Lee Know & gatos", text:"<strong>Lee Know</strong> tem 3 gatos chamados Soonie, Doongie e Dori. Os felinos são tão famosos entre os STAYs que têm fã-clube próprio e aparecem constantemente nos vlogs do grupo." },
+    { tag:"Han letrista", text:"<strong>Han</strong> é considerado um dos letristas mais emocionais do K-pop. Cresceu na Malásia e voltou à Coreia para perseguir o sonho — experiência que inspira muito das suas letras sobre solidão e pertencimento." },
+    { tag:"Seungmin & beisebol", text:"<strong>Seungmin</strong> praticou beisebol profissionalmente antes de se tornar trainee. Torce pelo time Doosan Bears e é frequentemente visto assistindo jogos em seus dias de folga." },
+    { tag:"I.N & trot", text:"<strong>I.N</strong>, o maknae do grupo, tem habilidade especial de cantar trot — gênero musical coreano tradicional. Surpreende fãs e membros sempre que demonstra essa habilidade ao vivo." },
+    { tag:"Changbin & rap", text:"<strong>Changbin</strong> é famoso por seu flow de rap extremamente rápido. Apesar de ser o menor do grupo em altura (167cm), tem uma presença de palco avassaladora e escreve letras poderosas sobre superação." },
   ]
 };
 
@@ -238,14 +253,14 @@ function renderMembers(){
     card.style.transitionDelay = `${i*.07}s`;
     card.innerHTML = `
       <div class="member-img-wrap">
-        <img src="${m.skzooImg}" alt="${m.name}" loading="lazy">
+        <img src="${m.img}" alt="${m.name}" loading="lazy">
         <div class="member-overlay"></div>
+        <div class="member-skzoo-badge"><img src="${m.skzooImg}" alt="${m.skzoo}"></div>
         <div class="member-bottom">
           <span class="member-badge">${m.unit}</span>
           <div class="member-stage">${m.name}</div>
           <div class="member-name">${m.full}</div>
           <div class="member-role">${m.pos.split('/')[0].trim()}</div>
-          <div class="member-skzoo">SKZoo: ${m.skzoo}</div>
         </div>
       </div>
     `;
@@ -325,7 +340,8 @@ function renderTimeline(){
     const side1 = `<div class="timeline-side"><div class="timeline-year">${ev.year}</div><div class="timeline-event">${ev.event}</div><div class="timeline-desc">${ev.desc}</div>${ev.badge?`<span class="timeline-badge ${ev.gold?'gold':''}">${ev.badge}</span>`:''}</div>`;
     const dot = `<div class="timeline-dot"></div>`;
     const spacer = `<div class="timeline-spacer"></div>`;
-    item.innerHTML = i%2===0 ? side1+dot+spacer : spacer+dot+side1;
+    const side2 = `<div class="timeline-side tl-right"><div class="timeline-year">${ev.year}</div><div class="timeline-event">${ev.event}</div><div class="timeline-desc">${ev.desc}</div>${ev.badge?`<span class="timeline-badge ${ev.gold?'gold':''}">${ev.badge}</span>`:''}</div>`;
+    item.innerHTML = i%2===0 ? side1+dot+spacer : spacer+dot+side2;
     container.appendChild(item);
   });
 }
@@ -412,7 +428,7 @@ function renderGallery(){
   gallery.forEach(g=>{
     const item = document.createElement('div');
     item.className = 'gallery-item';
-    item.innerHTML = `<img src="${g.url}" alt="${g.alt}" loading="lazy"><div class="gallery-hover">🔍</div>`;
+    item.innerHTML = `<img src="${g.url}" alt="${g.alt}" loading="lazy"><div class="gallery-hover"><span class="gallery-name">${g.alt}</span></div>`;
     item.addEventListener('click', ()=>{
       document.getElementById('lbImg').src = g.url;
       document.getElementById('lightbox').classList.remove('hidden');
@@ -426,6 +442,7 @@ function renderGallery(){
 /* ── SKZOO ── */
 function renderSkzoo(){
   const grid = document.getElementById('skzooGrid');
+  grid.style.gridTemplateColumns = 'repeat(4, 1fr)';
   skzoo.forEach(s=>{
     const card = document.createElement('div');
     card.className = 'skzoo-card reveal';
@@ -471,6 +488,18 @@ function initReveal(){
     entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('visible'); obs.unobserve(entry.target); } });
   },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el));
+}
+
+/* ── TEMA ── */
+document.getElementById('themeToggleBtn').addEventListener('click', ()=>{
+  document.body.classList.toggle('light-mode');
+  const isLight = document.body.classList.contains('light-mode');
+  document.getElementById('themeToggleBtn').textContent = isLight ? '☀️' : '🌙';
+  localStorage.setItem('skz-theme', isLight ? 'light' : 'dark');
+});
+if(localStorage.getItem('skz-theme')==='light'){
+  document.body.classList.add('light-mode');
+  document.getElementById('themeToggleBtn').textContent = '☀️';
 }
 
 /* ── INIT ── */
