@@ -211,14 +211,13 @@ const skzoo = [
 ];
 
 const streamLinks = [
-  { icon:"🎧", name:"Spotify",    action:"Stream agora", url:"https://open.spotify.com/artist/2dIgFjalVxs4ThymZ67YCE" },
-  { icon:"▶️",  name:"YouTube",   action:"Assistir MVs", url:"https://www.youtube.com/@StrayKids" },
-  { icon:"🍎", name:"Apple Music",action:"Stream agora", url:"https://music.apple.com/us/artist/stray-kids/1304823362" },
-  { icon:"🍈", name:"MelOn",      action:"Chart coreano",url:"https://www.melon.com/artist/timeline.htm?artistId=845405" },
-  { icon:"🏆", name:"MAMA Awards",action:"Votar agora",  url:"https://mama.mnetplus.world/" },
-  { icon:"⭐",  name:"AMAs",       action:"Votar agora",  url:"https://www.theamas.com/" },
-  { icon:"🎵", name:"SMA",        action:"Votar agora",  url:"https://seoulmusicawards.com/en/overview/awards" },
-  { icon:"🌏", name:"AAA",        action:"Votar agora",  url:"https://www.asiaartistawards.com/" },
+  { type:"stream", icon:'<img src="spotify.svg"  alt="Spotify"     style="width:36px;height:36px;filter:brightness(0) saturate(100%) invert(71%) sepia(61%) saturate(500%) hue-rotate(95deg) brightness(101%) contrast(97%)">', name:"Spotify",     action:"Stream agora", url:"https://open.spotify.com/artist/2dIgFjalVxs4ThymZ67YCE",  color:"#1ED760" },
+  { type:"stream", icon:'<img src="youtube.svg"  alt="YouTube"     style="width:36px;height:36px;filter:brightness(0) saturate(100%) invert(17%) sepia(99%) saturate(7492%) hue-rotate(1deg) brightness(105%) contrast(116%)">', name:"YouTube",     action:"Assistir MVs", url:"https://www.youtube.com/@StrayKids",                          color:"#FF0000" },
+  { type:"stream", icon:'<img src="applemusic.svg" alt="Apple Music" style="width:36px;height:36px;filter:brightness(0) saturate(100%) invert(20%) sepia(97%) saturate(4000%) hue-rotate(340deg) brightness(103%) contrast(102%)">', name:"Apple Music", action:"Stream agora", url:"https://music.apple.com/us/artist/stray-kids/1304823362",      color:"#FA243C" },
+  { type:"vote",   icon:'<img src="https://mama.mnetplus.world/images/history/icon/icon-mnetplus.svg" alt="MAMA" style="width:36px;height:36px;object-fit:contain">', name:"MAMA Awards", action:"Votar agora",  url:"https://mama.mnetplus.world/",                               color:"#e8192c" },
+  { type:"vote",   icon:'<img src="https://www.theamas.com/wp-content/uploads/2025/02/25AMA_Logo.png" alt="AMAs" style="width:60px;height:36px;object-fit:contain">', name:"AMAs",        action:"Votar agora",  url:"https://www.theamas.com/",                                   color:"#ffffff" },
+  { type:"vote",   icon:'<img src="https://seoulmusicawards.com/assets/img/logo/figma/ic_logo.43695db77e.svg" alt="SMA" style="width:36px;height:36px;object-fit:contain">', name:"SMA",  action:"Votar agora",  url:"https://seoulmusicawards.com/en/overview/awards",            color:"#ffffff" },
+  { type:"vote",   icon:'<img src="https://cf.asiaartistawards.com/asiaartistawards/img/img_logo.png" alt="AAA" style="width:60px;height:36px;object-fit:contain">', name:"AAA",         action:"Votar agora",  url:"https://www.asiaartistawards.com/",                          color:"#ffffff" },
 ];
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -536,13 +535,29 @@ function renderSkzoo(){
 /* ── STREAM ── */
 function renderStream(){
   const grid = document.getElementById('streamGrid');
-  streamLinks.forEach(s=>{
-    const card = document.createElement('a');
-    card.className = 'stream-card';
-    card.href = s.url; card.target = '_blank';
-    card.innerHTML = `<div class="stream-icon">${s.icon}</div><div class="stream-name">${s.name}</div><div class="stream-action">${s.action}</div>`;
-    grid.appendChild(card);
-  });
+  const streamItems = streamLinks.filter(s=>s.type==='stream');
+  const voteItems   = streamLinks.filter(s=>s.type==='vote');
+
+  const makeSection = (title, items) => {
+    const label = document.createElement('div');
+    label.className = 'stream-section-label';
+    label.textContent = title;
+    grid.appendChild(label);
+    const row = document.createElement('div');
+    row.className = 'stream-row';
+    items.forEach(s=>{
+      const card = document.createElement('a');
+      card.className = 'stream-card';
+      card.href = s.url; card.target = '_blank';
+      card.style.setProperty('--card-color', s.color);
+      card.innerHTML = `<div class="stream-icon">${s.icon}</div><div class="stream-name">${s.name}</div><div class="stream-action">${s.action}</div>`;
+      row.appendChild(card);
+    });
+    grid.appendChild(row);
+  };
+
+  makeSection('🎵 Streaming', streamItems);
+  makeSection('🗳️ Votação', voteItems);
 }
 
 /* ── BACK TO TOP ── */

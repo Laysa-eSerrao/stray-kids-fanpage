@@ -685,3 +685,39 @@ body.light-mode .member-skzoo { color: rgba(255,200,200,0.8) !important; }
   .stream-spotify-embed { height: 300px; }
   .stream-yt-wrap iframe { height: 220px; }
 }
+
+/* ── Stream — seções e logos ── */
+.stream-section-label {
+  font-size: .68rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--acl);
+  font-weight: 600;
+  margin: 0 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid var(--bd);
+  grid-column: 1 / -1;
+}
+.stream-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.stream-grid {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.stream-card {
+  flex: 1;
+  min-width: 150px;
+  max-width: 220px;
+}
+.stream-card:hover {
+  border-color: var(--card-color, var(--bdh));
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--card-color, var(--ac)) 30%, transparent);
+}
+.stream-icon img { display: block; }
