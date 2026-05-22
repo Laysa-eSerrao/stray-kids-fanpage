@@ -41,9 +41,9 @@
     <li><a href="#galeria">Galeria</a></li>
     <li><a href="#skzoo">SKZoo</a></li>
     <li><a href="#novos-stays">Novos STAYs</a></li>
-    <li><a href="#section-favorites">❤️ Favoritos</a></li>
   </ul>
   <div class="nav-controls">
+    <div id="langControls" class="lang-controls"></div>
     <button class="nav-search-btn" id="searchOpenBtn" title="Buscar">🔍</button>
     <button id="themeToggleBtn" class="nav-btn">🌙</button>
     <button class="nav-toggle" id="navToggle">☰</button>
@@ -85,8 +85,8 @@
 <!-- MEMBROS -->
 <section id="membros" class="section">
   <div class="section-header">
-    <span class="section-label">OT8</span>
-    <h2 class="section-title">Os 8 do Stray Kids</h2>
+    <span class="section-label" data-i18n="members_label">OT8</span>
+    <h2 class="section-title" data-i18n="members_title">Os 8 do Stray Kids</h2>
     <p class="section-desc">Clique em qualquer membro para ver o perfil completo</p>
   </div>
   <div class="members-grid" id="membersGrid"></div>
@@ -104,8 +104,8 @@
 <!-- DISCOGRAFIA -->
 <section id="discografia" class="section-alt">
   <div class="section-header">
-    <span class="section-label">Música</span>
-    <h2 class="section-title">Discografia</h2>
+    <span class="section-label" data-i18n="disco_label">Música</span>
+    <h2 class="section-title" data-i18n="disco_title">Discografia</h2>
   </div>
   <div class="disco-filter" id="discoFilter">
     <button class="filter-btn active" data-filter="all">Todos</button>
@@ -120,8 +120,8 @@
 <!-- TIMELINE -->
 <section id="timeline" class="section">
   <div class="section-header">
-    <span class="section-label">História</span>
-    <h2 class="section-title">Linha do Tempo</h2>
+    <span class="section-label" data-i18n="history_label">História</span>
+    <h2 class="section-title" data-i18n="history_title">Linha do Tempo</h2>
   </div>
   <div class="timeline-container" id="timelineContainer"></div>
 </section>
@@ -129,8 +129,8 @@
 <!-- TOURS -->
 <section id="tours" class="section-alt">
   <div class="section-header">
-    <span class="section-label">Tours</span>
-    <h2 class="section-title">Histórico de Tours</h2>
+    <span class="section-label" data-i18n="tours_label">Tours</span>
+    <h2 class="section-title" data-i18n="tours_title">Histórico de Tours</h2>
     <p class="section-desc">De 2022 até hoje — do MANIAC ao Rock in Rio</p>
   </div>
   <div class="tour-stats-row">
@@ -159,8 +159,8 @@
 <!-- CURIOSIDADES -->
 <section id="curiosidades" class="section">
   <div class="section-header">
-    <span class="section-label">Você Sabia?</span>
-    <h2 class="section-title">Curiosidades</h2>
+    <span class="section-label" data-i18n="facts_label">Você Sabia?</span>
+    <h2 class="section-title" data-i18n="facts_title">Curiosidades</h2>
   </div>
   <div class="facts-tabs" id="factsTabs">
     <button class="facts-tab active" data-tab="geral">Geral</button>
@@ -173,8 +173,8 @@
 <!-- MVs -->
 <section id="mvs" class="section-alt">
   <div class="section-header">
-    <span class="section-label">Videoclipes</span>
-    <h2 class="section-title">MVs Icônicos</h2>
+    <span class="section-label" data-i18n="mvs_label">Videoclipes</span>
+    <h2 class="section-title" data-i18n="mvs_title">MVs Icônicos</h2>
   </div>
   <div id="mvsFeatured"></div>
   <div class="mvs-wrap">
@@ -187,8 +187,8 @@
 <!-- GALERIA -->
 <section id="galeria" class="section">
   <div class="section-header">
-    <span class="section-label">Fotos</span>
-    <h2 class="section-title">Galeria</h2>
+    <span class="section-label" data-i18n="gallery_label">Fotos</span>
+    <h2 class="section-title" data-i18n="gallery_title">Galeria</h2>
     <p class="section-desc">Clique em qualquer imagem para ampliar</p>
   </div>
   <div class="gallery-masonry" id="galleryGrid"></div>
@@ -203,8 +203,8 @@
 <!-- SKZOO -->
 <section id="skzoo" class="section-alt">
   <div class="section-header">
-    <span class="section-label">Personagens Oficiais</span>
-    <h2 class="section-title">SKZoo</h2>
+    <span class="section-label" data-i18n="skzoo_label">Personagens Oficiais</span>
+    <h2 class="section-title" data-i18n="skzoo_title">SKZoo</h2>
     <p class="section-desc">Cada membro tem um personagem animal que representa sua personalidade</p>
   </div>
   <div class="skzoo-grid" id="skzooGrid"></div>
@@ -213,8 +213,8 @@
 <!-- STREAM -->
 <section id="stream" class="section">
   <div class="section-header">
-    <span class="section-label">STAY em Ação</span>
-    <h2 class="section-title">Stream & Votar</h2>
+    <span class="section-label" data-i18n="stream_label">STAY em Ação</span>
+    <h2 class="section-title" data-i18n="stream_title">Stream & Votar</h2>
   </div>
 
   <div class="stream-grid" id="streamGrid"></div>
@@ -229,8 +229,8 @@
 <!-- PARA NOVOS STAYs -->
 <section id="novos-stays" class="section-alt">
   <div class="section-header">
-    <span class="section-label">Bem-vindo ao fandom</span>
-    <h2 class="section-title">Para Novos STAYs</h2>
+    <span class="section-label" data-i18n="newstays_label">Bem-vindo ao fandom</span>
+    <h2 class="section-title" data-i18n="newstays_title">Para Novos STAYs</h2>
     <p class="section-desc">Começando do zero? Aqui está tudo que você precisa saber</p>
   </div>
   <div class="new-stays-grid" id="newStaysGrid"></div>
@@ -239,20 +239,10 @@
 <!-- QUOTES -->
 <section id="quotes" class="section">
   <div class="section-header">
-    <span class="section-label">Frases & Slogans</span>
-    <h2 class="section-title">Em Palavras</h2>
+    <span class="section-label" data-i18n="quotes_label">Frases & Slogans</span>
+    <h2 class="section-title" data-i18n="quotes_title">Em Palavras</h2>
   </div>
   <div class="quotes-grid" id="quotesSection"></div>
-</section>
-
-<!-- FAVORITOS -->
-<section id="section-favorites">
-  <div class="section-header">
-    <span class="section-label">Seus favoritos</span>
-    <h2 class="section-title">Meus Favoritos ❤️</h2>
-    <p class="section-desc">Membros e álbuns que você curtiu</p>
-  </div>
-  <div class="favs-section" id="favsContent"></div>
 </section>
 
 <!-- SHARE -->
