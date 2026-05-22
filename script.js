@@ -236,20 +236,141 @@ if(introBtn && introScreen){
 (function(){
   const canvas = document.getElementById('heroCanvas');
   const ctx = canvas.getContext('2d');
-  let particles = [];
-  function resize(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
+  let W, H, particles=[], mouse={x:0,y:0};
+
+  function resize(){
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
   resize();
   window.addEventListener('resize', resize);
-  for(let i=0;i<80;i++) particles.push({ x:Math.random()*canvas.width, y:Math.random()*canvas.height, vx:(Math.random()-.5)*.3, vy:(Math.random()-.5)*.3, r:Math.random()*1.5+.5, a:Math.random() });
+  window.addEventListener('mousemove', e=>{ mouse.x=e.clientX; mouse.y=e.clientY; });
+
+  // Criar partículas de 3 tipos
+  function createParticles(){
+    particles = [];
+    const count = Math.min(120, Math.floor(W*H/8000));
+    for(let i=0;i<count;i++){
+      const type = Math.random() < .15 ? 'star' : Math.random() < .3 ? 'ring' : 'dot';
+      particles.push({
+        x: Math.random()*W, y: Math.random()*H,
+        vx:(Math.random()-.5)*.4, vy:(Math.random()-.5)*.4,
+        r: type==='star'?3:type==='ring'?Math.random()*3+2:Math.random()*1.8+.4,
+        a: Math.random()*.8+.1,
+        type,
+        pulse: Math.random()*Math.PI*2,
+        speed: Math.random()*.02+.005,
+      });
+    }
+  }
+  createParticles();
+  window.addEventListener('resize', createParticles);
+
+  // Desenhar letra K estilizada no centro como marca d'água
+  function drawK(alpha){
+    const cx = W/2, cy = H/2;
+    const size = Math.min(W,H) * .55;
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.strokeStyle = '#e8192c';
+    ctx.lineWidth = size*.035;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    // Haste vertical
+    ctx.beginPath();
+    ctx.moveTo(cx - size*.18, cy - size*.38);
+    ctx.lineTo(cx - size*.18, cy + size*.38);
+    ctx.stroke();
+    // Braço superior
+    ctx.beginPath();
+    ctx.moveTo(cx - size*.18, cy - size*.02);
+    ctx.lineTo(cx + size*.22, cy - size*.38);
+    ctx.stroke();
+    // Braço inferior
+    ctx.beginPath();
+    ctx.moveTo(cx - size*.18, cy - size*.02);
+    ctx.lineTo(cx + size*.22, cy + size*.38);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  let frame = 0;
   function draw(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.clearRect(0,0,W,H);
+    frame++;
+
+    // K marca d'água pulsando
+    const kAlpha = .025 + Math.sin(frame*.012)*.01;
+    drawK(kAlpha);
+
+    // Partículas
     particles.forEach(p=>{
-      p.x+=p.vx; p.y+=p.vy;
-      if(p.x<0)p.x=canvas.width; if(p.x>canvas.width)p.x=0;
-      if(p.y<0)p.y=canvas.height; if(p.y>canvas.height)p.y=0;
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle=`rgba(232,25,44,${p.a*.4})`; ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if(p.x<-10) p.x=W+10; if(p.x>W+10) p.x=-10;
+      if(p.y<-10) p.y=H+10; if(p.y>H+10) p.y=-10;
+
+      // Repulsão suave do mouse
+      const dx = p.x - mouse.x, dy = p.y - mouse.y;
+      const dist = Math.sqrt(dx*dx+dy*dy);
+      if(dist < 120){
+        p.vx += dx/dist*.08;
+        p.vy += dy/dist*.08;
+      }
+      // Limitar velocidade
+      const speed = Math.sqrt(p.vx*p.vx+p.vy*p.vy);
+      if(speed > .8){ p.vx = p.vx/speed*.8; p.vy = p.vy/speed*.8; }
+
+      p.pulse += p.speed;
+      const pulseA = p.a * (.7 + Math.sin(p.pulse)*.3);
+
+      if(p.type === 'star'){
+        // Estrela de 4 pontas
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.pulse);
+        ctx.fillStyle = `rgba(255,107,122,${pulseA})`;
+        ctx.beginPath();
+        for(let j=0;j<4;j++){
+          const angle = (j/4)*Math.PI*2;
+          const outer = p.r*2.5, inner = p.r*.8;
+          ctx.lineTo(Math.cos(angle)*outer, Math.sin(angle)*outer);
+          ctx.lineTo(Math.cos(angle+Math.PI/4)*inner, Math.sin(angle+Math.PI/4)*inner);
+        }
+        ctx.closePath(); ctx.fill();
+        ctx.restore();
+      } else if(p.type === 'ring'){
+        // Anel
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.strokeStyle = `rgba(232,25,44,${pulseA*.6})`;
+        ctx.lineWidth = .8;
+        ctx.stroke();
+      } else {
+        // Ponto normal com glow
+        const grad = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3);
+        grad.addColorStop(0, `rgba(232,25,44,${pulseA})`);
+        grad.addColorStop(1, 'rgba(232,25,44,0)');
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r*3,0,Math.PI*2);
+        ctx.fillStyle=grad; ctx.fill();
+      }
     });
+
+    // Linhas de conexão entre partículas próximas
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y;
+        const d=Math.sqrt(dx*dx+dy*dy);
+        if(d<90){
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x,particles[i].y);
+          ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.strokeStyle=`rgba(232,25,44,${(1-d/90)*.12})`;
+          ctx.lineWidth=.5;
+          ctx.stroke();
+        }
+      }
+    }
+
     requestAnimationFrame(draw);
   }
   draw();
@@ -607,6 +728,7 @@ function initAll(){
   initSearch();
   initDrawer();
   initLightboxSwipe();
+  initEraComparator();
   addSkeletonToImages();
   setTimeout(initReveal, 200);
 }
@@ -763,4 +885,90 @@ function renderQuotes(){
       <div class="quote-meta"><span class="quote-song">${q.song}</span><span class="quote-member">${q.member}</span></div>
     </div>
   `).join('');
+}
+
+/* ── COMPARADOR DE ERAS ── */
+const eraMeta = {
+  "Mixtape":            { billboard:"—",       daesangs:0, tours:"—" },
+  "I Am NOT":           { billboard:"—",       daesangs:0, tours:"—" },
+  "I Am WHO":           { billboard:"—",       daesangs:0, tours:"—" },
+  "I Am YOU":           { billboard:"—",       daesangs:0, tours:"—" },
+  "Clé 1: MIROH":      { billboard:"Top 100", daesangs:0, tours:"—" },
+  "Clé 2: Yellow Wood": { billboard:"Top 100", daesangs:0, tours:"—" },
+  "Clé: Levanter":     { billboard:"Top 100", daesangs:1, tours:"—" },
+  "GO LIVE":            { billboard:"Top 100", daesangs:2, tours:"—" },
+  "IN生 (IN LIFE)":    { billboard:"Top 50",  daesangs:2, tours:"—" },
+  "NOEASY":             { billboard:"Top 5",   daesangs:3, tours:"—" },
+  "ODDINARY":           { billboard:"#1",      daesangs:4, tours:"MANIAC World Tour" },
+  "MAXIDENT":           { billboard:"#1",      daesangs:5, tours:"MANIAC World Tour" },
+  "★★★★★ (5-STAR)":   { billboard:"#1",      daesangs:6, tours:"5-STAR Dome Tour" },
+  "ROCK-STAR":          { billboard:"#1",      daesangs:7, tours:"5-STAR Dome Tour" },
+  "ATE":                { billboard:"#1",      daesangs:8, tours:"dominATE World Tour" },
+  "KARMA":              { billboard:"#1",      daesangs:9, tours:"dominATE World Tour" },
+  "DO IT":              { billboard:"#1",      daesangs:9, tours:"dominATE: Celebrate" },
+};
+
+function renderEraCard(album, side){
+  const meta = eraMeta[album.name] || { billboard:"—", daesangs:0, tours:"—" };
+  const imgHtml = album.img
+    ? `<img src="${album.img}" alt="${album.name}" loading="lazy">`
+    : `<div class="era-card-cover-placeholder">${album.name.charAt(0)}</div>`;
+  return `
+    <div class="era-card">
+      <div class="era-card-cover">${imgHtml}</div>
+      <div class="era-card-body">
+        <div class="era-card-year">${album.year} · ${album.badge}</div>
+        <div class="era-card-name">${album.name}</div>
+        <div class="era-stats">
+          <div class="era-stat">
+            <div class="era-stat-label">Faixa título</div>
+            <div class="era-stat-value">${album.track}</div>
+          </div>
+          <div class="era-stat">
+            <div class="era-stat-label">Faixas</div>
+            <div class="era-stat-value highlight">${album.tracks}</div>
+          </div>
+          <div class="era-stat">
+            <div class="era-stat-label">Billboard 200</div>
+            <div class="era-stat-value highlight">${meta.billboard}</div>
+          </div>
+          <div class="era-stat">
+            <div class="era-stat-label">Tour da era</div>
+            <div class="era-stat-value">${meta.tours}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function initEraComparator(){
+  const selA = document.getElementById('eraSelectA');
+  const selB = document.getElementById('eraSelectB');
+  const cards = document.getElementById('eraCompareCards');
+  if(!selA || !selB || !cards) return;
+
+  const mainAlbums = albums.filter(a => a.type === 'full' || a.type === 'ep' || a.type === 'mixtape');
+
+  mainAlbums.forEach((a, i) => {
+    const optA = document.createElement('option');
+    optA.value = i; optA.textContent = `${a.year} · ${a.name}`;
+    selA.appendChild(optA);
+    const optB = optA.cloneNode(true);
+    selB.appendChild(optB);
+  });
+
+  selA.value = 0;
+  selB.value = Math.min(5, mainAlbums.length - 1);
+
+  function update(){
+    const a = mainAlbums[selA.value];
+    const b = mainAlbums[selB.value];
+    if(!a || !b) return;
+    cards.innerHTML = renderEraCard(a, 'A') + renderEraCard(b, 'B');
+  }
+
+  selA.addEventListener('change', update);
+  selB.addEventListener('change', update);
+  update();
 }
