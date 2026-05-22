@@ -40,8 +40,10 @@
     <li><a href="#mvs">MVs</a></li>
     <li><a href="#galeria">Galeria</a></li>
     <li><a href="#skzoo">SKZoo</a></li>
+    <li><a href="#novos-stays">Novos STAYs</a></li>
   </ul>
   <div class="nav-controls">
+    <button class="nav-search-btn" id="searchOpenBtn" title="Buscar">🔍</button>
     <button id="themeToggleBtn" class="nav-btn">🌙</button>
     <button class="nav-toggle" id="navToggle">☰</button>
   </div>
@@ -212,6 +214,31 @@
   <div class="stream-grid" id="streamGrid"></div>
 </section>
 
+
+<button id="backToTop" class="back-to-top">↑</button>
+
+
+
+
+<!-- PARA NOVOS STAYs -->
+<section id="novos-stays" class="section-alt">
+  <div class="section-header">
+    <span class="section-label">Bem-vindo ao fandom</span>
+    <h2 class="section-title">Para Novos STAYs</h2>
+    <p class="section-desc">Começando do zero? Aqui está tudo que você precisa saber</p>
+  </div>
+  <div class="new-stays-grid" id="newStaysGrid"></div>
+</section>
+
+<!-- QUOTES -->
+<section id="quotes" class="section">
+  <div class="section-header">
+    <span class="section-label">Frases & Slogans</span>
+    <h2 class="section-title">Em Palavras</h2>
+  </div>
+  <div class="quotes-grid" id="quotesSection"></div>
+</section>
+
 <!-- SHARE -->
 <div class="share-bar" id="shareBar">
   <span>Compartilhar</span>
@@ -219,8 +246,6 @@
   <button onclick="shareWhatsapp()">WhatsApp</button>
   <button onclick="copyLink()">🔗 Copiar</button>
 </div>
-
-<button id="backToTop" class="back-to-top">↑</button>
 
 <!-- FOOTER -->
 <footer id="footer">
@@ -234,6 +259,42 @@
   </div>
   <p class="footer-copy">Fan page feita com ❤️ pela Laysa Serrão · Não afiliada à JYP Entertainment · 2026</p>
 </footer>
+
+<!-- BUSCA GLOBAL -->
+<div class="search-wrap" id="searchWrap">
+  <div class="search-input-wrap">
+    <span class="search-input-icon">🔍</span>
+    <input class="search-input" id="searchInput" type="text" placeholder="Buscar membros, álbuns, curiosidades..." autocomplete="off" />
+    <button class="search-close" id="searchCloseBtn">✕</button>
+  </div>
+  <div class="search-results" id="searchResults"></div>
+</div>
+
+<!-- DRAWER MOBILE -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <span class="drawer-logo">STRAY KIDS</span>
+    <button class="drawer-close" id="drawerClose">✕</button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="#membros"      onclick="closeDrawer()">Membros</a>
+    <a href="#discografia"  onclick="closeDrawer()">Discografia</a>
+    <a href="#timeline"     onclick="closeDrawer()">História</a>
+    <a href="#tours"        onclick="closeDrawer()">Tours</a>
+    <a href="#curiosidades" onclick="closeDrawer()">Curiosidades</a>
+    <a href="#mvs"          onclick="closeDrawer()">MVs</a>
+    <a href="#galeria"      onclick="closeDrawer()">Galeria</a>
+    <a href="#skzoo"        onclick="closeDrawer()">SKZoo</a>
+    <a href="#quotes"       onclick="closeDrawer()">Frases & Slogans</a>
+    <a href="#novos-stays"  onclick="closeDrawer()">Para novos STAYs</a>
+    <a href="#stream"       onclick="closeDrawer()">Stream & Votar</a>
+  </nav>
+  <div class="drawer-footer">"You make Stray Kids stay"</div>
+</div>
+
+
+
 
 <script src="script.js"></script>
 </body>
