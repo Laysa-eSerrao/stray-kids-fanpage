@@ -38,10 +38,10 @@
     <li><a href="#tours">Tours</a></li>
     <li><a href="#curiosidades">Curiosidades</a></li>
     <li><a href="#mvs">MVs</a></li>
-    <li><a href="#comparador">Eras</a></li>
     <li><a href="#galeria">Galeria</a></li>
     <li><a href="#skzoo">SKZoo</a></li>
     <li><a href="#novos-stays">Novos STAYs</a></li>
+    <li><a href="#section-favorites">❤️ Favoritos</a></li>
   </ul>
   <div class="nav-controls">
     <button class="nav-search-btn" id="searchOpenBtn" title="Buscar">🔍</button>
@@ -176,34 +176,11 @@
     <span class="section-label">Videoclipes</span>
     <h2 class="section-title">MVs Icônicos</h2>
   </div>
-  <div class="mvs-featured" id="mvsFeatured"></div>
-  <div class="mvs-carousel-wrap">
-    <button class="mvs-arrow mvs-arrow-left" id="mvsLeft">‹</button>
-    <div class="mvs-carousel" id="mvsGrid"></div>
-    <button class="mvs-arrow mvs-arrow-right" id="mvsRight">›</button>
-  </div>
-</section>
-
-<!-- COMPARADOR DE ERAS -->
-<section id="comparador" class="section-alt">
-  <div class="section-header">
-    <span class="section-label">Compare os álbuns</span>
-    <h2 class="section-title">Comparador de Eras</h2>
-    <p class="section-desc">Selecione dois álbuns para comparar lado a lado</p>
-  </div>
-  <div class="era-compare">
-    <div class="era-compare-controls">
-      <div class="era-select-wrap">
-        <span class="era-select-label">Álbum A</span>
-        <select class="era-select" id="eraSelectA"></select>
-      </div>
-      <div class="era-vs">VS</div>
-      <div class="era-select-wrap">
-        <span class="era-select-label">Álbum B</span>
-        <select class="era-select" id="eraSelectB"></select>
-      </div>
-    </div>
-    <div class="era-compare-cards" id="eraCompareCards"></div>
+  <div id="mvsFeatured"></div>
+  <div class="mvs-wrap">
+    <button class="mvs-btn-left" onclick="document.getElementById('mvsCarousel').scrollBy({left:-300,behavior:'smooth'})">‹</button>
+    <div id="mvsCarousel" class="mvs-scroll"></div>
+    <button class="mvs-btn-right" onclick="document.getElementById('mvsCarousel').scrollBy({left:300,behavior:'smooth'})">›</button>
   </div>
 </section>
 
@@ -266,6 +243,16 @@
     <h2 class="section-title">Em Palavras</h2>
   </div>
   <div class="quotes-grid" id="quotesSection"></div>
+</section>
+
+<!-- FAVORITOS -->
+<section id="section-favorites">
+  <div class="section-header">
+    <span class="section-label">Seus favoritos</span>
+    <h2 class="section-title">Meus Favoritos ❤️</h2>
+    <p class="section-desc">Membros e álbuns que você curtiu</p>
+  </div>
+  <div class="favs-section" id="favsContent"></div>
 </section>
 
 <!-- SHARE -->

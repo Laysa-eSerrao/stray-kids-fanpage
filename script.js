@@ -222,6 +222,108 @@ const streamLinks = [
 
 document.addEventListener('DOMContentLoaded', function(){
 
+
+/* ── DADOS EXTRAS DOS MEMBROS ── */
+const memberExtra = {
+  "Bang Chan": {
+    soloAlbums: [],
+    subunit: { name:"3RACHA", members:"Bang Chan, Han, Changbin", desc:"Sub-grupo produtor fundado antes do debut. Lançou mixtapes e produções independentes desde 2017." },
+    timeline: [
+      { year:"2014", event:"Entra na JYP como trainee" },
+      { year:"2017", event:"Cria o 3RACHA com Han e Changbin antes do debut" },
+      { year:"2018", event:"Debut como líder do Stray Kids" },
+      { year:"2019", event:"Inicia as Chan's Room — lives semanais com os fãs" },
+      { year:"2023", event:"Encerra as Chan's Room após 4 anos" },
+      { year:"2024", event:"Met Gala — primeiro grupo K-pop como convidados juntos" },
+      { year:"2025", event:"Torna-se embaixador da Fendi" },
+    ],
+    facts:["Passou 7 anos como trainee na JYP — o mais longo do grupo","Desenhou o logo completo do Stray Kids à mão antes do debut","Fala coreano, inglês, japonês e um pouco de chinês","Seu apelido é 'Chan' e os fãs chamam o fandom dele de 'Channie's Room'"]
+  },
+  "Lee Know": {
+    soloAlbums: [],
+    subunit: { name:"Dance Racha", members:"Lee Know, Hyunjin, Felix", desc:"Unidade de dança — os três melhores dançarinos do grupo, responsáveis pelas coreografias mais técnicas." },
+    timeline: [
+      { year:"2017", event:"Estava no grupo de apoio do BTS antes de entrar no SKZ" },
+      { year:"2017", event:"Passa no processo seletivo da JYP após audição" },
+      { year:"2018", event:"Debut com o Stray Kids" },
+      { year:"2019", event:"Retorna ao grupo após lesão durante trainee" },
+      { year:"2023", event:"Torna-se embaixador global da Gucci" },
+    ],
+    facts:["Tem 3 gatos: Soonie, Doongie e Dori","Estava no grupo de apoio do BTS antes do SKZ","Adora ler — autor favorito é Keigo Higashino","Seu apelido 'Eye Smile' vem do sorriso característico"]
+  },
+  "Changbin": {
+    soloAlbums: [],
+    subunit: { name:"3RACHA", members:"Bang Chan, Han, Changbin", desc:"Sub-grupo produtor — responsável pelo rap e pela produção musical do Stray Kids." },
+    timeline: [
+      { year:"2017", event:"Entra na JYP como trainee" },
+      { year:"2018", event:"Debut com o Stray Kids como rapper principal" },
+      { year:"2022", event:"ODDINARY atinge #1 no Billboard — primeiro do grupo" },
+      { year:"2024", event:"Met Gala com o grupo inteiro" },
+    ],
+    facts:["Tem um dos raps mais rápidos do K-pop","167cm — menor do grupo em altura mas enorme presença de palco","Escreve letras poderosas sobre superação e identidade","Apelido dos fãs: 'Iron Chan' pela voz grave e rap intenso"]
+  },
+  "Hyunjin": {
+    soloAlbums: [],
+    subunit: { name:"Dance Racha", members:"Lee Know, Hyunjin, Felix", desc:"Unidade de dança — considerado um dos melhores dançarinos da 4ª geração do K-pop." },
+    timeline: [
+      { year:"2018", event:"Debut com o Stray Kids" },
+      { year:"2022", event:"Realiza primeira exposição de arte oficial" },
+      { year:"2023", event:"Torna-se embaixador da Versace" },
+      { year:"2024", event:"Embaixador da Cartier; Met Gala com o grupo" },
+      { year:"2025", event:"Embaixador da Givenchy Beauty" },
+      { year:"2026", event:"Embaixador da Guess" },
+    ],
+    facts:["Além de idol é pintor — já realizou exposições oficiais","Seus trabalhos foram leiloados por valores significativos","179cm — o mais alto do grupo","O personagem Jiniret (furão) foi escolhido pela astúcia"]
+  },
+  "Han": {
+    soloAlbums: [],
+    subunit: { name:"3RACHA", members:"Bang Chan, Han, Changbin", desc:"Sub-grupo produtor — Han é considerado um dos letristas mais criativos e emocionais do K-pop." },
+    timeline: [
+      { year:"2015", event:"Entra na JYP como trainee vindo da Malásia" },
+      { year:"2018", event:"Debut com o Stray Kids" },
+      { year:"2021", event:"NOEASY entra no Top 5 do Billboard" },
+      { year:"2024", event:"Met Gala — primeiro grupo K-pop como convidados" },
+    ],
+    facts:["Cresceu em Kuala Lumpur, Malásia","Escreve letras desde muito jovem — cadernos cheios de poesias","Fala coreano e inglês fluentemente","O Han Quokka foi inspirado no animal sorridente da Austrália"]
+  },
+  "Felix": {
+    soloAlbums: [
+      { name:"Social Path / Super Bowl", year:"2023", with:"com LiSA", badge:"Japanese EP" },
+      { name:"ReawakeR (Solo Leveling OST)", year:"2025", with:"com LiSA", badge:"Anime OST" },
+    ],
+    subunit: { name:"Dance Racha", members:"Lee Know, Hyunjin, Felix", desc:"Unidade de dança — Felix é reconhecido pela expressividade e energia nas coreografias." },
+    timeline: [
+      { year:"2018", event:"Debut — único membro nascido na Austrália" },
+      { year:"2019", event:"Aceito como trainee apenas 3 meses antes do debut" },
+      { year:"2023", event:"Embaixador da Louis Vuitton; collab com LiSA" },
+      { year:"2024", event:"Desfila na Paris Fashion Week" },
+      { year:"2025", event:"Collab com LiSA na abertura do anime Solo Leveling 2ª temporada" },
+    ],
+    facts:["Nasceu em Sydney, Austrália — único membro não-asiático","Conquistou 63 medalhas em Taekwondo antes de ser idol","Voz profunda inconfundível — marca registrada do grupo","Embaixador da Louis Vuitton desde 2023"]
+  },
+  "Seungmin": {
+    soloAlbums: [],
+    subunit: { name:"Vocal Racha", members:"Seungmin, I.N", desc:"Unidade vocal — os dois principais vocalistas do grupo, responsáveis pelas partes mais melodiosas." },
+    timeline: [
+      { year:"2018", event:"Debut com o Stray Kids" },
+      { year:"2021", event:"Embaixador da Burberry" },
+      { year:"2022", event:"ODDINARY e MAXIDENT — dois #1 consecutivos no Billboard" },
+    ],
+    facts:["Praticou beisebol profissionalmente antes de ser idol","Torce pelo time Doosan Bears","Apelido 'Puppy Seungmin' pelo sorriso e personalidade","Estuda composição vocal constantemente"]
+  },
+  "I.N": {
+    soloAlbums: [],
+    subunit: { name:"Vocal Racha", members:"Seungmin, I.N", desc:"Unidade vocal — I.N traz leveza e alcance vocal que complementam o som mais pesado do grupo." },
+    timeline: [
+      { year:"2018", event:"Debut como maknae (caçula) do grupo" },
+      { year:"2022", event:"Embaixador da Bottega Veneta" },
+      { year:"2023", event:"Embaixador da Damiani" },
+      { year:"2024", event:"Met Gala com o grupo" },
+    ],
+    facts:["Maknae (caçula) do grupo — nascido em 2001","Sabe cantar trot — estilo musical coreano tradicional","Tem dois irmãos — um mais velho e um mais novo","Fox I.Ny foi escolhido pela astúcia e charme"]
+  },
+};
+
 /* ── INTRO ── */
 const introBtn = document.getElementById('introEnterBtn');
 const introScreen = document.getElementById('introScreen');
@@ -424,7 +526,7 @@ function renderMembers(){
         </div>
       </div>
     `;
-    card.addEventListener('click', ()=>openMemberModal(i));
+    card.addEventListener('click', ()=>openMemberPage(i));
     grid.appendChild(card);
   });
 }
@@ -597,7 +699,7 @@ document.querySelectorAll('.facts-tab').forEach(btn=>{
 
 /* ── MVs ── */
 function renderMVs(){
-  const grid = document.getElementById('mvsGrid');
+  const grid = document.getElementById('mvsCarousel');
   mvs.forEach(mv=>{
     const card = document.createElement('a');
     card.className = 'mv-card reveal';
@@ -714,7 +816,7 @@ if(localStorage.getItem('skz-theme')==='light'){
 
 /* ── INIT ── */
 function initAll(){
-  renderMembers();
+  renderMembersWithFavs(); // substitui renderMembers
   renderDiscografia();
   renderTimeline();
   renderTours();
@@ -728,7 +830,6 @@ function initAll(){
   initSearch();
   initDrawer();
   initLightboxSwipe();
-  initEraComparator();
   addSkeletonToImages();
   setTimeout(initReveal, 200);
 }
@@ -887,88 +988,256 @@ function renderQuotes(){
   `).join('');
 }
 
-/* ── COMPARADOR DE ERAS ── */
-const eraMeta = {
-  "Mixtape":            { billboard:"—",       daesangs:0, tours:"—" },
-  "I Am NOT":           { billboard:"—",       daesangs:0, tours:"—" },
-  "I Am WHO":           { billboard:"—",       daesangs:0, tours:"—" },
-  "I Am YOU":           { billboard:"—",       daesangs:0, tours:"—" },
-  "Clé 1: MIROH":      { billboard:"Top 100", daesangs:0, tours:"—" },
-  "Clé 2: Yellow Wood": { billboard:"Top 100", daesangs:0, tours:"—" },
-  "Clé: Levanter":     { billboard:"Top 100", daesangs:1, tours:"—" },
-  "GO LIVE":            { billboard:"Top 100", daesangs:2, tours:"—" },
-  "IN生 (IN LIFE)":    { billboard:"Top 50",  daesangs:2, tours:"—" },
-  "NOEASY":             { billboard:"Top 5",   daesangs:3, tours:"—" },
-  "ODDINARY":           { billboard:"#1",      daesangs:4, tours:"MANIAC World Tour" },
-  "MAXIDENT":           { billboard:"#1",      daesangs:5, tours:"MANIAC World Tour" },
-  "★★★★★ (5-STAR)":   { billboard:"#1",      daesangs:6, tours:"5-STAR Dome Tour" },
-  "ROCK-STAR":          { billboard:"#1",      daesangs:7, tours:"5-STAR Dome Tour" },
-  "ATE":                { billboard:"#1",      daesangs:8, tours:"dominATE World Tour" },
-  "KARMA":              { billboard:"#1",      daesangs:9, tours:"dominATE World Tour" },
-  "DO IT":              { billboard:"#1",      daesangs:9, tours:"dominATE: Celebrate" },
-};
 
-function renderEraCard(album, side){
-  const meta = eraMeta[album.name] || { billboard:"—", daesangs:0, tours:"—" };
-  const imgHtml = album.img
-    ? `<img src="${album.img}" alt="${album.name}" loading="lazy">`
-    : `<div class="era-card-cover-placeholder">${album.name.charAt(0)}</div>`;
-  return `
-    <div class="era-card">
-      <div class="era-card-cover">${imgHtml}</div>
-      <div class="era-card-body">
-        <div class="era-card-year">${album.year} · ${album.badge}</div>
-        <div class="era-card-name">${album.name}</div>
-        <div class="era-stats">
-          <div class="era-stat">
-            <div class="era-stat-label">Faixa título</div>
-            <div class="era-stat-value">${album.track}</div>
+/* ── SISTEMA DE FAVORITOS ── */
+const FAV_KEY = 'skz-favorites';
+
+function getFavs(){ try{ return JSON.parse(localStorage.getItem(FAV_KEY)||'{"members":[],"albums":[]}'); }catch(e){ return {members:[],albums:[]}; } }
+function saveFavs(favs){ localStorage.setItem(FAV_KEY, JSON.stringify(favs)); }
+function toggleFav(type, id){
+  const favs = getFavs();
+  const list = favs[type];
+  const idx = list.indexOf(id);
+  if(idx === -1) list.push(id); else list.splice(idx,1);
+  saveFavs(favs);
+  renderFavs();
+  // Atualizar todos os botões com esse id
+  document.querySelectorAll(`.fav-btn[data-type="${type}"][data-id="${id}"]`).forEach(btn=>{
+    btn.classList.toggle('active', list.includes(id));
+    btn.title = list.includes(id) ? 'Remover dos favoritos' : 'Adicionar aos favoritos';
+  });
+}
+
+function addFavBtn(el, type, id){
+  const btn = document.createElement('button');
+  btn.className = 'fav-btn';
+  btn.dataset.type = type;
+  btn.dataset.id   = id;
+  btn.title = 'Adicionar aos favoritos';
+  btn.textContent = '♡';
+  const favs = getFavs();
+  if(favs[type]?.includes(id)){
+    btn.classList.add('active');
+    btn.textContent = '♥';
+    btn.title = 'Remover dos favoritos';
+  }
+  btn.addEventListener('click', e=>{
+    e.stopPropagation(); // impede abrir página do membro
+    btn.textContent = btn.classList.contains('active') ? '♡' : '♥';
+    toggleFav(type, id);
+  });
+  el.style.position = 'relative';
+  el.appendChild(btn);
+}
+
+function renderFavs(){
+  const container = document.getElementById('favsContent');
+  if(!container) return;
+  const favs = getFavs();
+  const favMembers = members.filter(m => favs.members.includes(m.name));
+  const favAlbums  = albums.filter(a  => favs.albums.includes(a.name));
+
+  if(!favMembers.length && !favAlbums.length){
+    container.innerHTML = `
+      <div class="favs-empty">
+        <div class="favs-empty-icon">🤍</div>
+        <div>Nenhum favorito ainda — clique em ♡ nos cards de membros e álbuns!</div>
+      </div>`;
+    return;
+  }
+
+  let html = '';
+  if(favMembers.length){
+    html += `<div class="favs-group-title">👤 Membros favoritos</div><div class="favs-grid-members">`;
+    favMembers.forEach((m,i)=>{
+      const idx = members.indexOf(m);
+      html += `
+        <div class="member-card fav-member-card" data-idx="${idx}" style="cursor:pointer">
+          <div class="member-img-wrap">
+            <img src="${m.img}" alt="${m.name}" loading="lazy">
+            <div class="member-overlay"></div>
+            <div class="member-skzoo-badge" style="position:absolute;top:.75rem;right:.75rem;width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid rgba(232,25,44,.5)">
+              <img src="${m.skzooImg}" alt="${m.skzoo}" style="width:100%;height:100%;object-fit:cover">
+            </div>
+            <div class="member-bottom">
+              <span class="member-badge">${m.unit}</span>
+              <div class="member-stage">${m.name}</div>
+              <div class="member-name">${m.full}</div>
+              <div class="member-role">${m.pos.split('/')[0].trim()}</div>
+              <div style="font-size:.7rem;color:var(--acl);margin-top:.3rem">SKZoo: ${m.skzoo}</div>
+            </div>
           </div>
-          <div class="era-stat">
-            <div class="era-stat-label">Faixas</div>
-            <div class="era-stat-value highlight">${album.tracks}</div>
+        </div>`;
+    });
+    html += `</div>`;
+  }
+
+  if(favAlbums.length){
+    html += `<div class="favs-group-title">💿 Álbuns</div><div class="favs-grid-albums">`;
+    favAlbums.forEach(a=>{
+      const img = a.img
+        ? `<img src="${a.img}" alt="${a.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover">`
+        : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--ac);opacity:.3">${a.name.charAt(0)}</div>`;
+      html += `
+        <div class="disco-card">
+          <div class="disco-cover" style="aspect-ratio:1;overflow:hidden;background:var(--bg-3)">${img}</div>
+          <div class="disco-info">
+            <div class="disco-name">${a.name}</div>
+            <div class="disco-year">${a.year}</div>
           </div>
-          <div class="era-stat">
-            <div class="era-stat-label">Billboard 200</div>
-            <div class="era-stat-value highlight">${meta.billboard}</div>
+        </div>`;
+    });
+    html += `</div>`;
+  }
+
+  container.innerHTML = html;
+}
+
+function renderMembersWithFavs(){
+  const grid = document.getElementById('membersGrid');
+  grid.style.gridTemplateColumns = 'repeat(4, 1fr)';
+  members.forEach((m,i)=>{
+    const card = document.createElement('div');
+    card.className = 'member-card reveal';
+    card.style.transitionDelay = `${i*.07}s`;
+    card.innerHTML = `
+      <div class="member-img-wrap">
+        <img src="${m.img}" alt="${m.name}" loading="lazy">
+        <div class="member-overlay"></div>
+        <div class="member-skzoo-badge"><img src="${m.skzooImg}" alt="${m.skzoo}"></div>
+        <div class="member-bottom">
+          <span class="member-badge">${m.unit}</span>
+          <div class="member-stage">${m.name}</div>
+          <div class="member-name">${m.full}</div>
+          <div class="member-role">${m.pos.split('/')[0].trim()}</div>
+        </div>
+      </div>
+    `;
+    card.addEventListener('click', ()=>openMemberPage(i));
+    addFavBtn(card, 'members', m.name);
+    grid.appendChild(card);
+  });
+}
+
+// Injetar botão de fav nos album cards
+function addFavToAlbums(){
+  document.querySelectorAll('.disco-card').forEach(card=>{
+    const name = card.querySelector('.disco-name')?.textContent;
+    if(name && !card.querySelector('.fav-btn')) addFavBtn(card, 'albums', name);
+  });
+}
+
+/* ── PÁGINA INDIVIDUAL DO MEMBRO ── */
+function openMemberPage(idx){
+  const m = members[idx];
+  const extra = memberExtra[m.name] || {};
+  const existing = document.getElementById('member-page-overlay');
+  if(existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.id = 'member-page-overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:3000;overflow-y:auto;background:var(--bg-0)';
+
+  const timelineHtml = (extra.timeline||[]).map(t=>`
+    <div class="mp-tl-item">
+      <span class="mp-tl-year">${t.year}</span>
+      <span class="mp-tl-event">${t.event}</span>
+    </div>`).join('');
+
+  const soloHtml = extra.soloAlbums?.length ? `
+    <div class="mp-section">
+      <div class="mp-section-title">Projetos Solo / Colaborações</div>
+      <div class="mp-solo-grid">
+        ${extra.soloAlbums.map(a=>`
+          <div class="mp-solo-card">
+            <div class="mp-solo-name">${a.name}</div>
+            <div class="mp-solo-meta">${a.year} · ${a.with}</div>
+            <span class="mp-solo-badge">${a.badge}</span>
+          </div>`).join('')}
+      </div>
+    </div>` : '';
+
+  const factsHtml = (extra.facts||[]).map(f=>`
+    <div class="mp-fact">✦ ${f}</div>`).join('');
+
+  overlay.innerHTML = `
+    <div class="mp-wrap">
+      <!-- Header -->
+      <div class="mp-header">
+        <div class="mp-header-bg" style="background-image:url('${m.img}')"></div>
+        <div class="mp-header-overlay"></div>
+        <button class="mp-close" onclick="document.getElementById('member-page-overlay').remove();document.body.style.overflow=''">✕ Voltar</button>
+        <div class="mp-header-content">
+          <div class="mp-images">
+            <img class="mp-photo" src="${m.img}" alt="${m.name}">
+            <img class="mp-skzoo" src="${m.skzooImg}" alt="${m.skzoo}">
           </div>
-          <div class="era-stat">
-            <div class="era-stat-label">Tour da era</div>
-            <div class="era-stat-value">${meta.tours}</div>
+          <div class="mp-header-info">
+            <span class="mp-unit-badge">${m.unit}</span>
+            <h1 class="mp-name">${m.name}</h1>
+            <div class="mp-kr">${m.kr} · ${m.full}</div>
+            <div class="mp-role">${m.pos}</div>
+            <div class="mp-meta-grid">
+              <div class="mp-meta-item"><span class="mp-meta-label">Aniversário</span><span class="mp-meta-val">${m.birthday}</span></div>
+              <div class="mp-meta-item"><span class="mp-meta-label">Altura</span><span class="mp-meta-val">${m.height}</span></div>
+              <div class="mp-meta-item"><span class="mp-meta-label">MBTI</span><span class="mp-meta-val">${m.mbti}</span></div>
+              <div class="mp-meta-item"><span class="mp-meta-label">Nac.</span><span class="mp-meta-val">${m.nat}</span></div>
+              <div class="mp-meta-item"><span class="mp-meta-label">SKZoo</span><span class="mp-meta-val">${m.skzoo}</span></div>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Corpo -->
+      <div class="mp-body">
+
+        <!-- Bio -->
+        <div class="mp-section">
+          <div class="mp-section-title">Sobre</div>
+          <div class="mp-bio">${m.bio}</div>
+        </div>
+
+        <!-- Curiosidades -->
+        <div class="mp-section">
+          <div class="mp-section-title">Curiosidades</div>
+          <div class="mp-facts-grid">${factsHtml}</div>
+        </div>
+
+        <!-- Unidade -->
+        ${extra.subunit ? `
+        <div class="mp-section">
+          <div class="mp-section-title">Unidade</div>
+          <div class="mp-subunit-card">
+            <div class="mp-subunit-name">${extra.subunit.name}</div>
+            <div class="mp-subunit-members">👥 ${extra.subunit.members}</div>
+            <div class="mp-subunit-desc">${extra.subunit.desc}</div>
+          </div>
+        </div>` : ''}
+
+        <!-- Solo / Collabs -->
+        ${soloHtml}
+
+        <!-- Timeline pessoal -->
+        ${timelineHtml ? `
+        <div class="mp-section">
+          <div class="mp-section-title">Linha do tempo</div>
+          <div class="mp-timeline">${timelineHtml}</div>
+        </div>` : ''}
+
+      </div>
     </div>
   `;
+
+  document.body.appendChild(overlay);
+  document.body.style.overflow = 'hidden';
+  overlay.scrollTop = 0;
 }
 
-function initEraComparator(){
-  const selA = document.getElementById('eraSelectA');
-  const selB = document.getElementById('eraSelectB');
-  const cards = document.getElementById('eraCompareCards');
-  if(!selA || !selB || !cards) return;
-
-  const mainAlbums = albums.filter(a => a.type === 'full' || a.type === 'ep' || a.type === 'mixtape');
-
-  mainAlbums.forEach((a, i) => {
-    const optA = document.createElement('option');
-    optA.value = i; optA.textContent = `${a.year} · ${a.name}`;
-    selA.appendChild(optA);
-    const optB = optA.cloneNode(true);
-    selB.appendChild(optB);
-  });
-
-  selA.value = 0;
-  selB.value = Math.min(5, mainAlbums.length - 1);
-
-  function update(){
-    const a = mainAlbums[selA.value];
-    const b = mainAlbums[selB.value];
-    if(!a || !b) return;
-    cards.innerHTML = renderEraCard(a, 'A') + renderEraCard(b, 'B');
+/* ── Click nos cards de favoritos (membros) ── */
+document.addEventListener('click', e=>{
+  const favCard = e.target.closest('.fav-member-card');
+  if(favCard){
+    const idx = parseInt(favCard.dataset.idx);
+    if(!isNaN(idx)) openMemberPage(idx);
   }
-
-  selA.addEventListener('change', update);
-  selB.addEventListener('change', update);
-  update();
-}
+});
