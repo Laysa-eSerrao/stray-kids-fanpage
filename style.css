@@ -653,3 +653,35 @@ body.light-mode .member-skzoo { color: rgba(255,200,200,0.8) !important; }
   .cd-sep { font-size: 1.8rem; padding-bottom: 1.2rem; }
   .rir-title { letter-spacing: 6px; }
 }
+
+/* ── Stream Players ── */
+.stream-player-wrap {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+}
+.stream-player-label {
+  font-size: .75rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--acl);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.stream-spotify-embed {
+  border-radius: 16px;
+  border: 1px solid var(--bd);
+  display: block;
+}
+.stream-yt-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--bd);
+}
+.stream-yt-embed {
+  display: block;
+  width: 100%;
+}
+@media(max-width:768px){
+  .stream-spotify-embed { height: 300px; }
+  .stream-yt-wrap iframe { height: 220px; }
+}
