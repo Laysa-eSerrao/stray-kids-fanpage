@@ -285,6 +285,7 @@ statNums.forEach(el=>statsObserver.observe(el));
 /* ── MEMBROS ── */
 function renderMembers(){
   const grid = document.getElementById('membersGrid');
+  grid.style.gridTemplateColumns = 'repeat(4, 1fr)';
   members.forEach((m,i)=>{
     const card = document.createElement('div');
     card.className = 'member-card reveal';
@@ -591,15 +592,175 @@ if(localStorage.getItem('skz-theme')==='light'){
 }
 
 /* ── INIT ── */
-renderMembers();
-renderDiscografia();
-renderTimeline();
-renderTours();
-renderFacts('geral');
-renderMVs();
-renderGallery();
-renderSkzoo();
-renderStream();
-setTimeout(initReveal, 150);
+function initAll(){
+  renderMembers();
+  renderDiscografia();
+  renderTimeline();
+  renderTours();
+  renderFacts('geral');
+  renderMVs();
+  renderGallery();
+  renderSkzoo();
+  renderStream();
+  renderNewStays();
+  renderQuotes();
+  initSearch();
+  initDrawer();
+  initLightboxSwipe();
+  addSkeletonToImages();
+  setTimeout(initReveal, 200);
+}
 
+initAll();
 }); // DOMContentLoaded
+
+/* ── SKELETON LOADING ── */
+function addSkeletonToImages(){
+  document.querySelectorAll('.member-img-wrap img, .disco-cover img, .skzoo-img-wrap img, .g-item img, .mv-thumb img').forEach(img=>{
+    const wrap = img.parentElement;
+    if(!wrap.classList.contains('img-wrap')) wrap.classList.add('img-wrap');
+    if(img.complete) { wrap.classList.add('loaded'); }
+    else { img.addEventListener('load', ()=> wrap.classList.add('loaded')); img.addEventListener('error', ()=> wrap.classList.add('loaded')); }
+  });
+}
+
+/* ── BUSCA GLOBAL ── */
+function buildSearchIndex(){
+  const index = [];
+  members.forEach(m => index.push({ title:m.name, sub:m.pos, tag:'Membro', img:m.img, action:()=>{ document.querySelector(`[data-name="${m.name}"]`)?.click(); } }));
+  albums.forEach(a => index.push({ title:a.name, sub:`${a.year} · ${a.track}`, tag:'Álbum', img:a.img }));
+  Object.values(factsData).flat().forEach(f => index.push({ title:f.tag, sub:f.text.replace(/<[^>]+>/g,'').substring(0,80)+'…', tag:'Curiosidade' }));
+  return index;
+}
+
+let searchIndex = [];
+function initSearch(){
+  searchIndex = buildSearchIndex();
+  const btn    = document.getElementById('searchOpenBtn');
+  const wrap   = document.getElementById('searchWrap');
+  const input  = document.getElementById('searchInput');
+  const close  = document.getElementById('searchCloseBtn');
+  const results= document.getElementById('searchResults');
+
+  const open = ()=>{ wrap.classList.add('open'); input.focus(); document.body.style.overflow='hidden'; };
+  const close_ = ()=>{ wrap.classList.remove('open'); input.value=''; results.innerHTML=''; document.body.style.overflow=''; };
+
+  btn.addEventListener('click', open);
+  close.addEventListener('click', close_);
+  wrap.addEventListener('click', e=>{ if(e.target===wrap) close_(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='/'&&document.activeElement.tagName!=='INPUT') { e.preventDefault(); open(); } if(e.key==='Escape') close_(); });
+
+  input.addEventListener('input', ()=>{
+    const q = input.value.trim().toLowerCase();
+    if(!q){ results.innerHTML=''; return; }
+    const hits = searchIndex.filter(item => item.title.toLowerCase().includes(q) || item.sub?.toLowerCase().includes(q));
+    if(!hits.length){ results.innerHTML=`<div class="search-empty">Nenhum resultado para "<strong>${q}</strong>"</div>`; return; }
+    results.innerHTML = hits.slice(0,12).map(h=>`
+      <div class="search-result-item">
+        ${h.img?`<img class="search-result-thumb" src="${h.img}" alt="${h.title}" loading="lazy">`:`<div class="search-result-thumb" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--bg-3)">${h.tag==='Membro'?'👤':h.tag==='Álbum'?'💿':'💡'}</div>`}
+        <div class="search-result-info">
+          <div class="search-result-title">${h.title}</div>
+          <div class="search-result-sub">${h.sub||''}</div>
+        </div>
+        <span class="search-result-tag">${h.tag}</span>
+      </div>
+    `).join('');
+  });
+}
+
+/* ── DRAWER MOBILE ── */
+function initDrawer(){
+  const toggle  = document.getElementById('navToggle');
+  const drawer  = document.getElementById('drawer');
+  const overlay = document.getElementById('drawerOverlay');
+  const closeBtn= document.getElementById('drawerClose');
+  const openD   = ()=>{ drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow='hidden'; };
+  window.closeDrawer = ()=>{ drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow=''; };
+  toggle?.addEventListener('click', openD);
+  closeBtn?.addEventListener('click', closeDrawer);
+  overlay?.addEventListener('click', closeDrawer);
+}
+
+/* ── SWIPE NO LIGHTBOX ── */
+function initLightboxSwipe(){
+  const lb = document.getElementById('lightbox');
+  if(!lb) return;
+  let startX = 0;
+  lb.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', e=>{
+    const dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx) < 50) return;
+    const imgs = gallery;
+    const cur  = document.getElementById('lbImg').src;
+    const idx  = imgs.findIndex(g=>cur.includes(g.url.split('/').pop().split('?')[0]));
+    if(idx === -1) return;
+    const next = dx < 0 ? (idx+1)%imgs.length : (idx-1+imgs.length)%imgs.length;
+    document.getElementById('lbImg').src = imgs[next].url;
+  });
+}
+
+/* ── PARA NOVOS STAYs ── */
+function renderNewStays(){
+  const grid = document.getElementById('newStaysGrid');
+  if(!grid) return;
+  const cards = [
+    { icon:'🎵', title:'Por onde começar', text:'Comece pelo MV de <strong>God\'s Menu</strong> (2020) para entender o estilo único do grupo. Depois ouça <strong>MIROH</strong> e <strong>Thunderous</strong>. Para o álbum completo, vá direto para o <strong>5-STAR</strong>.' },
+    { icon:'📺', title:'O que assistir', text:'Assista <strong>SKZ CODE</strong> no YouTube para conhecer a personalidade de cada membro. Depois experimente o <strong>2 Kids Room</strong> para conversas mais íntimas. O reality de debut também está disponível.' },
+    { icon:'🤝', title:'Como apoiar', text:'Stream nas plataformas conta para os charts. Vote no <strong>MAMA Awards</strong> durante o período de votação. Compre álbuns em lojas certificadas <strong>Hanteo</strong> para contar nas vendas oficiais.' },
+    { icon:'📖', title:'Glossário STAY', glossary:[
+      { word:'STAY',    def:'Nome oficial do fandom do Stray Kids' },
+      { word:'OT8',     def:'Original Eight — os 8 membros atuais' },
+      { word:'3RACHA',  def:'Sub-grupo produtor: Bang Chan, Han e Changbin' },
+      { word:'Racha',   def:'As 3 unidades: 3RACHA, Dance Racha e Vocal Racha' },
+      { word:'Maknae',  def:'O mais jovem do grupo — I.N' },
+      { word:'SKZoo',   def:'Personagens animais oficiais de cada membro' },
+      { word:'Self-prod',def:'O grupo produz e escreve suas próprias músicas' },
+      { word:'Daesang', def:'Maior prêmio do K-pop — "Grande Prêmio"' },
+    ]},
+    { icon:'💿', title:'Discografia em ordem', text:'<strong>2018:</strong> Mixtape → I Am NOT → I Am WHO → I Am YOU<br><strong>2019:</strong> Clé 1-2-Levanter<br><strong>2020:</strong> GO LIVE<br><strong>2021:</strong> NOEASY<br><strong>2022:</strong> ODDINARY → MAXIDENT<br><strong>2023:</strong> 5-STAR → ROCK-STAR<br><strong>2024:</strong> ATE<br><strong>2025:</strong> KARMA → DO IT' },
+    { icon:'🌍', title:'Sobre o grupo', text:'8 membros, fundado em 2018 pela <strong>JYP Entertainment</strong>. Diferencial: o sub-grupo <strong>3RACHA</strong> produz e escreve quase tudo. Já têm <strong>8 álbuns consecutivos #1 no Billboard 200</strong> e headlinarão o <strong>Rock in Rio 2026</strong>.' },
+    { icon:'🎤', title:'Unidades do grupo', text:'O SKZ tem 3 unidades internas:<br><strong>3RACHA</strong> — Bang Chan, Han e Changbin (produção e rap)<br><strong>Dance Racha</strong> — Lee Know, Hyunjin e Felix (dança)<br><strong>Vocal Racha</strong> — Seungmin e I.N (vocais)' },
+    { icon:'🏆', title:'Conquistas históricas', text:'O grupo headlinou o <strong>Lollapalooza Chicago</strong> (2023) — primeiro artistas K-pop a fazer isso. Foram ao <strong>Met Gala 2024</strong> juntos. O dominATE Tour foi o <strong>maior tour K-pop da história</strong> com US$186M arrecadados.' },
+  ];
+
+  cards.forEach(c=>{
+    const card = document.createElement('div');
+    card.className = 'stay-card reveal';
+    let inner = `<div class="stay-card-icon">${c.icon}</div><div class="stay-card-title">${c.title}</div>`;
+    if(c.glossary){
+      inner += `<div class="stay-glossary">${c.glossary.map(g=>`<div class="stay-term"><span class="stay-term-word">${g.word}</span><span class="stay-term-def">${g.def}</span></div>`).join('')}</div>`;
+    } else {
+      inner += `<div class="stay-card-text">${c.text}</div>`;
+    }
+    card.innerHTML = inner;
+    grid.appendChild(card);
+  });
+}
+
+/* Inicializar tudo */
+
+
+// Substituir chamadas duplicadas — remover as individuais abaixo
+
+
+/* ── QUOTES — frases e slogans do grupo ── */
+const quotes = [
+  { text:"You make Stray Kids stay", context:"Slogan oficial do grupo", member:"OT8" },
+  { text:"We go — the Stray Kids way", context:"Frase de palco", member:"OT8" },
+  { text:"I Purple You? No — I RED you.", context:"Brincadeira em show ao vivo", member:"Bang Chan" },
+  { text:"Stay, you make us stay.", context:"Mensagem para o fandom", member:"OT8" },
+  { text:"우리의 음악은 우리가 만든다 — Nossa música, nós fazemos.", context:"Filosofia do 3RACHA", member:"3RACHA" },
+  { text:"SKZ — self-produced, self-expressed.", context:"Identidade do grupo", member:"OT8" },
+];
+
+function renderQuotes(){
+  const section = document.getElementById('quotesSection');
+  if(!section) return;
+  section.innerHTML = quotes.map((q,i)=>`
+    <div class="quote-card reveal" style="transition-delay:${i*.08}s">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">${q.text}</div>
+      <div class="quote-meta"><span class="quote-song">${q.song}</span><span class="quote-member">${q.member}</span></div>
+    </div>
+  `).join('');
+}
