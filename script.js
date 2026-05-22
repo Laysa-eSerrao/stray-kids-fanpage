@@ -125,14 +125,15 @@ const timelineEvents = [
   { year:"2023", event:"5-STAR Dome Tour & Lollapalooza", desc:"Dois álbuns em #1 no Billboard. Realizam o 5-STAR Dome Tour no Japão e Ásia. Headlinam o Lollapalooza Chicago — primeiros artistas K-pop a fazer isso.", badge:"Lollapalooza", gold:true },
   { year:"2024", event:"Met Gala & ATE", desc:"Vão ao Met Gala — primeiros artistas K-pop a comparecerem juntos. Lançam ATE, 5º álbum consecutivo em #1 no Billboard 200. Iniciam o dominATE World Tour.", badge:"Met Gala", gold:true },
   { year:"2025", event:"KARMA & Recorde Mundial de Tour", desc:"KARMA: 7º álbum em #1 no Billboard 200. O dominATE World Tour fatura US$185,9M com +1,3 milhão de ingressos — o maior tour K-pop da história.", badge:"Maior tour K-pop", gold:true },
-  { year:"2026", event:"Rock in Rio & Novo Álbum", desc:"Novo álbum confirmado para o segundo semestre. Headlinarão o Rock in Rio em setembro — primeira vez em solo brasileiro.", badge:"Rock in Rio 🇧🇷", gold:true },
+  { year:"2026", event:"STRAYCITY Tour & Rock in Rio", desc:"Tour pela América Latina (Bogotá, Buenos Aires e Cidade do México) em setembro, além de headlinar o Rock in Rio no Brasil — primeiro ato de K-pop a ser headliner do festival.", badge:"América Latina 🌎", gold:true },
 ];
 
 const tours = [
   { era:"2022", name:"MANIAC World Tour", desc:"Primeiro grande retorno aos palcos internacionais após a pandemia. América do Norte, Europa e Ásia.", badges:["América do Norte","Europa","Ásia"] },
   { era:"2023", name:"5-STAR Dome Tour", desc:"Tour em dômes no Japão e Ásia. Realizaram também o Lollapalooza Chicago — primeiros artistas K-pop a headlinar o festival.", badges:["Japão","Lollapalooza Chicago","Ásia"], gold:true },
   { era:"2024–2025", name:"dominATE World Tour", desc:"O maior tour da história do K-pop. 35 shows em 23 cidades. +1,3 milhão de ingressos. US$185,9M faturados. Headlinaram o Lollapalooza São Paulo.", badges:["+1.3M ingressos","US$186M","35 cidades","#2 Pollstar Global"], gold:true },
-  { era:"Set 2026", name:"Rock in Rio", desc:"Headliners confirmados do Rock in Rio, no Brasil — a primeira vez do grupo em solo brasileiro. Um momento histórico para os STAYs.", badges:["Rock in Rio 🇧🇷","Setembro 2026"], gold:true },
+  { era:"Set 2026", name:"STRAYCITY — Latin America Tour", desc:"Tour pela América Latina com shows em Bogotá (9 set), Buenos Aires (14 set) e Cidade do México (25 set). Ingressos disponíveis via Live Nation.", badges:["Bogotá 🇨🇴 · 9 set","Buenos Aires 🇦🇷 · 14 set","Cidade do México 🇲🇽 · 25 set"], gold:true },
+  { era:"Set 2026", name:"Rock in Rio", desc:"Headliners confirmados do Rock in Rio, no Brasil — primeiro ato de K-pop a ser headliner do Rock in Rio. Um momento histórico para os STAYs.", badges:["Rock in Rio 🇧🇷","Setembro 2026"], gold:true },
   { era:"2026", name:"Nova Tour Asiática", desc:"Nova tour pela Ásia confirmada para 2026. Datas e cidades a serem anunciadas pela JYP Entertainment.", badges:["Em breve","Ásia"] },
 ];
 
