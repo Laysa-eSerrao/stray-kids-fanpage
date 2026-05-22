@@ -38,6 +38,7 @@
     <li><a href="#tours">Tours</a></li>
     <li><a href="#curiosidades">Curiosidades</a></li>
     <li><a href="#mvs">MVs</a></li>
+    <li><a href="#comparador">Eras</a></li>
     <li><a href="#galeria">Galeria</a></li>
     <li><a href="#skzoo">SKZoo</a></li>
     <li><a href="#novos-stays">Novos STAYs</a></li>
@@ -175,7 +176,35 @@
     <span class="section-label">Videoclipes</span>
     <h2 class="section-title">MVs Icônicos</h2>
   </div>
-  <div class="mvs-grid" id="mvsGrid"></div>
+  <div class="mvs-featured" id="mvsFeatured"></div>
+  <div class="mvs-carousel-wrap">
+    <button class="mvs-arrow mvs-arrow-left" id="mvsLeft">‹</button>
+    <div class="mvs-carousel" id="mvsGrid"></div>
+    <button class="mvs-arrow mvs-arrow-right" id="mvsRight">›</button>
+  </div>
+</section>
+
+<!-- COMPARADOR DE ERAS -->
+<section id="comparador" class="section-alt">
+  <div class="section-header">
+    <span class="section-label">Compare os álbuns</span>
+    <h2 class="section-title">Comparador de Eras</h2>
+    <p class="section-desc">Selecione dois álbuns para comparar lado a lado</p>
+  </div>
+  <div class="era-compare">
+    <div class="era-compare-controls">
+      <div class="era-select-wrap">
+        <span class="era-select-label">Álbum A</span>
+        <select class="era-select" id="eraSelectA"></select>
+      </div>
+      <div class="era-vs">VS</div>
+      <div class="era-select-wrap">
+        <span class="era-select-label">Álbum B</span>
+        <select class="era-select" id="eraSelectB"></select>
+      </div>
+    </div>
+    <div class="era-compare-cards" id="eraCompareCards"></div>
+  </div>
 </section>
 
 <!-- GALERIA -->
