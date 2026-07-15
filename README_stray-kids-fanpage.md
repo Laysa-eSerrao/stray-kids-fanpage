@@ -15,14 +15,14 @@
 | Seção | Conteúdo |
 |---|---|
 | **Membros** | Cards com foto real + ícone SKZoo, modal com perfil completo de cada membro |
-| **Discografia** | 30+ álbuns de 2018 a 2025 com capa, faixa título, faixas e filtros |
+| **Discografia** | 32 álbuns de 2018 a 2026 com capa, faixa título, faixas e filtros |
 | **História** | Linha do tempo interativa de 2017 a 2026 com animações ao rolar |
 | **Tours** | Histórico completo + countdown ao vivo para o Rock in Rio 2026 |
 | **Curiosidades** | Cards por categoria: Geral, Recordes e Por Membro |
-| **MVs** | 16 MVs com thumbnail do YouTube e link direto |
+| **MVs** | 17 MVs com thumbnail do YouTube e link direto |
 | **Galeria** | Fotos reais dos 8 membros com lightbox |
 | **SKZoo** | Personagens oficiais com foto e animal correspondente |
-| **Stream e Votar** | Links para Spotify, YouTube, MelOn, Genie + MAMA, AMAs, SMA, AAA |
+| **Stream e Votar** | Links para Spotify, YouTube, Apple Music + MAMA, AMAs, SMA, AAA |
 
 ---
 
@@ -41,6 +41,10 @@
 - 💀 **Página 404 personalizada** com tema SKZ
 - 📊 **Google Analytics** integrado
 - 🎛️ **Filtros** na discografia com paginação (ver mais/menos)
+- 🔎 **Busca global** (atalho `/`) com resultados clicáveis que navegam até a seção
+- ♿ **Acessibilidade** com `aria-label` em todos os botões de ícone
+- 🖼️ **Fallback visual** para imagens externas que falham ao carregar
+- 🔗 **Links externos seguros** com `rel="noopener noreferrer"`
 
 ---
 
