@@ -1,8 +1,8 @@
 /* Stray Kids Fan Page — script.js | Autora: Laysa Serrão */
 
 /* ── SHARE — funções globais ── */
-function shareTwitter(){ window.open('https://twitter.com/intent/tweet?text=Conhe%C3%A7a+o+Stray+Kids!&url='+encodeURIComponent(location.href),'_blank'); }
-function shareWhatsapp(){ window.open('https://wa.me/?text=Conhe%C3%A7a+o+Stray+Kids!+'+encodeURIComponent(location.href),'_blank'); }
+function shareTwitter(){ window.open('https://twitter.com/intent/tweet?text=Conhe%C3%A7a+o+Stray+Kids!&url='+encodeURIComponent(location.href),'_blank','noopener,noreferrer'); }
+function shareWhatsapp(){ window.open('https://wa.me/?text=Conhe%C3%A7a+o+Stray+Kids!+'+encodeURIComponent(location.href),'_blank','noopener,noreferrer'); }
 function copyLink(){
   navigator.clipboard.writeText(location.href).then(()=>{
     const btns = document.querySelectorAll('#shareBar button');
@@ -36,29 +36,29 @@ const members=[
     img:"https://i.pinimg.com/736x/ba/09/2f/ba092f2542294d51e26ac99fb21c1ca1.jpg",
     skzooImg:"https://i.pinimg.com/736x/f1/c6/28/f1c6289043efe05c31adbdaa58df1bef.jpg",
     birthday:"11 ago 1999", height:"167 cm", mbti:"ESTP", nat:"Sul-coreano", skzoo:"Dwaekki",
-    bio:"Famoso pelo rap extremamente rápido. Menor do grupo em altura (167cm), mas com enorme presença de palco. Produz e escreve grande parte das letras do SKZ junto com Bang Chan e Han.",
+    bio:"Famoso pelo rap extremamente rápido. Menor do grupo em altura (167cm), mas com enorme presença de palco. Produz e escreve grande parte das letras do SKZ junto com Bang Chan e Han. Embaixador global da Autry (2026) — primeira celebridade a representar a marca italiana de calçados.",
     facts:["Tem um dos raps mais rápidos do K-pop","167cm — menor do grupo mas enorme presença de palco","Escreve letras poderosas sobre superação e identidade"]
   },
   { name:"Hyunjin", kr:"황현진", full:"Hwang Hyun-jin", pos:"Dancer / Rapper / Vocal", unit:"Dance Racha", color:"#e8192c",
     img:"https://i.pinimg.com/736x/02/65/4d/02654d65820f9322a70fb163e2561b02.jpg",
     skzooImg:"https://i.pinimg.com/736x/92/f1/f0/92f1f06ea263fdfad827cb3c6b956470.jpg",
     birthday:"20 mar 2000", height:"179 cm", mbti:"INFP", nat:"Sul-coreano", skzoo:"Jiniret",
-    bio:"O mais alto do grupo. Além de idol, é pintor e realizou exposições de arte. Embaixador da Cartier (2024), Givenchy Beauty (2025) e Guess (2026).",
+    bio:"O mais alto do grupo. Além de idol, é pintor e realizou exposições de arte. Embaixador global da Cartier (2024), Givenchy Beauty (2025) e Guess (2026).",
     facts:["Além de idol é pintor — já realizou exposições oficiais","179cm — o mais alto do grupo","Embaixador da Cartier, Givenchy Beauty e Guess"]
   },
   { name:"Han", kr:"한", full:"Han Ji-sung", pos:"Rapper / Vocal / Producer", unit:"3RACHA", color:"#cc2222",
     img:"https://i.pinimg.com/736x/c7/fa/e2/c7fae2d48dd7914314ef69da4b520118.jpg",
     skzooImg:"https://i.pinimg.com/736x/7c/32/dc/7c32dc29d2aa04899ae6ea5036904ab8.jpg",
     birthday:"14 set 2000", height:"170 cm", mbti:"INFP", nat:"Coreano (criado na Malásia)", skzoo:"Han Quokka",
-    bio:"Parte do trio produtor 3RACHA. Considerado um dos letristas mais criativos do K-pop. Cresceu na Malásia e voltou à Coreia para perseguir o sonho.",
+    bio:"Parte do trio produtor 3RACHA. Considerado um dos letristas mais criativos do K-pop. Cresceu na Malásia e voltou à Coreia para perseguir o sonho. Embaixador global da Tod's (2026) — estreou na Milan Fashion Week pelo show Menswear SS27 da marca.",
     facts:["Cresceu em Kuala Lumpur, Malásia","Escreve letras desde muito jovem","O Han Quokka foi inspirado no animal sorridente da Austrália"]
   },
   { name:"Felix", kr:"필릭스", full:"Lee Yong-bok", pos:"Dancer / Rapper / Vocal", unit:"Dance Racha", color:"#b01a1a",
     img:"https://i.pinimg.com/736x/88/5f/13/885f133bf04ddd7e3ff5e608153b8bfa.jpg",
     skzooImg:"https://i.pinimg.com/1200x/ae/06/62/ae06620dbf96ac5f2559597fa61f12a4.jpg",
     birthday:"15 set 2000", height:"171 cm", mbti:"ENFP", nat:"Australiano", skzoo:"BbokAri",
-    bio:"Único membro nascido fora da Ásia (Sydney, Austrália). Famoso pela voz profunda inconfundível. Embaixador da Louis Vuitton. Em 2025, colaborou com LiSA na abertura do anime Solo Leveling 2ª temporada. Conquistou 63 medalhas em Taekwondo antes de ser idol.",
-    facts:["Nasceu em Sydney, Austrália","Conquistou 63 medalhas em Taekwondo","Colaborou com LiSA na abertura do anime Solo Leveling (2025)"]
+    bio:"Único membro nascido fora da Ásia (Sydney, Austrália). Famoso pela voz profunda inconfundível. É o membro com mais parcerias de marca do grupo. Embaixador global da Louis Vuitton (2023), HERA (primeiro embaixador masculino da marca, 2025), Adidas Global Icon (2026) e Gong Cha (2025). Embaixador de Goodwill da UNICEF Coreia (2024). Também representa Samsung, Gentle Monster, Happiz, BB.Q Chicken e a campanha Hanbok Wave. Colaborou com LiSA na abertura do anime Solo Leveling 2ª temporada (2025). Conquistou 63 medalhas em Taekwondo antes de ser idol.",
+    facts:["Embaixador global da Louis Vuitton, Adidas, HERA e Gong Cha — o membro com mais parcerias do grupo","Goodwill Ambassador da UNICEF Coreia desde 2024","Conquistou 63 medalhas em Taekwondo antes de ser idol"]
   },
   { name:"Seungmin", kr:"승민", full:"Kim Seung-min", pos:"Vocalist", unit:"Vocal Racha", color:"#e8192c",
     img:"https://i.pinimg.com/736x/7e/62/1c/7e621c90fb513a243bae7506e33d5666.jpg",
@@ -78,6 +78,9 @@ const members=[
 
 /* ── DADOS — Álbuns ── */
 const albums=[
+  { year:"2026", name:"THIS & THAT",              badge:"Mini Álbum",       type:"full",    track:"This & That",      tracks:8,  img:"https://static.wikia.nocookie.net/stray-kids/images/3/3d/THIS_%26_THAT_Digital_Cover.jpg/revision/latest/scale-to-width-down/1000?cb=20260714140146" },
+  { year:"2026", name:"RUN IT",                   badge:"Single",           type:"single",  track:"RUN IT",           tracks:1,  img:"https://d1al7qj7ydfbpt.cloudfront.net/artists/straykids/albums/1782273961369-881e95eb.jpg" },
+  { year:"2026", name:"Endless Sun",              badge:"Single",           type:"single",  track:"Endless Sun",      tracks:1,  img:"https://static.wikia.nocookie.net/stray-kids/images/7/71/Endless_Sun_Digital_Cover.jpg/revision/latest/scale-to-width-down/1000?cb=20260313042615" },
   { year:"2026", name:"별, 빛 (STAY)",            badge:"Single",           type:"single",  track:"별, 빛 (STAY)",    tracks:1,  img:"https://akamai.sscdn.co/letras/360x360/albuns/4/7/7/3/4809391776718807.jpg" },
   { year:"2025", name:"DO IT",                    badge:"EP · BB #1",       type:"ep",      track:"Do It",            tracks:5,  img:"https://akamai.sscdn.co/letras/360x360/albuns/4/6/3/9/4219271763739713.jpg" },
   { year:"2025", name:"KARMA",                    badge:"Álbum · BB #1",    type:"full",    track:"CEREMONY",         tracks:11, img:"https://akamai.sscdn.co/letras/360x360/albuns/9/0/1/7/3671491759770818.jpg" },
@@ -122,17 +125,19 @@ const timelineEvents=[
   { year:"2023", event:"5-STAR Dome Tour & Lollapalooza", desc:"Dois álbuns em #1 no Billboard. Realizam o 5-STAR Dome Tour e headlinam o Lollapalooza Chicago — primeiros K-pop a fazer isso.", badge:"Lollapalooza", gold:true },
   { year:"2024", event:"Met Gala & ATE", desc:"Vão ao Met Gala — primeiros artistas K-pop juntos. ATE: 5º álbum consecutivo em #1. Iniciam o dominATE World Tour.", badge:"Met Gala", gold:true },
   { year:"2025", event:"KARMA & Recorde Mundial", desc:"KARMA: 7º álbum em #1. O dominATE Tour fatura US$185,9M com +1,3 milhão de ingressos — maior tour K-pop da história.", badge:"Maior tour K-pop", gold:true },
-  { year:"2026", event:"STRAYCITY Tour & Rock in Rio", desc:"Tour pela América Latina (Bogotá, Buenos Aires e Cidade do México) em setembro, além de headlinar o Rock in Rio — primeiro ato K-pop headliner.", badge:"América Latina 🌎", gold:true },
+  { year:"Jun 2026", event:"Governors Ball — Primeiro K-pop Headliner", desc:"O Stray Kids se torna o primeiro grupo de K-pop a headlinar o Governors Ball em Nova York, performando para 45.000 pessoas. Seungmin não participou por lesão no tornozelo.", badge:"História do K-pop", gold:true },
+  { year:"2026", event:"Recording Academy & THIS & THAT", desc:"Os 8 membros são convidados como membros votantes da Recording Academy — podendo votar no Grammy. Lançamento do single RUN IT (jun) e do álbum THIS & THAT (ago), com nova RUN IT World Tour anunciada.", badge:"Grammy · Nova Era", gold:true },
 ];
 
 /* ── DADOS — Tours ── */
 const tours=[
   { era:"2022", name:"MANIAC World Tour", desc:"Primeiro grande retorno aos palcos internacionais após a pandemia. América do Norte, Europa e Ásia.", badges:["América do Norte","Europa","Ásia"] },
   { era:"2023", name:"5-STAR Dome Tour", desc:"Tour em dômes no Japão e Ásia. Headlinaram também o Lollapalooza Chicago.", badges:["Japão","Lollapalooza Chicago","Ásia"], gold:true },
-  { era:"2024–2025", name:"dominATE World Tour", desc:"O maior tour da história do K-pop. 35 shows em 23 cidades. +1,3 milhão de ingressos. US$185,9M faturados. Headlinaram o Lollapalooza São Paulo.", badges:["+1.3M ingressos","US$186M","35 cidades","#2 Pollstar Global"], gold:true },
+  { era:"2024–2025", name:"dominATE World Tour", desc:"O maior tour da história do K-pop. 56 shows em 35 cidades. +1,3 milhão de ingressos. US$185,7M faturados. Encerrou no Incheon Asiad Main Stadium em outubro de 2025.", badges:["+1.3M ingressos","US$185,7M","56 shows · 35 cidades","#2 Pollstar Global"], gold:true },
   { era:"Set 2026", name:"STRAYCITY — Latin America", desc:"Tour pela América Latina com shows em Bogotá (9 set), Buenos Aires (14 set) e Cidade do México (25 set).", badges:["Bogotá 🇨🇴 · 9 set","Buenos Aires 🇦🇷 · 14 set","Cidade do México 🇲🇽 · 25 set"], gold:true },
   { era:"Set 2026", name:"Rock in Rio", desc:"Headliners confirmados do Rock in Rio — primeiro ato de K-pop a ser headliner do festival.", badges:["Rock in Rio 🇧🇷","Setembro 2026"], gold:true },
-  { era:"2026", name:"Nova Tour Asiática", desc:"Nova tour pela Ásia confirmada para 2026. Datas e cidades a serem anunciadas.", badges:["Em breve","Ásia"] },
+  { era:"2026", name:"RUN IT World Tour", desc:"Nova world tour anunciada junto com o álbum THIS & THAT. Promete superar a escala da dominATE. Datas e cidades a serem confirmadas oficialmente.", badges:["Em breve","Global","+ de 56 shows previstos"], gold:true },
+  { era:"Jul–Ago 2026", name:"Seoul KSPO DOME", desc:"5 shows sold-out em Seoul antes do lançamento do álbum THIS & THAT. Aquecimento para a nova era.", badges:["5 shows","Seoul","KSPO DOME","Jul–Ago 2026"], gold:true },
 ];
 
 /* ── DADOS — Curiosidades ── */
@@ -146,12 +151,13 @@ const factsData={
     { tag:"Arcane", text:"O Stray Kids participou da trilha sonora de <strong>Arcane</strong>, a animação da Netflix inspirada em <em>League of Legends</em> — jogo favorito do <strong>Felix</strong>." },
   ],
   recordes:[
-    { tag:"Billboard", text:"O SKZ é um dos poucos grupos do K-pop a ter <strong>8 álbuns consecutivos</strong> em #1 no Billboard 200, ao lado de nomes como BTS e Taylor Swift." },
+    { tag:"Billboard", text:"O SKZ é o <strong>primeiro ato da história do Billboard 200</strong> a estrear com seus primeiros 8 álbuns consecutivos em #1 — feito que nenhum outro artista, nem BTS nem Taylor Swift, havia conquistado. A sequência vai de ODDINARY (2022) a DO IT (2025)." },
     { tag:"Met Gala 2024", text:"Em maio de 2024, o Stray Kids se tornou o <strong>primeiro grupo K-pop</strong> cujos todos os membros compareceram juntos ao Met Gala." },
     { tag:"dominATE Tour", text:"O dominATE World Tour (2024–2025) é o <strong>maior tour K-pop da história</strong>: US$185,9M com +1,3 milhão de ingressos. #2 no ranking global da Pollstar." },
-    { tag:"Lollapalooza", text:"Em 2023, o Stray Kids headlinou o <strong>Lollapalooza Chicago</strong> — primeiros artistas K-pop a headlinar um dos maiores festivais do mundo." },
+    { tag:"Festivais", text:"Em 2023, headlinaram o <strong>Lollapalooza Chicago</strong>. Em 2026, se tornaram o <strong>primeiro grupo de K-pop a headlinar o Governors Ball</strong> em Nova York, performando para 45.000 pessoas." },
     { tag:"Spotify", text:"Em 2025, o SKZ se tornou o <strong>terceiro artista coreano</strong> a atingir 10 bilhões de streams no Spotify, após BTS e BLACKPINK." },
     { tag:"Rock in Rio", text:"Em 2026, o Stray Kids se torna o <strong>primeiro ato de K-pop a headlinar o Rock in Rio</strong> — consolidando seu alcance global." },
+    { tag:"Grammy", text:"Em julho de 2026, os <strong>8 membros do Stray Kids</strong> foram convidados para integrar a <strong>Recording Academy</strong> como membros votantes — podendo votar nas indicações e vencedores do Grammy Awards a partir de 2027." },
   ],
   membros:[
     { tag:"Felix", text:"<strong>Felix</strong> tem uma das vozes mais reconhecíveis do K-pop. Em 2025, colaborou com LiSA na abertura do anime <em>Solo Leveling</em> 2ª temporada. Antes de ser idol, conquistou <strong>63 medalhas em Taekwondo</strong>." },
@@ -167,6 +173,7 @@ const factsData={
 
 /* ── DADOS — MVs ── */
 const mvs=[
+  { title:"RUN IT",         year:"2026", views:"",      id:"Q7IFjVUUb_E" },
   { title:"CEREMONY",       year:"2025", views:"",      id:"P7vBoGWoReg" },
   { title:"Do It",          year:"2025", views:"",      id:"NED7nev2ywQ" },
   { title:"DIVINE",         year:"2025", views:"",      id:"E8i32NXMxnc" },
@@ -207,6 +214,7 @@ const skzoo=[
   { name:"BbokAri",    member:"Felix",     animal:"Pinto",            img:"https://i.pinimg.com/1200x/ae/06/62/ae06620dbf96ac5f2559597fa61f12a4.jpg" },
   { name:"PuppyM",     member:"Seungmin",  animal:"Cachorro",         img:"https://i.pinimg.com/736x/2c/27/cf/2c27cf81307b9591a11d8c463b6d9857.jpg" },
   { name:"Fox I.Ny",   member:"I.N",       animal:"Raposa",           img:"https://i.pinimg.com/736x/62/c0/e1/62c0e18118e175467bd241e5ebb023f4.jpg" },
+  { name:"TASY",       member:"STAY (fandom)", animal:"Tanuki",       img:"https://res.cloudinary.com/f3jwqtcy/image/upload/f_auto,q_auto/tasy_-_Imgur_iwnxjc" },
 ];
 
 /* ── DADOS — Stream ── */
@@ -238,7 +246,7 @@ function openMemberDetail(idx){
   const infoSide = document.getElementById('modalInfoSide');
   if(!modal) return;
 
-  imgSide.innerHTML = `<img src="${m.img}" alt="${m.name}" style="width:100%;height:100%;object-fit:cover">`;
+  imgSide.innerHTML = `<img src="${m.img}" onerror="this.style.opacity='0'" alt="${m.name}" style="width:100%;height:100%;object-fit:cover">`;
   infoSide.innerHTML = `
     <div class="modal-stage">${m.name}</div>
     <div class="modal-fullname">${m.kr} · ${m.full}</div>
@@ -387,9 +395,9 @@ function renderMembers(){
     card.style.transitionDelay=`${i*.07}s`;
     card.innerHTML=`
       <div class="member-img-wrap">
-        <img src="${m.img}" alt="${m.name}" loading="lazy">
+        <img src="${m.img}" onerror="this.style.opacity='0'" alt="${m.name}" loading="lazy">
         <div class="member-overlay"></div>
-        <div class="member-skzoo-badge"><img src="${m.skzooImg}" alt="${m.skzoo}"></div>
+        <div class="member-skzoo-badge"><img src="${m.skzooImg}" onerror="this.style.display='none'" alt="${m.skzoo}"></div>
         <div class="member-bottom">
           <span class="member-badge">${m.unit}</span>
           <div class="member-stage">${m.name}</div>
@@ -414,7 +422,7 @@ function renderDiscografia(){
     list.forEach(a=>{
       const card=document.createElement('div');
       card.className='disco-card reveal'; card.dataset.type=a.type;
-      const imgH=a.img?`<img src="${a.img}" alt="${a.name}" loading="lazy">`:`<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--ac);opacity:.3">${a.name.charAt(0)}</div>`;
+      const imgH=a.img?`<img src="${a.img}" onerror="this.style.display='none'" alt="${a.name}" loading="lazy">`:`<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--ac);opacity:.3">${a.name.charAt(0)}</div>`;
       card.innerHTML=`<div class="disco-cover">${imgH}<span class="disco-type-tag">${a.badge}</span></div><div class="disco-info"><div class="disco-name">${a.name}</div><div class="disco-year">${a.year} · ${a.tracks} faixa${a.tracks>1?'s':''}</div><div class="disco-track">▶ ${a.track}</div></div>`;
       grid.appendChild(card);
     });
@@ -468,7 +476,7 @@ function renderTours(){
     grid.appendChild(card);
   });
   // Countdown
-  const target=new Date('2026-09-19T20:00:00-03:00');
+  const target=new Date('2026-09-11T20:00:00-03:00');
   function updateCd(){
     const el=document.getElementById('rirCountdown');
     if(!el) return;
@@ -510,13 +518,13 @@ function renderMVs(){
   if(!grid) return;
   const first=mvs[0];
   if(featured){
-    featured.innerHTML=`<a href="https://www.youtube.com/watch?v=${first.id}" target="_blank" class="mv-featured-card"><div class="mv-featured-thumb"><img src="https://img.youtube.com/vi/${first.id}/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/${first.id}/hqdefault.jpg'" alt="${first.title}" loading="lazy"><div class="mv-featured-overlay"><div class="mv-featured-play">▶</div><div class="mv-featured-info"><div class="mv-featured-badge">Mais recente</div><div class="mv-featured-title">${first.title}</div><div class="mv-featured-year">${first.year}</div></div></div></div></a>`;
+    featured.innerHTML=`<a href="https://www.youtube.com/watch?v=${first.id}" target="_blank" rel="noopener noreferrer" class="mv-featured-card"><div class="mv-featured-thumb"><img src="https://img.youtube.com/vi/${first.id}/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/${first.id}/hqdefault.jpg'" alt="${first.title}" loading="lazy"><div class="mv-featured-overlay"><div class="mv-featured-play">▶</div><div class="mv-featured-info"><div class="mv-featured-badge">Mais recente</div><div class="mv-featured-title">${first.title}</div><div class="mv-featured-year">${first.year}</div></div></div></div></a>`;
   }
   mvs.slice(1).forEach(mv=>{
     const card=document.createElement('a');
     card.className='mv-card';
-    card.href=`https://www.youtube.com/watch?v=${mv.id}`; card.target='_blank';
-    card.innerHTML=`<div class="mv-thumb"><img src="https://img.youtube.com/vi/${mv.id}/mqdefault.jpg" alt="${mv.title}" loading="lazy"><div class="mv-play"><span>▶</span></div></div><div class="mv-info"><div class="mv-title">${mv.title}</div><div class="mv-year">${mv.year}</div>${mv.views?`<div class="mv-views">▶ ${mv.views} views</div>`:''}</div>`;
+    card.href=`https://www.youtube.com/watch?v=${mv.id}`; card.target='_blank'; card.rel='noopener noreferrer';
+    card.innerHTML=`<div class="mv-thumb"><img src="https://img.youtube.com/vi/${mv.id}/mqdefault.jpg" onerror="this.src='https://img.youtube.com/vi/default/hqdefault.jpg'" alt="${mv.title}" loading="lazy"><div class="mv-play"><span>▶</span></div></div><div class="mv-info"><div class="mv-title">${mv.title}</div><div class="mv-year">${mv.year}</div>${mv.views?`<div class="mv-views">▶ ${mv.views} views</div>`:''}</div>`;
     grid.appendChild(card);
   });
   setTimeout(()=>{
@@ -536,7 +544,7 @@ function renderGallery(){
   gallery.forEach(g=>{
     const item=document.createElement('div');
     item.className='gallery-item';
-    item.innerHTML=`<img src="${g.url}" alt="${g.alt}" loading="lazy"><div class="gallery-hover"><span class="gallery-name">${g.alt}</span></div>`;
+    item.innerHTML=`<img src="${g.url}" onerror="this.style.opacity='0.2'" alt="${g.alt}" loading="lazy"><div class="gallery-hover"><span class="gallery-name">${g.alt}</span></div>`;
     item.addEventListener('click',()=>{ document.getElementById('lbImg').src=g.url; document.getElementById('lightbox').classList.remove('hidden'); });
     grid.appendChild(item);
   });
@@ -567,7 +575,7 @@ function renderSkzoo(){
   skzoo.forEach(s=>{
     const card=document.createElement('div');
     card.className='skzoo-card reveal';
-    card.innerHTML=`<div class="skzoo-img-wrap"><img src="${s.img}" alt="${s.name}" loading="lazy"></div><div class="skzoo-info"><div class="skzoo-name">${s.name}</div><div class="skzoo-member">${s.member}</div><span class="skzoo-badge">${s.animal}</span></div>`;
+    card.innerHTML=`<div class="skzoo-img-wrap"><img src="${s.img}" onerror="this.style.opacity='0'" alt="${s.name}" loading="lazy"></div><div class="skzoo-info"><div class="skzoo-name">${s.name}</div><div class="skzoo-member">${s.member}</div><span class="skzoo-badge">${s.animal}</span></div>`;
     grid.appendChild(card);
   });
 }
@@ -584,7 +592,7 @@ function renderStream(){
     row.className='stream-row';
     items.forEach(s=>{
       const card=document.createElement('a');
-      card.className='stream-card'; card.href=s.url; card.target='_blank';
+      card.className='stream-card'; card.href=s.url; card.target='_blank'; card.rel='noopener noreferrer';
       card.style.setProperty('--card-color',s.color);
       card.innerHTML=`<div class="stream-icon">${s.icon}</div><div class="stream-name">${s.name}</div><div class="stream-action">${s.action}</div>`;
       row.appendChild(card);
@@ -616,11 +624,11 @@ function renderNewStays(){
     { icon:'🎵', title:'Por onde começar', text:'Comece pelo MV de <strong>God\'s Menu</strong> (2020). Depois ouça <strong>MIROH</strong> e <strong>Thunderous</strong>. Para o álbum completo, vá direto para o <strong>5-STAR</strong>.' },
     { icon:'📺', title:'O que assistir', text:'Assista <strong>SKZ CODE</strong> no YouTube para conhecer a personalidade de cada membro. Depois experimente o <strong>2 Kids Room</strong> para conversas mais íntimas.' },
     { icon:'🤝', title:'Como apoiar', text:'Stream nas plataformas conta para os charts. Vote no <strong>MAMA Awards</strong> durante o período de votação. Compre álbuns em lojas certificadas <strong>Hanteo</strong>.' },
-    { icon:'📖', title:'Glossário STAY', glossary:[{word:'STAY',def:'Nome oficial do fandom'},{word:'OT8',def:'Original Eight — os 8 membros'},{word:'3RACHA',def:'Sub-grupo produtor'},{word:'Racha',def:'As 3 unidades do grupo'},{word:'Maknae',def:'O mais jovem — I.N'},{word:'SKZoo',def:'Personagens animais oficiais'},{word:'Self-prod',def:'O grupo produz suas músicas'},{word:'Daesang',def:'Maior prêmio do K-pop'}] },
-    { icon:'💿', title:'Discografia em ordem', text:'<strong>2018:</strong> Mixtape → I Am NOT → WHO → YOU<br><strong>2019:</strong> Clé 1-2-Levanter<br><strong>2020:</strong> GO LIVE<br><strong>2021:</strong> NOEASY<br><strong>2022:</strong> ODDINARY → MAXIDENT<br><strong>2023:</strong> 5-STAR → ROCK-STAR<br><strong>2024:</strong> ATE<br><strong>2025:</strong> KARMA → DO IT' },
-    { icon:'🌍', title:'Sobre o grupo', text:'8 membros, fundado em 2018 pela <strong>JYP Entertainment</strong>. O sub-grupo <strong>3RACHA</strong> produz quase tudo. Já têm <strong>8 álbuns consecutivos #1 no Billboard 200</strong>.' },
+    { icon:'📖', title:'Glossário STAY', glossary:[{word:'STAY',def:'Nome oficial do fandom'},{word:'OT8',def:'Original Eight — os 8 membros'},{word:'3RACHA',def:'Sub-grupo produtor'},{word:'Racha',def:'As 3 unidades do grupo'},{word:'Maknae',def:'O mais jovem — I.N'},{word:'SKZoo',def:'Personagens animais oficiais'},{word:'Self-prod',def:'O grupo produz suas músicas'},{word:'Daesang',def:'Maior prêmio do K-pop'},{word:'TASY',def:'Personagem oficial do fandom STAY — anagrama de STAY'}] },
+    { icon:'💿', title:'Discografia em ordem', text:'<strong>2018:</strong> Mixtape → I Am NOT → WHO → YOU<br><strong>2019:</strong> Clé 1-2-Levanter<br><strong>2020:</strong> GO LIVE<br><strong>2021:</strong> NOEASY<br><strong>2022:</strong> ODDINARY → MAXIDENT<br><strong>2023:</strong> 5-STAR → ROCK-STAR<br><strong>2024:</strong> ATE → HOP<br><strong>2025:</strong> KARMA → DO IT<br><strong>2026:</strong> Endless Sun · RUN IT · THIS & THAT' },
+    { icon:'🌍', title:'Sobre o grupo', text:'8 membros, fundado em 2018 pela <strong>JYP Entertainment</strong>. O sub-grupo <strong>3RACHA</strong> produz quase tudo. Já venderam <strong>mais de 40 milhões de álbuns</strong> e têm <strong>8 álbuns consecutivos #1 no Billboard 200</strong>.' },
     { icon:'🎤', title:'Unidades do grupo', text:'<strong>3RACHA</strong> — Bang Chan, Han e Changbin (produção e rap)<br><strong>Dance Racha</strong> — Lee Know, Hyunjin e Felix (dança)<br><strong>Vocal Racha</strong> — Seungmin e I.N (vocais)' },
-    { icon:'🏆', title:'Conquistas históricas', text:'Headlinaram o <strong>Lollapalooza Chicago</strong> (2023). Foram ao <strong>Met Gala 2024</strong> juntos. O dominATE Tour foi o <strong>maior tour K-pop da história</strong>.' },
+    { icon:'🏆', title:'Conquistas históricas', text:'Headlinaram o <strong>Lollapalooza Chicago</strong> (2023) e o <strong>Governors Ball</strong> em Nova York (2026) — primeiro K-pop headliner. Foram ao <strong>Met Gala 2024</strong> juntos. O dominATE Tour foi o <strong>maior tour K-pop da história</strong>. Os 8 membros são <strong>membros votantes da Recording Academy</strong> (Grammy).' },
   ];
   cards.forEach(c=>{
     const card=document.createElement('div');
@@ -686,13 +694,21 @@ document.getElementById('searchInput')?.addEventListener('input',function(){
   if(!results) return;
   if(!q){ results.innerHTML=''; return; }
   const index=[
-    ...members.map(m=>({title:m.name,sub:m.pos,tag:'Membro',img:m.img})),
-    ...albums.map(a=>({title:a.name,sub:`${a.year} · ${a.track}`,tag:'Álbum',img:a.img})),
-    ...Object.values(factsData).flat().map(f=>({title:f.tag,sub:f.text.replace(/<[^>]+>/g,'').substring(0,80)+'…',tag:'Curiosidade'})),
+    ...members.map(m=>({title:m.name,sub:m.pos,tag:'Membro',img:m.img,anchor:'#membros'})),
+    ...albums.map(a=>({title:a.name,sub:`${a.year} · ${a.track}`,tag:'Álbum',img:a.img,anchor:'#discografia'})),
+    ...Object.values(factsData).flat().map(f=>({title:f.tag,sub:f.text.replace(/<[^>]+>/g,'').substring(0,80)+'…',tag:'Curiosidade',anchor:'#curiosidades'})),
   ];
   const hits=index.filter(item=>item.title.toLowerCase().includes(q)||item.sub?.toLowerCase().includes(q));
   if(!hits.length){ results.innerHTML=`<div class="search-empty">Nenhum resultado para "<strong>${q}</strong>"</div>`; return; }
-  results.innerHTML=hits.slice(0,12).map(h=>`<div class="search-result-item">${h.img?`<img class="search-result-thumb" src="${h.img}" alt="${h.title}" loading="lazy">`:`<div class="search-result-thumb" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--bg-3)">${h.tag==='Membro'?'👤':h.tag==='Álbum'?'💿':'💡'}</div>`}<div class="search-result-info"><div class="search-result-title">${h.title}</div><div class="search-result-sub">${h.sub||''}</div></div><span class="search-result-tag">${h.tag}</span></div>`).join('');
+  results.innerHTML=hits.slice(0,12).map(h=>`<button class="search-result-item" type="button" data-anchor="${h.anchor||''}">${h.img?`<img class="search-result-thumb" src="${h.img}" alt="${h.title}" loading="lazy">`:`<div class="search-result-thumb" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--bg-3)">${h.tag==='Membro'?'👤':h.tag==='Álbum'?'💿':'💡'}</div>`}<div class="search-result-info"><div class="search-result-title">${h.title}</div><div class="search-result-sub">${h.sub||''}</div></div><span class="search-result-tag">${h.tag}</span></button>`).join('');
+});
+document.getElementById('searchResults')?.addEventListener('click',e=>{
+  const item=e.target.closest('.search-result-item');
+  if(!item) return;
+  const anchor=item.dataset.anchor;
+  if(anchor) document.querySelector(anchor)?.scrollIntoView({behavior:'smooth'});
+  document.getElementById('searchWrap')?.classList.remove('open');
+  document.body.style.overflow='';
 });
 
 /* ── MODO CLARO ── */
