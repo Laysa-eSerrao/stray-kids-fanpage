@@ -44,9 +44,9 @@
   </ul>
   <div class="nav-controls">
     <div id="langControls" class="lang-controls"></div>
-    <button class="nav-search-btn" id="searchOpenBtn" title="Buscar">🔍</button>
-    <button id="themeToggleBtn" class="nav-btn">🌙</button>
-    <button class="nav-toggle" id="navToggle">☰</button>
+    <button class="nav-search-btn" id="searchOpenBtn" title="Buscar" aria-label="Abrir busca">🔍</button>
+    <button id="themeToggleBtn" class="nav-btn" aria-label="Alternar tema claro/escuro">🌙</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
   </div>
 </nav>
 
@@ -95,7 +95,7 @@
 <!-- MODAL -->
 <div id="memberModal" class="modal-backdrop hidden">
   <div class="member-modal">
-    <button class="modal-close-btn" id="modalCloseBtn">✕</button>
+    <button class="modal-close-btn" id="modalCloseBtn" aria-label="Fechar perfil do membro">✕</button>
     <div class="modal-img-side" id="modalImgSide"></div>
     <div class="modal-info-side" id="modalInfoSide"></div>
   </div>
@@ -196,7 +196,7 @@
 
 <!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox hidden">
-  <button id="lbClose" class="lb-btn lb-close">✕</button>
+  <button id="lbClose" class="lb-btn lb-close" aria-label="Fechar imagem">✕</button>
   <img id="lbImg" src="" alt="" />
 </div>
 
@@ -221,7 +221,7 @@
 </section>
 
 
-<button id="backToTop" class="back-to-top">↑</button>
+<button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">↑</button>
 
 
 
@@ -271,7 +271,7 @@
   <div class="search-input-wrap">
     <span class="search-input-icon">🔍</span>
     <input class="search-input" id="searchInput" type="text" placeholder="Buscar membros, álbuns, curiosidades..." autocomplete="off" />
-    <button class="search-close" id="searchCloseBtn">✕</button>
+    <button class="search-close" id="searchCloseBtn" aria-label="Fechar busca">✕</button>
   </div>
   <div class="search-results" id="searchResults"></div>
 </div>
@@ -281,7 +281,7 @@
 <div class="drawer" id="drawer">
   <div class="drawer-header">
     <span class="drawer-logo">STRAY KIDS</span>
-    <button class="drawer-close" id="drawerClose">✕</button>
+    <button class="drawer-close" id="drawerClose" aria-label="Fechar menu">✕</button>
   </div>
   <nav class="drawer-nav">
     <a href="#membros"      onclick="closeDrawer()">Membros</a>
