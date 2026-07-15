@@ -78,7 +78,7 @@ const members=[
 
 /* ── DADOS — Álbuns ── */
 const albums=[
-  { year:"2026", name:"THIS & THAT",              badge:"Mini Álbum",       type:"full",    track:"This & That",      tracks:8,  img:"https://static.wikia.nocookie.net/stray-kids/images/3/3d/THIS_%26_THAT_Digital_Cover.jpg/revision/latest/scale-to-width-down/1000?cb=20260714140146" },
+  { year:"2026", name:"THIS & THAT",              badge:"Mini Álbum · Pré-lançamento",       type:"full",    track:"This & That",      tracks:8,  img:"https://static.wikia.nocookie.net/stray-kids/images/3/3d/THIS_%26_THAT_Digital_Cover.jpg/revision/latest/scale-to-width-down/1000?cb=20260714140146" },
   { year:"2026", name:"RUN IT",                   badge:"Single",           type:"single",  track:"RUN IT",           tracks:1,  img:"https://d1al7qj7ydfbpt.cloudfront.net/artists/straykids/albums/1782273961369-881e95eb.jpg" },
   { year:"2026", name:"Endless Sun",              badge:"Single",           type:"single",  track:"Endless Sun",      tracks:1,  img:"https://static.wikia.nocookie.net/stray-kids/images/7/71/Endless_Sun_Digital_Cover.jpg/revision/latest/scale-to-width-down/1000?cb=20260313042615" },
   { year:"2026", name:"별, 빛 (STAY)",            badge:"Single",           type:"single",  track:"별, 빛 (STAY)",    tracks:1,  img:"https://akamai.sscdn.co/letras/360x360/albuns/4/7/7/3/4809391776718807.jpg" },
@@ -174,22 +174,27 @@ const factsData={
 /* ── DADOS — MVs ── */
 const mvs=[
   { title:"RUN IT",         year:"2026", views:"",      id:"Q7IFjVUUb_E" },
-  { title:"CEREMONY",       year:"2025", views:"",      id:"P7vBoGWoReg" },
-  { title:"Do It",          year:"2025", views:"",      id:"NED7nev2ywQ" },
-  { title:"DIVINE",         year:"2025", views:"",      id:"E8i32NXMxnc" },
-  { title:"Walkin On Water",year:"2024", views:"",      id:"ovHoY8UBIu8" },
-  { title:"CASE 143",       year:"2022", views:"",      id:"jYSlpC6Ud2A" },
-  { title:"Back Door",      year:"2020", views:"",      id:"X-uJtV8ScYk" },
-  { title:"Topline",        year:"2024", views:"",      id:"b3GYcA7j5mg" },
-  { title:"God's Menu",     year:"2020", views:"300M+", id:"TQTlCHxyuu8" },
+  { title:"CEREMONY",       year:"2025", views:"120M+", id:"P7vBoGWoReg" },
+  { title:"Do It",          year:"2025", views:"120M+", id:"NED7nev2ywQ" },
+  { title:"DIVINE",         year:"2025", views:"80M+",  id:"E8i32NXMxnc" },
+  { title:"Walkin On Water",year:"2024", views:"100M+", id:"ovHoY8UBIu8" },
+  { title:"CASE 143",       year:"2022", views:"240M+", id:"jYSlpC6Ud2A" },
+  { title:"Back Door",      year:"2020", views:"400M+", id:"X-uJtV8ScYk" },
+  { title:"Topline",        year:"2024", views:"90M+",  id:"b3GYcA7j5mg" },
+  { title:"God's Menu",     year:"2020", views:"570M+", id:"TQTlCHxyuu8" },
   { title:"MIROH",          year:"2019", views:"200M+", id:"Dab4EENTW5I" },
-  { title:"THUNDEROUS",     year:"2021", views:"250M+", id:"EaswWiwMVs8" },
-  { title:"MANIAC",         year:"2022", views:"200M+", id:"OvioeS1ZZ7o" },
-  { title:"S-CLASS",        year:"2023", views:"150M+", id:"JsOOis4bBFg" },
-  { title:"LOSE MY BREATH", year:"2023", views:"120M+", id:"SQ1yPMTIwCU" },
-  { title:"SOCIAL PATH",    year:"2023", views:"100M+", id:"M0c04xfBtyc" },
-  { title:"CHK CHK BOOM",   year:"2024", views:"80M+",  id:"0P0aQreFs8w" },
-  { title:"LALALALA",       year:"2023", views:"100M+", id:"dBDkYofMUs4" },
+  { title:"THUNDEROUS",     year:"2021", views:"450M+", id:"EaswWiwMVs8" },
+  { title:"MANIAC",         year:"2022", views:"340M+", id:"OvioeS1ZZ7o" },
+  { title:"S-CLASS",        year:"2023", views:"300M+", id:"JsOOis4bBFg" },
+  { title:"LOSE MY BREATH", year:"2023", views:"80M+",  id:"SQ1yPMTIwCU" },
+  { title:"SOCIAL PATH",    year:"2023", views:"80M+",  id:"M0c04xfBtyc" },
+  { title:"CHK CHK BOOM",   year:"2024", views:"200M+", id:"0P0aQreFs8w" },
+  { title:"LALALALA",       year:"2023", views:"340M+", id:"dBDkYofMUs4" },
+  { title:"VENOM",          year:"2022", views:"150M+", id:"pM-jOfy_1jM" },
+  { title:"Red Lights",     year:"2021", views:"170M+", id:"k8Y6ZTjmCXs" },
+  { title:"CHEESE",         year:"2022", views:"115M+", id:"YLtEc-kvOqA" },
+  { title:"Hellevator",     year:"2017", views:"125M+", id:"AdfIfFGCqgo" },
+  { title:"Christmas EveL", year:"2021", views:"190M+", id:"57n4dZAPxNY" },
 ];
 
 /* ── DADOS — Galeria ── */
@@ -276,11 +281,26 @@ document.addEventListener('DOMContentLoaded', function(){
 /* ── INTRO ── */
 const introBtn = document.getElementById('introEnterBtn');
 const introScreen = document.getElementById('introScreen');
-if(introBtn && introScreen){
-  introBtn.addEventListener('click', ()=>{
-    introScreen.classList.add('out');
-    setTimeout(()=>{ introScreen.style.display='none'; }, 800);
-  });
+if (introBtn && introScreen) {
+  // Mostra intro apenas uma vez por sessão
+  if (sessionStorage.getItem('skz-intro-seen')) {
+    introScreen.style.display = 'none';
+  } else {
+    introScreen.classList.remove('hidden');
+    introBtn.addEventListener('click', () => {
+      sessionStorage.setItem('skz-intro-seen', '1');
+      introScreen.classList.add('out');
+      setTimeout(() => { introScreen.style.display = 'none'; }, 800);
+    });
+    // Botão de pular
+    const skipBtn = document.getElementById('introSkipBtn');
+    if (skipBtn) {
+      skipBtn.addEventListener('click', () => {
+        sessionStorage.setItem('skz-intro-seen', '1');
+        introScreen.style.display = 'none';
+      });
+    }
+  }
 }
 
 /* ── HERO CANVAS ── */
@@ -289,6 +309,7 @@ if(introBtn && introScreen){
   if(!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H, particles=[], mouse={x:0,y:0};
+  let animFrameId;
   function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
   resize();
   window.addEventListener('resize', resize);
@@ -301,8 +322,6 @@ if(introBtn && introScreen){
       particles.push({ x:Math.random()*W, y:Math.random()*H, vx:(Math.random()-.5)*.4, vy:(Math.random()-.5)*.4, r:type==='star'?3:type==='ring'?Math.random()*3+2:Math.random()*1.8+.4, a:Math.random()*.8+.1, type, pulse:Math.random()*Math.PI*2, speed:Math.random()*.02+.005 });
     }
   }
-  createParticles();
-  window.addEventListener('resize', createParticles);
   function drawK(alpha){
     const cx=W/2,cy=H/2,size=Math.min(W,H)*.55;
     ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle='#e8192c'; ctx.lineWidth=size*.035; ctx.lineCap='round';
@@ -341,9 +360,20 @@ if(introBtn && introScreen){
       const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);
       if(d<90){ ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.strokeStyle=`rgba(232,25,44,${(1-d/90)*.12})`; ctx.lineWidth=.5; ctx.stroke(); }
     }
-    requestAnimationFrame(draw);
+    animFrameId = requestAnimationFrame(draw);
   }
-  draw();
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) cancelAnimationFrame(animFrameId);
+    else animFrameId = requestAnimationFrame(draw);
+  });
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    canvas.style.display = 'none';
+  } else {
+    createParticles();
+    window.addEventListener('resize', createParticles);
+    animFrameId = requestAnimationFrame(draw);
+  }
 })();
 
 /* ── NAVBAR ── */
@@ -405,7 +435,16 @@ function renderMembers(){
           <div class="member-role">${m.pos.split('/')[0].trim()}</div>
         </div>
       </div>`;
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `Ver perfil de ${m.name}`);
     card.addEventListener('click', ()=> openMemberDetail(i));
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openMemberDetail(i);
+      }
+    });
     grid.appendChild(card);
   });
 }
@@ -423,7 +462,11 @@ function renderDiscografia(){
       const card=document.createElement('div');
       card.className='disco-card reveal'; card.dataset.type=a.type;
       const imgH=a.img?`<img src="${a.img}" onerror="this.style.display='none'" alt="${a.name}" loading="lazy">`:`<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--ac);opacity:.3">${a.name.charAt(0)}</div>`;
-      card.innerHTML=`<div class="disco-cover">${imgH}<span class="disco-type-tag">${a.badge}</span></div><div class="disco-info"><div class="disco-name">${a.name}</div><div class="disco-year">${a.year} · ${a.tracks} faixa${a.tracks>1?'s':''}</div><div class="disco-track">▶ ${a.track}</div></div>`;
+      const isUpcoming = a.badge && a.badge.includes('Pré-lançamento');
+      const upcomingSeal = isUpcoming
+        ? `<div style="position:absolute;top:8px;left:8px;background:#e8192c;color:#fff;font-size:.65rem;font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;padding:3px 8px;border-radius:4px;z-index:2">EM BREVE · 07/08/2026</div>`
+        : '';
+      card.innerHTML=`<div class="disco-cover">${upcomingSeal}${imgH}<span class="disco-type-tag">${a.badge}</span></div><div class="disco-info"><div class="disco-name">${a.name}</div><div class="disco-year">${a.year} · ${a.tracks} faixa${a.tracks>1?'s':''}</div><div class="disco-track">▶ ${a.track}</div></div>`;
       grid.appendChild(card);
     });
     const ex=document.getElementById('discoToggleBtn'); if(ex) ex.remove();
@@ -467,26 +510,37 @@ function renderTimeline(){
 
 /* ── TOURS ── */
 function renderTours(){
-  const grid=document.getElementById('toursGrid');
+  const grid = document.getElementById('toursGrid');
   if(!grid) return;
-  tours.forEach(t=>{
-    const card=document.createElement('div');
-    card.className='tour-card reveal';
-    card.innerHTML=`<div class="tour-era">${t.era}</div><div class="tour-name">${t.name}</div><div class="tour-desc">${t.desc}</div>${t.badges.map(b=>`<span class="tour-badge ${t.gold?'gold':''}">${b}</span>`).join('')}`;
-    grid.appendChild(card);
-  });
-  // Countdown
-  const target=new Date('2026-09-11T20:00:00-03:00');
+
+  function buildTours(filterEra){
+    grid.innerHTML = '';
+    const list = filterEra
+      ? tours.filter(t => t.era.toString().includes(filterEra))
+      : tours;
+    list.forEach(t => {
+      const card = document.createElement('div');
+      card.className = 'tour-card reveal';
+      card.innerHTML = `<div class="tour-era">${t.era}</div><div class="tour-name">${t.name}</div><div class="tour-desc">${t.desc}</div>${t.badges.map(b=>`<span class="tour-badge ${t.gold?'gold':''}">${b}</span>`).join('')}`;
+      grid.appendChild(card);
+    });
+    setTimeout(initReveal, 50);
+  }
+
+  buildTours(null);
+
+  // Countdown Rock in Rio
+  const target = new Date('2026-09-11T20:00:00-03:00');
   function updateCd(){
-    const el=document.getElementById('rirCountdown');
+    const el = document.getElementById('rirCountdown');
     if(!el) return;
-    const diff=target-new Date();
-    if(diff<=0){ el.innerHTML='<div class="cd-unit"><span class="cd-num">JÁ ACONTECEU!</span><span class="cd-label">🎉</span></div>'; return; }
-    const d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
+    const diff = target - new Date();
+    if(diff <= 0){ el.innerHTML='<div class="cd-unit"><span class="cd-num">JÁ ACONTECEU!</span><span class="cd-label">🎉</span></div>'; return; }
+    const d=Math.floor(diff/86400000), h=Math.floor((diff%86400000)/3600000), m=Math.floor((diff%3600000)/60000), s=Math.floor((diff%60000)/1000);
     const unit=(n,l)=>`<div class="cd-unit"><span class="cd-num">${n}</span><span class="cd-label">${l}</span></div>`;
     el.innerHTML=unit(d,'Dias')+'<div class="cd-sep">:</div>'+unit(String(h).padStart(2,'0'),'Horas')+'<div class="cd-sep">:</div>'+unit(String(m).padStart(2,'0'),'Min')+'<div class="cd-sep">:</div>'+unit(String(s).padStart(2,'0'),'Seg');
   }
-  updateCd(); setInterval(updateCd,1000);
+  updateCd(); setInterval(updateCd, 1000);
 }
 
 /* ── CURIOSIDADES ── */
@@ -518,7 +572,37 @@ function renderMVs(){
   if(!grid) return;
   const first=mvs[0];
   if(featured){
-    featured.innerHTML=`<a href="https://www.youtube.com/watch?v=${first.id}" target="_blank" rel="noopener noreferrer" class="mv-featured-card"><div class="mv-featured-thumb"><img src="https://img.youtube.com/vi/${first.id}/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/${first.id}/hqdefault.jpg'" alt="${first.title}" loading="lazy"><div class="mv-featured-overlay"><div class="mv-featured-play">▶</div><div class="mv-featured-info"><div class="mv-featured-badge">Mais recente</div><div class="mv-featured-title">${first.title}</div><div class="mv-featured-year">${first.year}</div></div></div></div></a>`;
+    featured.innerHTML = `
+  <div class="mv-featured-card">
+    <div class="mv-featured-thumb" id="mvFeaturedThumb">
+      <img src="https://img.youtube.com/vi/${first.id}/maxresdefault.jpg"
+           onerror="this.src='https://img.youtube.com/vi/${first.id}/hqdefault.jpg'"
+           alt="${first.title}" loading="lazy">
+      <div class="mv-featured-overlay">
+        <button class="mv-featured-play" id="mvPlayBtn" aria-label="Assistir ${first.title} no YouTube" type="button">▶</button>
+        <div class="mv-featured-info">
+          <div class="mv-featured-badge">Mais recente</div>
+          <div class="mv-featured-title">${first.title}</div>
+          <div class="mv-featured-year">${first.year}</div>
+        </div>
+      </div>
+    </div>
+    <div id="mvEmbedWrap" style="display:none;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+      <iframe id="mvEmbed" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;border-radius:12px;"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>`;
+    document.getElementById('mvPlayBtn')?.addEventListener('click', () => {
+      const thumb = document.getElementById('mvFeaturedThumb');
+      const embedWrap = document.getElementById('mvEmbedWrap');
+      const iframe = document.getElementById('mvEmbed');
+      if (thumb && embedWrap && iframe) {
+        thumb.style.display = 'none';
+        embedWrap.style.display = 'block';
+        iframe.src = `https://www.youtube.com/embed/${first.id}?autoplay=1&rel=0`;
+      }
+    });
   }
   mvs.slice(1).forEach(mv=>{
     const card=document.createElement('a');
@@ -545,7 +629,17 @@ function renderGallery(){
     const item=document.createElement('div');
     item.className='gallery-item';
     item.innerHTML=`<img src="${g.url}" onerror="this.style.opacity='0.2'" alt="${g.alt}" loading="lazy"><div class="gallery-hover"><span class="gallery-name">${g.alt}</span></div>`;
+    item.setAttribute('role', 'button');
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('aria-label', `Ampliar foto de ${g.alt}`);
     item.addEventListener('click',()=>{ document.getElementById('lbImg').src=g.url; document.getElementById('lightbox').classList.remove('hidden'); });
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        document.getElementById('lbImg').src = g.url;
+        document.getElementById('lightbox').classList.remove('hidden');
+      }
+    });
     grid.appendChild(item);
   });
   document.getElementById('lbClose')?.addEventListener('click',()=>document.getElementById('lightbox').classList.add('hidden'));
@@ -686,29 +780,70 @@ document.getElementById('searchCloseBtn')?.addEventListener('click',()=>{
 document.getElementById('searchWrap')?.addEventListener('click',e=>{ if(e.target===e.currentTarget){ e.target.classList.remove('open'); document.body.style.overflow=''; } });
 document.addEventListener('keydown',e=>{
   if(e.key==='/'&&document.activeElement.tagName!=='INPUT'){ e.preventDefault(); document.getElementById('searchWrap')?.classList.add('open'); document.getElementById('searchInput')?.focus(); document.body.style.overflow='hidden'; }
-  if(e.key==='Escape'){ document.getElementById('searchWrap')?.classList.remove('open'); document.body.style.overflow=''; }
+  if (e.key === 'Escape') {
+    document.getElementById('searchWrap')?.classList.remove('open');
+    document.getElementById('memberModal')?.classList.add('hidden');
+    document.getElementById('lightbox')?.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
 });
 document.getElementById('searchInput')?.addEventListener('input',function(){
   const q=this.value.trim().toLowerCase();
   const results=document.getElementById('searchResults');
   if(!results) return;
   if(!q){ results.innerHTML=''; return; }
-  const index=[
-    ...members.map(m=>({title:m.name,sub:m.pos,tag:'Membro',img:m.img,anchor:'#membros'})),
-    ...albums.map(a=>({title:a.name,sub:`${a.year} · ${a.track}`,tag:'Álbum',img:a.img,anchor:'#discografia'})),
-    ...Object.values(factsData).flat().map(f=>({title:f.tag,sub:f.text.replace(/<[^>]+>/g,'').substring(0,80)+'…',tag:'Curiosidade',anchor:'#curiosidades'})),
+  const index = [
+    ...members.map((m, i) => ({
+      title: m.name, sub: m.pos, tag: 'Membro', img: m.img,
+      anchor: '#membros', type: 'member', idx: i
+    })),
+    ...albums.map(a => ({
+      title: a.name, sub: `${a.year} · ${a.track}`, tag: 'Álbum', img: a.img,
+      anchor: '#discografia', type: 'album'
+    })),
+    ...Object.entries(factsData).flatMap(([tab, facts]) =>
+      facts.map(f => ({
+        title: f.tag,
+        sub: f.text.replace(/<[^>]+>/g, '').substring(0, 80) + '…',
+        tag: 'Curiosidade', anchor: '#curiosidades', type: 'fact', tab
+      }))
+    ),
   ];
   const hits=index.filter(item=>item.title.toLowerCase().includes(q)||item.sub?.toLowerCase().includes(q));
   if(!hits.length){ results.innerHTML=`<div class="search-empty">Nenhum resultado para "<strong>${q}</strong>"</div>`; return; }
-  results.innerHTML=hits.slice(0,12).map(h=>`<button class="search-result-item" type="button" data-anchor="${h.anchor||''}">${h.img?`<img class="search-result-thumb" src="${h.img}" alt="${h.title}" loading="lazy">`:`<div class="search-result-thumb" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--bg-3)">${h.tag==='Membro'?'👤':h.tag==='Álbum'?'💿':'💡'}</div>`}<div class="search-result-info"><div class="search-result-title">${h.title}</div><div class="search-result-sub">${h.sub||''}</div></div><span class="search-result-tag">${h.tag}</span></button>`).join('');
+  results.innerHTML=hits.slice(0,12).map(h=>`<button class="search-result-item" type="button" data-anchor="${h.anchor||''}" data-type="${h.type||''}" data-idx="${h.idx ?? ''}" data-tab="${h.tab||''}">${h.img?`<img class="search-result-thumb" src="${h.img}" alt="${h.title}" loading="lazy">`:`<div class="search-result-thumb" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--bg-3)">${h.tag==='Membro'?'👤':h.tag==='Álbum'?'💿':'💡'}</div>`}<div class="search-result-info"><div class="search-result-title">${h.title}</div><div class="search-result-sub">${h.sub||''}</div></div><span class="search-result-tag">${h.tag}</span></button>`).join('');
 });
-document.getElementById('searchResults')?.addEventListener('click',e=>{
-  const item=e.target.closest('.search-result-item');
-  if(!item) return;
-  const anchor=item.dataset.anchor;
-  if(anchor) document.querySelector(anchor)?.scrollIntoView({behavior:'smooth'});
+document.getElementById('searchResults')?.addEventListener('click', e => {
+  const item = e.target.closest('.search-result-item');
+  if (!item) return;
+
+  const anchor = item.dataset.anchor;
+  const type = item.dataset.type;
+  const idx = item.dataset.idx;
+
+  // Fecha a busca
   document.getElementById('searchWrap')?.classList.remove('open');
-  document.body.style.overflow='';
+  document.body.style.overflow = '';
+
+  if (type === 'member') {
+    // Scroll até membros e abre o modal
+    document.querySelector('#membros')?.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => openMemberDetail(parseInt(idx)), 600);
+
+  } else if (type === 'album') {
+    // Scroll até discografia
+    document.querySelector('#discografia')?.scrollIntoView({ behavior: 'smooth' });
+
+  } else if (type === 'fact') {
+    // Scroll até curiosidades e ativa a aba correta
+    document.querySelector('#curiosidades')?.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      const tab = document.querySelector(`.facts-tab[data-tab="${item.dataset.tab}"]`);
+      if (tab) {
+        tab.click();
+      }
+    }, 600);
+  }
 });
 
 /* ── MODO CLARO ── */

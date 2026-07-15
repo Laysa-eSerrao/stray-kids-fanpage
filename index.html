@@ -25,6 +25,7 @@
   <div class="intro-logo">STRAY <span>KIDS</span></div>
   <div class="intro-sub">스트레이 키즈 · JYP Entertainment · Est. 2018</div>
   <div class="intro-bar"><div class="intro-fill"></div></div>
+  <button id="introSkipBtn" style="position:absolute;top:1.2rem;right:1.5rem;background:transparent;border:none;color:rgba(255,255,255,0.5);font-size:.85rem;cursor:pointer;letter-spacing:.05em">Pular ›</button>
   <button class="intro-enter-btn" id="introEnterBtn">Entrar no Universo SKZ</button>
 </div>
 
@@ -93,7 +94,7 @@
 </section>
 
 <!-- MODAL -->
-<div id="memberModal" class="modal-backdrop hidden">
+<div id="memberModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-label="Perfil do membro">
   <div class="member-modal">
     <button class="modal-close-btn" id="modalCloseBtn" aria-label="Fechar perfil do membro">✕</button>
     <div class="modal-img-side" id="modalImgSide"></div>
@@ -195,7 +196,7 @@
 </section>
 
 <!-- LIGHTBOX -->
-<div id="lightbox" class="lightbox hidden">
+<div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Visualização de imagem">
   <button id="lbClose" class="lb-btn lb-close" aria-label="Fechar imagem">✕</button>
   <img id="lbImg" src="" alt="" />
 </div>
@@ -257,12 +258,6 @@
 <footer id="footer">
   <div class="footer-logo">STRAY KIDS</div>
   <p class="footer-tagline">"You make Stray Kids stay" — STAY</p>
-  <div class="footer-links">
-    <a href="https://open.spotify.com/artist/2dIgFjalVxs4ThymZ67YCE" target="_blank">Spotify</a>
-    <a href="https://www.youtube.com/@StrayKids" target="_blank">YouTube</a>
-    <a href="https://www.melon.com/artist/timeline.htm?artistId=845405" target="_blank">MelOn</a>
-    <a href="https://mama.mnetplus.world/" target="_blank">MAMA</a>
-  </div>
   <p class="footer-copy">Fan page feita com ❤️ pela Laysa Serrão · Não afiliada à JYP Entertainment · 2026</p>
 </footer>
 
