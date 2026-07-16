@@ -17,6 +17,8 @@
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WPNMTCYJ6Q"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WPNMTCYJ6Q');</script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 
@@ -154,6 +156,10 @@
       <span class="rir-tagline">Primeiro ato de K-pop a ser headliner do Rock in Rio</span>
       <span class="rir-dot"></span>
     </div>
+  </div>
+  <div id="toursMapWrap" style="margin-top:3rem">
+    <h3 style="text-align:center;font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.08em;color:var(--t1);margin-bottom:1.5rem">Mundo SKZ — Cidades Visitadas</h3>
+    <div id="toursMap" style="height:420px;border-radius:16px;overflow:hidden;border:1px solid var(--bd)"></div>
   </div>
 </section>
 
