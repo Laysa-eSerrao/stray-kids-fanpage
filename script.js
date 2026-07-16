@@ -388,7 +388,7 @@ document.getElementById('drawerClose')?.addEventListener('click', closeDrawer);
 document.getElementById('drawerOverlay')?.addEventListener('click', closeDrawer);
 
 /* ── THEME TOGGLE ── */
-document.getElementById('themeToggleBtn')?.addEventListener('click', ()=>{
+document.getElementById('themeToggleBtn')?.addEventListener('click', () => {
   document.body.classList.toggle('light-mode');
   const isLight = document.body.classList.contains('light-mode');
   document.getElementById('themeToggleBtn').textContent = isLight ? '☀️' : '🌙';
@@ -490,22 +490,92 @@ function renderDiscografia(){
 
 /* ── TIMELINE ── */
 function renderTimeline(){
-  const container=document.getElementById('timelineContainer');
+  const container = document.getElementById('timelineContainer');
   if(!container) return;
-  timelineEvents.forEach((ev,i)=>{
-    const item=document.createElement('div');
-    item.className='timeline-item reveal';
-    const badge=ev.badge?`<span class="timeline-badge ${ev.gold?'gold':''}">${ev.badge}</span>`:'';
-    const cardH=`<div class="timeline-year">${ev.year}</div><div class="timeline-event">${ev.event}</div><div class="timeline-desc">${ev.desc}</div>${badge}`;
-    const dot=`<div class="timeline-dot"></div>`;
-    const spacer=`<div class="timeline-spacer"></div>`;
-    if(i%2===0){
-      item.innerHTML=`<div class="timeline-side tl-left">${cardH}</div>${dot}${spacer}`;
-    } else {
-      item.innerHTML=`${spacer}${dot}<div class="timeline-side tl-right-content">${cardH}</div>`;
-    }
-    container.appendChild(item);
+
+  container.style.cssText = 'position:relative;overflow:hidden;padding:2rem 0';
+
+  container.innerHTML = `
+    <div id="tlTrack" style="display:flex;gap:0;overflow-x:auto;scroll-behavior:smooth;padding:1rem 2rem 2rem;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;user-select:none">
+      <div style="display:flex;align-items:flex-start;gap:0;min-width:max-content">
+        ${timelineEvents.map((ev,i) => `
+          <div class="tl-node reveal" data-idx="${i}" style="display:flex;flex-direction:column;align-items:center;min-width:160px;max-width:160px;cursor:pointer;position:relative">
+            <div style="display:flex;align-items:center;width:100%">
+              <div style="flex:1;height:2px;background:${i===0?'transparent':'var(--bd)'}"></div>
+              <div class="tl-dot" style="width:14px;height:14px;border-radius:50%;background:${ev.gold?'var(--ac)':'var(--bg-3)'};border:2px solid var(--ac);flex-shrink:0;transition:all .2s;z-index:1"></div>
+              <div style="flex:1;height:2px;background:${i===timelineEvents.length-1?'transparent':'var(--bd)'}"></div>
+            </div>
+            <div class="tl-card" style="margin-top:.75rem;padding:.75rem;background:var(--glass);border:1px solid var(--bd);border-radius:10px;width:136px;text-align:center;transition:all .2s">
+              <div style="font-size:.65rem;color:var(--ac);letter-spacing:.1em;font-weight:600;margin-bottom:.3rem">${ev.year}</div>
+              <div style="font-size:.75rem;color:var(--t1);font-weight:600;line-height:1.3">${ev.event}</div>
+              ${ev.badge?`<div style="display:inline-block;margin-top:.4rem;font-size:.6rem;padding:2px 8px;border-radius:20px;background:var(--ac);color:#fff;letter-spacing:.06em">${ev.badge}</div>`:''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div id="tlPopover" style="display:none;position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--bg-2);border:1px solid var(--bdh);border-radius:14px;padding:1.25rem 1.5rem;max-width:320px;width:90%;z-index:10;box-shadow:var(--glow)">
+      <button id="tlPopClose" type="button" aria-label="Fechar" style="position:absolute;top:.75rem;right:.75rem;background:transparent;border:none;color:var(--t2);font-size:1.1rem;cursor:pointer;line-height:1">×</button>
+      <div id="tlPopYear" style="font-size:.7rem;color:var(--ac);letter-spacing:.1em;font-weight:600;margin-bottom:.3rem"></div>
+      <div id="tlPopEvent" style="font-size:1rem;color:var(--t1);font-weight:700;margin-bottom:.5rem"></div>
+      <div id="tlPopDesc" style="font-size:.82rem;color:var(--t2);line-height:1.6"></div>
+      <div id="tlPopBadge" style="margin-top:.75rem"></div>
+    </div>`;
+
+  const track = document.getElementById('tlTrack');
+  const popover = document.getElementById('tlPopover');
+
+  track.addEventListener('click', e => {
+    if(didDrag){ didDrag=false; return; }
+    const node = e.target.closest('.tl-node');
+    if(!node) { popover.style.display='none'; return; }
+    const idx = parseInt(node.dataset.idx);
+    const ev = timelineEvents[idx];
+    document.getElementById('tlPopYear').textContent = ev.year;
+    document.getElementById('tlPopEvent').textContent = ev.event;
+    document.getElementById('tlPopDesc').textContent = ev.desc;
+    document.getElementById('tlPopBadge').innerHTML = ev.badge
+      ? `<span style="font-size:.65rem;padding:3px 10px;border-radius:20px;background:var(--ac);color:#fff;letter-spacing:.06em">${ev.badge}</span>`
+      : '';
+    popover.style.display = 'block';
+    document.querySelectorAll('.tl-dot').forEach((d,i) => {
+      d.style.transform = i===idx ? 'scale(1.5)' : 'scale(1)';
+      d.style.background = i===idx ? 'var(--ac)' : (timelineEvents[i].gold?'var(--ac)':'var(--bg-3)');
+    });
+    const nodeRect = node.getBoundingClientRect();
+    const trackRect = track.getBoundingClientRect();
+    const scrollTarget = track.scrollLeft + nodeRect.left - trackRect.left - track.clientWidth/2 + node.clientWidth/2;
+    track.scrollTo({left: scrollTarget, behavior:'smooth'});
   });
+
+  document.getElementById('tlPopClose')?.addEventListener('click', () => {
+    popover.style.display = 'none';
+    document.querySelectorAll('.tl-dot').forEach((d,i) => {
+      d.style.transform = 'scale(1)';
+      d.style.background = timelineEvents[i].gold ? 'var(--ac)' : 'var(--bg-3)';
+    });
+  });
+
+  let isDragging=false, didDrag=false, startX=0, scrollLeft=0;
+  track.addEventListener('mousedown', e => {
+    isDragging=true; didDrag=false;
+    startX=e.pageX-track.offsetLeft;
+    scrollLeft=track.scrollLeft;
+    track.style.cursor='grabbing';
+  });
+  track.addEventListener('mouseleave', () => { isDragging=false; track.style.cursor='grab'; });
+  track.addEventListener('mouseup', () => { isDragging=false; track.style.cursor='grab'; });
+  track.addEventListener('mousemove', e => {
+    if(!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    if(Math.abs(walk) > 5) didDrag=true;
+    track.scrollLeft = scrollLeft - walk;
+  });
+
+  track.addEventListener('scroll', () => { popover.style.display='none'; });
+  setTimeout(initReveal, 100);
 }
 
 /* ── TOURS ── */
@@ -854,11 +924,70 @@ function applyLightModeInlineFixes(isLight){
   });
 }
 
+function renderToursMap(){
+  const el = document.getElementById('toursMap');
+  if(!el) return;
+  if(typeof L === 'undefined') return;
+
+  const map = L.map('toursMap', {
+    zoomControl:true,
+    attributionControl:false,
+    scrollWheelZoom:false
+  }).setView([20,10], 2);
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    maxZoom:18, subdomains:'abcd'
+  }).addTo(map);
+
+  const cities = [
+    {name:"Seoul",lat:37.56,lng:126.97,tour:"dominATE · KSPO Dome · 2025/2026",gold:true},
+    {name:"Incheon",lat:37.45,lng:126.70,tour:"dominATE — Incheon Asiad Main Stadium · 2025",gold:true},
+    {name:"Tóquio",lat:35.68,lng:139.69,tour:"5-STAR Dome Tour · 2023",gold:true},
+    {name:"Osaka",lat:34.69,lng:135.50,tour:"5-STAR Dome Tour · 2023",gold:false},
+    {name:"Nova York",lat:40.71,lng:-74.01,tour:"MANIAC World Tour · Governors Ball 2026",gold:true},
+    {name:"Los Angeles",lat:34.05,lng:-118.24,tour:"MANIAC World Tour · 2022",gold:false},
+    {name:"Chicago",lat:41.88,lng:-87.63,tour:"Lollapalooza Chicago · 2023",gold:true},
+    {name:"São Paulo",lat:-23.55,lng:-46.63,tour:"dominATE · Lollapalooza SP · 2025",gold:true},
+    {name:"Rio de Janeiro",lat:-22.91,lng:-43.17,tour:"Rock in Rio · Set 2026",gold:true},
+    {name:"Bogotá",lat:4.71,lng:-74.07,tour:"STRAYCITY · Set 2026",gold:true},
+    {name:"Buenos Aires",lat:-34.60,lng:-58.38,tour:"STRAYCITY · Set 2026",gold:true},
+    {name:"Cidade do México",lat:19.43,lng:-99.13,tour:"STRAYCITY · Set 2026",gold:true},
+    {name:"Londres",lat:51.51,lng:-0.13,tour:"dominATE · BST Hyde Park · 2025",gold:true},
+    {name:"Paris",lat:48.85,lng:2.35,tour:"Lollapalooza Paris · 2023/2025",gold:true},
+    {name:"Milão",lat:45.46,lng:9.19,tour:"dominATE · I-Days · 2025",gold:true},
+    {name:"Berlim",lat:52.52,lng:13.40,tour:"dominATE World Tour · 2025",gold:false},
+    {name:"Amsterdã",lat:52.37,lng:4.90,tour:"dominATE World Tour · 2025",gold:false},
+    {name:"Barcelona",lat:41.38,lng:2.17,tour:"dominATE World Tour · 2025",gold:false},
+    {name:"Sydney",lat:-33.87,lng:151.21,tour:"MANIAC World Tour · 2022",gold:false},
+    {name:"Melbourne",lat:-37.81,lng:144.96,tour:"MANIAC World Tour · 2022",gold:false},
+    {name:"Bangkok",lat:13.75,lng:100.52,tour:"dominATE World Tour · 2025",gold:false},
+    {name:"Singapura",lat:1.35,lng:103.82,tour:"dominATE World Tour · 2025",gold:false},
+    {name:"Taipei",lat:25.03,lng:121.56,tour:"dominATE World Tour · 2025",gold:false},
+    {name:"Manila",lat:14.59,lng:120.98,tour:"dominATE World Tour · 2025",gold:false},
+    {name:"Jacarta",lat:-6.21,lng:106.85,tour:"dominATE World Tour · 2025",gold:false},
+  ];
+
+  cities.forEach(c => {
+    const icon = L.divIcon({
+      className:'',
+      html:`<div style="width:${c.gold?14:10}px;height:${c.gold?14:10}px;border-radius:50%;background:var(--ac);border:2px solid ${c.gold?'#fff':'rgba(255,255,255,0.4)'};box-shadow:0 0 ${c.gold?'8':'4'}px var(--ac);transition:transform .2s"></div>`,
+      iconSize:[c.gold?14:10, c.gold?14:10],
+      iconAnchor:[c.gold?7:5, c.gold?7:5]
+    });
+    L.marker([c.lat,c.lng], {icon})
+      .addTo(map)
+      .bindPopup(`<div style="font-family:sans-serif;min-width:140px"><strong style="font-size:13px">${c.name}</strong><br><span style="font-size:11px">${c.tour}</span></div>`, {
+        closeButton:false, className:'skz-map-popup'
+      });
+  });
+}
+
 /* ── INIT ── */
 renderMembers();
 renderDiscografia();
 renderTimeline();
 renderTours();
+renderToursMap();
 renderFacts('geral');
 renderMVs();
 renderGallery();
