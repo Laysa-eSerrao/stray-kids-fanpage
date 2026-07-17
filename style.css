@@ -31,8 +31,6 @@ body { background:var(--bg-0); color:var(--t1); font-family:'Inter',system-ui,sa
 /* ── INTRO ── */
 #introScreen { position:fixed; inset:0; z-index:9999; background:var(--bg-0); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:2rem; transition:opacity .8s; }
 #introScreen.out { opacity:0; pointer-events:none; }
-.intro-logo { font-family:'Bebas Neue',sans-serif; font-size:clamp(3.5rem,14vw,7rem); letter-spacing:12px; color:var(--t1); text-shadow:var(--glow); line-height:1; text-align:center; }
-.intro-logo span { background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
 .intro-sub { font-size:.72rem; letter-spacing:.35em; text-transform:uppercase; color:var(--t3); text-align:center; }
 .intro-bar { width:min(260px,65vw); height:1px; background:rgba(232,25,44,.15); border-radius:99px; overflow:hidden; }
 .intro-fill { height:100%; width:0%; background:var(--ac); animation:iLoad 2.2s ease-out forwards; }
@@ -43,7 +41,7 @@ body { background:var(--bg-0); color:var(--t1); font-family:'Inter',system-ui,sa
 /* ── NAV ── */
 #navbar { position:fixed; top:0; left:0; right:0; z-index:1000; display:flex; align-items:center; justify-content:space-between; gap:2rem; padding:1.2rem 3rem; border-bottom:1px solid transparent; transition:all .4s; }
 #navbar.scrolled { background:rgba(10,0,0,.94); backdrop-filter:blur(20px); border-bottom-color:var(--bd); padding:.8rem 3rem; }
-.nav-logo { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.15em; background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.nav-logo { display:flex; align-items:center; }
 .nav-links { display:flex; gap:0; list-style:none; margin:0 auto; }
 .nav-links a { color:var(--t2); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; padding:.4rem 1rem; transition:color .3s; }
 .nav-links a:hover { color:var(--acg); }
@@ -61,8 +59,7 @@ body { background:var(--bg-0); color:var(--t1); font-family:'Inter',system-ui,sa
 .badge-dot { width:6px; height:6px; border-radius:50%; background:var(--acg); animation:blink 1.5s ease infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
 .hero-eyebrow { font-size:.7rem; letter-spacing:.3em; text-transform:uppercase; color:var(--t3); margin-bottom:1rem; }
-.hero-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(6rem,20vw,16rem); letter-spacing:12px; line-height:.9; color:var(--t1); text-shadow:var(--glow); margin-bottom:.5rem; }
-.hero-title span { background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.hero-title { line-height:.9; margin-bottom:.5rem; }
 .hero-tagline { font-size:clamp(.9rem,2vw,1.3rem); color:var(--acl); letter-spacing:.15em; margin-bottom:1rem; font-style:italic; }
 .hero-members { display:flex; gap:.5rem; justify-content:center; flex-wrap:wrap; font-size:.72rem; letter-spacing:.12em; color:var(--t3); text-transform:uppercase; margin-bottom:2.5rem; }
 .hero-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
@@ -268,7 +265,6 @@ body { background:var(--bg-0); color:var(--t1); font-family:'Inter',system-ui,sa
 }
 @media(max-width:500px){
   .gallery-masonry { columns:1; }
-  .hero-title { font-size:clamp(4.5rem,26vw,8rem); }
   .disco-grid { grid-template-columns:repeat(2,1fr); }
   .skzoo-grid { grid-template-columns:repeat(2,1fr); }
 }
@@ -355,8 +351,6 @@ body.light-mode .di { background: #e8e8e8; }
 body.light-mode #footer { background: #e0e0e0; }
 body.light-mode .stats-bar { background: #e8e8e8; }
 body.light-mode .section-alt { background: #ebebeb; }
-body.light-mode .intro-logo { -webkit-text-fill-color: #111; color: #111; text-shadow: none; }
-body.light-mode .intro-logo span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
 /* ── Countdown Rock in Rio — versão melhorada ── */
 .countdown-wrap {
@@ -860,13 +854,6 @@ body.light-mode .stream-card img[alt="AAA"] {
   display: flex; align-items: center;
   justify-content: space-between;
   margin-bottom: 2rem;
-}
-.drawer-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.4rem; letter-spacing: .15em;
-  background: var(--grad);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 .drawer-close {
   background: none; border: 1px solid var(--bd);
