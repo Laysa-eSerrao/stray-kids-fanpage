@@ -11,7 +11,9 @@
   <meta property="og:image" content="https://i.pinimg.com/1200x/72/25/51/7225515ff73a11383d014120bccc9230.jpg" />
   <meta property="og:url" content="https://laysa-eserrao.github.io/stray-kids-fanpage/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23e8192c'/><text y='.9em' font-size='80' font-family='Arial Black' font-weight='900' fill='white' x='15'>K</text></svg>" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <!-- Google Analytics -->
@@ -24,7 +26,7 @@
 
 <!-- INTRO -->
 <div id="introScreen">
-  <div class="intro-logo">STRAY <span>KIDS</span></div>
+  <img id="introLogoImg" src="skz-logo-dark.png" alt="Stray Kids" style="width:min(480px,85vw);height:auto;object-fit:contain;margin-bottom:1.5rem;filter:drop-shadow(0 0 24px rgba(232,25,44,0.4))">
   <div class="intro-sub">스트레이 키즈 · JYP Entertainment · Est. 2018</div>
   <div class="intro-bar"><div class="intro-fill"></div></div>
   <button id="introSkipBtn" style="position:absolute;top:1.2rem;right:1.5rem;background:transparent;border:none;color:rgba(255,255,255,0.5);font-size:.85rem;cursor:pointer;letter-spacing:.05em">Pular ›</button>
@@ -33,7 +35,9 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <a class="nav-logo" href="#hero">STRAY KIDS</a>
+  <a href="#" class="nav-logo" id="navLogo">
+    <img id="logoImg" src="skz-logo-dark.png" alt="Stray Kids" style="height:32px;width:auto;object-fit:contain;transition:opacity .3s">
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#membros">Membros</a></li>
     <li><a href="#discografia">Discografia</a></li>
@@ -60,7 +64,9 @@
   <div class="hero-content">
     <div class="hero-badge"><span class="badge-dot"></span><span>Rock in Rio 2026 · Setembro 🇧🇷</span></div>
     <p class="hero-eyebrow">스트레이 키즈 · JYP Entertainment · Self-produced · Est. 2018</p>
-    <h1 class="hero-title">STRAY <span>KIDS</span></h1>
+    <h1 class="hero-title">
+      <img id="heroLogoImg" src="skz-logo-dark.png" alt="Stray Kids" style="width:min(600px,85vw);height:auto;object-fit:contain;filter:drop-shadow(0 0 28px rgba(232,25,44,0.35))">
+    </h1>
     <p class="hero-tagline">"You make Stray Kids stay"</p>
     <div class="hero-members">
       <span>Bang Chan</span><span>·</span><span>Lee Know</span><span>·</span>
@@ -281,7 +287,7 @@
 <div class="drawer-overlay" id="drawerOverlay"></div>
 <div class="drawer" id="drawer">
   <div class="drawer-header">
-    <span class="drawer-logo">STRAY KIDS</span>
+    <img id="drawerLogoImg" src="skz-logo-dark.png" alt="Stray Kids" style="height:28px;width:auto;object-fit:contain">
     <button class="drawer-close" id="drawerClose" aria-label="Fechar menu">✕</button>
   </div>
   <nav class="drawer-nav">

@@ -393,11 +393,28 @@ document.getElementById('themeToggleBtn')?.addEventListener('click', () => {
   const isLight = document.body.classList.contains('light-mode');
   document.getElementById('themeToggleBtn').textContent = isLight ? '☀️' : '🌙';
   localStorage.setItem('skz-theme', isLight ? 'light' : 'dark');
+  const logoImg = document.getElementById('logoImg');
+  const introLogoImg = document.getElementById('introLogoImg');
+  const logoSrc = isLight ? 'skz-logo-light.png' : 'skz-logo-dark.png';
+  if(logoImg) logoImg.src = logoSrc;
+  if(introLogoImg) introLogoImg.src = logoSrc;
+  const drawerLogoImg = document.getElementById('drawerLogoImg');
+  if(drawerLogoImg) drawerLogoImg.src = logoSrc;
+  const heroLogoImg = document.getElementById('heroLogoImg');
+  if(heroLogoImg) heroLogoImg.src = logoSrc;
 });
 if(localStorage.getItem('skz-theme')==='light'){
   document.body.classList.add('light-mode');
   const btn = document.getElementById('themeToggleBtn');
   if(btn) btn.textContent='☀️';
+  const logoImg = document.getElementById('logoImg');
+  const introLogoImg = document.getElementById('introLogoImg');
+  if(logoImg) logoImg.src = 'skz-logo-light.png';
+  if(introLogoImg) introLogoImg.src = 'skz-logo-light.png';
+  const drawerLogoImg = document.getElementById('drawerLogoImg');
+  if(drawerLogoImg) drawerLogoImg.src = 'skz-logo-light.png';
+  const heroLogoImg = document.getElementById('heroLogoImg');
+  if(heroLogoImg) heroLogoImg.src = 'skz-logo-light.png';
 }
 
 /* ── STATS COUNTER ── */
