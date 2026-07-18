@@ -308,16 +308,6 @@ const streamLinks=[
   { type:"vote", icon:'<img src="https://cf.asiaartistawards.com/asiaartistawards/img/img_logo.png" alt="AAA" style="width:60px;height:36px;object-fit:contain">', name:"AAA", action:"Votar agora", url:"https://www.asiaartistawards.com/", color:"#ffffff" },
 ];
 
-/* ── DADOS — Quotes ── */
-const quotes=[
-  { text:"You make Stray Kids stay", context:"Slogan oficial do grupo", member:"OT8" },
-  { text:"We go — the Stray Kids way", context:"Frase de palco", member:"OT8" },
-  { text:"우리의 음악은 우리가 만든다 — Nossa música, nós fazemos.", context:"Filosofia do 3RACHA", member:"3RACHA" },
-  { text:"SKZ — self-produced, self-expressed.", context:"Identidade do grupo", member:"OT8" },
-  { text:"Stay, you make us stay.", context:"Mensagem para o fandom", member:"OT8" },
-  { text:"I Purple You? No — I RED you.", context:"Brincadeira em show ao vivo", member:"Bang Chan" },
-];
-
 /* ── MODAL DO MEMBRO ── */
 function openMemberDetail(idx){
   const m = members[idx];
@@ -931,19 +921,6 @@ function renderStream(){
   makeSection('🗳️ Votação', streamLinks.filter(s=>s.type==='vote'));
 }
 
-/* ── QUOTES ── */
-function renderQuotes(){
-  const grid=document.getElementById('quotesSection');
-  if(!grid) return;
-  quotes.forEach((q,i)=>{
-    const card=document.createElement('div');
-    card.className='quote-card reveal';
-    card.style.transitionDelay=`${i*.08}s`;
-    card.innerHTML=`<div class="quote-mark">"</div><div class="quote-text">${q.text}</div><div class="quote-meta"><span class="quote-song">${q.context}</span><span class="quote-member">${q.member}</span></div>`;
-    grid.appendChild(card);
-  });
-}
-
 /* ── PARA NOVOS STAYs ── */
 function renderNewStays(){
   const grid=document.getElementById('newStaysGrid');
@@ -1402,6 +1379,120 @@ function renderAlemDaMusica(){
   setTimeout(initReveal, 100);
 }
 
+function renderGuiaConteudo(){
+  const grid = document.getElementById('guiaGrid');
+  if(!grid) return;
+
+  const trilhas = [
+    {
+      icon:'🎭', cor:'#e8192c',
+      titulo:'Para conhecer as personalidades',
+      desc:'Descubra quem são os membros além do palco — humor, amizades e personalidades reais.',
+      items:[
+        { titulo:'SKZ CODE', desc:'Jogos, desafios e situações inusitadas — o melhor para conhecer a dinâmica do grupo.', url:'https://www.youtube.com/watch?v=byf5FHGL_sE&list=PL2HLJ87twWI1DhyFxYbQRB4_JLKPIYXli', label:'Ver playlist' },
+        { titulo:'2 Kids Room (2022)', desc:'Duplas de membros conversam enquanto os outros comentam.', url:'https://www.youtube.com/watch?v=6ntUxIK1osU&list=PL2HLJ87twWI1hoPijG05KoASLwnVhPzez', label:'Ver playlist' },
+        { titulo:'2 Kids Room (2025)', desc:'Reboot íntimo da série clássica — só os dois membros em conversa.', url:'https://www.youtube.com/watch?v=fETjgY83o7Q&list=PL2HLJ87twWI1jvyqJoBiABUo4s4TeUQoO', label:'Ver playlist' },
+        { titulo:"One Kid's Room", desc:'Cada membro individualmente — ideal para conhecer cada personalidade a fundo.', url:'https://www.youtube.com/watch?v=GTm864QK16g&list=PL2HLJ87twWI2jdF0VDJrOIrfL83Zp9uTk', label:'Ver playlist' },
+        { titulo:'SKZ-TALKER', desc:'Bastidores de álbuns e premiações — o grupo sendo ele mesmo nos bastidores.', url:'https://www.youtube.com/watch?v=jLjVVP3tw9s&list=PL2HLJ87twWI17t3AiqazIlW1Zkx-iGj1P', label:'Ver playlist' },
+      ]
+    },
+    {
+      icon:'🎵', cor:'#cc5500',
+      titulo:'Para conhecer o processo musical',
+      desc:'Entenda como o Stray Kids cria sua música e o que torna o 3RACHA único.',
+      items:[
+        { titulo:'SKZ-RECORD', desc:'Músicas autorais, covers e experimentos sonoros fora dos álbuns oficiais.', url:'https://www.youtube.com/watch?v=ZfPS2mXbv5Q&list=PL2HLJ87twWI2NAAEOqo9SJJ9_Oh3pqQOP', label:'Ver playlist' },
+        { titulo:'Vídeos INTRO', desc:'Apresentações de cada nova era — revelam o conceito visual e sonoro antes do comeback.', url:'https://www.youtube.com/watch?v=0YeBUh5rmVQ&list=PL9K3xwFkFqWEUOC39i3GD1mio7QMGveuU', label:'Ver playlist' },
+        { titulo:'Canal oficial', desc:'Todos os MVs, performances e conteúdos oficiais em um só lugar.', url:'https://www.youtube.com/@StrayKids', label:'Acessar canal' },
+      ]
+    },
+    {
+      icon:'🏆', cor:'#aa8800',
+      titulo:'Para entender a história',
+      desc:'Do survival show ao maior tour do K-pop — a trajetória completa do grupo.',
+      items:[
+        { titulo:'Survival Show (2017)', desc:'Como o Stray Kids foi formado — o começo de tudo como trainees na JYP.', url:'https://www.youtube.com/watch?v=bqnJd5N2pI8&list=PLRZBydIeH0x8P0TWA1DpUi7yerqyHap2G', label:'Assistir' },
+        { titulo:'Kingdom: Legendary War', desc:'Todas as performances do programa que o grupo venceu em 2021.', url:'https://www.youtube.com/watch?v=MIeOEqGZopw&list=PLQcPdinBalXuoC820tlg9v0P_jO59EZ70', label:'Ver performances' },
+      ]
+    },
+    {
+      icon:'🕺', cor:'#006699',
+      titulo:'Para ver as melhores performances',
+      desc:'As apresentações que marcaram a carreira e definiram o Stray Kids na cena global.',
+      items:[
+        { titulo:'MAMA 2022', desc:'Thunderous + MANIAC — cenografia épica e uma das performances mais elogiadas da geração.', url:'https://www.youtube.com/watch?v=0QKhAdN-keY', label:'Assistir' },
+        { titulo:"Kingdom — God's Menu + Back Door", desc:'Narrativa, dança e produção visual que impressionaram no Kingdom.', url:'https://www.youtube.com/watch?v=UL0ud2w8pPo', label:'Assistir' },
+        { titulo:"Kingdom — I'll Be Your Man", desc:'Performance emotiva que mostrou o lado mais sensível e virtuoso do grupo.', url:'https://www.youtube.com/watch?v=8_pLQnZ09Hk', label:'Assistir' },
+        { titulo:'MAMA 2025', desc:'Performance de CEREMONY + KARMA na noite do Daesang de Álbum do Ano.', url:'https://www.youtube.com/watch?v=zRYTFhPxiyA', label:'Assistir' },
+      ]
+    },
+  ];
+
+  grid.innerHTML = `
+    <div style="position:relative">
+      <div id="guiaTrack" style="display:flex;gap:1.25rem;overflow:hidden;scroll-behavior:smooth">
+        ${trilhas.map((trilha, ti) => `
+          <div class="reveal" style="min-width:calc(50% - 10px);max-width:calc(50% - 10px);flex-shrink:0;transition-delay:${ti*.1}s;border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+            <div style="padding:1.25rem 1.25rem 1rem;border-bottom:1px solid var(--bd);background:var(--bg-2)">
+              <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem">
+                <span style="font-size:1.5rem">${trilha.icon}</span>
+                <div style="font-size:.75rem;font-weight:700;color:${trilha.cor};letter-spacing:.08em;line-height:1.3">${trilha.titulo}</div>
+              </div>
+              <div style="font-size:.78rem;color:var(--t3);line-height:1.5">${trilha.desc}</div>
+            </div>
+            <div style="padding:.75rem;display:flex;flex-direction:column;gap:.5rem;flex:1;background:var(--bg-1)">
+              ${trilha.items.map(item => `
+                <a href="${item.url}" target="_blank" rel="noopener noreferrer"
+                  style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;padding:.75rem;border-radius:8px;border:1px solid var(--bd);background:var(--bg-2);text-decoration:none;transition:border-color .2s,background .2s"
+                  onmouseover="this.style.borderColor='var(--bdh)';this.style.background='var(--glass)'"
+                  onmouseout="this.style.borderColor='var(--bd)';this.style.background='var(--bg-2)'">
+                  <div>
+                    <div style="font-size:.82rem;font-weight:600;color:var(--t1);margin-bottom:.2rem">${item.titulo}</div>
+                    <div style="font-size:.72rem;color:var(--t3);line-height:1.4">${item.desc}</div>
+                  </div>
+                  <span style="font-size:.7rem;color:${trilha.cor};white-space:nowrap;padding:3px 8px;border-radius:20px;border:1px solid ${trilha.cor};margin-top:.1rem;flex-shrink:0">${item.label} ↗</span>
+                </a>`).join('')}
+            </div>
+          </div>`).join('')}
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.5rem">
+        <button id="guiaPrev" type="button" aria-label="Anterior"
+          style="width:36px;height:36px;border-radius:50%;background:var(--bg-3);border:1px solid var(--bd);color:var(--t1);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center">‹</button>
+        <div id="guiaDots" style="display:flex;gap:.4rem">
+          ${trilhas.map((_,i) => `<div class="guia-dot" data-idx="${i}" style="width:6px;height:6px;border-radius:50%;background:${i===0?'var(--ac)':'var(--bd)'};cursor:pointer;transition:background .2s"></div>`).join('')}
+        </div>
+        <button id="guiaNext" type="button" aria-label="Próximo"
+          style="width:36px;height:36px;border-radius:50%;background:var(--bg-3);border:1px solid var(--bd);color:var(--t1);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center">›</button>
+      </div>
+    </div>`;
+
+  const track = document.getElementById('guiaTrack');
+  const dots = document.querySelectorAll('.guia-dot');
+  let current = 0;
+
+  function goTo(idx){
+    current = Math.max(0, Math.min(idx, trilhas.length - 1));
+    const card = track.querySelector('div');
+    const cardWidth = card.offsetWidth + 20;
+    track.scrollTo({ left: current * cardWidth, behavior:'smooth' });
+    dots.forEach((d,i) => d.style.background = i===current ? 'var(--ac)' : 'var(--bd)');
+  }
+
+  document.getElementById('guiaPrev')?.addEventListener('click', () => goTo(current - 1));
+  document.getElementById('guiaNext')?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.idx))));
+
+  let sx = 0;
+  track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive:true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if(Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+  });
+
+  setTimeout(initReveal, 100);
+}
+
 /* ── INIT ── */
 renderMembers();
 renderEraAtual();
@@ -1414,10 +1505,10 @@ renderMVs();
 renderGallery();
 renderSkzoo();
 renderStream();
-renderQuotes();
 renderNewStays();
 renderUniverso();
 renderAlemDaMusica();
+renderGuiaConteudo();
 setTimeout(initReveal, 200);
 
 }); // DOMContentLoaded
