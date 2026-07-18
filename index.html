@@ -53,6 +53,7 @@
         <a href="#novos-stays" class="nav-dropdown-item">Novos STAYs</a>
         <a href="#universo" class="nav-dropdown-item">Universo SKZ</a>
         <a href="#alem-da-musica" class="nav-dropdown-item">Além da Música</a>
+        <a href="#guia-conteudo" class="nav-dropdown-item">Guia de Conteúdo</a>
       </div>
     </li>
   </ul>
@@ -273,16 +274,6 @@
   <div class="skzoo-grid" id="skzooGrid"></div>
 </section>
 
-<!-- STREAM -->
-<section id="stream" class="section">
-  <div class="section-header">
-    <span class="section-label" data-i18n="stream_label">STAY em Ação</span>
-    <h2 class="section-title" data-i18n="stream_title">Stream & Votar</h2>
-  </div>
-
-  <div class="stream-grid" id="streamGrid"></div>
-</section>
-
 
 <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">↑</button>
 
@@ -319,13 +310,14 @@
   <div id="alemGrid"></div>
 </section>
 
-<!-- QUOTES -->
-<section id="quotes" class="section">
-  <div class="section-header">
-    <span class="section-label" data-i18n="quotes_label">Frases & Slogans</span>
-    <h2 class="section-title" data-i18n="quotes_title">Em Palavras</h2>
+<!-- GUIA DE CONTEÚDO -->
+<section id="guia-conteudo" style="padding:5rem 2rem;max-width:1200px;margin:0 auto">
+  <div style="text-align:center;margin-bottom:3rem">
+    <p style="font-size:.75rem;letter-spacing:.2em;color:var(--ac);margin-bottom:.5rem">PARA NOVOS STAYS</p>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,4rem);color:var(--t1);letter-spacing:.05em">Guia de Conteúdo</h2>
+    <p style="color:var(--t2);font-size:.95rem;max-width:600px;margin:.75rem auto 0">Por onde começar a assistir? Escolha sua trilha e mergulhe no universo SKZ.</p>
   </div>
-  <div class="quotes-grid" id="quotesSection"></div>
+  <div id="guiaGrid"></div>
 </section>
 
 <!-- SHARE -->
@@ -335,6 +327,16 @@
   <button onclick="shareWhatsapp()">WhatsApp</button>
   <button onclick="copyLink()">🔗 Copiar</button>
 </div>
+
+<!-- STREAM -->
+<section id="stream" class="section">
+  <div class="section-header">
+    <span class="section-label" data-i18n="stream_label">STAY em Ação</span>
+    <h2 class="section-title" data-i18n="stream_title">Stream & Votar</h2>
+  </div>
+
+  <div class="stream-grid" id="streamGrid"></div>
+</section>
 
 <!-- FOOTER -->
 <footer id="footer">
@@ -378,6 +380,7 @@
     <a href="#novos-stays"  onclick="closeDrawer()">Para novos STAYs</a>
     <a href="#universo"     onclick="closeDrawer()">Universo</a>
     <a href="#alem-da-musica" onclick="closeDrawer()">Além da Música</a>
+    <a href="#guia-conteudo" onclick="closeDrawer()">Guia de Conteúdo</a>
     <a href="#stream"       onclick="closeDrawer()">Stream & Votar</a>
   </nav>
   <div class="drawer-footer">"You make Stray Kids stay"</div>
