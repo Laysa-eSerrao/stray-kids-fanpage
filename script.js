@@ -19,57 +19,57 @@ function closeDrawer(){
 /* ── DADOS — Membros ── */
 const members=[
   { name:"Bang Chan", kr:"방찬", full:"Christopher Bang", pos:"Leader / Rapper / Vocal", unit:"3RACHA", color:"#e8192c",
-    img:"https://i.pinimg.com/736x/3b/df/d9/3bdfd90a31d55fda2ca6ca7587b11d07.jpg",
-    skzooImg:"https://i.pinimg.com/736x/0a/2c/b4/0a2cb4863654f61163fa566ea51ad136.jpg",
+    img:"assets/members/member-bangchan.jpg",
+    skzooImg:"assets/skzoo/skzoo-wolfchan.jpg",
     birthday:"3 out 1997", height:"171 cm", mbti:"ENFJ", nat:"Coreia / Austrália", skzoo:"Wolf Chan",
     bio:"Líder e produtor principal. Passou 7 anos como trainee na JYP. Criou o 3RACHA antes do debut. Realizava lives semanais chamadas 'Chan's Room' (2019–2023). Fala coreano, inglês, japonês e um pouco de chinês. Embaixador da Fendi desde 2025.",
     facts:["Criou o sub-grupo 3RACHA ainda como trainee","Desenhou o logo completo do Stray Kids à mão antes do debut","Passou 7 anos como trainee — o mais longo do grupo"]
   },
   { name:"Lee Know", kr:"리노", full:"Lee Min-ho", pos:"Dancer / Rapper / Vocal", unit:"Dance Racha", color:"#cc2222",
-    img:"https://i.pinimg.com/736x/56/7b/4e/567b4efec58b1fec7e36551fb498bf14.jpg",
-    skzooImg:"https://i.pinimg.com/736x/60/32/41/60324170701609e857a671d34d4c9f81.jpg",
+    img:"assets/members/member-leeknow.jpg",
+    skzooImg:"assets/skzoo/skzoo-leebit.jpg",
     birthday:"25 out 1998", height:"172 cm", mbti:"ISFP", nat:"Sul-coreano", skzoo:"Leebit",
     bio:"Um dos melhores dançarinos da 4ª geração. Tem 3 gatos: Soonie, Doongie e Dori. Embaixador global da Gucci desde 2025. Adora ler — autor favorito é Keigo Higashino.",
     facts:["Estava no grupo de apoio do BTS antes de entrar no SKZ","Tem 3 gatos: Soonie, Doongie e Dori","Ganhou o apelido 'Eye Smile' pelo sorriso característico"]
   },
   { name:"Changbin", kr:"창빈", full:"Seo Chang-bin", pos:"Rapper / Vocal / Producer", unit:"3RACHA", color:"#b01a1a",
-    img:"https://i.pinimg.com/736x/ba/09/2f/ba092f2542294d51e26ac99fb21c1ca1.jpg",
-    skzooImg:"https://i.pinimg.com/736x/f1/c6/28/f1c6289043efe05c31adbdaa58df1bef.jpg",
+    img:"assets/members/member-changbin.jpg",
+    skzooImg:"assets/skzoo/skzoo-dwaekki.jpg",
     birthday:"11 ago 1999", height:"167 cm", mbti:"ESTP", nat:"Sul-coreano", skzoo:"Dwaekki",
     bio:"Famoso pelo rap extremamente rápido. Menor do grupo em altura (167cm), mas com enorme presença de palco. Produz e escreve grande parte das letras do SKZ junto com Bang Chan e Han. Embaixador global da Autry (2026) — primeira celebridade a representar a marca italiana de calçados.",
     facts:["Tem um dos raps mais rápidos do K-pop","167cm — menor do grupo mas enorme presença de palco","Escreve letras poderosas sobre superação e identidade"]
   },
   { name:"Hyunjin", kr:"황현진", full:"Hwang Hyun-jin", pos:"Dancer / Rapper / Vocal", unit:"Dance Racha", color:"#e8192c",
-    img:"https://i.pinimg.com/736x/02/65/4d/02654d65820f9322a70fb163e2561b02.jpg",
-    skzooImg:"https://i.pinimg.com/736x/92/f1/f0/92f1f06ea263fdfad827cb3c6b956470.jpg",
+    img:"assets/members/member-hyunjin.jpg",
+    skzooImg:"assets/skzoo/skzoo-jiniret.jpg",
     birthday:"20 mar 2000", height:"179 cm", mbti:"INFP", nat:"Sul-coreano", skzoo:"Jiniret",
     bio:"O mais alto do grupo. Além de idol, é pintor e realizou exposições de arte. Embaixador global da Cartier (2024), Givenchy Beauty (2025) e Guess (2026).",
     facts:["Além de idol é pintor — já realizou exposições oficiais","179cm — o mais alto do grupo","Embaixador da Cartier, Givenchy Beauty e Guess"]
   },
   { name:"Han", kr:"한", full:"Han Ji-sung", pos:"Rapper / Vocal / Producer", unit:"3RACHA", color:"#cc2222",
-    img:"https://i.pinimg.com/736x/c7/fa/e2/c7fae2d48dd7914314ef69da4b520118.jpg",
-    skzooImg:"https://i.pinimg.com/736x/7c/32/dc/7c32dc29d2aa04899ae6ea5036904ab8.jpg",
+    img:"assets/members/member-han.jpg",
+    skzooImg:"assets/skzoo/skzoo-hanquokka.jpg",
     birthday:"14 set 2000", height:"170 cm", mbti:"INFP", nat:"Coreano (criado na Malásia)", skzoo:"Han Quokka",
     bio:"Parte do trio produtor 3RACHA. Considerado um dos letristas mais criativos do K-pop. Cresceu na Malásia e voltou à Coreia para perseguir o sonho. Embaixador global da Tod's (2026) — estreou na Milan Fashion Week pelo show Menswear SS27 da marca.",
     facts:["Cresceu em Kuala Lumpur, Malásia","Escreve letras desde muito jovem","O Han Quokka foi inspirado no animal sorridente da Austrália"]
   },
   { name:"Felix", kr:"필릭스", full:"Lee Yong-bok", pos:"Dancer / Rapper / Vocal", unit:"Dance Racha", color:"#b01a1a",
-    img:"https://i.pinimg.com/736x/88/5f/13/885f133bf04ddd7e3ff5e608153b8bfa.jpg",
-    skzooImg:"https://i.pinimg.com/1200x/ae/06/62/ae06620dbf96ac5f2559597fa61f12a4.jpg",
+    img:"assets/members/member-felix.jpg",
+    skzooImg:"assets/skzoo/skzoo-bbokari.jpg",
     birthday:"15 set 2000", height:"171 cm", mbti:"ENFP", nat:"Australiano", skzoo:"BbokAri",
     bio:"Único membro nascido fora da Ásia (Sydney, Austrália). Famoso pela voz profunda inconfundível. É o membro com mais parcerias de marca do grupo. Embaixador global da Louis Vuitton (2023), HERA (primeiro embaixador masculino da marca, 2025), Adidas Global Icon (2026) e Gong Cha (2025). Embaixador de Goodwill da UNICEF Coreia (2024). Também representa Samsung, Gentle Monster, Happiz, BB.Q Chicken e a campanha Hanbok Wave. Colaborou com LiSA na abertura do anime Solo Leveling 2ª temporada (2025). Conquistou 63 medalhas em Taekwondo antes de ser idol.",
     facts:["Embaixador global da Louis Vuitton, Adidas, HERA e Gong Cha — o membro com mais parcerias do grupo","Goodwill Ambassador da UNICEF Coreia desde 2024","Conquistou 63 medalhas em Taekwondo antes de ser idol"]
   },
   { name:"Seungmin", kr:"승민", full:"Kim Seung-min", pos:"Vocalist", unit:"Vocal Racha", color:"#e8192c",
-    img:"https://i.pinimg.com/736x/7e/62/1c/7e621c90fb513a243bae7506e33d5666.jpg",
-    skzooImg:"https://i.pinimg.com/736x/2c/27/cf/2c27cf81307b9591a11d8c463b6d9857.jpg",
+    img:"assets/members/member-seungmin.jpg",
+    skzooImg:"assets/skzoo/skzoo-puppym.jpg",
     birthday:"22 set 2000", height:"178 cm", mbti:"ISFJ", nat:"Sul-coreano", skzoo:"PuppyM",
     bio:"Principal vocalista. Grande fã de beisebol — sonho alternativo era ser jogador profissional. Embaixador da Burberry.",
     facts:["Praticou beisebol profissionalmente antes de ser idol","Torce pelo time Doosan Bears","Apelido 'Puppy Seungmin' pelo sorriso"]
   },
   { name:"I.N", kr:"아이엔", full:"Yang Jeong-in", pos:"Vocalist / Dancer", unit:"Vocal Racha", color:"#cc2222",
-    img:"https://i.pinimg.com/736x/bc/90/ef/bc90ef74df83c02d36d3b8ce6cc1e056.jpg",
-    skzooImg:"https://i.pinimg.com/736x/62/c0/e1/62c0e18118e175467bd241e5ebb023f4.jpg",
+    img:"assets/members/member-in.jpg",
+    skzooImg:"assets/skzoo/skzoo-foxiny.jpg",
     birthday:"8 fev 2001", height:"173 cm", mbti:"INFP", nat:"Sul-coreano", skzoo:"Fox I.Ny",
     bio:"Maknae (caçula) do grupo. Habilidade especial: cantar trot. Embaixador da Bottega Veneta e Damiani.",
     facts:["Maknae do grupo — nascido em 2001","Sabe cantar trot — estilo musical coreano tradicional","Fox I.Ny escolhido pela astúcia e charme"]
@@ -78,38 +78,114 @@ const members=[
 
 /* ── DADOS — Álbuns ── */
 const albums=[
-  { year:"2026", name:"THIS & THAT",              badge:"Mini Álbum · Pré-lançamento",       type:"full",    track:"This & That",      tracks:8,  img:"https://static.wikia.nocookie.net/stray-kids/images/3/3d/THIS_%26_THAT_Digital_Cover.jpg/revision/latest/scale-to-width-down/1000?cb=20260714140146" },
-  { year:"2026", name:"RUN IT",                   badge:"Single",           type:"single",  track:"RUN IT",           tracks:1,  img:"https://d1al7qj7ydfbpt.cloudfront.net/artists/straykids/albums/1782273961369-881e95eb.jpg" },
-  { year:"2026", name:"Endless Sun",              badge:"Single",           type:"single",  track:"Endless Sun",      tracks:1,  img:"https://static.wikia.nocookie.net/stray-kids/images/7/71/Endless_Sun_Digital_Cover.jpg/revision/latest/scale-to-width-down/1000?cb=20260313042615" },
-  { year:"2026", name:"별, 빛 (STAY)",            badge:"Single",           type:"single",  track:"별, 빛 (STAY)",    tracks:1,  img:"https://akamai.sscdn.co/letras/360x360/albuns/4/7/7/3/4809391776718807.jpg" },
-  { year:"2025", name:"DO IT",                    badge:"EP · BB #1",       type:"ep",      track:"Do It",            tracks:5,  img:"https://akamai.sscdn.co/letras/360x360/albuns/4/6/3/9/4219271763739713.jpg" },
-  { year:"2025", name:"KARMA",                    badge:"Álbum · BB #1",    type:"full",    track:"CEREMONY",         tracks:11, img:"https://akamai.sscdn.co/letras/360x360/albuns/9/0/1/7/3671491759770818.jpg" },
-  { year:"2025", name:"Hollow",                   badge:"EP · Japonês",     type:"ep",      track:"Hollow",           tracks:5,  img:"https://akamai.sscdn.co/letras/360x360/albuns/f/2/5/4/3219971753127268.jpg" },
-  { year:"2025", name:"Mixtape: dominATE",        badge:"EP · 7º Aniv.",    type:"ep",      track:"Truman",           tracks:5,  img:"https://akamai.sscdn.co/letras/360x360/albuns/7/f/e/9/2891771742554519.jpg" },
-  { year:"2024", name:"HOP",                      badge:"Álbum · BB #1",    type:"full",    track:"Walkin On Water",  tracks:6,  img:"https://akamai.sscdn.co/letras/360x360/albuns/a/d/7/5/2218701734439880.jpg" },
-  { year:"2024", name:"GIANT",                    badge:"Álbum · Japonês",  type:"full",    track:"Giant",            tracks:5,  img:"https://akamai.sscdn.co/letras/360x360/albuns/6/c/4/c/2437281731521663.jpg" },
-  { year:"2024", name:"SLASH",                    badge:"Single",           type:"single",  track:"SLASH",            tracks:1,  img:"https://akamai.sscdn.co/letras/360x360/albuns/3/2/8/5/2309341721749059.jpg" },
-  { year:"2024", name:"ATE",                      badge:"Álbum · BB #1",    type:"full",    track:"Chk Chk Boom",     tracks:9,  img:"https://akamai.sscdn.co/letras/360x360/albuns/1/8/c/4/2304721721390720.jpg" },
-  { year:"2024", name:"Lose My Breath",           badge:"Single",           type:"single",  track:"Lose My Breath",   tracks:1,  img:"https://akamai.sscdn.co/letras/360x360/albuns/e/f/a/d/2241071717439651.jpg" },
-  { year:"2024", name:"Come Play (Arcane)",       badge:"Single",           type:"single",  track:"Come Play",        tracks:1,  img:"https://akamai.sscdn.co/letras/360x360/albuns/4/b/d/e/2407601729245928.jpg" },
-  { year:"2023", name:"★★★★★ (5-STAR)",          badge:"Álbum · BB #1",    type:"full",    track:"S-Class",          tracks:12, img:"https://akamai.sscdn.co/letras/360x360/albuns/6/0/b/b/1586341706541058.jpg" },
-  { year:"2023", name:"ROCK-STAR",                badge:"Álbum · BB #1",    type:"full",    track:"LALALALA",         tracks:6,  img:"https://i.pinimg.com/1200x/cf/df/97/cfdf97cbbcfe4f1e877ff9db280c84f5.jpg" },
-  { year:"2023", name:"SKZ-REPLAY",               badge:"Álbum",            type:"full",    track:"Limbo",            tracks:14, img:"https://akamai.sscdn.co/letras/360x360/albuns/4/a/0/c/1444131681997935.jpg" },
-  { year:"2022", name:"MAXIDENT",                 badge:"Álbum · BB #1",    type:"full",    track:"Case 143",         tracks:7,  img:"https://akamai.sscdn.co/letras/360x360/albuns/b/3/d/4/1392111681997927.jpg" },
-  { year:"2022", name:"ODDINARY",                 badge:"Álbum · BB #1",    type:"full",    track:"MANIAC",           tracks:6,  img:"https://akamai.sscdn.co/letras/360x360/albuns/d/4/3/4/1255491681997918.jpg" },
-  { year:"2022", name:"Circus",                   badge:"Single/EP · JP",   type:"ep",      track:"Circus",           tracks:6,  img:"https://akamai.sscdn.co/letras/360x360/albuns/6/b/6/d/1400281682347938.jpg" },
-  { year:"2022", name:"Christmas EveL",           badge:"EP",               type:"ep",      track:"Christmas EveL",   tracks:3,  img:"https://akamai.sscdn.co/letras/360x360/albuns/c/e/e/c/1205891682347933.jpg" },
-  { year:"2021", name:"SKZ2021",                  badge:"Álbum",            type:"full",    track:"Scars",            tracks:14, img:"https://akamai.sscdn.co/letras/360x360/albuns/5/b/5/9/1220471681997909.jpg" },
-  { year:"2021", name:"NOEASY",                   badge:"Álbum",            type:"full",    track:"Thunderous",       tracks:14, img:"https://akamai.sscdn.co/letras/360x360/albuns/e/6/8/e/1136961681997899.jpg" },
-  { year:"2020", name:"IN生 (IN LIFE)",           badge:"Álbum",            type:"full",    track:"Back Door",        tracks:16, img:"https://akamai.sscdn.co/letras/360x360/albuns/4/b/4/c/962401681997889.jpg" },
-  { year:"2020", name:"GO LIVE",                  badge:"Álbum",            type:"full",    track:"God's Menu",       tracks:14, img:"https://akamai.sscdn.co/uploadfile/letras/albuns/9/8/1/d/917981681997881.jpg" },
-  { year:"2019", name:"Clé: Levanter",           badge:"Álbum",            type:"full",    track:"Levanter",         tracks:7,  img:"https://akamai.sscdn.co/uploadfile/letras/albuns/1/8/6/4/820831681997786.jpg" },
-  { year:"2019", name:"Clé 2: Yellow Wood",      badge:"Álbum",            type:"full",    track:"Side Effects",     tracks:6,  img:"https://akamai.sscdn.co/uploadfile/letras/albuns/f/a/4/2/739351681997869.jpg" },
-  { year:"2019", name:"Clé 1: MIROH",            badge:"Álbum",            type:"full",    track:"MIROH",            tracks:6,  img:"https://akamai.sscdn.co/uploadfile/letras/albuns/4/e/a/e/710451681997861.jpg" },
-  { year:"2018", name:"I Am YOU",                badge:"Álbum",            type:"full",    track:"I Am YOU",         tracks:7,  img:"https://akamai.sscdn.co/uploadfile/letras/albuns/a/7/5/8/667931681997795.jpg" },
-  { year:"2018", name:"I Am WHO",                badge:"Álbum",            type:"full",    track:"My Pace",          tracks:7,  img:"https://akamai.sscdn.co/uploadfile/letras/albuns/9/1/5/8/657101681997849.jpg" },
-  { year:"2018", name:"I Am NOT",               badge:"Álbum",            type:"full",    track:"District 9",       tracks:8,  img:"https://akamai.sscdn.co/uploadfile/letras/albuns/0/a/9/3/633621681997843.jpg" },
-  { year:"2018", name:"Mixtape",                 badge:"Álbum · Pré-debut",type:"full",    track:"Hellevator",       tracks:7,  img:"https://akamai.sscdn.co/uploadfile/letras/albuns/3/0/e/c/615131708092816.jpg" },
+  { year:"2026", name:"THIS & THAT",         badge:"Mini Álbum · Pré-lançamento", type:"ep",          track:"This & That",    tracks:8,  img:"assets/albums/this-and-that.jpg",
+    tracklist:["RUN IT","This & That","After You","FARMING","I Do","Way Out","Back Then","This & That (Festival ver.)"],
+    desc:"Décimo miniálbum, pré-lançamento para o Rock in Rio 2026. RUN IT é o pre-single e This & That a faixa principal." },
+  { year:"2026", name:"RUN IT",              badge:"Single · Pre-release",        type:"single",      track:"RUN IT",         tracks:1,  img:"assets/albums/run-it.jpg",
+    tracklist:["RUN IT"],
+    desc:"Pre-release single do THIS & THAT. Narra a jornada do grupo desde os primeiros passos até se tornarem um dos maiores atos do K-pop." },
+  { year:"2026", name:"Endless Sun",         badge:"Single · Collab",             type:"single",      track:"Endless Sun",    tracks:1,  img:"assets/albums/endless-sun.jpg",
+    tracklist:["Endless Sun"],
+    desc:"Single em colaboração com a marca Bioré UV, lançado em março de 2026 como parte de campanha 'Sunlight Is Your Spotlight'." },
+  { year:"2026", name:"별, 빛 (STAY)",        badge:"Single",                      type:"single",      track:"별, 빛 (STAY)",   tracks:1,  img:"assets/albums/stay-single.jpg",
+    tracklist:["별, 빛 (STAY)"],
+    desc:"Single digital de aniversário lançado em 25 de março de 2026 para celebrar os STAYs." },
+  { year:"2025", name:"DO IT",              badge:"SKZ IT Tape",                  type:"ep",          track:"Do It",          tracks:5,  img:"assets/albums/do-it.jpg",
+    tracklist:["Do It","DIVINE — 신선놀음","Holiday","Photobook","Do It (Festival Version)"],
+    desc:"SKZ IT Tape com 5 faixas. Do It e DIVINE foram os destaques, explorando sonoridades mais suaves e experimentais." },
+  { year:"2025", name:"KARMA",              badge:"Álbum · BB #1",               type:"full",        track:"CEREMONY",       tracks:11, img:"assets/albums/karma.jpg",
+    tracklist:["BLEEP","CEREMONY","CREED","MESS","In My Head","Half Time","Phoenix","Ghost","0801","CEREMONY (Festival Version)","CEREMONY (English Version)"],
+    desc:"Quarto álbum de estúdio e o mais premiado da carreira — rendeu Daesang no MAMA, Golden Disc e AAA. CEREMONY é a faixa principal." },
+  { year:"2025", name:"Hollow",             badge:"EP · Japonês",                type:"japanese",    track:"Hollow",         tracks:5,  img:"assets/albums/hollow.jpg",
+    tracklist:["Hollow","Parade","Never Alone","just a little","宿命 (Shukumei)"],
+    desc:"Terceiro miniálbum japonês com 5 faixas originais. Venceu Album of the Year Asia no Japan Gold Disc Awards 2026." },
+  { year:"2025", name:"Mixtape: dominATE",  badge:"EP · 7º Aniv.",               type:"compilation", track:"Truman",         tracks:5,  img:"assets/albums/dominate.jpg",
+    tracklist:["GIANT (Korean Version)","Burnin' Tires (Changbin & I.N)","Truman (Felix & Han)","ESCAPE (Bang Chan & Hyunjin)","CINEMA (Lee Know & Seungmin)"],
+    desc:"Projeto especial de aniversário com 5 faixas de duplas dos membros, lançado no 7º aniversário do grupo." },
+  { year:"2024", name:"HOP",               badge:"SKZHOP Hiptape · BB #1",       type:"ep",          track:"Walkin On Water", tracks:12, img:"assets/albums/hop.jpg",
+    tracklist:["Walkin On Water","Bounce Back","U (feat. TABLO)","Railway (Bang Chan)","Unfair (Felix)","HALLUCINATION (I.N)","Youth (Lee Know)","So Good (Hyunjin)","ULTRA (Changbin)","Hold my hand (Han)","As we are (Seungmin)","Walkin On Water (HIP Version)"],
+    desc:"SKZHOP Hiptape com faixas solo de cada membro além das músicas do grupo. Walkin On Water é a faixa principal." },
+  { year:"2024", name:"GIANT",             badge:"Álbum · Japonês",              type:"japanese",    track:"GIANT",          tracks:10, img:"assets/albums/giant.jpg",
+    tracklist:["GIANT","Chk Chk Boom (Japanese Version)","NIGHT","Falling Up","WHY?","Saiyan","Aiwokuretanoninaze","Christmas Love","NIGHT (English Version)","Falling Up (English Version)"],
+    desc:"Segundo álbum japonês de estúdio apoiado por NIGHT, Falling Up e GIANT como singles." },
+  { year:"2024", name:"SLASH",             badge:"Single",                        type:"single",      track:"SLASH",          tracks:1,  img:"assets/albums/slash.jpg",
+    tracklist:["SLASH"],
+    desc:"Single lançado em 2024 como parte da trilha sonora de Deadpool & Wolverine." },
+  { year:"2024", name:"ATE",               badge:"Mini Álbum · BB #1",           type:"ep",          track:"Chk Chk Boom",   tracks:8,  img:"assets/albums/ate.jpg",
+    tracklist:["MOUNTAINS","Chk Chk Boom","JJAM","I Like It","Runners","twilight","Stray Kids","Chk Chk Boom (Festival Version)"],
+    desc:"Nono miniálbum com Chk Chk Boom como faixa principal, misturando hip-hop e pop com referências ao universo do grupo." },
+  { year:"2024", name:"Lose My Breath",    badge:"Single",                        type:"single",      track:"Lose My Breath", tracks:1,  img:"assets/albums/lose-my-breath.jpg",
+    tracklist:["Lose My Breath (feat. Charlie Puth)"],
+    desc:"Colaboração com Charlie Puth lançada em 2024, misturando K-pop com pop ocidental." },
+  { year:"2024", name:"Come Play (Arcane)",badge:"Single · OST",                  type:"single",      track:"Come Play",      tracks:1,  img:"assets/albums/come-play.jpg",
+    tracklist:["Come Play"],
+    desc:"Faixa da trilha sonora de Arcane, a animação da Netflix baseada em League of Legends — jogo favorito de Felix." },
+  { year:"2023", name:"★★★★★ (5-STAR)",   badge:"Álbum · BB #1",               type:"full",        track:"S-Class",        tracks:12, img:"assets/albums/5-star.jpg",
+    tracklist:["Hall of Fame","S-Class","ITEM","Super Bowl","TOPLINE (feat. Tiger JK)","DLC","GET LIT","Collision","FNF","Youtiful","THE SOUND (Korean Version)","Mixtape: Time Out"],
+    desc:"Terceiro álbum de estúdio, primeiro a ultrapassar 2 milhões de pré-pedidos no K-pop. S-Class se tornou um dos maiores hits do grupo." },
+  { year:"2023", name:"ROCK-STAR",         badge:"Mini Álbum · BB #1",           type:"ep",          track:"LALALALA",       tracks:8,  img:"assets/albums/rock-star.jpg",
+    tracklist:["MEGAVERSE","LALALALA","BLIND SPOT","COMFLEX","Cover Me","Leave","Social Path (Korean Ver. feat. LiSA)","LALALALA (Rock Version)"],
+    desc:"LALALALA foi a primeira música do grupo a entrar no Billboard Hot 100. Era mais sombria e rock do Stray Kids." },
+  { year:"2023", name:"Social Path EP",    badge:"EP · Japonês",                 type:"japanese",    track:"Social Path",    tracks:5,  img:"assets/albums/social-path-ep.jpg",
+    tracklist:["Social Path (feat. LiSA)","Super Bowl (Japanese Version)","Butterflies","Social Path (Instrumental)","Super Bowl (Japanese Version, Instrumental)"],
+    desc:"EP japonês com Social Path (feat. LiSA) como destaque — colaboração com a cantora de anime mais famosa do Japão." },
+  { year:"2022", name:"MAXIDENT",          badge:"Mini Álbum · BB #1",           type:"ep",          track:"CASE 143",       tracks:8,  img:"assets/albums/maxident.jpg",
+    tracklist:["CASE 143","CHILL","Give Me Your TMI","SUPER BOARD","3RACHA (Bang Chan, Changbin & Han)","TASTE (Lee Know, Hyunjin & Felix)","Can't Stop (Seungmin & I.N)","CIRCUS (Korean Version)"],
+    desc:"Sétimo miniálbum com CASE 143 como faixa principal. Primeiro #1 consecutivo no Billboard 200." },
+  { year:"2022", name:"ODDINARY",          badge:"Mini Álbum · BB #1",           type:"ep",          track:"MANIAC",         tracks:7,  img:"assets/albums/oddinary.jpg",
+    tracklist:["VENOM","MANIAC","Charmer","FREEZE","Lonely St.","Waiting For Us (Bang Chan, Lee Know, Seungmin & I.N)","Muddy Water (Changbin, Hyunjin, Han & Felix)"],
+    desc:"Sexto miniálbum e primeiro #1 no Billboard 200 — marco histórico. MANIAC virou o maior hit da era." },
+  { year:"2022", name:"CIRCUS",            badge:"EP · Japonês",                 type:"japanese",    track:"CIRCUS",         tracks:6,  img:"assets/albums/circus.jpg",
+    tracklist:["CIRCUS","Fairytale","VENOM (Japanese Version)","MANIAC (Japanese Version)","Silent Cry (Japanese Version)","Your Eyes"],
+    desc:"Segundo miniálbum japonês com a inconfundível faixa título CIRCUS." },
+  { year:"2022", name:"SKZ-REPLAY",        badge:"Compilação",                   type:"compilation", track:"Limbo",          tracks:26, img:"assets/albums/skz-replay.jpg",
+    tracklist:["A-Side: FAM, Connected, Limbo, Doodle, Love Untold, RUN, Deep End, Stars and Raindrops, Hug Me, #LoveSTAY","B-Side: ZONE, Close, Streetlight, I Hate to Admit, I GOT IT, Miss You, Maknae on Top, Alien, Because, Piece of a Puzzle, Wish You Back, HaPpY, Up All Night, Drive, ice.cream"],
+    desc:"Compilação de músicas do SKZ-RECORD e SKZ-PLAYER reunindo solos e colaborações internas." },
+  { year:"2021", name:"Christmas EveL",    badge:"Single Álbum",                 type:"ep",          track:"Christmas EveL", tracks:4,  img:"assets/albums/christmas-evel.jpg",
+    tracklist:["Christmas EveL","24 to 25","Winter Falls","DOMINO (English Version)"],
+    desc:"Single álbum especial de fim de ano com o clássico natalino Christmas EveL e Winter Falls." },
+  { year:"2021", name:"NOEASY",            badge:"Álbum",                        type:"full",        track:"Thunderous",     tracks:14, img:"assets/albums/noeasy.jpg",
+    tracklist:["CHEESE","Thunderous","DOMINO","SSICK","The View","Sorry, I Love You","Silent Cry","Secret Secret","Star Lost","Red Lights (Bang Chan & Hyunjin)","Surfin' (Lee Know, Changbin & Felix)","Gone Away (Han, Seungmin & I.N)","WOLFGANG","Mixtape: OH"],
+    desc:"Segundo álbum de estúdio, primeiro a ultrapassar 1 milhão de cópias. Thunderous virou viral mundialmente." },
+  { year:"2021", name:"SKZ2021",           badge:"Compilação",                   type:"compilation", track:"Scars",          tracks:14, img:"assets/albums/skz2021.jpg",
+    tracklist:["Scars","Awaken","ROCK","3rd Eye","Placebo","Insomnia","Behind the Light","My Side","N/S","0325","For You","Maze of Memories","Broken Compass","Hoodie Season"],
+    desc:"Segunda compilação reunindo músicas antigas regravadas com a formação atual de 8 membros." },
+  { year:"2020", name:"IN生 (IN LIFE)",    badge:"Repackage",                    type:"full",        track:"Back Door",      tracks:9,  img:"assets/albums/in-life.jpg",
+    tracklist:["The Tortoise and the Hare","Back Door","B Me","Any","Ex","We Go (Bang Chan, Changbin & Han)","Wow (Lee Know, Hyunjin & Felix)","My Universe (Seungmin & I.N)","+ faixas de GO LIVE"],
+    desc:"Repackage de GO LIVE com 5 faixas novas, incluindo Back Door — um dos maiores hits do grupo." },
+  { year:"2020", name:"ALL IN",            badge:"EP · Japonês",                 type:"japanese",    track:"ALL IN",         tracks:7,  img:"assets/albums/all-in.jpg",
+    tracklist:["ALL IN","FAM","One Day","God's Menu (Japanese Version)","Back Door (Japanese Version)","TOP (Japanese Version)","SLUMP (Japanese Version)"],
+    desc:"Primeiro miniálbum japonês e debut oficial no Japão, reunindo versões japonesas dos primeiros hits." },
+  { year:"2020", name:"GO LIVE",           badge:"Álbum",                        type:"full",        track:"God's Menu",     tracks:14, img:"assets/albums/go-live.jpg",
+    tracklist:["GO LIVE","God's Menu","Easy","Pacemaker","Airplane","Another Day","Phobia","Blueprint","TA","Haven","TOP","SLUMP","Gone Days","On Track"],
+    desc:"Primeiro álbum completo coreano. God's Menu definiu a identidade sonora do Stray Kids e marcou o início de uma nova era." },
+  { year:"2020", name:"SKZ2020",           badge:"Compilação",                   type:"compilation", track:"Double Knot",    tracks:27, img:"assets/albums/skz2020.jpg",
+    tracklist:["Hellevator","Grrr","Spread My Wings","YAYAYA","District 9","Mirror","Grow Up","My Pace","Voices","Question","M.I.A.","Awkward Silence","I am YOU","Get Cool","MIROH","Victory Song","Boxer","Chronosaurus","19","Side Effects","TMT","Double Knot","Levanter","Astronaut","My Pace (Japanese Ver.)","Double Knot (Japanese Ver.)","Levanter (Japanese Ver.)"],
+    desc:"Primeira compilação e debut japonês, reunindo 27 músicas dos primeiros anos do grupo." },
+  { year:"2019", name:"Clé: Levanter",    badge:"Mini Álbum",                   type:"ep",          track:"Levanter",       tracks:7,  img:"assets/albums/cle-levanter.jpg",
+    tracklist:["STOP","Double Knot","Levanter","Booster","Astronaut","Sunshine","You Can STAY"],
+    desc:"Quinto miniálbum encerrando a trilogia Clé. Levanter é uma das músicas mais emotivas e amadas pelos STAYs." },
+  { year:"2019", name:"Clé 2: Yellow Wood",badge:"Mini Álbum Especial",          type:"ep",          track:"Side Effects",   tracks:7,  img:"assets/albums/cle2-yellow-wood.jpg",
+    tracklist:["Road Not Taken","Side Effects","TMT","Mixtape#1","Mixtape#2","Mixtape#3","Mixtape#4"],
+    desc:"Álbum especial da trilogia Clé reunindo as Mixtapes e Side Effects como faixa principal." },
+  { year:"2019", name:"Clé 1: MIROH",     badge:"Mini Álbum",                   type:"ep",          track:"MIROH",          tracks:7,  img:"assets/albums/cle1-miroh.jpg",
+    tracklist:["Entrance","MIROH","Victory Song","Maze of Memories","Boxer","Chronosaurus","19"],
+    desc:"Quarto miniálbum e primeiro grande hit internacional do grupo. MIROH marcou a virada da carreira." },
+  { year:"2018", name:"I am YOU",         badge:"Mini Álbum",                   type:"ep",          track:"I am YOU",       tracks:7,  img:"assets/albums/i-am-you.jpg",
+    tracklist:["YOU.","I am YOU","My Side","Hero's Soup","Get Cool","N/S","0325"],
+    desc:"Terceiro miniálbum completando a trilogia 'I am'. Get Cool foi destaque pela leveza e energia." },
+  { year:"2018", name:"I am WHO",         badge:"Mini Álbum",                   type:"ep",          track:"My Pace",        tracks:7,  img:"assets/albums/i-am-who.jpg",
+    tracklist:["WHO?","My Pace","Voices","Question","Insomnia","M.I.A.","Awkward Silence"],
+    desc:"Segundo miniálbum com My Pace — mensagem de autoconfiança que ressoou com fãs ao redor do mundo." },
+  { year:"2018", name:"I am NOT",        badge:"Mini Álbum · Debut",            type:"ep",          track:"District 9",     tracks:7,  img:"assets/albums/i-am-not.jpg",
+    tracklist:["NOT!","District 9","Mirror","Awaken","ROCK","Grow Up","3rd Eye"],
+    desc:"Debut oficial em março de 2018 com District 9. O grupo já estreou com identidade de self-production." },
+  { year:"2018", name:"Mixtape",          badge:"Mini Álbum · Pré-debut",       type:"ep",          track:"Hellevator",     tracks:7,  img:"assets/albums/mixtape.jpg",
+    tracklist:["Hellevator","Grrr — 총량의 법칙","Spread My Wings — 어린 날개","YAYAYA","GLOW","School Life","4419"],
+    desc:"Pré-debut lançado em janeiro de 2018. Hellevator foi o primeiro vislumbre do som que definiria o grupo." },
+  { year:"2023", name:"THE SOUND",        badge:"Álbum · Japonês",              type:"japanese",    track:"THE SOUND",      tracks:10, img:"assets/albums/the-sound.jpg",
+    tracklist:["THE SOUND","Battle Ground","Lost Me","DLMLU","Novel","CASE 143 (Japanese Version)","CHILL (Japanese Version)","Scars","Thunderous (Japanese Version)","There"],
+    desc:"Primeiro álbum completo japonês com 10 faixas, incluindo versões japonesas de hits coreanos." },
 ];
 
 /* ── DADOS — Timeline ── */
@@ -199,14 +275,14 @@ const mvs=[
 
 /* ── DADOS — Galeria ── */
 const gallery=[
-  { url:"https://i.pinimg.com/736x/f5/ed/8f/f5ed8fde49105aa808c2aa84620c91a1.jpg", alt:"Bang Chan" },
-  { url:"https://i.pinimg.com/736x/cb/cb/16/cbcb16f0ee3562966f117e06e51ee54c.jpg", alt:"Lee Know" },
-  { url:"https://i.pinimg.com/1200x/a2/ac/6e/a2ac6e6eea45914384d5cbc112504fe0.jpg", alt:"Changbin" },
-  { url:"https://i.pinimg.com/736x/dd/92/f3/dd92f33432472ed63b55741a9562ce4c.jpg", alt:"Hyunjin" },
-  { url:"https://i.pinimg.com/736x/9c/f2/49/9cf249c2002c584430ad634a6e8f2d0a.jpg", alt:"Han" },
-  { url:"https://i.pinimg.com/736x/c2/22/c1/c222c19c6196bf8318cd55a167a28422.jpg", alt:"Felix" },
-  { url:"https://i.pinimg.com/736x/34/4e/94/344e94b97242015717f64559d8d62389.jpg", alt:"Seungmin" },
-  { url:"https://i.pinimg.com/736x/26/1f/97/261f97eaeb3d5f5254bb68dbf3268f37.jpg", alt:"I.N" },
+  { url:"assets/gallery/gallery-bangchan.jpg", alt:"Bang Chan" },
+  { url:"assets/gallery/gallery-leeknow.jpg", alt:"Lee Know" },
+  { url:"assets/gallery/gallery-changbin.jpg", alt:"Changbin" },
+  { url:"assets/gallery/gallery-hyunjin.jpg", alt:"Hyunjin" },
+  { url:"assets/gallery/gallery-han.jpg", alt:"Han" },
+  { url:"assets/gallery/gallery-felix.jpg", alt:"Felix" },
+  { url:"assets/gallery/gallery-seungmin.jpg", alt:"Seungmin" },
+  { url:"assets/gallery/gallery-in.jpg", alt:"I.N" },
 ];
 
 /* ── DADOS — SKZoo ── */
@@ -219,7 +295,7 @@ const skzoo=[
   { name:"BbokAri",    member:"Felix",     animal:"Pinto",            img:"https://i.pinimg.com/1200x/ae/06/62/ae06620dbf96ac5f2559597fa61f12a4.jpg" },
   { name:"PuppyM",     member:"Seungmin",  animal:"Cachorro",         img:"https://i.pinimg.com/736x/2c/27/cf/2c27cf81307b9591a11d8c463b6d9857.jpg" },
   { name:"Fox I.Ny",   member:"I.N",       animal:"Raposa",           img:"https://i.pinimg.com/736x/62/c0/e1/62c0e18118e175467bd241e5ebb023f4.jpg" },
-  { name:"TASY",       member:"STAY (fandom)", animal:"Tanuki",       img:"https://res.cloudinary.com/f3jwqtcy/image/upload/f_auto,q_auto/tasy_-_Imgur_iwnxjc" },
+  { name:"TASY",       member:"STAY (fandom)", animal:"Tanuki",       img:"assets/skzoo/skzoo-tasy.jpg" },
 ];
 
 /* ── DADOS — Stream ── */
@@ -274,6 +350,53 @@ function openMemberDetail(idx){
 
   modal.classList.remove('hidden');
   document.body.style.overflow = 'hidden';
+}
+
+function openAlbumDetail(a){
+  const existing = document.getElementById('albumModal');
+  if(existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'albumModal';
+  modal.style.cssText = 'position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);padding:1rem';
+
+  const tracklist = a.tracklist
+    ? a.tracklist.map((t,i) => `
+        <div style="display:flex;align-items:baseline;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--bd)">
+          <span style="font-size:.7rem;color:var(--ac);font-family:'Bebas Neue',sans-serif;min-width:1.5rem">${i+1}</span>
+          <span style="font-size:.85rem;color:var(--t2)">${t}</span>
+        </div>`).join('')
+    : '<p style="color:var(--t3);font-size:.85rem">Tracklist não disponível.</p>';
+
+  modal.innerHTML = `
+    <div style="background:var(--bg-2);border:1px solid var(--bd);border-radius:16px;max-width:520px;width:100%;max-height:85vh;overflow-y:auto;position:relative;box-shadow:var(--glow)">
+      <button id="albumModalClose" type="button" aria-label="Fechar" style="position:absolute;top:1rem;right:1rem;background:var(--bg-3);border:none;color:var(--t1);width:32px;height:32px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2">×</button>
+      <div style="display:flex;gap:1.25rem;padding:1.5rem;border-bottom:1px solid var(--bd)">
+        ${a.img ? `<img src="${a.img}" alt="${a.name}" style="width:100px;height:100px;object-fit:cover;border-radius:10px;flex-shrink:0" onerror="this.style.display='none'">` : ''}
+        <div>
+          <div style="font-size:.65rem;color:var(--ac);letter-spacing:.1em;margin-bottom:.3rem">${a.badge}</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--t1);letter-spacing:.04em;line-height:1.1;margin-bottom:.4rem">${a.name}</div>
+          <div style="font-size:.8rem;color:var(--t3)">${a.year} · ${a.tracks} faixa${a.tracks>1?'s':''}</div>
+          <div style="font-size:.8rem;color:var(--ac);margin-top:.3rem">▶ ${a.track}</div>
+          ${a.desc ? `<div style="font-size:.8rem;color:var(--t2);margin-top:.6rem;line-height:1.6;font-style:italic">${a.desc}</div>` : ''}
+        </div>
+      </div>
+      <div style="padding:1rem 1.5rem">
+        <div style="font-size:.7rem;letter-spacing:.12em;color:var(--t3);margin-bottom:.75rem">TRACKLIST</div>
+        ${tracklist}
+      </div>
+    </div>`;
+
+  document.body.appendChild(modal);
+  document.body.style.overflow = 'hidden';
+
+  document.getElementById('albumModalClose').addEventListener('click', () => {
+    modal.remove();
+    document.body.style.overflow = '';
+  });
+  modal.addEventListener('click', e => {
+    if(e.target === modal){ modal.remove(); document.body.style.overflow = ''; }
+  });
 }
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -470,37 +593,67 @@ function renderMembers(){
 function renderDiscografia(){
   const grid = document.getElementById('discoGrid');
   if(!grid) return;
-  const SHOW=12; let showAll=false;
+  const SHOW = 12;
+  let showAll = false;
+
   function build(){
-    grid.innerHTML='';
-    const activeFilter=document.querySelector('.filter-btn.active')?.dataset.filter||'all';
-    const list=activeFilter==='all'?(showAll?albums:albums.slice(0,SHOW)):albums.filter(a=>a.type===activeFilter);
-    list.forEach(a=>{
-      const card=document.createElement('div');
-      card.className='disco-card reveal'; card.dataset.type=a.type;
-      const imgH=a.img?`<img src="${a.img}" onerror="this.style.display='none'" alt="${a.name}" loading="lazy">`:`<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--ac);opacity:.3">${a.name.charAt(0)}</div>`;
+    grid.innerHTML = '';
+    const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
+    const sorted = activeFilter === 'all'
+      ? [...albums].sort((a,b) => parseInt(b.year) - parseInt(a.year))
+      : [...albums].filter(a => a.type === activeFilter).sort((a,b) => parseInt(b.year) - parseInt(a.year));
+
+    const list = showAll ? sorted : sorted.slice(0, SHOW);
+
+    list.forEach(a => {
+      const card = document.createElement('div');
+      card.className = 'disco-card reveal';
+      card.dataset.type = a.type;
+      const imgH = a.img
+        ? `<img src="${a.img}" alt="${a.name}" loading="lazy" onerror="this.style.display='none'">`
+        : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--ac);opacity:.3">${a.name.charAt(0)}</div>`;
       const isUpcoming = a.badge && a.badge.includes('Pré-lançamento');
       const upcomingSeal = isUpcoming
-        ? `<div style="position:absolute;top:8px;left:8px;background:#e8192c;color:#fff;font-size:.65rem;font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;padding:3px 8px;border-radius:4px;z-index:2">EM BREVE · 07/08/2026</div>`
+        ? `<div style="position:absolute;top:8px;left:8px;background:var(--ac);color:#fff;font-size:.65rem;font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;padding:3px 8px;border-radius:4px;z-index:2">EM BREVE · 07/08/2026</div>`
         : '';
-      card.innerHTML=`<div class="disco-cover">${upcomingSeal}${imgH}<span class="disco-type-tag">${a.badge}</span></div><div class="disco-info"><div class="disco-name">${a.name}</div><div class="disco-year">${a.year} · ${a.tracks} faixa${a.tracks>1?'s':''}</div><div class="disco-track">▶ ${a.track}</div></div>`;
+      card.innerHTML = `
+        <div class="disco-cover">${upcomingSeal}${imgH}<span class="disco-type-tag">${a.badge}</span></div>
+        <div class="disco-info">
+          <div class="disco-name">${a.name}</div>
+          <div class="disco-year">${a.year} · ${a.tracks} faixa${a.tracks>1?'s':''}</div>
+          <div class="disco-track">▶ ${a.track}</div>
+        </div>`;
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => openAlbumDetail(a));
       grid.appendChild(card);
     });
-    const ex=document.getElementById('discoToggleBtn'); if(ex) ex.remove();
-    if(activeFilter==='all'){
-      const btn=document.createElement('button');
-      btn.id='discoToggleBtn'; btn.className='disco-toggle-btn';
-      btn.textContent=showAll?'▲ Ver menos':`▼ Ver todos os ${albums.length} álbuns`;
-      btn.addEventListener('click',()=>{ showAll=!showAll; build(); if(!showAll) grid.scrollIntoView({behavior:'smooth',block:'start'}); setTimeout(initReveal,50); });
-      grid.insertAdjacentElement('afterend',btn);
+
+    // Botão ver todos/menos
+    const ex = document.getElementById('discoToggleBtn');
+    if(ex) ex.remove();
+    if(sorted.length > SHOW){
+      const btn = document.createElement('button');
+      btn.id = 'discoToggleBtn';
+      btn.className = 'disco-toggle-btn';
+      btn.textContent = showAll ? '▲ Ver menos' : `▼ Ver todos os ${sorted.length} lançamentos`;
+      btn.addEventListener('click', () => {
+        showAll = !showAll;
+        build();
+        if(!showAll) grid.scrollIntoView({ behavior:'smooth', block:'start' });
+        setTimeout(initReveal, 50);
+      });
+      grid.insertAdjacentElement('afterend', btn);
     }
-    setTimeout(initReveal,50);
+
+    setTimeout(initReveal, 50);
   }
   build();
-  document.querySelectorAll('.filter-btn').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active'); showAll=false; build();
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      showAll = false;
+      build();
     });
   });
 }
@@ -674,8 +827,8 @@ function renderMVs(){
         </div>
       </div>
     </div>
-    <div id="mvEmbedWrap" style="display:none;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
-      <iframe id="mvEmbed" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;border-radius:12px;"
+    <div id="mvEmbedWrap" style="display:none;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;">
+      <iframe id="mvEmbed" style="width:100%;height:100%;border:0;border-radius:12px;"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
     </div>
@@ -871,6 +1024,7 @@ document.addEventListener('keydown',e=>{
     document.getElementById('searchWrap')?.classList.remove('open');
     document.getElementById('memberModal')?.classList.add('hidden');
     document.getElementById('lightbox')?.classList.add('hidden');
+    document.getElementById('albumModal')?.remove();
     document.body.style.overflow = '';
   }
 });
@@ -941,61 +1095,44 @@ function applyLightModeInlineFixes(isLight){
   });
 }
 
-function renderToursMap(){
-  const el = document.getElementById('toursMap');
-  if(!el) return;
-  if(typeof L === 'undefined') return;
-
-  const map = L.map('toursMap', {
-    zoomControl:true,
-    attributionControl:false,
-    scrollWheelZoom:false
-  }).setView([20,10], 2);
-
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    maxZoom:18, subdomains:'abcd'
-  }).addTo(map);
-
-  const cities = [
-    {name:"Seoul",lat:37.56,lng:126.97,tour:"dominATE · KSPO Dome · 2025/2026",gold:true},
-    {name:"Incheon",lat:37.45,lng:126.70,tour:"dominATE — Incheon Asiad Main Stadium · 2025",gold:true},
-    {name:"Tóquio",lat:35.68,lng:139.69,tour:"5-STAR Dome Tour · 2023",gold:true},
-    {name:"Osaka",lat:34.69,lng:135.50,tour:"5-STAR Dome Tour · 2023",gold:false},
-    {name:"Nova York",lat:40.71,lng:-74.01,tour:"MANIAC World Tour · Governors Ball 2026",gold:true},
-    {name:"Los Angeles",lat:34.05,lng:-118.24,tour:"MANIAC World Tour · 2022",gold:false},
-    {name:"Chicago",lat:41.88,lng:-87.63,tour:"Lollapalooza Chicago · 2023",gold:true},
-    {name:"São Paulo",lat:-23.55,lng:-46.63,tour:"dominATE · Lollapalooza SP · 2025",gold:true},
-    {name:"Rio de Janeiro",lat:-22.91,lng:-43.17,tour:"Rock in Rio · Set 2026",gold:true},
-    {name:"Bogotá",lat:4.71,lng:-74.07,tour:"STRAYCITY · Set 2026",gold:true},
-    {name:"Buenos Aires",lat:-34.60,lng:-58.38,tour:"STRAYCITY · Set 2026",gold:true},
-    {name:"Cidade do México",lat:19.43,lng:-99.13,tour:"STRAYCITY · Set 2026",gold:true},
-    {name:"Londres",lat:51.51,lng:-0.13,tour:"dominATE · BST Hyde Park · 2025",gold:true},
-    {name:"Paris",lat:48.85,lng:2.35,tour:"Lollapalooza Paris · 2023/2025",gold:true},
-    {name:"Milão",lat:45.46,lng:9.19,tour:"dominATE · I-Days · 2025",gold:true},
-    {name:"Berlim",lat:52.52,lng:13.40,tour:"dominATE World Tour · 2025",gold:false},
-    {name:"Amsterdã",lat:52.37,lng:4.90,tour:"dominATE World Tour · 2025",gold:false},
-    {name:"Barcelona",lat:41.38,lng:2.17,tour:"dominATE World Tour · 2025",gold:false},
-    {name:"Sydney",lat:-33.87,lng:151.21,tour:"MANIAC World Tour · 2022",gold:false},
-    {name:"Melbourne",lat:-37.81,lng:144.96,tour:"MANIAC World Tour · 2022",gold:false},
-    {name:"Bangkok",lat:13.75,lng:100.52,tour:"dominATE World Tour · 2025",gold:false},
-    {name:"Singapura",lat:1.35,lng:103.82,tour:"dominATE World Tour · 2025",gold:false},
-    {name:"Taipei",lat:25.03,lng:121.56,tour:"dominATE World Tour · 2025",gold:false},
-    {name:"Manila",lat:14.59,lng:120.98,tour:"dominATE World Tour · 2025",gold:false},
-    {name:"Jacarta",lat:-6.21,lng:106.85,tour:"dominATE World Tour · 2025",gold:false},
+function renderPremios(){
+  const tbody = document.getElementById('premiosTbody');
+  if(!tbody) return;
+  const premios = [
+    { cerimonia:"Asia Artist Awards",         vitorias:"16", destaque:"5 Daesangs (2021–2025) · Performance, Album, Stage, Artist of the Year · 3RACHA e membros individuais premiados", gold:true },
+    { cerimonia:"Golden Disc Awards",         vitorias:"10", destaque:"Daesang Album of the Year 2026 por KARMA · 5 Bonsangs consecutivos (2022–2026) · Rookie 2019", gold:true },
+    { cerimonia:"Hanteo Music Awards",        vitorias:"12", destaque:"Daesang Best Album 2026 por KARMA · 2 Daesangs Best Performance (2023–2024) · 4 prêmios continentais 2026", gold:true },
+    { cerimonia:"The Fact Music Awards",      vitorias:"13", destaque:"2 Daesangs 2025: Honor of the Year + Record of the Year · Artist Bonsang 2021–2025", gold:true },
+    { cerimonia:"Korea Grand Music Awards",   vitorias:"6",  destaque:"2 Daesangs 2025: Grand Honor's Choice + Grand Record · Best-Selling Album KARMA", gold:true },
+    { cerimonia:"MAMA Awards",               vitorias:"8",  destaque:"Daesang Album of the Year 2025 por KARMA — primeiro Daesang do grupo no MAMA · Worldwide Fans' Choice múltiplos anos", gold:true },
+    { cerimonia:"K-World Dream Awards",       vitorias:"8",  destaque:"Daesang Boy Group Best Artist 2025 · K World Class Award · múltiplos Bonsangs", gold:true },
+    { cerimonia:"D Awards",                  vitorias:"1",  destaque:"Daesang Black Label Album of the Year 2026 por KARMA", gold:true },
+    { cerimonia:"Asia Star Entertainer Awards",vitorias:"3", destaque:"Daesang Grand Prize 2024 · Album of the Year 5-STAR · Best Group Male 2026", gold:true },
+    { cerimonia:"Circle Chart Music Awards",  vitorias:"6",  destaque:"World Rookie of the Year 2020 · World K-Pop Star 2022 · Artist of the Year Album 2024", gold:false },
+    { cerimonia:"Seoul Music Awards",         vitorias:"5",  destaque:"Rookie of the Year 2019 · 4 Bonsangs consecutivos (2021–2024)", gold:false },
+    { cerimonia:"Japan Gold Disc Awards",     vitorias:"8",  destaque:"Best Artist Asia 2026 · Album of the Year Asia 2026 por Hollow · 4 troféus na edição de 2026", gold:false },
+    { cerimonia:"iHeartRadio Music Awards",   vitorias:"3",  destaque:"K-Pop Group of the Year 2026 · K-Pop Album of the Year 2024 (5-STAR) e 2025 (ATE)", gold:false },
+    { cerimonia:"Billboard Music Awards",     vitorias:"2",  destaque:"Top Global K-Pop Artist 2024 · Top K-Pop Album 2023 por 5-STAR", gold:false },
+    { cerimonia:"People's Choice Awards",     vitorias:"1",  destaque:"Group/Duo of the Year 2024 — votação 100% dos fãs", gold:false },
+    { cerimonia:"Nickelodeon Kids' Choice",   vitorias:"1",  destaque:"Favorite Music Group 2025", gold:false },
+    { cerimonia:"MTV Video Music Awards",     vitorias:"1",  destaque:"Best K-Pop 2023 por S-Class", gold:false },
+    { cerimonia:"MTV Europe Music Awards",    vitorias:"1",  destaque:"Best Korean Act 2020", gold:false },
+    { cerimonia:"MTV VMA Japan",             vitorias:"1",  destaque:"Best Group Video International 2023 por CASE 143", gold:false },
+    { cerimonia:"Tencent Music Year-End",     vitorias:"2",  destaque:"Top 10 K-Pop Albums (HOP) + Top 10 K-Pop Groups 2025", gold:false },
+    { cerimonia:"Programas Musicais 🎵",      vitorias:"45", destaque:"Triple Crown · vitórias com MIROH, Thunderous, CASE 143, S-Class, Chk Chk Boom, CEREMONY e outros", gold:false },
   ];
-
-  cities.forEach(c => {
-    const icon = L.divIcon({
-      className:'',
-      html:`<div style="width:${c.gold?14:10}px;height:${c.gold?14:10}px;border-radius:50%;background:var(--ac);border:2px solid ${c.gold?'#fff':'rgba(255,255,255,0.4)'};box-shadow:0 0 ${c.gold?'8':'4'}px var(--ac);transition:transform .2s"></div>`,
-      iconSize:[c.gold?14:10, c.gold?14:10],
-      iconAnchor:[c.gold?7:5, c.gold?7:5]
-    });
-    L.marker([c.lat,c.lng], {icon})
-      .addTo(map)
-      .bindPopup(`<div style="font-family:sans-serif;min-width:140px"><strong style="font-size:13px">${c.name}</strong><br><span style="font-size:11px">${c.tour}</span></div>`, {
-        closeButton:false, className:'skz-map-popup'
-      });
+  premios.forEach((p, i) => {
+    const tr = document.createElement('tr');
+    tr.style.cssText = `background:${i%2===0?'var(--bg-2)':'var(--bg-3)'};border-bottom:1px solid var(--bd);transition:background .15s`;
+    tr.innerHTML = `
+      <td style="padding:.875rem 1.25rem;color:var(--t1);font-weight:${p.gold?'600':'400'}">
+        ${p.gold?'🏆 ':''}${p.cerimonia}
+      </td>
+      <td style="padding:.875rem 1.25rem;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--ac)">${p.vitorias}</td>
+      <td style="padding:.875rem 1.25rem;color:var(--t2);font-size:.8rem;line-height:1.5">${p.destaque}</td>`;
+    tr.addEventListener('mouseenter', ()=> tr.style.background='var(--glass)');
+    tr.addEventListener('mouseleave', ()=> tr.style.background= i%2===0?'var(--bg-2)':'var(--bg-3)');
+    tbody.appendChild(tr);
   });
 }
 
@@ -1004,8 +1141,8 @@ renderMembers();
 renderDiscografia();
 renderTimeline();
 renderTours();
-renderToursMap();
 renderFacts('geral');
+renderPremios();
 renderMVs();
 renderGallery();
 renderSkzoo();
