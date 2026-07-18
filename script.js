@@ -295,7 +295,6 @@ const skzoo=[
   { name:"BbokAri",    member:"Felix",     animal:"Pinto",            img:"https://i.pinimg.com/1200x/ae/06/62/ae06620dbf96ac5f2559597fa61f12a4.jpg" },
   { name:"PuppyM",     member:"Seungmin",  animal:"Cachorro",         img:"https://i.pinimg.com/736x/2c/27/cf/2c27cf81307b9591a11d8c463b6d9857.jpg" },
   { name:"Fox I.Ny",   member:"I.N",       animal:"Raposa",           img:"https://i.pinimg.com/736x/62/c0/e1/62c0e18118e175467bd241e5ebb023f4.jpg" },
-  { name:"TASY",       member:"STAY (fandom)", animal:"Tanuki",       img:"assets/skzoo/skzoo-tasy.jpg" },
 ];
 
 /* ── DADOS — Stream ── */
@@ -510,6 +509,15 @@ document.getElementById('navToggle')?.addEventListener('click', ()=>{
 document.getElementById('drawerClose')?.addEventListener('click', closeDrawer);
 document.getElementById('drawerOverlay')?.addEventListener('click', closeDrawer);
 
+document.querySelector('.nav-dropdown-btn')?.addEventListener('click', () => {
+  document.querySelector('.nav-dropdown')?.classList.toggle('open');
+});
+document.addEventListener('click', e => {
+  if(!e.target.closest('.nav-dropdown')) {
+    document.querySelector('.nav-dropdown')?.classList.remove('open');
+  }
+});
+
 /* ── THEME TOGGLE ── */
 document.getElementById('themeToggleBtn')?.addEventListener('click', () => {
   document.body.classList.toggle('light-mode');
@@ -662,90 +670,21 @@ function renderDiscografia(){
 function renderTimeline(){
   const container = document.getElementById('timelineContainer');
   if(!container) return;
-
-  container.style.cssText = 'position:relative;overflow:hidden;padding:2rem 0';
-
-  container.innerHTML = `
-    <div id="tlTrack" style="display:flex;gap:0;overflow-x:auto;scroll-behavior:smooth;padding:1rem 2rem 2rem;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;user-select:none">
-      <div style="display:flex;align-items:flex-start;gap:0;min-width:max-content">
-        ${timelineEvents.map((ev,i) => `
-          <div class="tl-node reveal" data-idx="${i}" style="display:flex;flex-direction:column;align-items:center;min-width:160px;max-width:160px;cursor:pointer;position:relative">
-            <div style="display:flex;align-items:center;width:100%">
-              <div style="flex:1;height:2px;background:${i===0?'transparent':'var(--bd)'}"></div>
-              <div class="tl-dot" style="width:14px;height:14px;border-radius:50%;background:${ev.gold?'var(--ac)':'var(--bg-3)'};border:2px solid var(--ac);flex-shrink:0;transition:all .2s;z-index:1"></div>
-              <div style="flex:1;height:2px;background:${i===timelineEvents.length-1?'transparent':'var(--bd)'}"></div>
-            </div>
-            <div class="tl-card" style="margin-top:.75rem;padding:.75rem;background:var(--glass);border:1px solid var(--bd);border-radius:10px;width:136px;text-align:center;transition:all .2s">
-              <div style="font-size:.65rem;color:var(--ac);letter-spacing:.1em;font-weight:600;margin-bottom:.3rem">${ev.year}</div>
-              <div style="font-size:.75rem;color:var(--t1);font-weight:600;line-height:1.3">${ev.event}</div>
-              ${ev.badge?`<div style="display:inline-block;margin-top:.4rem;font-size:.6rem;padding:2px 8px;border-radius:20px;background:var(--ac);color:#fff;letter-spacing:.06em">${ev.badge}</div>`:''}
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-    <div id="tlPopover" style="display:none;position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--bg-2);border:1px solid var(--bdh);border-radius:14px;padding:1.25rem 1.5rem;max-width:320px;width:90%;z-index:10;box-shadow:var(--glow)">
-      <button id="tlPopClose" type="button" aria-label="Fechar" style="position:absolute;top:.75rem;right:.75rem;background:transparent;border:none;color:var(--t2);font-size:1.1rem;cursor:pointer;line-height:1">×</button>
-      <div id="tlPopYear" style="font-size:.7rem;color:var(--ac);letter-spacing:.1em;font-weight:600;margin-bottom:.3rem"></div>
-      <div id="tlPopEvent" style="font-size:1rem;color:var(--t1);font-weight:700;margin-bottom:.5rem"></div>
-      <div id="tlPopDesc" style="font-size:.82rem;color:var(--t2);line-height:1.6"></div>
-      <div id="tlPopBadge" style="margin-top:.75rem"></div>
-    </div>`;
-
-  const track = document.getElementById('tlTrack');
-  const popover = document.getElementById('tlPopover');
-
-  track.addEventListener('click', e => {
-    if(didDrag){ didDrag=false; return; }
-    const node = e.target.closest('.tl-node');
-    if(!node) { popover.style.display='none'; return; }
-    const idx = parseInt(node.dataset.idx);
-    const ev = timelineEvents[idx];
-    document.getElementById('tlPopYear').textContent = ev.year;
-    document.getElementById('tlPopEvent').textContent = ev.event;
-    document.getElementById('tlPopDesc').textContent = ev.desc;
-    document.getElementById('tlPopBadge').innerHTML = ev.badge
-      ? `<span style="font-size:.65rem;padding:3px 10px;border-radius:20px;background:var(--ac);color:#fff;letter-spacing:.06em">${ev.badge}</span>`
-      : '';
-    popover.style.display = 'block';
-    document.querySelectorAll('.tl-dot').forEach((d,i) => {
-      d.style.transform = i===idx ? 'scale(1.5)' : 'scale(1)';
-      d.style.background = i===idx ? 'var(--ac)' : (timelineEvents[i].gold?'var(--ac)':'var(--bg-3)');
-    });
-    const nodeRect = node.getBoundingClientRect();
-    const trackRect = track.getBoundingClientRect();
-    const scrollTarget = track.scrollLeft + nodeRect.left - trackRect.left - track.clientWidth/2 + node.clientWidth/2;
-    track.scrollTo({left: scrollTarget, behavior:'smooth'});
+  container.innerHTML = '';
+  timelineEvents.forEach((ev,i) => {
+    const item = document.createElement('div');
+    item.className = 'timeline-item reveal';
+    const badge = ev.badge ? `<span class="timeline-badge ${ev.gold?'gold':''}">${ev.badge}</span>` : '';
+    const cardH = `<div class="timeline-year">${ev.year}</div><div class="timeline-event">${ev.event}</div><div class="timeline-desc">${ev.desc}</div>${badge}`;
+    const dot = `<div class="timeline-dot"></div>`;
+    const spacer = `<div class="timeline-spacer"></div>`;
+    if(i%2===0){
+      item.innerHTML = `<div class="timeline-side tl-left">${cardH}</div>${dot}${spacer}`;
+    } else {
+      item.innerHTML = `${spacer}${dot}<div class="timeline-side tl-right-content">${cardH}</div>`;
+    }
+    container.appendChild(item);
   });
-
-  document.getElementById('tlPopClose')?.addEventListener('click', () => {
-    popover.style.display = 'none';
-    document.querySelectorAll('.tl-dot').forEach((d,i) => {
-      d.style.transform = 'scale(1)';
-      d.style.background = timelineEvents[i].gold ? 'var(--ac)' : 'var(--bg-3)';
-    });
-  });
-
-  let isDragging=false, didDrag=false, startX=0, scrollLeft=0;
-  track.addEventListener('mousedown', e => {
-    isDragging=true; didDrag=false;
-    startX=e.pageX-track.offsetLeft;
-    scrollLeft=track.scrollLeft;
-    track.style.cursor='grabbing';
-  });
-  track.addEventListener('mouseleave', () => { isDragging=false; track.style.cursor='grab'; });
-  track.addEventListener('mouseup', () => { isDragging=false; track.style.cursor='grab'; });
-  track.addEventListener('mousemove', e => {
-    if(!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - track.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    if(Math.abs(walk) > 5) didDrag=true;
-    track.scrollLeft = scrollLeft - walk;
-  });
-
-  track.addEventListener('scroll', () => { popover.style.display='none'; });
-  setTimeout(initReveal, 100);
 }
 
 /* ── TOURS ── */
@@ -912,6 +851,61 @@ function renderSkzoo(){
     card.innerHTML=`<div class="skzoo-img-wrap"><img src="${s.img}" onerror="this.style.opacity='0'" alt="${s.name}" loading="lazy"></div><div class="skzoo-info"><div class="skzoo-name">${s.name}</div><div class="skzoo-member">${s.member}</div><span class="skzoo-badge">${s.animal}</span></div>`;
     grid.appendChild(card);
   });
+
+  // Card especial TASY
+  const tasyWrap = document.createElement('div');
+  tasyWrap.className = 'reveal';
+  tasyWrap.style.cssText = 'grid-column:1/-1;margin-top:1.5rem;border:1px solid var(--bdh);border-radius:16px;overflow:hidden;background:var(--bg-2);box-shadow:var(--glow)';
+
+  tasyWrap.innerHTML = `
+    <div style="background:var(--ac);padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.15em;color:#fff">✦ PERSONAGEM OFICIAL DO FANDOM</span>
+      <span style="font-size:.75rem;color:rgba(255,255,255,.8);letter-spacing:.08em">Apresentada em 10 de julho de 2026</span>
+    </div>
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:0">
+      <div style="background:linear-gradient(135deg,#1a0a2e,#0a0a1a);display:flex;align-items:center;justify-content:center;padding:2rem;border-right:1px solid var(--bd)">
+        <img src="assets/skzoo/skzoo-tasy.jpg" alt="TASY" style="width:200px;height:200px;object-fit:contain;filter:drop-shadow(0 0 20px rgba(180,120,255,0.4))" onerror="this.style.display='none'">
+      </div>
+      <div style="padding:2rem">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.5rem;flex-wrap:wrap">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--t1);letter-spacing:.06em">TASY</div>
+          <span style="font-size:.8rem;color:var(--t3)">테이지 · pronunciado "Teiji"</span>
+        </div>
+        <div style="display:inline-block;font-size:.7rem;letter-spacing:.1em;padding:3px 12px;border-radius:20px;background:var(--ac);color:#fff;margin-bottom:1.25rem">Representa: STAY (fandom)</div>
+
+        <div style="font-size:.88rem;color:var(--t2);line-height:1.8;margin-bottom:1.25rem">
+          TASY é a personagem oficial criada para representar o fandom <strong style="color:var(--t1)">STAY</strong> dentro do universo dos SKZOO. Enquanto cada um dos oito personagens representa um integrante do Stray Kids, TASY representa <strong style="color:var(--t1)">todos os fãs</strong>.
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem">
+          <div style="background:var(--bg-3);border-radius:10px;padding:1rem;border:1px solid var(--bd)">
+            <div style="font-size:.65rem;color:var(--ac);letter-spacing:.12em;margin-bottom:.4rem">SIGNIFICADO DO NOME</div>
+            <div style="font-size:.85rem;color:var(--t1);font-weight:600;margin-bottom:.3rem">STAY → TASY</div>
+            <div style="font-size:.78rem;color:var(--t2);line-height:1.5">As mesmas letras de STAY reorganizadas — reforçando que a personagem pertence aos fãs.</div>
+          </div>
+          <div style="background:var(--bg-3);border-radius:10px;padding:1rem;border:1px solid var(--bd)">
+            <div style="font-size:.65rem;color:var(--ac);letter-spacing:.12em;margin-bottom:.4rem">PRIMEIRA APARIÇÃO</div>
+            <div style="font-size:.85rem;color:var(--t1);font-weight:600;margin-bottom:.3rem">6º Fanmeeting</div>
+            <div style="font-size:.78rem;color:var(--t2);line-height:1.5">Apareceu discretamente antes da revelação oficial em julho de 2026.</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:1.25rem">
+          <div style="font-size:.65rem;color:var(--t3);letter-spacing:.12em;margin-bottom:.6rem">CONCEITO VISUAL</div>
+          <div style="display:flex;gap:.4rem;flex-wrap:wrap">
+            ${["⭐ Estrelas","🌙 Lua","✨ Brilho","🌌 Céu noturno","💫 Sonhos","🤝 Companhia"].map(t =>
+              `<span style="font-size:.75rem;padding:3px 10px;border-radius:20px;background:var(--bg-3);border:1px solid var(--bd);color:var(--t2)">${t}</span>`
+            ).join('')}
+          </div>
+        </div>
+
+        <div style="font-size:.78rem;color:var(--t3);line-height:1.6;border-top:1px solid var(--bd);padding-top:1rem">
+          ✦ TASY não representa um 9º integrante do Stray Kids — ela é a <strong style="color:var(--t2)">presença dos fãs</strong> dentro do universo SKZOO, interagindo com Wolf Chan, Leebit, Dwaekki, Jiniret, Han Quokka, BbokAri, PuppyM e FoxI.Ny.
+        </div>
+      </div>
+    </div>`;
+
+  grid.appendChild(tasyWrap);
 }
 
 /* ── STREAM ── */
@@ -1136,8 +1130,281 @@ function renderPremios(){
   });
 }
 
+function renderEraAtual(){
+  const container = document.getElementById('eraAtualContainer');
+  if(!container) return;
+
+  container.innerHTML = `
+    <div style="border:1px solid var(--bdh);border-radius:16px;overflow:hidden;background:var(--bg-2);box-shadow:var(--glow)">
+
+      <div style="background:var(--ac);padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.15em;color:#fff">● ERA ATUAL</span>
+        <span style="font-size:.75rem;color:rgba(255,255,255,.8);letter-spacing:.08em">THIS & THAT · 2026</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+
+        <div style="padding:2rem;border-right:1px solid var(--bd)">
+          <div style="display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:1.5rem">
+            <img src="assets/albums/this-and-that.jpg" alt="THIS & THAT"
+              style="width:90px;height:90px;object-fit:cover;border-radius:10px;flex-shrink:0;border:1px solid var(--bd)"
+              onerror="this.style.display='none'">
+            <div>
+              <div style="font-size:.65rem;color:var(--ac);letter-spacing:.12em;margin-bottom:.3rem">PRÓXIMO LANÇAMENTO</div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--t1);letter-spacing:.04em;line-height:1">THIS & THAT</div>
+              <div style="font-size:.8rem;color:var(--t3);margin-top:.3rem">10º Mini Álbum · 7 de agosto de 2026</div>
+              <div style="font-size:.8rem;color:var(--t2);margin-top:.4rem;line-height:1.5">Faixa principal: <span style="color:var(--ac)">This & That</span></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1.25rem">
+            <div style="font-size:.65rem;color:var(--t3);letter-spacing:.12em;margin-bottom:.6rem">TRACKLIST</div>
+            ${["RUN IT (Pre-single)","This & That","After You","FARMING","I Do","Way Out","Back Then","This & That (Festival ver.)"]
+              .map((t,i) => `<div style="display:flex;gap:.75rem;padding:.35rem 0;border-bottom:1px solid var(--bd);align-items:center">
+                <span style="font-size:.7rem;color:var(--ac);font-family:'Bebas Neue',sans-serif;min-width:1.2rem">${i+1}</span>
+                <span style="font-size:.82rem;color:${i===0||i===1?'var(--t1)':'var(--t2)'};font-weight:${i===1?'600':'400'}">${t}${i===1?' ★':''}</span>
+              </div>`).join('')}
+          </div>
+
+          <a href="https://www.youtube.com/watch?v=Q7IFjVUUb_E" target="_blank" rel="noopener noreferrer"
+            style="display:inline-flex;align-items:center;gap:.5rem;background:var(--ac);color:#fff;padding:.6rem 1.25rem;border-radius:20px;font-size:.8rem;text-decoration:none;letter-spacing:.06em;font-weight:600">
+            ▶ Assistir RUN IT
+          </a>
+        </div>
+
+        <div style="padding:2rem">
+          <div style="margin-bottom:1.5rem">
+            <div style="font-size:.65rem;color:var(--t3);letter-spacing:.12em;margin-bottom:.75rem">CONQUISTAS DA ERA</div>
+            ${[
+              "Pre-single RUN IT lançado em 24 de junho de 2026",
+              "UNVEIL: TRACK 'FARMING' divulgado em julho de 2026",
+              "Headliners confirmados do Rock in Rio (11 set)",
+              "STRAYCITY Tour — Bogotá, Buenos Aires e Cidade do México",
+              "5 shows sold-out no KSPO DOME em Seoul (jul–ago)"
+            ].map(c => `<div style="display:flex;gap:.6rem;align-items:flex-start;margin-bottom:.6rem">
+              <span style="color:var(--ac);font-size:.8rem;flex-shrink:0;margin-top:.1rem">✦</span>
+              <span style="font-size:.82rem;color:var(--t2);line-height:1.5">${c}</span>
+            </div>`).join('')}
+          </div>
+
+          <div style="margin-bottom:1.5rem">
+            <div style="font-size:.65rem;color:var(--t3);letter-spacing:.12em;margin-bottom:.75rem">PRÓXIMAS DATAS</div>
+            ${[
+              {data:"28 jul – 3 ago", evento:"Seoul KSPO DOME (5 shows)"},
+              {data:"9 set", evento:"Bogotá, Colômbia 🇨🇴"},
+              {data:"11 set", evento:"Rock in Rio, Brasil 🇧🇷"},
+              {data:"14–15 set", evento:"Buenos Aires, Argentina 🇦🇷"},
+              {data:"25–26 set", evento:"Cidade do México 🇲🇽"},
+            ].map(d => `<div style="display:flex;gap:.75rem;align-items:baseline;margin-bottom:.5rem">
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:.85rem;color:var(--ac);min-width:90px;flex-shrink:0">${d.data}</span>
+              <span style="font-size:.82rem;color:var(--t2)">${d.evento}</span>
+            </div>`).join('')}
+          </div>
+
+          <div>
+            <div style="font-size:.65rem;color:var(--t3);letter-spacing:.12em;margin-bottom:.75rem">MEMBROS VOTANTES — RECORDING ACADEMY</div>
+            <div style="font-size:.82rem;color:var(--t2);line-height:1.6">Os 8 membros foram convidados a integrar a <strong style="color:var(--t1)">Recording Academy</strong> como membros votantes, podendo influenciar as indicações e vencedores do <strong style="color:var(--t1)">Grammy Awards</strong> a partir de 2027.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>`;
+}
+
+function renderUniverso(){
+  const grid = document.getElementById('universoGrid');
+  if(!grid) return;
+
+  const cards = [
+    {
+      icon:'🎵',
+      title:'O que é o 3RACHA?',
+      text:'Sub-grupo produtor formado por <strong>Bang Chan (CB97)</strong>, <strong>Changbin (SPEARB)</strong> e <strong>Han (J.ONE)</strong>. Eles existiam antes mesmo do debut do Stray Kids e são responsáveis por compor, escrever e produzir grande parte da discografia do grupo. A identidade musical do SKZ foi construída por eles desde o início.'
+    },
+    {
+      icon:'💃',
+      title:'As três unidades (Racha)',
+      text:'O grupo é dividido em três unidades por especialidade:<br><br><strong>3RACHA</strong> — Bang Chan, Changbin e Han (produção e rap)<br><strong>Dance Racha</strong> — Lee Know, Hyunjin e Felix (dança)<br><strong>Vocal Racha</strong> — Seungmin e I.N (vocais)<br><br>Mas todos os membros participam de vocais, dança e performance em diferentes níveis.'
+    },
+    {
+      icon:'🎙️',
+      title:'SKZ-RECORD e SKZ-PLAYER',
+      text:'Projetos onde os membros lançam músicas fora dos álbuns oficiais — solos, covers, colaborações internas e composições próprias. Algumas dessas faixas ganharam versões oficiais no <strong>SKZ-REPLAY</strong>. São a melhor forma de conhecer o lado mais íntimo e experimental de cada membro.'
+    },
+    {
+      icon:'🎬',
+      title:'O que são os vídeos INTRO?',
+      text:'Vídeos especiais lançados antes de novos álbuns onde cada membro ou unidade apresenta o conceito da nova era. São parte essencial da experiência de acompanhar um comeback do Stray Kids — revelam a identidade visual, o clima e o som do que está por vir.'
+    },
+    {
+      icon:'🐾',
+      title:'O que são os SKZoo?',
+      text:'Personagens animais oficiais que representam cada membro. Foram criados com base em características físicas, apelidos ou traços de personalidade de cada um. Em 2026, o fandom STAY ganhou seu próprio personagem: o <strong>TASY</strong>, um tanuki azul cujo nome é anagrama de STAY.'
+    },
+    {
+      icon:'👥',
+      title:'O que significa OT8?',
+      text:'<strong>OT8</strong> significa "Original Eight" — os 8 membros do Stray Kids. O grupo estreou com 9 integrantes, mas Woojin saiu em outubro de 2019 por motivos pessoais. Desde então, Bang Chan, Lee Know, Changbin, Hyunjin, Han, Felix, Seungmin e I.N formam o OT8.'
+    },
+    {
+      icon:'💿',
+      title:'Comeback, title track, b-side e era',
+      text:'<strong>Comeback</strong> — lançamento de novo álbum ou single após um hiato.<br><strong>Title track</strong> — faixa principal do álbum, geralmente com MV oficial.<br><strong>B-side</strong> — faixas do álbum que não são a principal, frequentemente favoritas dos fãs por serem mais experimentais.<br><strong>Era</strong> — período temático de um álbum, com conceito visual e sonoro próprio.'
+    },
+    {
+      icon:'🏆',
+      title:'Daesang — o maior prêmio',
+      text:'<strong>Daesang</strong> significa "Grande Prêmio" em coreano — é o equivalente ao Grammy de Álbum do Ano no K-pop. O Stray Kids acumula <strong>19 Daesangs</strong> em cerimônias como MAMA, Golden Disc Awards, Asia Artist Awards e The Fact Music Awards. KARMA (2025) foi o álbum mais premiado da carreira.'
+    },
+    {
+      icon:'📺',
+      title:'Kingdom: Legendary War',
+      text:'Em 2021, o Stray Kids venceu o programa de competição <strong>Kingdom: Legendary War</strong>. As apresentações ficaram conhecidas pelos cenários elaborados e pela narrativa conectada entre performance, dança e música. Essa participação apresentou o grupo a um público muito maior e marcou uma virada na carreira internacional.'
+    },
+    {
+      icon:'🌍',
+      title:'Por que o nome "Stray Kids"?',
+      text:'"Stray Kids" representa jovens que deixam um caminho definido por outros para buscar a própria direção. Essa ideia aparece frequentemente nas músicas: romper padrões, não se comparar, avançar mesmo sem ter todas as respostas. Por isso <strong>estradas, labirintos, portas, chaves e caminhos</strong> aparecem tantas vezes em seus trabalhos.'
+    },
+    {
+      icon:'💬',
+      title:'STAY — o fandom',
+      text:'O fandom oficial se chama <strong>STAY</strong>. O nome completa a frase: <em>"You make Stray Kids stay"</em> — os fãs são a razão para que os "garotos perdidos" encontrem um lugar onde possam permanecer. Em 2026, o fandom ganhou o mascote oficial <strong>TASY</strong>, anagrama de STAY.'
+    },
+    {
+      icon:'🎤',
+      title:'Self-produced — o diferencial',
+      text:'O Stray Kids tem controle criativo sobre sua música desde o debut. O <strong>3RACHA</strong> produz, compõe e escreve a maioria das faixas internamente — algo raro no K-pop tradicional. Isso significa que as letras sobre crescimento, pressão, liberdade e identidade vêm das próprias experiências dos membros.'
+    },
+  ];
+
+  grid.innerHTML = `
+    <div style="position:relative">
+      <div id="universoTrack" style="display:flex;gap:1.25rem;overflow:hidden;scroll-behavior:smooth">
+        ${cards.map((c,i) => `
+          <div class="stay-card reveal" style="min-width:320px;max-width:320px;flex-shrink:0;transition-delay:${i*.06}s">
+            <div class="stay-card-icon">${c.icon}</div>
+            <div class="stay-card-title">${c.title}</div>
+            <div class="stay-card-text" style="line-height:1.7">${c.text}</div>
+          </div>`).join('')}
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.5rem">
+        <button id="universoPrev" type="button" aria-label="Anterior"
+          style="width:36px;height:36px;border-radius:50%;background:var(--bg-3);border:1px solid var(--bd);color:var(--t1);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s">
+          ‹
+        </button>
+        <div id="universoDots" style="display:flex;gap:.4rem">
+          ${cards.map((_,i) => `<div class="universo-dot" data-idx="${i}" style="width:6px;height:6px;border-radius:50%;background:${i===0?'var(--ac)':'var(--bd)'};cursor:pointer;transition:background .2s"></div>`).join('')}
+        </div>
+        <button id="universoNext" type="button" aria-label="Próximo"
+          style="width:36px;height:36px;border-radius:50%;background:var(--bg-3);border:1px solid var(--bd);color:var(--t1);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s">
+          ›
+        </button>
+      </div>
+    </div>`;
+
+  const track = document.getElementById('universoTrack');
+  const dots = document.querySelectorAll('.universo-dot');
+  let current = 0;
+
+  function goTo(idx){
+    current = Math.max(0, Math.min(idx, cards.length - 1));
+    const cardWidth = track.querySelector('.stay-card').offsetWidth + 20;
+    track.scrollTo({ left: current * cardWidth, behavior: 'smooth' });
+    dots.forEach((d,i) => d.style.background = i === current ? 'var(--ac)' : 'var(--bd)');
+  }
+
+  document.getElementById('universoPrev')?.addEventListener('click', () => goTo(current - 1));
+  document.getElementById('universoNext')?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.idx))));
+
+  // Swipe mobile
+  let sx = 0;
+  track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if(Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+  });
+
+  setTimeout(initReveal, 100);
+}
+
+function renderAlemDaMusica(){
+  const grid = document.getElementById('alemGrid');
+  if(!grid) return;
+
+  const cards = [
+    { num:"01", tag:"Self-production", title:"O grupo que constrói a própria identidade", text:"Desde os primeiros lançamentos, o Stray Kids construiu uma identidade marcada por letras sobre crescimento, inseguranças, pressão, liberdade e busca pelo próprio caminho. Grande parte desse trabalho é liderada pelo <strong>3RACHA</strong> — Bang Chan, Changbin e Han — que participam da composição, escrita e produção de grande parte da discografia." },
+    { num:"02", tag:"História", title:"O 3RACHA existia antes do debut", text:"Antes da estreia do Stray Kids, Bang Chan, Changbin e Han já lançavam músicas como <strong>3RACHA</strong>, usando os nomes artísticos <strong>CB97</strong>, <strong>SPEARB</strong> e <strong>J.ONE</strong>. Essa fase mostra que a identidade musical do grupo começou a ser desenvolvida antes mesmo da estreia oficial." },
+    { num:"03", tag:"Nome", title:"Stray Kids representa quem escolhe o próprio caminho", text:"O nome pode ser relacionado a jovens que deixam um caminho definido por outros para buscar a própria direção. Por isso <strong>estradas, labirintos, portas, chaves e caminhos</strong> aparecem tantas vezes nas músicas. Romper padrões, não se comparar e avançar mesmo sem respostas são temas centrais." },
+    { num:"04", tag:"Fandom", title:"A frase do fandom completa o nome do grupo", text:"Uma das frases mais importantes é: <em>\"You make Stray Kids stay.\"</em> Ela cria um jogo com o nome do fandom, <strong>STAY</strong>. A ideia é que os fãs são a razão para que os garotos perdidos encontrem um lugar onde possam permanecer." },
+    { num:"05", tag:"Bang Chan", title:"Bang Chan participou da escolha dos integrantes", text:"Bang Chan passou vários anos como trainee antes do debut e teve um papel incomum na formação do grupo — além de ser o líder, participou do processo de reunir os integrantes que trabalhariam juntos. Isso explica por que liderança, confiança e união são temas tão importantes para o Stray Kids." },
+    { num:"06", tag:"Logo", title:"O logotipo foi desenhado pelo próprio Bang Chan", text:"O logotipo escrito do Stray Kids foi baseado na <strong>caligrafia de Bang Chan</strong>. Esse detalhe reforça a ideia de que os integrantes participaram não apenas da música, mas também da construção visual e conceitual do grupo desde o início." },
+    { num:"07", tag:"Bang Chan & Felix", title:"Cresceram na Austrália", text:"Bang Chan e Felix cresceram em <strong>Sydney</strong> antes de se mudarem para a Coreia do Sul para seguir carreira. Por isso, ambos falam inglês fluentemente e frequentemente ajudam o grupo em entrevistas e conteúdos internacionais. Apesar da história em comum, eles <strong>não se conheceram na Austrália</strong> — a amizade começou durante o período de treinamento." },
+    { num:"08", tag:"Lee Know", title:"Dançarino profissional antes do Stray Kids", text:"Antes de estrear, Lee Know acumulou experiência como <strong>dançarino de apoio</strong>, o que contribuiu para sua precisão e consciência de palco. Essa trajetória também explica por que ele frequentemente ajuda os outros integrantes durante os ensaios." },
+    { num:"09", tag:"Han", title:"Conhecido como um 'ace'", text:"No K-pop, <strong>'ace'</strong> é usado para artistas que se destacam em várias áreas. Han é frequentemente associado a essa descrição por conseguir assumir rap, vocal, composição, produção e performance com igual habilidade em diferentes músicas." },
+    { num:"10", tag:"Changbin", title:"Contraste como identidade", text:"Changbin é conhecido pelo rap intenso e presença de palco poderosa. Ao mesmo tempo, sua personalidade fora dos palcos costuma ser divertida e afetuosa. Esse contraste inspirou o personagem <strong>Dwaekki</strong> — combinação de dwaeji (porco) e tokki (coelho)." },
+    { num:"11", tag:"Felix", title:"Taekwondo e UNICEF", text:"Antes de ser idol, Felix praticou taekwondo durante anos e participou de competições, conquistando <strong>63 medalhas</strong>. Em setembro de 2024, foi nomeado <strong>Embaixador de Boa Vontade do UNICEF Coreia</strong>, participando de ações relacionadas a nutrição e saneamento no Laos." },
+    { num:"12", tag:"Hyunjin", title:"Pintura como expressão artística", text:"Além da dança e música, Hyunjin desenvolveu forte interesse por <strong>desenho e pintura</strong>. Ele costuma compartilhar trabalhos que exploram paisagens, retratos e emoções. Sua relação com a arte também aparece em músicas solo e performances mais expressivas." },
+    { num:"13", tag:"Seungmin", title:"A paixão pelo beisebol", text:"Seungmin é um grande fã de beisebol e já demonstrou bastante conhecimento sobre o esporte. Essa paixão se tornou uma de suas características mais reconhecidas pelos fãs. Mesmo seguindo a música, ele continua acompanhando partidas e mencionando o esporte em conteúdos do grupo." },
+    { num:"14", tag:"I.N", title:"Habilidade com o trot", text:"I.N demonstrou habilidade para cantar <strong>trot</strong>, um gênero tradicional da música popular coreana. A técnica usa interpretação e ornamentação vocal bem diferentes das encontradas nas músicas do Stray Kids, mostrando outro lado de sua voz que sempre surpreende." },
+    { num:"15", tag:"Kingdom", title:"A vitória que mudou tudo", text:"Em 2021, o Stray Kids venceu o programa <strong>Kingdom: Legendary War</strong>. As apresentações ficaram conhecidas pelos cenários elaborados e pela narrativa conectada entre performance, dança e música. Essa participação apresentou o grupo a um público muito maior e marcou uma virada na carreira internacional." },
+  ];
+
+  grid.innerHTML = `
+    <div style="position:relative">
+      <div id="alemTrack" style="display:flex;gap:1.25rem;overflow:hidden;scroll-behavior:smooth">
+        ${cards.map((c,i) => `
+          <div class="fact-card reveal" style="min-width:300px;max-width:300px;flex-shrink:0;transition-delay:${i*.05}s">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem">
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--ac);opacity:.3;line-height:1">${c.num}</span>
+              <span class="fact-tag">${c.tag}</span>
+            </div>
+            <div style="font-size:.95rem;font-weight:700;color:var(--t1);margin-bottom:.6rem;line-height:1.3">${c.title}</div>
+            <div style="font-size:.82rem;color:var(--t2);line-height:1.7">${c.text}</div>
+          </div>`).join('')}
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.5rem">
+        <button id="alemPrev" type="button" aria-label="Anterior"
+          style="width:36px;height:36px;border-radius:50%;background:var(--bg-3);border:1px solid var(--bd);color:var(--t1);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center">‹</button>
+        <div id="alemDots" style="display:flex;gap:.4rem">
+          ${cards.map((_,i) => `<div class="alem-dot" data-idx="${i}" style="width:6px;height:6px;border-radius:50%;background:${i===0?'var(--ac)':'var(--bd)'};cursor:pointer;transition:background .2s"></div>`).join('')}
+        </div>
+        <button id="alemNext" type="button" aria-label="Próximo"
+          style="width:36px;height:36px;border-radius:50%;background:var(--bg-3);border:1px solid var(--bd);color:var(--t1);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center">›</button>
+      </div>
+    </div>`;
+
+  const track = document.getElementById('alemTrack');
+  const dots = document.querySelectorAll('.alem-dot');
+  let current = 0;
+
+  function goTo(idx){
+    current = Math.max(0, Math.min(idx, cards.length - 1));
+    const cardWidth = track.querySelector('.fact-card').offsetWidth + 20;
+    track.scrollTo({ left: current * cardWidth, behavior: 'smooth' });
+    dots.forEach((d,i) => d.style.background = i === current ? 'var(--ac)' : 'var(--bd)');
+  }
+
+  document.getElementById('alemPrev')?.addEventListener('click', () => goTo(current - 1));
+  document.getElementById('alemNext')?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.idx))));
+
+  let sx = 0;
+  track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if(Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+  });
+
+  setTimeout(initReveal, 100);
+}
+
 /* ── INIT ── */
 renderMembers();
+renderEraAtual();
 renderDiscografia();
 renderTimeline();
 renderTours();
@@ -1149,6 +1416,8 @@ renderSkzoo();
 renderStream();
 renderQuotes();
 renderNewStays();
+renderUniverso();
+renderAlemDaMusica();
 setTimeout(initReveal, 200);
 
 }); // DOMContentLoaded
