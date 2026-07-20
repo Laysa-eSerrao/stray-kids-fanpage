@@ -1493,6 +1493,82 @@ function renderGuiaConteudo(){
   setTimeout(initReveal, 100);
 }
 
+function renderNachimbong(){
+  const container = document.getElementById('nachimbongContainer');
+  if(!container) return;
+
+  container.innerHTML = `
+    <div style="border:1px solid var(--bdh);border-radius:16px;overflow:hidden;background:var(--bg-2);box-shadow:var(--glow)">
+      <div style="background:var(--bg-3);padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;border-bottom:1px solid var(--bd)">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.15em;color:var(--t1)">LIGHT STICK OFICIAL DO STRAY KIDS</span>
+        <a href="https://www.jypshop.com/en-us/stray-kids" target="_blank" rel="noopener noreferrer"
+          style="font-size:.75rem;color:var(--ac);letter-spacing:.08em;text-decoration:none">Comprar na JYP Shop ↗</a>
+      </div>
+
+      <div style="padding:1.5rem">
+        <div style="font-size:.88rem;color:var(--t2);line-height:1.8;margin-bottom:1.5rem;max-width:800px">
+          A light stick oficial do Stray Kids é conhecida pelos fãs como <strong style="color:var(--t1)">Nachimbong</strong>, nome inspirado na palavra coreana para bússola. Seu design representa a busca por uma direção própria — ideia presente na história, nas músicas e na identidade do grupo desde o debut.
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem">
+          <div style="border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--bg-1)">
+            <div style="aspect-ratio:1;overflow:hidden;background:#f5f5f5;display:flex;align-items:center;justify-content:center">
+              <img src="assets/lightstick-v1.jpg" alt="Nachimbong Ver.1" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+            </div>
+            <div style="padding:1rem">
+              <div style="font-size:.65rem;color:var(--ac);letter-spacing:.12em;margin-bottom:.3rem">2019 · VERSÃO ORIGINAL</div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--t1);letter-spacing:.04em;margin-bottom:.5rem">Ver.1 — Nachimbong</div>
+              <div style="font-size:.8rem;color:var(--t2);line-height:1.6;margin-bottom:.75rem">Lançada para a turnê District 9: Unlock. Bússola prateada móvel dentro de estrutura vermelha e transparente. Item colecionável.</div>
+              <div style="display:flex;flex-wrap:wrap;gap:.35rem">
+                ${["Bússola móvel","Estrutura vermelha","Cabo branco","App Ver.1","Item colecionável"].map(t =>
+                  `<span style="font-size:.7rem;padding:2px 8px;border-radius:20px;background:var(--bg-3);border:1px solid var(--bd);color:var(--t3)">${t}</span>`
+                ).join('')}
+              </div>
+            </div>
+          </div>
+
+          <div style="border:1px solid var(--bdh);border-radius:12px;overflow:hidden;background:var(--bg-1)">
+            <div style="aspect-ratio:1;overflow:hidden;background:#111;display:flex;align-items:center;justify-content:center">
+              <img src="assets/lightstick-v2.jpg" alt="Nachimbong Ver.2" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+            </div>
+            <div style="padding:1rem">
+              <div style="font-size:.65rem;color:var(--ac);letter-spacing:.12em;margin-bottom:.3rem">2023 · VERSÃO ATUAL OFICIAL</div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--t1);letter-spacing:.04em;margin-bottom:.5rem">Ver.2 — Official Light Stick</div>
+              <div style="font-size:.8rem;color:var(--t2);line-height:1.6;margin-bottom:.75rem">Lançada em junho de 2023. Estrela de oito pontas representando os 8 membros, tela OLED traseira personalizável e app Bluetooth completo.</div>
+              <div style="display:flex;flex-wrap:wrap;gap:.35rem">
+                ${["Estrela 8 pontas","Tela OLED","Bluetooth","App Ver.2","Versão atual"].map(t =>
+                  `<span style="font-size:.7rem;padding:2px 8px;border-radius:20px;background:var(--bg-3);border:1px solid var(--ac);color:var(--ac)">${t}</span>`
+                ).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin-bottom:1.25rem">
+          ${[
+            {icon:"🎨", titulo:"Controle de cores", desc:"Mude cores, brilho e efeitos pelo app"},
+            {icon:"📺", titulo:"Tela OLED", desc:"Personalize a imagem traseira com símbolos SKZ"},
+            {icon:"📍", titulo:"Registro de assento", desc:"Sincronize com o show pelo ingresso"},
+            {icon:"🔋", titulo:"Monitor de bateria", desc:"Verifique a carga antes do evento"},
+            {icon:"🔵", titulo:"Bluetooth BLE 5.x", desc:"Conexão estável pelo app oficial"},
+            {icon:"🌊", titulo:"Sincronização", desc:"Efeitos coordenados com o palco em shows compatíveis"},
+          ].map(f => `
+            <div style="background:var(--bg-3);border-radius:10px;padding:.875rem;border:1px solid var(--bd)">
+              <div style="font-size:1.1rem;margin-bottom:.3rem">${f.icon}</div>
+              <div style="font-size:.78rem;font-weight:600;color:var(--t1);margin-bottom:.2rem">${f.titulo}</div>
+              <div style="font-size:.72rem;color:var(--t3);line-height:1.4">${f.desc}</div>
+            </div>`).join('')}
+        </div>
+
+        <div style="border-top:1px solid var(--bd);padding-top:1rem">
+          <div style="font-size:.78rem;color:var(--t3);line-height:1.6">
+            📱 App oficial: <strong style="color:var(--t2)">Stray Kids Light Stick V2</strong> · Disponível para Android e iPhone · Conexão via Bluetooth BLE 5.x
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
 /* ── INIT ── */
 renderMembers();
 renderEraAtual();
@@ -1504,6 +1580,7 @@ renderPremios();
 renderMVs();
 renderGallery();
 renderSkzoo();
+renderNachimbong();
 renderStream();
 renderNewStays();
 renderUniverso();
