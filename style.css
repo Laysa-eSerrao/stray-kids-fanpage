@@ -1450,3 +1450,11 @@ body.light-mode .era-select { background:#fff; color:#111; border-color:rgba(232
   }
   #tasyInfoGrid { grid-template-columns:1fr !important; }
 }
+
+/* ── GUIA CONTEÚDO RESPONSIVO ── */
+@media(max-width:768px){
+  .guia-card {
+    min-width:85vw !important;
+    max-width:85vw !important;
+  }
+}
