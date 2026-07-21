@@ -1438,3 +1438,15 @@ body.light-mode .era-select { background:#fff; color:#111; border-color:rgba(232
   #eraGrid { grid-template-columns:1fr !important; }
   #eraGrid > div:first-child { border-right:none !important; border-bottom:1px solid var(--bd); }
 }
+
+/* ── TASY RESPONSIVO ── */
+@media(max-width:768px){
+  #tasyGrid { grid-template-columns:1fr !important; }
+  #tasyGrid > div:first-child {
+    border-right:none !important;
+    border-bottom:1px solid var(--bd);
+    padding:1.5rem;
+    min-height:200px !important;
+  }
+  #tasyInfoGrid { grid-template-columns:1fr !important; }
+}

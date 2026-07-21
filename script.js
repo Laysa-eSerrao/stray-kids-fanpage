@@ -852,7 +852,7 @@ function renderSkzoo(){
       <span style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.15em;color:#fff">✦ PERSONAGEM OFICIAL DO FANDOM</span>
       <span style="font-size:.75rem;color:rgba(255,255,255,.8);letter-spacing:.08em">Apresentada em 10 de julho de 2026</span>
     </div>
-    <div style="display:grid;grid-template-columns:280px 1fr;gap:0">
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:0" id="tasyGrid">
       <div style="background:linear-gradient(135deg,#1a0a2e,#0a0a1a);display:flex;align-items:center;justify-content:center;padding:2rem;border-right:1px solid var(--bd)">
         <img src="assets/skzoo/skzoo-tasy.jpg" alt="TASY" style="width:200px;height:200px;object-fit:contain;filter:drop-shadow(0 0 20px rgba(180,120,255,0.4))" onerror="this.style.display='none'">
       </div>
@@ -867,7 +867,7 @@ function renderSkzoo(){
           TASY é a personagem oficial criada para representar o fandom <strong style="color:var(--t1)">STAY</strong> dentro do universo dos SKZOO. Enquanto cada um dos oito personagens representa um integrante do Stray Kids, TASY representa <strong style="color:var(--t1)">todos os fãs</strong>.
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem" id="tasyInfoGrid">
           <div style="background:var(--bg-3);border-radius:10px;padding:1rem;border:1px solid var(--bd)">
             <div style="font-size:.65rem;color:var(--ac);letter-spacing:.12em;margin-bottom:.4rem">SIGNIFICADO DO NOME</div>
             <div style="font-size:.85rem;color:var(--t1);font-weight:600;margin-bottom:.3rem">STAY → TASY</div>
