@@ -850,11 +850,13 @@ function renderSkzoo(){
   tasyWrap.innerHTML = `
     <div style="background:var(--ac);padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
       <span style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.15em;color:#fff">✦ PERSONAGEM OFICIAL DO FANDOM</span>
-      <span style="font-size:.75rem;color:rgba(255,255,255,.8);letter-spacing:.08em">Apresentada em 10 de julho de 2026</span>
+      <span style="font-size:.7rem;color:rgba(255,255,255,.8);letter-spacing:.08em">Apresentada em 10 de julho de 2026</span>
     </div>
     <div style="display:grid;grid-template-columns:280px 1fr;gap:0" id="tasyGrid">
       <div style="background:linear-gradient(135deg,#1a0a2e,#0a0a1a);display:flex;align-items:center;justify-content:center;padding:2rem;border-right:1px solid var(--bd)">
-        <img src="assets/skzoo/skzoo-tasy.jpg" alt="TASY" style="width:200px;height:200px;object-fit:contain;filter:drop-shadow(0 0 20px rgba(180,120,255,0.4))" onerror="this.style.display='none'">
+        <img src="assets/skzoo/skzoo-tasy.jpg" alt="TASY"
+          style="width:180px;height:180px;object-fit:contain;filter:drop-shadow(0 0 20px rgba(180,120,255,0.4))"
+          onerror="this.style.display='none'">
       </div>
       <div style="padding:2rem">
         <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.5rem;flex-wrap:wrap">
@@ -862,35 +864,13 @@ function renderSkzoo(){
           <span style="font-size:.8rem;color:var(--t3)">테이지 · pronunciado "Teiji"</span>
         </div>
         <div style="display:inline-block;font-size:.7rem;letter-spacing:.1em;padding:3px 12px;border-radius:20px;background:var(--ac);color:#fff;margin-bottom:1.25rem">Representa: STAY (fandom)</div>
-
         <div style="font-size:.88rem;color:var(--t2);line-height:1.8;margin-bottom:1.25rem">
           TASY é a personagem oficial criada para representar o fandom <strong style="color:var(--t1)">STAY</strong> dentro do universo dos SKZOO. Enquanto cada um dos oito personagens representa um integrante do Stray Kids, TASY representa <strong style="color:var(--t1)">todos os fãs</strong>.
         </div>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem" id="tasyInfoGrid">
-          <div style="background:var(--bg-3);border-radius:10px;padding:1rem;border:1px solid var(--bd)">
-            <div style="font-size:.65rem;color:var(--ac);letter-spacing:.12em;margin-bottom:.4rem">SIGNIFICADO DO NOME</div>
-            <div style="font-size:.85rem;color:var(--t1);font-weight:600;margin-bottom:.3rem">STAY → TASY</div>
-            <div style="font-size:.78rem;color:var(--t2);line-height:1.5">As mesmas letras de STAY reorganizadas — reforçando que a personagem pertence aos fãs.</div>
-          </div>
-          <div style="background:var(--bg-3);border-radius:10px;padding:1rem;border:1px solid var(--bd)">
-            <div style="font-size:.65rem;color:var(--ac);letter-spacing:.12em;margin-bottom:.4rem">PRIMEIRA APARIÇÃO</div>
-            <div style="font-size:.85rem;color:var(--t1);font-weight:600;margin-bottom:.3rem">6º Fanmeeting</div>
-            <div style="font-size:.78rem;color:var(--t2);line-height:1.5">Apareceu discretamente antes da revelação oficial em julho de 2026.</div>
-          </div>
-        </div>
-
-        <div style="margin-bottom:1.25rem">
-          <div style="font-size:.65rem;color:var(--t3);letter-spacing:.12em;margin-bottom:.6rem">CONCEITO VISUAL</div>
-          <div style="display:flex;gap:.4rem;flex-wrap:wrap">
-            ${["⭐ Estrelas","🌙 Lua","✨ Brilho","🌌 Céu noturno","💫 Sonhos","🤝 Companhia"].map(t =>
-              `<span style="font-size:.75rem;padding:3px 10px;border-radius:20px;background:var(--bg-3);border:1px solid var(--bd);color:var(--t2)">${t}</span>`
-            ).join('')}
-          </div>
-        </div>
-
-        <div style="font-size:.78rem;color:var(--t3);line-height:1.6;border-top:1px solid var(--bd);padding-top:1rem">
-          ✦ TASY não representa um 9º integrante do Stray Kids — ela é a <strong style="color:var(--t2)">presença dos fãs</strong> dentro do universo SKZOO, interagindo com Wolf Chan, Leebit, Dwaekki, Jiniret, Han Quokka, BbokAri, PuppyM e FoxI.Ny.
+        <div style="background:var(--bg-3);border-radius:10px;padding:1rem;border:1px solid var(--bd);max-width:320px">
+          <div style="font-size:.65rem;color:var(--ac);letter-spacing:.12em;margin-bottom:.4rem">SIGNIFICADO DO NOME</div>
+          <div style="font-size:.9rem;color:var(--t1);font-weight:600;margin-bottom:.3rem">STAY → TASY</div>
+          <div style="font-size:.78rem;color:var(--t2);line-height:1.5">As mesmas letras de STAY reorganizadas — reforçando que a personagem pertence aos fãs.</div>
         </div>
       </div>
     </div>`;
@@ -1119,71 +1099,34 @@ function renderEraAtual(){
         <span style="font-size:.7rem;color:rgba(255,255,255,.8);letter-spacing:.08em">THIS & THAT · 2026</span>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0" id="eraGrid">
-
-        <div style="padding:2rem;border-right:1px solid var(--bd)">
-          <div style="display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:1.5rem">
-            <img src="assets/albums/this-and-that.jpg" alt="THIS & THAT"
-              style="width:90px;height:90px;object-fit:cover;border-radius:10px;flex-shrink:0;border:1px solid var(--bd)"
-              onerror="this.style.display='none'">
-            <div>
-              <div style="font-size:.65rem;color:var(--ac);letter-spacing:.12em;margin-bottom:.3rem">PRÓXIMO LANÇAMENTO</div>
-              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--t1);letter-spacing:.04em;line-height:1">THIS & THAT</div>
-              <div style="font-size:.8rem;color:var(--t3);margin-top:.3rem">10º Mini Álbum · 7 de agosto de 2026</div>
-              <div style="font-size:.8rem;color:var(--t2);margin-top:.4rem;line-height:1.5">Faixa principal: <span style="color:var(--ac)">This & That</span></div>
-            </div>
-          </div>
-
-          <div style="margin-bottom:1.25rem">
-            <div style="font-size:.65rem;color:var(--t3);letter-spacing:.12em;margin-bottom:.6rem">TRACKLIST</div>
-            ${["RUN IT (Pre-single)","This & That","After You","FARMING","I Do","Way Out","Back Then","This & That (Festival ver.)"]
-              .map((t,i) => `<div style="display:flex;gap:.75rem;padding:.35rem 0;border-bottom:1px solid var(--bd);align-items:center">
-                <span style="font-size:.7rem;color:var(--ac);font-family:'Bebas Neue',sans-serif;min-width:1.2rem">${i+1}</span>
-                <span style="font-size:.82rem;color:${i===0||i===1?'var(--t1)':'var(--t2)'};font-weight:${i===1?'600':'400'}">${t}${i===1?' ★':''}</span>
-              </div>`).join('')}
-          </div>
-
-          <a href="https://www.youtube.com/watch?v=Q7IFjVUUb_E" target="_blank" rel="noopener noreferrer"
-            style="display:inline-flex;align-items:center;gap:.5rem;background:var(--ac);color:#fff;padding:.6rem 1.25rem;border-radius:20px;font-size:.8rem;text-decoration:none;letter-spacing:.06em;font-weight:600">
-            ▶ Assistir RUN IT
-          </a>
-        </div>
-
-        <div style="padding:2rem">
-          <div style="margin-bottom:1.5rem">
-            <div style="font-size:.65rem;color:var(--t3);letter-spacing:.12em;margin-bottom:.75rem">CONQUISTAS DA ERA</div>
-            ${[
-              "Pre-single RUN IT lançado em 24 de junho de 2026",
-              "UNVEIL: TRACK 'FARMING' divulgado em julho de 2026",
-              "Headliners confirmados do Rock in Rio (11 set)",
-              "STRAYCITY Tour — Bogotá, Buenos Aires e Cidade do México",
-              "5 shows sold-out no KSPO DOME em Seoul (jul–ago)"
-            ].map(c => `<div style="display:flex;gap:.6rem;align-items:flex-start;margin-bottom:.6rem">
-              <span style="color:var(--ac);font-size:.8rem;flex-shrink:0;margin-top:.1rem">✦</span>
-              <span style="font-size:.82rem;color:var(--t2);line-height:1.5">${c}</span>
-            </div>`).join('')}
-          </div>
-
-          <div style="margin-bottom:1.5rem">
-            <div style="font-size:.65rem;color:var(--t3);letter-spacing:.12em;margin-bottom:.75rem">PRÓXIMAS DATAS</div>
-            ${[
-              {data:"28 jul – 3 ago", evento:"Seoul KSPO DOME (5 shows)"},
-              {data:"9 set", evento:"Bogotá, Colômbia 🇨🇴"},
-              {data:"11 set", evento:"Rock in Rio, Brasil 🇧🇷"},
-              {data:"14–15 set", evento:"Buenos Aires, Argentina 🇦🇷"},
-              {data:"25–26 set", evento:"Cidade do México 🇲🇽"},
-            ].map(d => `<div style="display:flex;gap:.75rem;align-items:baseline;margin-bottom:.5rem">
-              <span style="font-family:'Bebas Neue',sans-serif;font-size:.85rem;color:var(--ac);flex-shrink:0;white-space:nowrap">${d.data}</span>
-              <span style="font-size:.82rem;color:var(--t2)">${d.evento}</span>
-            </div>`).join('')}
-          </div>
-
-          <div>
-            <div style="font-size:.65rem;color:var(--t3);letter-spacing:.12em;margin-bottom:.75rem">MEMBROS VOTANTES — RECORDING ACADEMY</div>
-            <div style="font-size:.82rem;color:var(--t2);line-height:1.6">Os 8 membros foram convidados a integrar a <strong style="color:var(--t1)">Recording Academy</strong> como membros votantes, podendo influenciar as indicações e vencedores do <strong style="color:var(--t1)">Grammy Awards</strong> a partir de 2027.</div>
+      <div style="padding:1.5rem" id="eraGrid">
+        <div style="display:flex;gap:1.25rem;align-items:flex-start;flex-wrap:wrap">
+          <img src="assets/albums/this-and-that.jpg" alt="THIS & THAT"
+            style="width:120px;height:120px;object-fit:cover;border-radius:10px;flex-shrink:0;border:1px solid var(--bd)"
+            onerror="this.style.display='none'">
+          <div style="flex:1;min-width:200px">
+            <div style="font-size:.65rem;color:var(--ac);letter-spacing:.12em;margin-bottom:.3rem">10º MINI ÁLBUM · LANÇAMENTO</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--t1);letter-spacing:.04em;line-height:1;margin-bottom:.3rem">THIS & THAT</div>
+            <div style="font-size:.8rem;color:var(--t3);margin-bottom:.5rem">7 de agosto de 2026</div>
+            <div style="font-size:.82rem;color:var(--t2);margin-bottom:1rem">Faixa principal: <span style="color:var(--ac);font-weight:600">This & That</span></div>
+            <a href="https://www.youtube.com/watch?v=Q7IFjVUUb_E" target="_blank" rel="noopener noreferrer"
+              style="display:inline-flex;align-items:center;gap:.5rem;background:var(--ac);color:#fff;padding:.5rem 1.25rem;border-radius:20px;font-size:.8rem;text-decoration:none;letter-spacing:.06em;font-weight:600">
+              ▶ Assistir RUN IT
+            </a>
           </div>
         </div>
 
+        <div style="margin-top:1.5rem">
+          <div style="font-size:.65rem;color:var(--t3);letter-spacing:.12em;margin-bottom:.75rem">TRACKLIST</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.35rem">
+            ${["RUN IT (Pre-single)","This & That ★","After You","FARMING","I Do","Way Out","Back Then","This & That (Festival ver.)"]
+              .map((t,i) => `
+                <div style="display:flex;align-items:center;gap:.6rem;padding:.4rem .6rem;border-radius:6px;background:var(--bg-3);border:1px solid var(--bd)">
+                  <span style="font-size:.65rem;color:var(--ac);font-family:'Bebas Neue',sans-serif;min-width:1rem">${i+1}</span>
+                  <span style="font-size:.78rem;color:${i===1?'var(--t1)':'var(--t2)'};font-weight:${i===1?'600':'400'}">${t}</span>
+                </div>`).join('')}
+          </div>
+        </div>
       </div>
     </div>`;
 }
@@ -1510,60 +1453,34 @@ function renderNachimbong(){
           A light stick oficial do Stray Kids é conhecida pelos fãs como <strong style="color:var(--t1)">Nachimbong</strong>, nome inspirado na palavra coreana para bússola. Seu design representa a busca por uma direção própria — ideia presente na história, nas músicas e na identidade do grupo desde o debut.
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem" id="lightstickGrid">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem" id="lightstickGrid">
+
           <div style="border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--bg-1)">
             <div style="aspect-ratio:1;overflow:hidden;background:#f5f5f5;display:flex;align-items:center;justify-content:center">
-              <img src="assets/lightstick-v1.jpg" alt="Nachimbong Ver.1" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+              <img src="assets/lightstick-v1.jpg" alt="Nachimbong Ver.1"
+                style="width:100%;height:100%;object-fit:cover"
+                onerror="this.style.display='none'">
             </div>
             <div style="padding:1rem">
               <div style="font-size:.65rem;color:var(--ac);letter-spacing:.12em;margin-bottom:.3rem">2019 · VERSÃO ORIGINAL</div>
               <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--t1);letter-spacing:.04em;margin-bottom:.5rem">Ver.1 — Nachimbong</div>
-              <div style="font-size:.8rem;color:var(--t2);line-height:1.6;margin-bottom:.75rem">Lançada para a turnê District 9: Unlock. Bússola prateada móvel dentro de estrutura vermelha e transparente. Item colecionável.</div>
-              <div style="display:flex;flex-wrap:wrap;gap:.35rem">
-                ${["Bússola móvel","Estrutura vermelha","Cabo branco","App Ver.1","Item colecionável"].map(t =>
-                  `<span style="font-size:.7rem;padding:2px 8px;border-radius:20px;background:var(--bg-3);border:1px solid var(--bd);color:var(--t3)">${t}</span>`
-                ).join('')}
-              </div>
+              <div style="font-size:.8rem;color:var(--t2);line-height:1.6">Lançada para a turnê District 9: Unlock. Bússola prateada móvel dentro de estrutura vermelha e transparente. Item colecionável.</div>
             </div>
           </div>
 
           <div style="border:1px solid var(--bdh);border-radius:12px;overflow:hidden;background:var(--bg-1)">
             <div style="aspect-ratio:1;overflow:hidden;background:#111;display:flex;align-items:center;justify-content:center">
-              <img src="assets/lightstick-v2.jpg" alt="Nachimbong Ver.2" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+              <img src="assets/lightstick-v2.jpg" alt="Nachimbong Ver.2"
+                style="width:100%;height:100%;object-fit:cover"
+                onerror="this.style.display='none'">
             </div>
             <div style="padding:1rem">
               <div style="font-size:.65rem;color:var(--ac);letter-spacing:.12em;margin-bottom:.3rem">2023 · VERSÃO ATUAL OFICIAL</div>
               <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--t1);letter-spacing:.04em;margin-bottom:.5rem">Ver.2 — Official Light Stick</div>
-              <div style="font-size:.8rem;color:var(--t2);line-height:1.6;margin-bottom:.75rem">Lançada em junho de 2023. Estrela de oito pontas representando os 8 membros, tela OLED traseira personalizável e app Bluetooth completo.</div>
-              <div style="display:flex;flex-wrap:wrap;gap:.35rem">
-                ${["Estrela 8 pontas","Tela OLED","Bluetooth","App Ver.2","Versão atual"].map(t =>
-                  `<span style="font-size:.7rem;padding:2px 8px;border-radius:20px;background:var(--bg-3);border:1px solid var(--ac);color:var(--ac)">${t}</span>`
-                ).join('')}
-              </div>
+              <div style="font-size:.8rem;color:var(--t2);line-height:1.6">Lançada em junho de 2023. Estrela de oito pontas representando os 8 membros e tela OLED traseira personalizável.</div>
             </div>
           </div>
-        </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin-bottom:1.25rem" id="lightstickFeatures">
-          ${[
-            {icon:"🎨", titulo:"Controle de cores", desc:"Mude cores, brilho e efeitos pelo app"},
-            {icon:"📺", titulo:"Tela OLED", desc:"Personalize a imagem traseira com símbolos SKZ"},
-            {icon:"📍", titulo:"Registro de assento", desc:"Sincronize com o show pelo ingresso"},
-            {icon:"🔋", titulo:"Monitor de bateria", desc:"Verifique a carga antes do evento"},
-            {icon:"🔵", titulo:"Bluetooth BLE 5.x", desc:"Conexão estável pelo app oficial"},
-            {icon:"🌊", titulo:"Sincronização", desc:"Efeitos coordenados com o palco em shows compatíveis"},
-          ].map(f => `
-            <div style="background:var(--bg-3);border-radius:10px;padding:.875rem;border:1px solid var(--bd)">
-              <div style="font-size:1.1rem;margin-bottom:.3rem">${f.icon}</div>
-              <div style="font-size:.78rem;font-weight:600;color:var(--t1);margin-bottom:.2rem">${f.titulo}</div>
-              <div style="font-size:.72rem;color:var(--t3);line-height:1.4">${f.desc}</div>
-            </div>`).join('')}
-        </div>
-
-        <div style="border-top:1px solid var(--bd);padding-top:1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
-          <div style="font-size:.78rem;color:var(--t3);line-height:1.6">
-            📱 App oficial: <strong style="color:var(--t2)">Stray Kids Light Stick V2</strong> · Disponível para Android e iPhone · Conexão via Bluetooth BLE 5.x
-          </div>
         </div>
       </div>
     </div>`;
