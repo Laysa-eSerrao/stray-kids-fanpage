@@ -1116,10 +1116,10 @@ function renderEraAtual(){
 
       <div style="background:var(--ac);padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
         <span style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.15em;color:#fff">● ERA ATUAL</span>
-        <span style="font-size:.75rem;color:rgba(255,255,255,.8);letter-spacing:.08em">THIS & THAT · 2026</span>
+        <span style="font-size:.7rem;color:rgba(255,255,255,.8);letter-spacing:.08em">THIS & THAT · 2026</span>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0" id="eraGrid">
 
         <div style="padding:2rem;border-right:1px solid var(--bd)">
           <div style="display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:1.5rem">
@@ -1173,7 +1173,7 @@ function renderEraAtual(){
               {data:"14–15 set", evento:"Buenos Aires, Argentina 🇦🇷"},
               {data:"25–26 set", evento:"Cidade do México 🇲🇽"},
             ].map(d => `<div style="display:flex;gap:.75rem;align-items:baseline;margin-bottom:.5rem">
-              <span style="font-family:'Bebas Neue',sans-serif;font-size:.85rem;color:var(--ac);min-width:90px;flex-shrink:0">${d.data}</span>
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:.85rem;color:var(--ac);flex-shrink:0;white-space:nowrap">${d.data}</span>
               <span style="font-size:.82rem;color:var(--t2)">${d.evento}</span>
             </div>`).join('')}
           </div>
