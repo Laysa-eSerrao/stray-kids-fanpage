@@ -1510,7 +1510,7 @@ function renderNachimbong(){
           A light stick oficial do Stray Kids é conhecida pelos fãs como <strong style="color:var(--t1)">Nachimbong</strong>, nome inspirado na palavra coreana para bússola. Seu design representa a busca por uma direção própria — ideia presente na história, nas músicas e na identidade do grupo desde o debut.
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem" id="lightstickGrid">
           <div style="border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--bg-1)">
             <div style="aspect-ratio:1;overflow:hidden;background:#f5f5f5;display:flex;align-items:center;justify-content:center">
               <img src="assets/lightstick-v1.jpg" alt="Nachimbong Ver.1" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
@@ -1544,7 +1544,7 @@ function renderNachimbong(){
           </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin-bottom:1.25rem">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin-bottom:1.25rem" id="lightstickFeatures">
           ${[
             {icon:"🎨", titulo:"Controle de cores", desc:"Mude cores, brilho e efeitos pelo app"},
             {icon:"📺", titulo:"Tela OLED", desc:"Personalize a imagem traseira com símbolos SKZ"},
@@ -1560,7 +1560,7 @@ function renderNachimbong(){
             </div>`).join('')}
         </div>
 
-        <div style="border-top:1px solid var(--bd);padding-top:1rem">
+        <div style="border-top:1px solid var(--bd);padding-top:1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
           <div style="font-size:.78rem;color:var(--t3);line-height:1.6">
             📱 App oficial: <strong style="color:var(--t2)">Stray Kids Light Stick V2</strong> · Disponível para Android e iPhone · Conexão via Bluetooth BLE 5.x
           </div>

@@ -1458,3 +1458,13 @@ body.light-mode .era-select { background:#fff; color:#111; border-color:rgba(232
     max-width:85vw !important;
   }
 }
+
+/* ── NACHIMBONG RESPONSIVO ── */
+@media(max-width:768px){
+  #lightstickGrid {
+    grid-template-columns:1fr !important;
+  }
+  #lightstickFeatures {
+    grid-template-columns:1fr 1fr !important;
+  }
+}
