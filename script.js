@@ -1432,7 +1432,7 @@ function renderGuiaConteudo(){
     <div style="position:relative">
       <div id="guiaTrack" style="display:flex;gap:1.25rem;overflow:hidden;scroll-behavior:smooth">
         ${trilhas.map((trilha, ti) => `
-          <div class="reveal" style="min-width:calc(50% - 10px);max-width:calc(50% - 10px);flex-shrink:0;transition-delay:${ti*.1}s;border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+          <div class="guia-card reveal" style="min-width:calc(50% - 10px);max-width:calc(50% - 10px);flex-shrink:0;transition-delay:${ti*.1}s;border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
             <div style="padding:1.25rem 1.25rem 1rem;border-bottom:1px solid var(--bd);background:var(--bg-2)">
               <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem">
                 <span style="font-size:1.5rem">${trilha.icon}</span>
