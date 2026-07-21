@@ -1432,3 +1432,9 @@ body.light-mode .era-select { background:#fff; color:#111; border-color:rgba(232
 @media(max-width:1024px){
   .tl-left { text-align:left; }
 }
+
+/* ── ERA ATUAL RESPONSIVO ── */
+@media(max-width:768px){
+  #eraGrid { grid-template-columns:1fr !important; }
+  #eraGrid > div:first-child { border-right:none !important; border-bottom:1px solid var(--bd); }
+}
