@@ -1,5 +1,9 @@
 /* Stray Kids Fan Page — script.js | Autora: Laysa Serrão */
 
+/* ── ÍCONES ── */
+const ICON_MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg>';
+const ICON_SUN  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>';
+
 /* ── SHARE — funções globais ── */
 function shareTwitter(){ window.open('https://twitter.com/intent/tweet?text=Conhe%C3%A7a+o+Stray+Kids!&url='+encodeURIComponent(location.href),'_blank','noopener,noreferrer'); }
 function shareWhatsapp(){ window.open('https://wa.me/?text=Conhe%C3%A7a+o+Stray+Kids!+'+encodeURIComponent(location.href),'_blank','noopener,noreferrer'); }
@@ -7,7 +11,7 @@ function copyLink(){
   navigator.clipboard.writeText(location.href).then(()=>{
     const btns = document.querySelectorAll('#shareBar button');
     const btn = btns[btns.length-1];
-    if(btn){ btn.textContent='✅ Copiado!'; setTimeout(()=>btn.textContent='🔗 Copiar',2000); }
+    if(btn){ btn.textContent='Copiado!'; setTimeout(()=>btn.textContent='Copiar link',2000); }
   });
 }
 function closeDrawer(){
@@ -210,8 +214,8 @@ const tours=[
   { era:"2022", name:"MANIAC World Tour", desc:"Primeiro grande retorno aos palcos internacionais após a pandemia. América do Norte, Europa e Ásia.", badges:["América do Norte","Europa","Ásia"] },
   { era:"2023", name:"5-STAR Dome Tour", desc:"Tour em dômes no Japão e Ásia. Headlinaram também o Lollapalooza Chicago.", badges:["Japão","Lollapalooza Chicago","Ásia"], gold:true },
   { era:"2024–2025", name:"dominATE World Tour", desc:"O maior tour da história do K-pop. 56 shows em 35 cidades. +1,3 milhão de ingressos. US$185,7M faturados. Encerrou no Incheon Asiad Main Stadium em outubro de 2025.", badges:["+1.3M ingressos","US$185,7M","56 shows · 35 cidades","#2 Pollstar Global"], gold:true },
-  { era:"Set 2026", name:"STRAYCITY — Latin America", desc:"Tour pela América Latina com shows em Bogotá (9 set), Buenos Aires (14 set) e Cidade do México (25 set).", badges:["Bogotá 🇨🇴 · 9 set","Buenos Aires 🇦🇷 · 14 set","Cidade do México 🇲🇽 · 25 set"], gold:true },
-  { era:"Set 2026", name:"Rock in Rio", desc:"Headliners confirmados do Rock in Rio — primeiro ato de K-pop a ser headliner do festival.", badges:["Rock in Rio 🇧🇷","Setembro 2026"], gold:true },
+  { era:"Set 2026", name:"STRAYCITY — Latin America", desc:"Tour pela América Latina com shows em Bogotá (9 set), Buenos Aires (14 set) e Cidade do México (25 set).", badges:["Bogotá · 9 set","Buenos Aires · 14 set","Cidade do México · 25 set"], gold:true },
+  { era:"Set 2026", name:"Rock in Rio", desc:"Headliners confirmados do Rock in Rio — primeiro ato de K-pop a ser headliner do festival.", badges:["Rock in Rio","Setembro 2026"], gold:true },
   { era:"2026", name:"RUN IT World Tour", desc:"Nova world tour anunciada junto com o álbum THIS & THAT. Promete superar a escala da dominATE. Datas e cidades a serem confirmadas oficialmente.", badges:["Em breve","Global","+ de 56 shows previstos"], gold:true },
   { era:"Jul–Ago 2026", name:"Seoul KSPO DOME", desc:"5 shows sold-out em Seoul antes do lançamento do álbum THIS & THAT. Aquecimento para a nova era.", badges:["5 shows","Seoul","KSPO DOME","Jul–Ago 2026"], gold:true },
 ];
@@ -512,7 +516,7 @@ document.addEventListener('click', e => {
 document.getElementById('themeToggleBtn')?.addEventListener('click', () => {
   document.body.classList.toggle('light-mode');
   const isLight = document.body.classList.contains('light-mode');
-  document.getElementById('themeToggleBtn').textContent = isLight ? '☀️' : '🌙';
+  document.getElementById('themeToggleBtn').innerHTML = isLight ? ICON_SUN : ICON_MOON;
   localStorage.setItem('skz-theme', isLight ? 'light' : 'dark');
   const logoImg = document.getElementById('logoImg');
   const introLogoImg = document.getElementById('introLogoImg');
@@ -527,7 +531,7 @@ document.getElementById('themeToggleBtn')?.addEventListener('click', () => {
 if(localStorage.getItem('skz-theme')==='light'){
   document.body.classList.add('light-mode');
   const btn = document.getElementById('themeToggleBtn');
-  if(btn) btn.textContent='☀️';
+  if(btn) btn.innerHTML=ICON_SUN;
   const logoImg = document.getElementById('logoImg');
   const introLogoImg = document.getElementById('introLogoImg');
   if(logoImg) logoImg.src = 'skz-logo-light.png';
@@ -704,7 +708,7 @@ function renderTours(){
     const el = document.getElementById('rirCountdown');
     if(!el) return;
     const diff = target - new Date();
-    if(diff <= 0){ el.innerHTML='<div class="cd-unit"><span class="cd-num">JÁ ACONTECEU!</span><span class="cd-label">🎉</span></div>'; return; }
+    if(diff <= 0){ el.innerHTML='<div class="cd-unit"><span class="cd-num">JÁ ACONTECEU!</span></div>'; return; }
     const d=Math.floor(diff/86400000), h=Math.floor((diff%86400000)/3600000), m=Math.floor((diff%3600000)/60000), s=Math.floor((diff%60000)/1000);
     const unit=(n,l)=>`<div class="cd-unit"><span class="cd-num">${n}</span><span class="cd-label">${l}</span></div>`;
     el.innerHTML=unit(d,'Dias')+'<div class="cd-sep">:</div>'+unit(String(h).padStart(2,'0'),'Horas')+'<div class="cd-sep">:</div>'+unit(String(m).padStart(2,'0'),'Min')+'<div class="cd-sep">:</div>'+unit(String(s).padStart(2,'0'),'Seg');
@@ -897,8 +901,8 @@ function renderStream(){
     });
     grid.appendChild(row);
   };
-  makeSection('🎵 Streaming', streamLinks.filter(s=>s.type==='stream'));
-  makeSection('🗳️ Votação', streamLinks.filter(s=>s.type==='vote'));
+  makeSection('Streaming', streamLinks.filter(s=>s.type==='stream'));
+  makeSection('Votação', streamLinks.filter(s=>s.type==='vote'));
 }
 
 /* ── PARA NOVOS STAYs ── */
@@ -906,19 +910,19 @@ function renderNewStays(){
   const grid=document.getElementById('newStaysGrid');
   if(!grid) return;
   const cards=[
-    { icon:'🎵', title:'Por onde começar', text:'Comece pelo MV de <strong>God\'s Menu</strong> (2020). Depois ouça <strong>MIROH</strong> e <strong>Thunderous</strong>. Para o álbum completo, vá direto para o <strong>5-STAR</strong>.' },
-    { icon:'📺', title:'O que assistir', text:'Assista <strong>SKZ CODE</strong> no YouTube para conhecer a personalidade de cada membro. Depois experimente o <strong>2 Kids Room</strong> para conversas mais íntimas.' },
-    { icon:'🤝', title:'Como apoiar', text:'Stream nas plataformas conta para os charts. Vote no <strong>MAMA Awards</strong> durante o período de votação. Compre álbuns em lojas certificadas <strong>Hanteo</strong>.' },
-    { icon:'📖', title:'Glossário STAY', glossary:[{word:'STAY',def:'Nome oficial do fandom'},{word:'OT8',def:'Original Eight — os 8 membros'},{word:'3RACHA',def:'Sub-grupo produtor'},{word:'Racha',def:'As 3 unidades do grupo'},{word:'Maknae',def:'O mais jovem — I.N'},{word:'SKZoo',def:'Personagens animais oficiais'},{word:'Self-prod',def:'O grupo produz suas músicas'},{word:'Daesang',def:'Maior prêmio do K-pop'},{word:'TASY',def:'Personagem oficial do fandom STAY — anagrama de STAY'}] },
-    { icon:'💿', title:'Discografia em ordem', text:'<strong>2018:</strong> Mixtape → I Am NOT → WHO → YOU<br><strong>2019:</strong> Clé 1-2-Levanter<br><strong>2020:</strong> GO LIVE<br><strong>2021:</strong> NOEASY<br><strong>2022:</strong> ODDINARY → MAXIDENT<br><strong>2023:</strong> 5-STAR → ROCK-STAR<br><strong>2024:</strong> ATE → HOP<br><strong>2025:</strong> KARMA → DO IT<br><strong>2026:</strong> Endless Sun · RUN IT · THIS & THAT' },
-    { icon:'🌍', title:'Sobre o grupo', text:'8 membros, fundado em 2018 pela <strong>JYP Entertainment</strong>. O sub-grupo <strong>3RACHA</strong> produz quase tudo. Já venderam <strong>mais de 40 milhões de álbuns</strong> e têm <strong>8 álbuns consecutivos #1 no Billboard 200</strong>.' },
-    { icon:'🎤', title:'Unidades do grupo', text:'<strong>3RACHA</strong> — Bang Chan, Han e Changbin (produção e rap)<br><strong>Dance Racha</strong> — Lee Know, Hyunjin e Felix (dança)<br><strong>Vocal Racha</strong> — Seungmin e I.N (vocais)' },
-    { icon:'🏆', title:'Conquistas históricas', text:'Headlinaram o <strong>Lollapalooza Chicago</strong> (2023) e o <strong>Governors Ball</strong> em Nova York (2026) — primeiro K-pop headliner. Foram ao <strong>Met Gala 2024</strong> juntos. O dominATE Tour foi o <strong>maior tour K-pop da história</strong>. Os 8 membros são <strong>membros votantes da Recording Academy</strong> (Grammy).' },
+    { title:'Por onde começar', text:'Comece pelo MV de <strong>God\'s Menu</strong> (2020). Depois ouça <strong>MIROH</strong> e <strong>Thunderous</strong>. Para o álbum completo, vá direto para o <strong>5-STAR</strong>.' },
+    { title:'O que assistir', text:'Assista <strong>SKZ CODE</strong> no YouTube para conhecer a personalidade de cada membro. Depois experimente o <strong>2 Kids Room</strong> para conversas mais íntimas.' },
+    { title:'Como apoiar', text:'Stream nas plataformas conta para os charts. Vote no <strong>MAMA Awards</strong> durante o período de votação. Compre álbuns em lojas certificadas <strong>Hanteo</strong>.' },
+    { title:'Glossário STAY', glossary:[{word:'STAY',def:'Nome oficial do fandom'},{word:'OT8',def:'Original Eight — os 8 membros'},{word:'3RACHA',def:'Sub-grupo produtor'},{word:'Racha',def:'As 3 unidades do grupo'},{word:'Maknae',def:'O mais jovem — I.N'},{word:'SKZoo',def:'Personagens animais oficiais'},{word:'Self-prod',def:'O grupo produz suas músicas'},{word:'Daesang',def:'Maior prêmio do K-pop'},{word:'TASY',def:'Personagem oficial do fandom STAY — anagrama de STAY'}] },
+    { title:'Discografia em ordem', text:'<strong>2018:</strong> Mixtape → I Am NOT → WHO → YOU<br><strong>2019:</strong> Clé 1-2-Levanter<br><strong>2020:</strong> GO LIVE<br><strong>2021:</strong> NOEASY<br><strong>2022:</strong> ODDINARY → MAXIDENT<br><strong>2023:</strong> 5-STAR → ROCK-STAR<br><strong>2024:</strong> ATE → HOP<br><strong>2025:</strong> KARMA → DO IT<br><strong>2026:</strong> Endless Sun · RUN IT · THIS & THAT' },
+    { title:'Sobre o grupo', text:'8 membros, fundado em 2018 pela <strong>JYP Entertainment</strong>. O sub-grupo <strong>3RACHA</strong> produz quase tudo. Já venderam <strong>mais de 40 milhões de álbuns</strong> e têm <strong>8 álbuns consecutivos #1 no Billboard 200</strong>.' },
+    { title:'Unidades do grupo', text:'<strong>3RACHA</strong> — Bang Chan, Han e Changbin (produção e rap)<br><strong>Dance Racha</strong> — Lee Know, Hyunjin e Felix (dança)<br><strong>Vocal Racha</strong> — Seungmin e I.N (vocais)' },
+    { title:'Conquistas históricas', text:'Headlinaram o <strong>Lollapalooza Chicago</strong> (2023) e o <strong>Governors Ball</strong> em Nova York (2026) — primeiro K-pop headliner. Foram ao <strong>Met Gala 2024</strong> juntos. O dominATE Tour foi o <strong>maior tour K-pop da história</strong>. Os 8 membros são <strong>membros votantes da Recording Academy</strong> (Grammy).' },
   ];
   cards.forEach(c=>{
     const card=document.createElement('div');
     card.className='stay-card reveal';
-    let inner=`<div class="stay-card-icon">${c.icon}</div><div class="stay-card-title">${c.title}</div>`;
+    let inner=`<div class="stay-card-title">${c.title}</div>`;
     if(c.glossary) inner+=`<div class="stay-glossary">${c.glossary.map(g=>`<div class="stay-term"><span class="stay-term-word">${g.word}</span><span class="stay-term-def">${g.def}</span></div>`).join('')}</div>`;
     else inner+=`<div class="stay-card-text">${c.text}</div>`;
     card.innerHTML=inner;
@@ -1003,7 +1007,7 @@ document.getElementById('searchInput')?.addEventListener('input',function(){
   ];
   const hits=index.filter(item=>item.title.toLowerCase().includes(q)||item.sub?.toLowerCase().includes(q));
   if(!hits.length){ results.innerHTML=`<div class="search-empty">Nenhum resultado para "<strong>${q}</strong>"</div>`; return; }
-  results.innerHTML=hits.slice(0,12).map(h=>`<button class="search-result-item" type="button" data-anchor="${h.anchor||''}" data-type="${h.type||''}" data-idx="${h.idx ?? ''}" data-tab="${h.tab||''}">${h.img?`<img class="search-result-thumb" src="${h.img}" alt="${h.title}" loading="lazy">`:`<div class="search-result-thumb" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--bg-3)">${h.tag==='Membro'?'👤':h.tag==='Álbum'?'💿':'💡'}</div>`}<div class="search-result-info"><div class="search-result-title">${h.title}</div><div class="search-result-sub">${h.sub||''}</div></div><span class="search-result-tag">${h.tag}</span></button>`).join('');
+  results.innerHTML=hits.slice(0,12).map(h=>`<button class="search-result-item" type="button" data-anchor="${h.anchor||''}" data-type="${h.type||''}" data-idx="${h.idx ?? ''}" data-tab="${h.tab||''}">${h.img?`<img class="search-result-thumb" src="${h.img}" alt="${h.title}" loading="lazy">`:`<div class="search-result-thumb" style="display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--bg-3)">${(h.title||'?').charAt(0).toUpperCase()}</div>`}<div class="search-result-info"><div class="search-result-title">${h.title}</div><div class="search-result-sub">${h.sub||''}</div></div><span class="search-result-tag">${h.tag}</span></button>`).join('');
 });
 document.getElementById('searchResults')?.addEventListener('click', e => {
   const item = e.target.closest('.search-result-item');
@@ -1070,14 +1074,14 @@ function renderPremios(){
     { cerimonia:"MTV Europe Music Awards",    vitorias:"1",  destaque:"Best Korean Act 2020", gold:false },
     { cerimonia:"MTV VMA Japan",             vitorias:"1",  destaque:"Best Group Video International 2023 por CASE 143", gold:false },
     { cerimonia:"Tencent Music Year-End",     vitorias:"2",  destaque:"Top 10 K-Pop Albums (HOP) + Top 10 K-Pop Groups 2025", gold:false },
-    { cerimonia:"Programas Musicais 🎵",      vitorias:"45", destaque:"Triple Crown · vitórias com MIROH, Thunderous, CASE 143, S-Class, Chk Chk Boom, CEREMONY e outros", gold:false },
+    { cerimonia:"Programas Musicais",        vitorias:"45", destaque:"Triple Crown · vitórias com MIROH, Thunderous, CASE 143, S-Class, Chk Chk Boom, CEREMONY e outros", gold:false },
   ];
   premios.forEach((p, i) => {
     const tr = document.createElement('tr');
     tr.style.cssText = `background:${i%2===0?'var(--bg-2)':'var(--bg-3)'};border-bottom:1px solid var(--bd);transition:background .15s`;
     tr.innerHTML = `
       <td style="padding:.875rem 1.25rem;color:var(--t1);font-weight:${p.gold?'600':'400'}">
-        ${p.gold?'🏆 ':''}${p.cerimonia}
+        ${p.cerimonia}
       </td>
       <td style="padding:.875rem 1.25rem;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--ac)">${p.vitorias}</td>
       <td style="padding:.875rem 1.25rem;color:var(--t2);font-size:.8rem;line-height:1.5">${p.destaque}</td>`;
@@ -1137,62 +1141,50 @@ function renderUniverso(){
 
   const cards = [
     {
-      icon:'🎵',
       title:'O que é o 3RACHA?',
       text:'Sub-grupo produtor formado por <strong>Bang Chan (CB97)</strong>, <strong>Changbin (SPEARB)</strong> e <strong>Han (J.ONE)</strong>. Eles existiam antes mesmo do debut do Stray Kids e são responsáveis por compor, escrever e produzir grande parte da discografia do grupo. A identidade musical do SKZ foi construída por eles desde o início.'
     },
     {
-      icon:'💃',
       title:'As três unidades (Racha)',
       text:'O grupo é dividido em três unidades por especialidade:<br><br><strong>3RACHA</strong> — Bang Chan, Changbin e Han (produção e rap)<br><strong>Dance Racha</strong> — Lee Know, Hyunjin e Felix (dança)<br><strong>Vocal Racha</strong> — Seungmin e I.N (vocais)<br><br>Mas todos os membros participam de vocais, dança e performance em diferentes níveis.'
     },
     {
-      icon:'🎙️',
       title:'SKZ-RECORD e SKZ-PLAYER',
       text:'Projetos onde os membros lançam músicas fora dos álbuns oficiais — solos, covers, colaborações internas e composições próprias. Algumas dessas faixas ganharam versões oficiais no <strong>SKZ-REPLAY</strong>. São a melhor forma de conhecer o lado mais íntimo e experimental de cada membro.'
     },
     {
-      icon:'🎬',
       title:'O que são os vídeos INTRO?',
       text:'Vídeos especiais lançados antes de novos álbuns onde cada membro ou unidade apresenta o conceito da nova era. São parte essencial da experiência de acompanhar um comeback do Stray Kids — revelam a identidade visual, o clima e o som do que está por vir.'
     },
     {
-      icon:'🐾',
       title:'O que são os SKZoo?',
       text:'Personagens animais oficiais que representam cada membro. Foram criados com base em características físicas, apelidos ou traços de personalidade de cada um. Em 2026, o fandom STAY ganhou seu próprio personagem: o <strong>TASY</strong>, um tanuki azul cujo nome é anagrama de STAY.'
     },
     {
-      icon:'👥',
       title:'O que significa OT8?',
       text:'<strong>OT8</strong> significa "Original Eight" — os 8 membros do Stray Kids. O grupo estreou com 9 integrantes, mas Woojin saiu em outubro de 2019 por motivos pessoais. Desde então, Bang Chan, Lee Know, Changbin, Hyunjin, Han, Felix, Seungmin e I.N formam o OT8.'
     },
     {
-      icon:'💿',
       title:'Comeback, title track, b-side e era',
       text:'<strong>Comeback</strong> — lançamento de novo álbum ou single após um hiato.<br><strong>Title track</strong> — faixa principal do álbum, geralmente com MV oficial.<br><strong>B-side</strong> — faixas do álbum que não são a principal, frequentemente favoritas dos fãs por serem mais experimentais.<br><strong>Era</strong> — período temático de um álbum, com conceito visual e sonoro próprio.'
     },
     {
-      icon:'🏆',
       title:'Daesang — o maior prêmio',
       text:'<strong>Daesang</strong> significa "Grande Prêmio" em coreano — é o equivalente ao Grammy de Álbum do Ano no K-pop. O Stray Kids acumula <strong>19 Daesangs</strong> em cerimônias como MAMA, Golden Disc Awards, Asia Artist Awards e The Fact Music Awards. KARMA (2025) foi o álbum mais premiado da carreira.'
     },
     {
-      icon:'📺',
       title:'Kingdom: Legendary War',
       text:'Em 2021, o Stray Kids venceu o programa de competição <strong>Kingdom: Legendary War</strong>. As apresentações ficaram conhecidas pelos cenários elaborados e pela narrativa conectada entre performance, dança e música. Essa participação apresentou o grupo a um público muito maior e marcou uma virada na carreira internacional.'
     },
     {
-      icon:'🌍',
       title:'Por que o nome "Stray Kids"?',
       text:'"Stray Kids" representa jovens que deixam um caminho definido por outros para buscar a própria direção. Essa ideia aparece frequentemente nas músicas: romper padrões, não se comparar, avançar mesmo sem ter todas as respostas. Por isso <strong>estradas, labirintos, portas, chaves e caminhos</strong> aparecem tantas vezes em seus trabalhos.'
     },
     {
-      icon:'💬',
       title:'STAY — o fandom',
       text:'O fandom oficial se chama <strong>STAY</strong>. O nome completa a frase: <em>"You make Stray Kids stay"</em> — os fãs são a razão para que os "garotos perdidos" encontrem um lugar onde possam permanecer. Em 2026, o fandom ganhou o mascote oficial <strong>TASY</strong>, anagrama de STAY.'
     },
     {
-      icon:'🎤',
       title:'Self-produced — o diferencial',
       text:'O Stray Kids tem controle criativo sobre sua música desde o debut. O <strong>3RACHA</strong> produz, compõe e escreve a maioria das faixas internamente — algo raro no K-pop tradicional. Isso significa que as letras sobre crescimento, pressão, liberdade e identidade vêm das próprias experiências dos membros.'
     },
@@ -1203,7 +1195,6 @@ function renderUniverso(){
       <div id="universoTrack" style="display:flex;gap:1.25rem;overflow:hidden;scroll-behavior:smooth">
         ${cards.map((c,i) => `
           <div class="stay-card reveal" style="min-width:320px;max-width:320px;flex-shrink:0;transition-delay:${i*.06}s">
-            <div class="stay-card-icon">${c.icon}</div>
             <div class="stay-card-title">${c.title}</div>
             <div class="stay-card-text" style="line-height:1.7">${c.text}</div>
           </div>`).join('')}
@@ -1328,7 +1319,7 @@ function renderGuiaConteudo(){
 
   const trilhas = [
     {
-      icon:'🎭', cor:'#e8192c',
+      cor:'#e8192c',
       titulo:'Para conhecer as personalidades',
       desc:'Descubra quem são os membros além do palco — humor, amizades e personalidades reais.',
       items:[
@@ -1340,7 +1331,7 @@ function renderGuiaConteudo(){
       ]
     },
     {
-      icon:'🎵', cor:'#cc5500',
+      cor:'#cc5500',
       titulo:'Para conhecer o processo musical',
       desc:'Entenda como o Stray Kids cria sua música e o que torna o 3RACHA único.',
       items:[
@@ -1350,7 +1341,7 @@ function renderGuiaConteudo(){
       ]
     },
     {
-      icon:'🏆', cor:'#aa8800',
+      cor:'#aa8800',
       titulo:'Para entender a história',
       desc:'Do survival show ao maior tour do K-pop — a trajetória completa do grupo.',
       items:[
@@ -1359,7 +1350,7 @@ function renderGuiaConteudo(){
       ]
     },
     {
-      icon:'🕺', cor:'#006699',
+      cor:'#006699',
       titulo:'Para ver as melhores performances',
       desc:'As apresentações que marcaram a carreira e definiram o Stray Kids na cena global.',
       items:[
@@ -1378,7 +1369,6 @@ function renderGuiaConteudo(){
           <div class="guia-card reveal" style="min-width:calc(50% - 10px);max-width:calc(50% - 10px);flex-shrink:0;transition-delay:${ti*.1}s;border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
             <div style="padding:1.25rem 1.25rem 1rem;border-bottom:1px solid var(--bd);background:var(--bg-2)">
               <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem">
-                <span style="font-size:1.5rem">${trilha.icon}</span>
                 <div style="font-size:.75rem;font-weight:700;color:${trilha.cor};letter-spacing:.08em;line-height:1.3">${trilha.titulo}</div>
               </div>
               <div style="font-size:.78rem;color:var(--t3);line-height:1.5">${trilha.desc}</div>

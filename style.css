@@ -48,6 +48,8 @@ body { background:var(--bg-0); color:var(--t1); font-family:'Inter',system-ui,sa
 .nav-controls { display:flex; gap:.6rem; align-items:center; }
 .nav-btn { background:none; border:1px solid var(--bd); color:var(--t2); padding:.4rem .9rem; border-radius:50px; font-size:.75rem; transition:all .3s; }
 .nav-btn:hover { border-color:var(--acl); color:var(--acl); }
+#themeToggleBtn { display:inline-flex; align-items:center; justify-content:center; padding:.4rem .75rem; }
+#themeToggleBtn svg { width:16px; height:16px; }
 .nav-toggle { display:none; font-size:1.3rem; border:none; background:none; color:var(--t1); }
 
 /* ── HERO ── */
@@ -423,10 +425,6 @@ body.light-mode .section-alt { background: #ebebeb; }
   text-transform: uppercase;
   margin-top: .4rem;
 }
-.countdown-flag {
-  font-size: 1.5rem;
-  margin-bottom: .4rem;
-}
 
 /* Fix modo claro — nomes dos membros */
 body.light-mode .member-stage { color: #ffffff !important; }
@@ -519,7 +517,6 @@ body.light-mode .member-skzoo { color: rgba(255,200,200,0.8) !important; }
   margin-bottom: .75rem;
   position: relative;
 }
-.rir-flag { font-size: 1.4rem; }
 .rir-eyebrow {
   font-size: .68rem;
   letter-spacing: .35em;
@@ -767,9 +764,10 @@ body.light-mode .stream-card img[alt="AAA"] {
   position: absolute;
   left: 1.25rem; top: 50%;
   transform: translateY(-50%);
-  font-size: 1.1rem;
   color: var(--t3);
+  line-height: 0;
 }
+.search-input-icon svg { width: 18px; height: 18px; display: block; }
 .search-close {
   position: absolute;
   right: 1rem; top: 50%;
@@ -835,6 +833,7 @@ body.light-mode .stream-card img[alt="AAA"] {
   transition: all .3s;
 }
 .nav-search-btn:hover { border-color: var(--acl); color: var(--acl); }
+.nav-search-btn svg { width: 16px; height: 16px; }
 
 /* ── Drawer Mobile ── */
 .drawer-overlay {
@@ -905,7 +904,6 @@ body.light-mode .stream-card img[alt="AAA"] {
   transition: all .3s;
 }
 .stay-card:hover { border-color: var(--bdh); transform: translateY(-3px); }
-.stay-card-icon { font-size: 2rem; margin-bottom: .75rem; }
 .stay-card-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.3rem; letter-spacing: 2px;
