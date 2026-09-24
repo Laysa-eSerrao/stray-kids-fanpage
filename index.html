@@ -37,7 +37,6 @@
     <img id="logoImg" src="skz-logo-dark.png" alt="Stray Kids" style="height:32px;width:auto;object-fit:contain;transition:opacity .3s">
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#era-atual">Era Atual</a></li>
     <li><a href="#membros">Membros</a></li>
     <li><a href="#discografia">Discografia</a></li>
     <li><a href="#timeline">História</a></li>
@@ -91,18 +90,13 @@
   <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
 
-<!-- ERA ATUAL -->
-<section id="era-atual" style="padding:2.5rem 2rem;max-width:1200px;margin:0 auto">
-  <div id="eraAtualContainer"></div>
-</section>
-
 <!-- STATS -->
 <div class="stats-bar" id="statsBar">
   <div class="stat-item"><span class="stat-num" data-target="8">0</span><span class="stat-label">membros</span></div>
   <div class="stat-item"><span class="stat-num" data-target="8">0</span><span class="stat-label">anos de história</span></div>
-  <div class="stat-item"><span class="stat-num" data-target="8">0</span><span class="stat-label">Billboard #1 consecutivos</span></div>
+  <div class="stat-item"><span class="stat-num" data-target="9">0</span><span class="stat-label">Billboard #1 consecutivos</span></div>
   <div class="stat-item"><span class="stat-num" data-target="19">0</span><span class="stat-label">daesangs</span></div>
-  <div class="stat-item"><span class="stat-num" data-target="10">0</span><span class="stat-label">álbuns</span></div>
+  <div class="stat-item"><span class="stat-num" data-target="10">0</span><span class="stat-label">mini álbuns coreanos</span></div>
 </div>
 
 <!-- MEMBROS -->
@@ -163,20 +157,6 @@
     <div class="tour-stat-card"><span class="tour-stat-num">35+</span><span class="tour-stat-label">países visitados</span></div>
   </div>
   <div class="tours-grid" id="toursGrid"></div>
-  <div class="rir-wrap">
-    <div class="rir-bg-text">RIR 2026</div>
-    <div class="rir-top">
-      <span class="rir-eyebrow">Stray Kids no Brasil</span>
-    </div>
-    <div class="rir-title">ROCK IN RIO</div>
-    <div class="rir-date-badge">Setembro 2026 · Cidade do Rock · Rio de Janeiro</div>
-    <div class="rir-units" id="rirCountdown"></div>
-    <div class="rir-bottom">
-      <span class="rir-dot"></span>
-      <span class="rir-tagline">Primeiro ato de K-pop a ser headliner do Rock in Rio</span>
-      <span class="rir-dot"></span>
-    </div>
-  </div>
 </section>
 
 <!-- CURIOSIDADES -->
@@ -242,9 +222,9 @@
   </div>
   <div id="mvsFeatured"></div>
   <div class="mvs-wrap">
-    <button class="mvs-btn-left" onclick="document.getElementById('mvsCarousel').scrollBy({left:-300,behavior:'smooth'})">‹</button>
+    <button class="mvs-btn-left" aria-label="MV anterior" onclick="document.getElementById('mvsCarousel').scrollBy({left:-300,behavior:'smooth'})">‹</button>
     <div id="mvsCarousel" class="mvs-scroll"></div>
-    <button class="mvs-btn-right" onclick="document.getElementById('mvsCarousel').scrollBy({left:300,behavior:'smooth'})">›</button>
+    <button class="mvs-btn-right" aria-label="Próximo MV" onclick="document.getElementById('mvsCarousel').scrollBy({left:300,behavior:'smooth'})">›</button>
   </div>
 </section>
 
@@ -329,7 +309,7 @@
 <!-- SHARE -->
 <div class="share-bar" id="shareBar">
   <span>Compartilhar</span>
-  <button onclick="shareTwitter()">𝕏 Twitter</button>
+  <button onclick="shareTwitter()">X Twitter</button>
   <button onclick="shareWhatsapp()">WhatsApp</button>
   <button onclick="copyLink()">Copiar link</button>
 </div>
@@ -350,7 +330,7 @@
   <p class="footer-tagline">"You make Stray Kids stay" — STAY</p>
   <p class="footer-copy">Fan page feita com carinho pela Laysa Serrão · Não afiliada à JYP Entertainment · 2026</p>
   <div style="text-align:center;margin-top:1rem;font-size:.72rem;color:var(--t3);letter-spacing:.06em">
-    Conteúdo atualizado em 17 de julho de 2026 · Fan page não oficial · Não afiliada à JYP Entertainment
+    Conteúdo atualizado em 24 de setembro de 2026 · Fan page não oficial · Não afiliada à JYP Entertainment
   </div>
 </footer>
 
@@ -372,7 +352,6 @@
     <button class="drawer-close" id="drawerClose" aria-label="Fechar menu">✕</button>
   </div>
   <nav class="drawer-nav">
-    <a href="#era-atual"    onclick="closeDrawer()">Era Atual</a>
     <a href="#membros"      onclick="closeDrawer()">Membros</a>
     <a href="#discografia"  onclick="closeDrawer()">Discografia</a>
     <a href="#timeline"     onclick="closeDrawer()">História</a>

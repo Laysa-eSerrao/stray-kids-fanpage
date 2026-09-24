@@ -82,18 +82,27 @@ const members=[
 
 /* ── DADOS — Álbuns ── */
 const albums=[
-  { year:"2026", name:"THIS & THAT",         badge:"Mini Álbum · Pré-lançamento", type:"ep",          track:"This & That",    tracks:8,  img:"assets/albums/this-and-that.jpg",
+  { year:"2026", name:"SUIATSU",              badge:"EP · Japonês · Em breve", type:"japanese", track:"SUIATSU",      tracks:5, img:"",
+    desc:"Quarto mini álbum japonês do grupo, previsto para 25 de novembro de 2026. Dá suporte à etapa japonesa da RUN IT World Tour.",
+    tracklist:["Tracklist ainda não divulgada"] },
+  { year:"2026", name:"11월 11일",             badge:"Single",                  type:"single",   track:"11월 11일",    tracks:1, img:"",
+    desc:"Single lançado em 10 de setembro de 2026, o trabalho coletivo mais recente do grupo até o momento.",
+    tracklist:["11월 11일 (November 11th)"] },
+  { year:"2026", name:"SKZ-REPLAY 2026 Pt.1", badge:"Compilação",              type:"compilation", track:"SKZ-REPLAY 2026", tracks:0, img:"",
+    desc:"Primeira parte da compilação SKZ-REPLAY de 2026, lançada em 1º de agosto, reunindo faixas dos projetos SKZ-RECORD e SKZ-PLAYER.",
+    tracklist:["Compilação de faixas do SKZ-RECORD e SKZ-PLAYER"] },
+  { year:"2026", name:"THIS & THAT",         badge:"Mini Álbum · BB #1",          type:"ep",          track:"This & That",    tracks:8,  img:"assets/albums/this-and-that.jpg",
     tracklist:["RUN IT","This & That","After You","FARMING","I Do","Way Out","Back Then","This & That (Festival ver.)"],
-    desc:"Décimo miniálbum, pré-lançamento para o Rock in Rio 2026. RUN IT é o pre-single e This & That a faixa principal." },
+    desc:"Décimo mini álbum e maior estreia da carreira nos Estados Unidos. Entrou em #1 na Billboard 200 com 369 mil unidades equivalentes, tornando o grupo o primeiro ato da história a estrear seus nove primeiros álbuns no topo da parada. Produção integral do 3RACHA." },
   { year:"2026", name:"RUN IT",              badge:"Single · Pre-release",        type:"single",      track:"RUN IT",         tracks:1,  img:"assets/albums/run-it.jpg",
     tracklist:["RUN IT"],
-    desc:"Pre-release single do THIS & THAT. Narra a jornada do grupo desde os primeiros passos até se tornarem um dos maiores atos do K-pop." },
+    desc:"Single lançado em 24 de junho de 2026 que também dá nome à nova world tour. Produzido com participação do 3RACHA, narra a jornada do grupo desde os primeiros passos até se tornarem um dos maiores atos do K-pop." },
   { year:"2026", name:"Endless Sun",         badge:"Single · Collab",             type:"single",      track:"Endless Sun",    tracks:1,  img:"assets/albums/endless-sun.jpg",
     tracklist:["Endless Sun"],
     desc:"Single em colaboração com a marca Bioré UV, lançado em março de 2026 como parte de campanha 'Sunlight Is Your Spotlight'." },
   { year:"2026", name:"별, 빛 (STAY)",        badge:"Single",                      type:"single",      track:"별, 빛 (STAY)",   tracks:1,  img:"assets/albums/stay-single.jpg",
     tracklist:["별, 빛 (STAY)"],
-    desc:"Single digital de aniversário lançado em 25 de março de 2026 para celebrar os STAYs." },
+    desc:"Single digital comemorativo dos oito anos do grupo, lançado em 25 de março de 2026 e feito especialmente para o fandom. Han e Seungmin participaram da composição e assinaram a letra." },
   { year:"2025", name:"DO IT",              badge:"SKZ IT Tape",                  type:"ep",          track:"Do It",          tracks:5,  img:"assets/albums/do-it.jpg",
     tracklist:["Do It","DIVINE — 신선놀음","Holiday","Photobook","Do It (Festival Version)"],
     desc:"SKZ IT Tape com 5 faixas. Do It e DIVINE foram os destaques, explorando sonoridades mais suaves e experimentais." },
@@ -205,19 +214,21 @@ const timelineEvents=[
   { year:"2023", event:"5-STAR Dome Tour & Lollapalooza", desc:"Dois álbuns em #1 no Billboard. Realizam o 5-STAR Dome Tour e headlinam o Lollapalooza Chicago — primeiros K-pop a fazer isso.", badge:"Lollapalooza", gold:true },
   { year:"2024", event:"Met Gala & ATE", desc:"Vão ao Met Gala — primeiros artistas K-pop juntos. ATE: 5º álbum consecutivo em #1. Iniciam o dominATE World Tour.", badge:"Met Gala", gold:true },
   { year:"2025", event:"KARMA & Recorde Mundial", desc:"KARMA: 7º álbum em #1. O dominATE Tour fatura US$185,9M com +1,3 milhão de ingressos — maior tour K-pop da história.", badge:"Maior tour K-pop", gold:true },
-  { year:"Jun 2026", event:"Governors Ball — Primeiro K-pop Headliner", desc:"O Stray Kids se torna o primeiro grupo de K-pop a headlinar o Governors Ball em Nova York, performando para 45.000 pessoas. Seungmin não participou por lesão no tornozelo.", badge:"História do K-pop", gold:true },
-  { year:"2026", event:"Recording Academy & THIS & THAT", desc:"Os 8 membros são convidados como membros votantes da Recording Academy — podendo votar no Grammy. Lançamento do single RUN IT (jun) e do álbum THIS & THAT (ago), com nova RUN IT World Tour anunciada.", badge:"Grammy · Nova Era", gold:true },
+  { year:"Jun 2026", event:"Governors Ball e Recording Academy", desc:"Primeiro grupo de K-pop a headlinear o Governors Ball em Nova York. No mesmo período, os oito membros são convidados como membros votantes da Recording Academy, podendo votar no Grammy a partir de 2027.", badge:"Grammy", gold:true },
+  { year:"Ago 2026", event:"THIS & THAT — Nono #1 Consecutivo", desc:"O décimo mini álbum estreia em #1 na Billboard 200 com 369 mil unidades, a maior semana da carreira nos Estados Unidos. O grupo torna-se o primeiro da história a estrear seus nove primeiros álbuns no topo e empata com os Rolling Stones.", badge:"Recorde histórico", gold:true },
+  { year:"Set 2026", event:"Rock in Rio e STRAYCITY", desc:"Headliner do Palco Mundo do Rock in Rio para cerca de 130 mil pessoas — primeiro ato de K-pop em 41 anos de festival. No mesmo mês estreia o STRAYCITY, festival próprio criado com a Live Nation, passando por Bogotá, Buenos Aires e Cidade do México.", badge:"Rock in Rio", gold:true },
 ];
 
 /* ── DADOS — Tours ── */
 const tours=[
-  { era:"2022", name:"MANIAC World Tour", desc:"Primeiro grande retorno aos palcos internacionais após a pandemia. América do Norte, Europa e Ásia.", badges:["América do Norte","Europa","Ásia"] },
-  { era:"2023", name:"5-STAR Dome Tour", desc:"Tour em dômes no Japão e Ásia. Headlinaram também o Lollapalooza Chicago.", badges:["Japão","Lollapalooza Chicago","Ásia"], gold:true },
-  { era:"2024–2025", name:"dominATE World Tour", desc:"O maior tour da história do K-pop. 56 shows em 35 cidades. +1,3 milhão de ingressos. US$185,7M faturados. Encerrou no Incheon Asiad Main Stadium em outubro de 2025.", badges:["+1.3M ingressos","US$185,7M","56 shows · 35 cidades","#2 Pollstar Global"], gold:true },
-  { era:"Set 2026", name:"STRAYCITY — Latin America", desc:"Tour pela América Latina com shows em Bogotá (9 set), Buenos Aires (14 set) e Cidade do México (25 set).", badges:["Bogotá · 9 set","Buenos Aires · 14 set","Cidade do México · 25 set"], gold:true },
-  { era:"Set 2026", name:"Rock in Rio", desc:"Headliners confirmados do Rock in Rio — primeiro ato de K-pop a ser headliner do festival.", badges:["Rock in Rio","Setembro 2026"], gold:true },
-  { era:"2026", name:"RUN IT World Tour", desc:"Nova world tour anunciada junto com o álbum THIS & THAT. Promete superar a escala da dominATE. Datas e cidades a serem confirmadas oficialmente.", badges:["Em breve","Global","+ de 56 shows previstos"], gold:true },
-  { era:"Jul–Ago 2026", name:"Seoul KSPO DOME", desc:"5 shows sold-out em Seoul antes do lançamento do álbum THIS & THAT. Aquecimento para a nova era.", badges:["5 shows","Seoul","KSPO DOME","Jul–Ago 2026"], gold:true },
+  { era:"2026–2027", name:"RUN IT World Tour", desc:"Quarta world tour do grupo, em suporte a THIS & THAT e ao EP japonês SUIATSU. Começou em Seul com cinco shows no KSPO Dome entre 25 de julho e 2 de agosto. Segue por Hong Kong e Taipei em dezembro, Bangkok em janeiro e encerra em Singapura em 7 de março de 2027. Etapas na América do Norte e Europa previstas para 2027.", badges:["Em andamento","Seul · Japão · Ásia","Encerra em março de 2027"], gold:true },
+  { era:"Ago–Nov 2026", name:"RUN IT Japan", desc:"Etapa japonesa da turnê. Nos dias 29 e 30 de agosto o grupo se apresentou no MUFG Stadium, tornando-se o primeiro artista masculino estrangeiro a realizar show solo no Estádio Nacional de Tóquio. Três datas extras foram anunciadas no Tokyo Dome para 6, 7 e 8 de novembro.", badges:["Estádio Nacional de Tóquio","Primeiro ato masculino estrangeiro","Tokyo Dome · 3 datas"], gold:true },
+  { era:"Set 2026", name:"Rock in Rio", desc:"Headliner do Palco Mundo na madrugada de 12 de setembro, das 0h05 à 1h45. Primeiro ato de K-pop a headlinear o festival em 41 anos de história, para um público de cerca de 130 mil pessoas. Ingressos esgotados desde julho.", badges:["Primeiro K-pop headliner","130 mil pessoas","Palco Mundo"], gold:true },
+  { era:"Set 2026", name:"STRAYCITY", desc:"Festival próprio criado pela JYP em parceria com a Live Nation, com o grupo como atração central. Estreou em Bogotá em 9 de setembro, seguiu para Buenos Aires em 14 e 15 e encerra na Cidade do México em 25 e 26. A demanda por ingressos dobrou as datas de Argentina e México.", badges:["Bogotá","Buenos Aires · 2 noites","Cidade do México · 2 noites"], gold:true },
+  { era:"2024–2025", name:"dominATE World Tour", desc:"Terceira world tour e a maior da história do K-pop até então. 56 shows em 35 cidades, mais de 1,3 milhão de ingressos e US$185,7 milhões faturados. Encerrou no Incheon Asiad Main Stadium em outubro de 2025.", badges:["56 shows · 35 cidades","+1,3M ingressos","US$185,7M"], gold:true },
+  { era:"2023", name:"5-STAR Dome Tour", desc:"Primeira turnê inteiramente em domes, pelo Japão e Ásia, com 341 mil espectadores. No mesmo ano headlinaram o Lollapalooza Chicago.", badges:["Japão","341 mil espectadores","Lollapalooza Chicago"], gold:false },
+  { era:"2022–2023", name:"MANIAC World Tour", desc:"Segunda turnê e primeiro grande retorno aos palcos após a pandemia. 42 shows pela Ásia, América do Norte e Austrália.", badges:["42 shows","América do Norte","Europa e Ásia"], gold:false },
+  { era:"2019–2020", name:"District 9: Unlock", desc:"Primeira world tour do grupo. A maioria das datas foi cancelada ou adiada pela pandemia, encerrando com o show online Unlock: Go Live In Life.", badges:["Primeira world tour","24 shows previstos","Encerrada online"], gold:false },
 ];
 
 /* ── DADOS — Curiosidades ── */
@@ -231,13 +242,13 @@ const factsData={
     { tag:"Arcane", text:"O Stray Kids participou da trilha sonora de <strong>Arcane</strong>, a animação da Netflix inspirada em <em>League of Legends</em> — jogo favorito do <strong>Felix</strong>." },
   ],
   recordes:[
-    { tag:"Billboard", text:"O SKZ é o <strong>primeiro ato da história do Billboard 200</strong> a estrear com seus primeiros 8 álbuns consecutivos em #1 — feito que nenhum outro artista, nem BTS nem Taylor Swift, havia conquistado. A sequência vai de ODDINARY (2022) a DO IT (2025)." },
+    { tag:"Billboard", text:"O Stray Kids é o <strong>primeiro ato da história do Billboard 200</strong> a estrear com seus nove primeiros álbuns em #1. A sequência vai de ODDINARY (2022) a THIS & THAT (2026). Com nove #1, empataram com os <strong>Rolling Stones</strong> em segundo lugar entre grupos na história da parada, atrás apenas dos Beatles." },
     { tag:"Met Gala 2024", text:"Em maio de 2024, o Stray Kids se tornou o <strong>primeiro grupo K-pop</strong> cujos todos os membros compareceram juntos ao Met Gala." },
     { tag:"dominATE Tour", text:"O dominATE World Tour (2024–2025) é o <strong>maior tour K-pop da história</strong>: US$185,9M com +1,3 milhão de ingressos. #2 no ranking global da Pollstar." },
-    { tag:"Festivais", text:"Em 2023, headlinaram o <strong>Lollapalooza Chicago</strong>. Em 2026, se tornaram o <strong>primeiro grupo de K-pop a headlinar o Governors Ball</strong> em Nova York, performando para 45.000 pessoas." },
+    { tag:"Festivais", text:"Em 2023 headlinaram o <strong>Lollapalooza Chicago</strong>. Em junho de 2026 foram os primeiros de K-pop a headlinear o <strong>Governors Ball</strong> em Nova York. Em setembro de 2026 tornaram-se o <strong>primeiro ato de K-pop a headlinear o Rock in Rio</strong> em 41 anos de festival, para cerca de 130 mil pessoas." },
     { tag:"Spotify", text:"Em 2025, o SKZ se tornou o <strong>terceiro artista coreano</strong> a atingir 10 bilhões de streams no Spotify, após BTS e BLACKPINK." },
-    { tag:"Rock in Rio", text:"Em 2026, o Stray Kids se torna o <strong>primeiro ato de K-pop a headlinar o Rock in Rio</strong> — consolidando seu alcance global." },
-    { tag:"Grammy", text:"Em julho de 2026, os <strong>8 membros do Stray Kids</strong> foram convidados para integrar a <strong>Recording Academy</strong> como membros votantes — podendo votar nas indicações e vencedores do Grammy Awards a partir de 2027." },
+    { tag:"Hot 100", text:"A faixa <strong>This & That</strong> estreou na <strong>38ª posição da Billboard Hot 100</strong> em agosto de 2026 — a melhor colocação do grupo na parada de singles dos Estados Unidos até hoje." },
+    { tag:"Tóquio", text:"Em agosto de 2026, o Stray Kids tornou-se o <strong>primeiro artista masculino estrangeiro</strong> a realizar show solo no <strong>Estádio Nacional de Tóquio</strong>, com duas apresentações no MUFG Stadium." },
   ],
   membros:[
     { tag:"Felix", text:"<strong>Felix</strong> tem uma das vozes mais reconhecíveis do K-pop. Em 2025, colaborou com LiSA na abertura do anime <em>Solo Leveling</em> 2ª temporada. Antes de ser idol, conquistou <strong>63 medalhas em Taekwondo</strong>." },
@@ -369,7 +380,7 @@ function openAlbumDetail(a){
         <div>
           <div style="font-size:.65rem;color:var(--ac);letter-spacing:.1em;margin-bottom:.3rem">${a.badge}</div>
           <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--t1);letter-spacing:.04em;line-height:1.1;margin-bottom:.4rem">${a.name}</div>
-          <div style="font-size:.8rem;color:var(--t3)">${a.year} · ${a.tracks} faixa${a.tracks>1?'s':''}</div>
+          <div style="font-size:.8rem;color:var(--t3)">${a.year}${a.tracks > 0 ? ` · ${a.tracks} faixa${a.tracks>1?'s':''}` : ''}</div>
           <div style="font-size:.8rem;color:var(--ac);margin-top:.3rem">▶ ${a.track}</div>
           ${a.desc ? `<div style="font-size:.8rem;color:var(--t2);margin-top:.6rem;line-height:1.6;font-style:italic">${a.desc}</div>` : ''}
         </div>
@@ -614,15 +625,15 @@ function renderDiscografia(){
       const imgH = a.img
         ? `<img src="${a.img}" alt="${a.name}" loading="lazy" onerror="this.style.display='none'">`
         : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--ac);opacity:.3">${a.name.charAt(0)}</div>`;
-      const isUpcoming = a.badge && a.badge.includes('Pré-lançamento');
+      const isUpcoming = a.badge && a.badge.includes('Em breve');
       const upcomingSeal = isUpcoming
-        ? `<div style="position:absolute;top:8px;left:8px;background:var(--ac);color:#fff;font-size:.65rem;font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;padding:3px 8px;border-radius:4px;z-index:2">EM BREVE · 07/08/2026</div>`
+        ? `<div style="position:absolute;top:8px;left:8px;background:var(--ac);color:#fff;font-size:.65rem;font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;padding:3px 8px;border-radius:4px;z-index:2">EM BREVE</div>`
         : '';
       card.innerHTML = `
         <div class="disco-cover">${upcomingSeal}${imgH}<span class="disco-type-tag">${a.badge}</span></div>
         <div class="disco-info">
           <div class="disco-name">${a.name}</div>
-          <div class="disco-year">${a.year} · ${a.tracks} faixa${a.tracks>1?'s':''}</div>
+          <div class="disco-year">${a.year}${a.tracks > 0 ? ` · ${a.tracks} faixa${a.tracks>1?'s':''}` : ''}</div>
           <div class="disco-track">▶ ${a.track}</div>
         </div>`;
       card.style.cursor = 'pointer';
@@ -638,6 +649,7 @@ function renderDiscografia(){
       btn.id = 'discoToggleBtn';
       btn.className = 'disco-toggle-btn';
       btn.textContent = showAll ? '▲ Ver menos' : `▼ Ver todos os ${sorted.length} lançamentos`;
+      btn.setAttribute('aria-label', showAll ? 'Mostrar menos lançamentos' : 'Mostrar todos os lançamentos');
       btn.addEventListener('click', () => {
         showAll = !showAll;
         build();
@@ -701,19 +713,6 @@ function renderTours(){
   }
 
   buildTours(null);
-
-  // Countdown Rock in Rio
-  const target = new Date('2026-09-11T20:00:00-03:00');
-  function updateCd(){
-    const el = document.getElementById('rirCountdown');
-    if(!el) return;
-    const diff = target - new Date();
-    if(diff <= 0){ el.innerHTML='<div class="cd-unit"><span class="cd-num">JÁ ACONTECEU!</span></div>'; return; }
-    const d=Math.floor(diff/86400000), h=Math.floor((diff%86400000)/3600000), m=Math.floor((diff%3600000)/60000), s=Math.floor((diff%60000)/1000);
-    const unit=(n,l)=>`<div class="cd-unit"><span class="cd-num">${n}</span><span class="cd-label">${l}</span></div>`;
-    el.innerHTML=unit(d,'Dias')+'<div class="cd-sep">:</div>'+unit(String(h).padStart(2,'0'),'Horas')+'<div class="cd-sep">:</div>'+unit(String(m).padStart(2,'0'),'Min')+'<div class="cd-sep">:</div>'+unit(String(s).padStart(2,'0'),'Seg');
-  }
-  updateCd(); setInterval(updateCd, 1000);
 }
 
 /* ── CURIOSIDADES ── */
@@ -1091,50 +1090,6 @@ function renderPremios(){
   });
 }
 
-function renderEraAtual(){
-  const container = document.getElementById('eraAtualContainer');
-  if(!container) return;
-
-  container.innerHTML = `
-    <div style="border:1px solid var(--bdh);border-radius:16px;overflow:hidden;background:var(--bg-2);box-shadow:var(--glow)">
-
-      <div style="background:var(--ac);padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.15em;color:#fff">● ERA ATUAL</span>
-        <span style="font-size:.7rem;color:rgba(255,255,255,.8);letter-spacing:.08em">THIS & THAT · 2026</span>
-      </div>
-
-      <div style="padding:1.5rem" id="eraGrid">
-        <div style="display:flex;gap:1.25rem;align-items:flex-start;flex-wrap:wrap">
-          <img src="assets/albums/this-and-that.jpg" alt="THIS & THAT"
-            style="width:120px;height:120px;object-fit:cover;border-radius:10px;flex-shrink:0;border:1px solid var(--bd)"
-            onerror="this.style.display='none'">
-          <div style="flex:1;min-width:200px">
-            <div style="font-size:.65rem;color:var(--ac);letter-spacing:.12em;margin-bottom:.3rem">10º MINI ÁLBUM · LANÇAMENTO</div>
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--t1);letter-spacing:.04em;line-height:1;margin-bottom:.3rem">THIS & THAT</div>
-            <div style="font-size:.8rem;color:var(--t3);margin-bottom:.5rem">7 de agosto de 2026</div>
-            <div style="font-size:.82rem;color:var(--t2);margin-bottom:1rem">Faixa principal: <span style="color:var(--ac);font-weight:600">This & That</span></div>
-            <a href="https://www.youtube.com/watch?v=Q7IFjVUUb_E" target="_blank" rel="noopener noreferrer"
-              style="display:inline-flex;align-items:center;gap:.5rem;background:var(--ac);color:#fff;padding:.5rem 1.25rem;border-radius:20px;font-size:.8rem;text-decoration:none;letter-spacing:.06em;font-weight:600">
-              ▶ Assistir RUN IT
-            </a>
-          </div>
-        </div>
-
-        <div style="margin-top:1.5rem">
-          <div style="font-size:.65rem;color:var(--t3);letter-spacing:.12em;margin-bottom:.75rem">TRACKLIST</div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.35rem">
-            ${["RUN IT (Pre-single)","This & That ★","After You","FARMING","I Do","Way Out","Back Then","This & That (Festival ver.)"]
-              .map((t,i) => `
-                <div style="display:flex;align-items:center;gap:.6rem;padding:.4rem .6rem;border-radius:6px;background:var(--bg-3);border:1px solid var(--bd)">
-                  <span style="font-size:.65rem;color:var(--ac);font-family:'Bebas Neue',sans-serif;min-width:1rem">${i+1}</span>
-                  <span style="font-size:.78rem;color:${i===1?'var(--t1)':'var(--t2)'};font-weight:${i===1?'600':'400'}">${t}</span>
-                </div>`).join('')}
-          </div>
-        </div>
-      </div>
-    </div>`;
-}
-
 function renderUniverso(){
   const grid = document.getElementById('universoGrid');
   if(!grid) return;
@@ -1478,7 +1433,6 @@ function renderNachimbong(){
 
 /* ── INIT ── */
 renderMembers();
-renderEraAtual();
 renderDiscografia();
 renderTimeline();
 renderTours();
