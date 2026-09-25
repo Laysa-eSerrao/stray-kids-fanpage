@@ -82,13 +82,10 @@ const members=[
 
 /* ── DADOS — Álbuns ── */
 const albums=[
-  { year:"2026", name:"SUIATSU",              badge:"EP · Japonês · Em breve", type:"japanese", track:"SUIATSU",      tracks:5, img:"",
-    desc:"Quarto mini álbum japonês do grupo, previsto para 25 de novembro de 2026. Dá suporte à etapa japonesa da RUN IT World Tour.",
-    tracklist:["Tracklist ainda não divulgada"] },
-  { year:"2026", name:"11월 11일",             badge:"Single",                  type:"single",   track:"11월 11일",    tracks:1, img:"",
+  { year:"2026", name:"November 11th (11월 11일)", badge:"Single",                  type:"single",   track:"November 11th", tracks:1, img:"assets/albums/November-11th.png",
     desc:"Single lançado em 10 de setembro de 2026, o trabalho coletivo mais recente do grupo até o momento.",
-    tracklist:["11월 11일 (November 11th)"] },
-  { year:"2026", name:"SKZ-REPLAY 2026 Pt.1", badge:"Compilação",              type:"compilation", track:"SKZ-REPLAY 2026", tracks:0, img:"",
+    tracklist:["November 11th (11월 11일)"] },
+  { year:"2026", name:"SKZ-REPLAY 2026 Pt.1", badge:"Compilação",              type:"compilation", track:"SKZ-REPLAY 2026", tracks:0, img:"assets/albums/SKZ-REPLAY-2026-Pt.1.png",
     desc:"Primeira parte da compilação SKZ-REPLAY de 2026, lançada em 1º de agosto, reunindo faixas dos projetos SKZ-RECORD e SKZ-PLAYER.",
     tracklist:["Compilação de faixas do SKZ-RECORD e SKZ-PLAYER"] },
   { year:"2026", name:"THIS & THAT",         badge:"Mini Álbum · BB #1",          type:"ep",          track:"This & That",    tracks:8,  img:"assets/albums/this-and-that.jpg",
@@ -264,6 +261,9 @@ const factsData={
 
 /* ── DADOS — MVs ── */
 const mvs=[
+  { title:"This & That",    year:"2026", views:"",      id:"BZ4UzthYTss" },
+  { title:"After You",      year:"2026", views:"",      id:"thHxtnJf9HA" },
+  { title:"FARMING",        year:"2026", views:"",      id:"6CqeGHXXioU" },
   { title:"RUN IT",         year:"2026", views:"",      id:"Q7IFjVUUb_E" },
   { title:"CEREMONY",       year:"2025", views:"120M+", id:"P7vBoGWoReg" },
   { title:"Do It",          year:"2025", views:"120M+", id:"NED7nev2ywQ" },
