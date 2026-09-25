@@ -95,7 +95,7 @@
   <div class="stat-item"><span class="stat-num" data-target="8">0</span><span class="stat-label">membros</span></div>
   <div class="stat-item"><span class="stat-num" data-target="8">0</span><span class="stat-label">anos de história</span></div>
   <div class="stat-item"><span class="stat-num" data-target="9">0</span><span class="stat-label">Billboard #1 consecutivos</span></div>
-  <div class="stat-item"><span class="stat-num" data-target="19">0</span><span class="stat-label">daesangs</span></div>
+  <div class="stat-item"><span class="stat-num" data-target="17">0</span><span class="stat-label">daesangs</span></div>
   <div class="stat-item"><span class="stat-num" data-target="10">0</span><span class="stat-label">mini álbuns coreanos</span></div>
 </div>
 
@@ -125,12 +125,12 @@
     <h2 class="section-title" data-i18n="disco_title">Discografia</h2>
   </div>
   <div class="disco-filters">
-    <button class="filter-btn active" data-filter="all">Todos</button>
-    <button class="filter-btn" data-filter="full">Álbuns</button>
-    <button class="filter-btn" data-filter="ep">EPs & Mini Álbuns</button>
-    <button class="filter-btn" data-filter="japanese">Japonês</button>
-    <button class="filter-btn" data-filter="compilation">Compilações</button>
-    <button class="filter-btn" data-filter="single">Singles</button>
+    <button class="filter-btn active" data-filter="all" aria-pressed="true">Todos</button>
+    <button class="filter-btn" data-filter="full" aria-pressed="false">Álbuns</button>
+    <button class="filter-btn" data-filter="ep" aria-pressed="false">EPs & Mini Álbuns</button>
+    <button class="filter-btn" data-filter="japanese" aria-pressed="false">Japonês</button>
+    <button class="filter-btn" data-filter="compilation" aria-pressed="false">Compilações</button>
+    <button class="filter-btn" data-filter="single" aria-pressed="false">Singles</button>
   </div>
   <div class="disco-grid" id="discoGrid"></div>
 </section>
@@ -180,7 +180,7 @@
     <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,4rem);color:var(--t1);letter-spacing:.05em;margin-bottom:1rem">Prêmios & Conquistas</h2>
     <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1rem">
       <div style="text-align:center">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--ac);line-height:1">150+</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--ac);line-height:1">153</div>
         <div style="font-size:.75rem;letter-spacing:.1em;color:var(--t3)">TROFÉUS TOTAIS</div>
       </div>
       <div style="text-align:center">
@@ -192,11 +192,20 @@
         <div style="font-size:.75rem;letter-spacing:.1em;color:var(--t3)">MUSIC SHOW WINS</div>
       </div>
       <div style="text-align:center">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--ac);line-height:1">19</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--ac);line-height:1">17</div>
         <div style="font-size:.75rem;letter-spacing:.1em;color:var(--t3)">DAESANGS</div>
       </div>
     </div>
-    <p style="font-size:.8rem;color:var(--t3);font-style:italic">Atualizado em julho de 2026 · Inclui cerimônias e programas musicais</p>
+    <div style="margin-top:2rem;padding:1.25rem;border:1px solid var(--bd);border-radius:12px;background:var(--bg-2);max-width:900px;margin-left:auto;margin-right:auto">
+      <div style="font-size:.65rem;letter-spacing:.12em;color:var(--ac);margin-bottom:.75rem">COMO ESTES NÚMEROS SÃO CONTADOS</div>
+      <div style="font-size:.8rem;color:var(--t2);line-height:1.7">
+        Os totais reúnem prêmios conquistados pelo grupo, por subunidades como o 3RACHA e por integrantes individualmente em cerimônias onde concorreram como parte do Stray Kids. Prêmios de popularidade decididos por votação de fãs entram na contagem e estão identificados na coluna de destaques. Vitórias em programas musicais semanais são contabilizadas separadamente das cerimônias anuais.
+        <br><br>
+        Os daesangs listados são os que podem ser identificados nominalmente por cerimônia e ano. Outras fontes usam critérios diferentes para classificar grandes prêmios e chegam a totais distintos.
+        <br><br>
+        <span style="color:var(--t3)">Dados apurados até 24 de setembro de 2026.</span>
+      </div>
+    </div>
   </div>
 
   <div style="overflow-x:auto;border-radius:12px;border:1px solid var(--bd)">
@@ -362,7 +371,6 @@
     <a href="#galeria"      onclick="closeDrawer()">Galeria</a>
     <a href="#skzoo"        onclick="closeDrawer()">SKZoo</a>
     <a href="#nachimbong"   onclick="closeDrawer()">Nachimbong</a>
-    <a href="#quotes"       onclick="closeDrawer()">Frases & Slogans</a>
     <a href="#novos-stays"  onclick="closeDrawer()">Para novos STAYs</a>
     <a href="#universo"     onclick="closeDrawer()">Universo</a>
     <a href="#alem-da-musica" onclick="closeDrawer()">Além da Música</a>

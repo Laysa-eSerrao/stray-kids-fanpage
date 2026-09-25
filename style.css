@@ -1159,3 +1159,23 @@ body.light-mode .era-select { background:#fff; color:#111; border-color:rgba(232
     grid-template-columns:1fr !important;
   }
 }
+
+/* ── FOCO VISÍVEL ── */
+*:focus-visible {
+  outline: 2px solid var(--ac);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.filter-btn.active:focus-visible,
+.btn-primary:focus-visible,
+#modalCloseBtn:focus-visible,
+#albumModalClose:focus-visible {
+  outline-color: #ffffff;
+  box-shadow: 0 0 0 4px var(--ac);
+}
+
+/* ── SHARE BAR — espaço no rodapé em telas pequenas ── */
+@media(max-width:600px){
+  body { padding-bottom: 5rem; }
+}

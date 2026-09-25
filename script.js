@@ -20,6 +20,38 @@ function closeDrawer(){
   document.body.style.overflow='';
 }
 
+/* ── FOCUS TRAP — modais ── */
+function trapFocus(modal, onClose){
+  const anterior = document.activeElement;
+  const seletor = 'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+  function handler(e){
+    if(e.key === 'Escape'){
+      onClose();
+      return;
+    }
+    if(e.key !== 'Tab') return;
+    const focaveis = Array.from(modal.querySelectorAll(seletor)).filter(el => el.offsetParent !== null);
+    if(!focaveis.length) return;
+    const primeiro = focaveis[0];
+    const ultimo = focaveis[focaveis.length - 1];
+    if(e.shiftKey && document.activeElement === primeiro){
+      e.preventDefault();
+      ultimo.focus();
+    } else if(!e.shiftKey && document.activeElement === ultimo){
+      e.preventDefault();
+      primeiro.focus();
+    }
+  }
+
+  modal.addEventListener('keydown', handler);
+
+  return function liberar(){
+    modal.removeEventListener('keydown', handler);
+    if(anterior && typeof anterior.focus === 'function') anterior.focus();
+  };
+}
+
 /* ── DADOS — Membros ── */
 const members=[
   { name:"Bang Chan", kr:"방찬", full:"Christopher Bang", pos:"Leader / Rapper / Vocal", unit:"3RACHA", color:"#e8192c",
@@ -68,8 +100,8 @@ const members=[
     img:"assets/members/member-seungmin.jpg",
     skzooImg:"assets/skzoo/skzoo-puppym.jpg",
     birthday:"22 set 2000", height:"178 cm", mbti:"ISFJ", nat:"Sul-coreano", skzoo:"PuppyM",
-    bio:"Principal vocalista. Grande fã de beisebol — sonho alternativo era ser jogador profissional. Embaixador da Burberry.",
-    facts:["Praticou beisebol profissionalmente antes de ser idol","Torce pelo time Doosan Bears","Apelido 'Puppy Seungmin' pelo sorriso"]
+    bio:"Principal vocalista. Apaixonado por beisebol desde a infância, chegou a praticar o esporte quando criança e já foi convidado como arremessador cerimonial em jogos profissionais. Torce pelo Doosan Bears. Embaixador da Burberry.",
+    facts:["Praticou beisebol na infância e já foi arremessador cerimonial em jogo profissional","Torce pelo time Doosan Bears","Apelido 'Puppy Seungmin' pelo sorriso"]
   },
   { name:"I.N", kr:"아이엔", full:"Yang Jeong-in", pos:"Vocalist / Dancer", unit:"Vocal Racha", color:"#cc2222",
     img:"assets/members/member-in.jpg",
@@ -85,7 +117,7 @@ const albums=[
   { year:"2026", name:"November 11th (11월 11일)", badge:"Single",                  type:"single",   track:"November 11th", tracks:1, img:"assets/albums/November-11th.png",
     desc:"Single lançado em 10 de setembro de 2026, o trabalho coletivo mais recente do grupo até o momento.",
     tracklist:["November 11th (11월 11일)"] },
-  { year:"2026", name:"SKZ-REPLAY 2026 Pt.1", badge:"Compilação",              type:"compilation", track:"SKZ-REPLAY 2026", tracks:0, img:"assets/albums/SKZ-REPLAY-2026-Pt.1.png",
+  { year:"2026", name:"SKZ-REPLAY 2026 Pt.1", badge:"Compilação",              type:"compilation", track:"SKZ-REPLAY 2026", tracks:17, img:"assets/albums/SKZ-REPLAY-2026-Pt.1.png",
     desc:"Primeira parte da compilação SKZ-REPLAY de 2026, lançada em 1º de agosto, reunindo faixas dos projetos SKZ-RECORD e SKZ-PLAYER.",
     tracklist:["Compilação de faixas do SKZ-RECORD e SKZ-PLAYER"] },
   { year:"2026", name:"THIS & THAT",         badge:"Mini Álbum · BB #1",          type:"ep",          track:"This & That",    tracks:8,  img:"assets/albums/this-and-that.jpg",
@@ -100,7 +132,7 @@ const albums=[
   { year:"2026", name:"별, 빛 (STAY)",        badge:"Single",                      type:"single",      track:"별, 빛 (STAY)",   tracks:1,  img:"assets/albums/stay-single.jpg",
     tracklist:["별, 빛 (STAY)"],
     desc:"Single digital comemorativo dos oito anos do grupo, lançado em 25 de março de 2026 e feito especialmente para o fandom. Han e Seungmin participaram da composição e assinaram a letra." },
-  { year:"2025", name:"DO IT",              badge:"SKZ IT Tape",                  type:"ep",          track:"Do It",          tracks:5,  img:"assets/albums/do-it.jpg",
+  { year:"2025", name:"DO IT",              badge:"Mini Álbum · SKZ IT Tape",     type:"ep",          track:"Do It",          tracks:5,  img:"assets/albums/do-it.jpg",
     tracklist:["Do It","DIVINE — 신선놀음","Holiday","Photobook","Do It (Festival Version)"],
     desc:"SKZ IT Tape com 5 faixas. Do It e DIVINE foram os destaques, explorando sonoridades mais suaves e experimentais." },
   { year:"2025", name:"KARMA",              badge:"Álbum · BB #1",               type:"full",        track:"CEREMONY",       tracks:11, img:"assets/albums/karma.jpg",
@@ -109,10 +141,10 @@ const albums=[
   { year:"2025", name:"Hollow",             badge:"EP · Japonês",                type:"japanese",    track:"Hollow",         tracks:5,  img:"assets/albums/hollow.jpg",
     tracklist:["Hollow","Parade","Never Alone","just a little","宿命 (Shukumei)"],
     desc:"Terceiro miniálbum japonês com 5 faixas originais. Venceu Album of the Year Asia no Japan Gold Disc Awards 2026." },
-  { year:"2025", name:"Mixtape: dominATE",  badge:"EP · 7º Aniv.",               type:"compilation", track:"Truman",         tracks:5,  img:"assets/albums/dominate.jpg",
+  { year:"2025", name:"Mixtape: dominATE",  badge:"Mini Álbum · 7º Aniversário", type:"ep",          track:"Truman",         tracks:5,  img:"assets/albums/dominate.jpg",
     tracklist:["GIANT (Korean Version)","Burnin' Tires (Changbin & I.N)","Truman (Felix & Han)","ESCAPE (Bang Chan & Hyunjin)","CINEMA (Lee Know & Seungmin)"],
     desc:"Projeto especial de aniversário com 5 faixas de duplas dos membros, lançado no 7º aniversário do grupo." },
-  { year:"2024", name:"HOP",               badge:"SKZHOP Hiptape · BB #1",       type:"ep",          track:"Walkin On Water", tracks:12, img:"assets/albums/hop.jpg",
+  { year:"2024", name:"HOP",               badge:"Mini Álbum · SKZHOP Hiptape · BB #1", type:"ep",  track:"Walkin On Water", tracks:12, img:"assets/albums/hop.jpg",
     tracklist:["Walkin On Water","Bounce Back","U (feat. TABLO)","Railway (Bang Chan)","Unfair (Felix)","HALLUCINATION (I.N)","Youth (Lee Know)","So Good (Hyunjin)","ULTRA (Changbin)","Hold my hand (Han)","As we are (Seungmin)","Walkin On Water (HIP Version)"],
     desc:"SKZHOP Hiptape com faixas solo de cada membro além das músicas do grupo. Walkin On Water é a faixa principal." },
   { year:"2024", name:"GIANT",             badge:"Álbum · Japonês",              type:"japanese",    track:"GIANT",          tracks:10, img:"assets/albums/giant.jpg",
@@ -132,7 +164,7 @@ const albums=[
     desc:"Faixa da trilha sonora de Arcane, a animação da Netflix baseada em League of Legends — jogo favorito de Felix." },
   { year:"2023", name:"★★★★★ (5-STAR)",   badge:"Álbum · BB #1",               type:"full",        track:"S-Class",        tracks:12, img:"assets/albums/5-star.jpg",
     tracklist:["Hall of Fame","S-Class","ITEM","Super Bowl","TOPLINE (feat. Tiger JK)","DLC","GET LIT","Collision","FNF","Youtiful","THE SOUND (Korean Version)","Mixtape: Time Out"],
-    desc:"Terceiro álbum de estúdio, primeiro a ultrapassar 2 milhões de pré-pedidos no K-pop. S-Class se tornou um dos maiores hits do grupo." },
+    desc:"Terceiro álbum de estúdio e maior recorde de pré-vendas da carreira, com mais de 5,13 milhões de encomendas antes do lançamento. S-Class se tornou um dos maiores hits do grupo e rendeu o prêmio de Best K-Pop no VMA 2023." },
   { year:"2023", name:"ROCK-STAR",         badge:"Mini Álbum · BB #1",           type:"ep",          track:"LALALALA",       tracks:8,  img:"assets/albums/rock-star.jpg",
     tracklist:["MEGAVERSE","LALALALA","BLIND SPOT","COMFLEX","Cover Me","Leave","Social Path (Korean Ver. feat. LiSA)","LALALALA (Rock Version)"],
     desc:"LALALALA foi a primeira música do grupo a entrar no Billboard Hot 100. Era mais sombria e rock do Stray Kids." },
@@ -141,7 +173,7 @@ const albums=[
     desc:"EP japonês com Social Path (feat. LiSA) como destaque — colaboração com a cantora de anime mais famosa do Japão." },
   { year:"2022", name:"MAXIDENT",          badge:"Mini Álbum · BB #1",           type:"ep",          track:"CASE 143",       tracks:8,  img:"assets/albums/maxident.jpg",
     tracklist:["CASE 143","CHILL","Give Me Your TMI","SUPER BOARD","3RACHA (Bang Chan, Changbin & Han)","TASTE (Lee Know, Hyunjin & Felix)","Can't Stop (Seungmin & I.N)","CIRCUS (Korean Version)"],
-    desc:"Sétimo miniálbum com CASE 143 como faixa principal. Primeiro #1 consecutivo no Billboard 200." },
+    desc:"Sétimo miniálbum com CASE 143 como faixa principal. Segundo álbum consecutivo a estrear em #1 na Billboard 200, confirmando a sequência iniciada pelo ODDINARY no mesmo ano." },
   { year:"2022", name:"ODDINARY",          badge:"Mini Álbum · BB #1",           type:"ep",          track:"MANIAC",         tracks:7,  img:"assets/albums/oddinary.jpg",
     tracklist:["VENOM","MANIAC","Charmer","FREEZE","Lonely St.","Waiting For Us (Bang Chan, Lee Know, Seungmin & I.N)","Muddy Water (Changbin, Hyunjin, Han & Felix)"],
     desc:"Sexto miniálbum e primeiro #1 no Billboard 200 — marco histórico. MANIAC virou o maior hit da era." },
@@ -151,7 +183,7 @@ const albums=[
   { year:"2022", name:"SKZ-REPLAY",        badge:"Compilação",                   type:"compilation", track:"Limbo",          tracks:26, img:"assets/albums/skz-replay.jpg",
     tracklist:["A-Side: FAM, Connected, Limbo, Doodle, Love Untold, RUN, Deep End, Stars and Raindrops, Hug Me, #LoveSTAY","B-Side: ZONE, Close, Streetlight, I Hate to Admit, I GOT IT, Miss You, Maknae on Top, Alien, Because, Piece of a Puzzle, Wish You Back, HaPpY, Up All Night, Drive, ice.cream"],
     desc:"Compilação de músicas do SKZ-RECORD e SKZ-PLAYER reunindo solos e colaborações internas." },
-  { year:"2021", name:"Christmas EveL",    badge:"Single Álbum",                 type:"ep",          track:"Christmas EveL", tracks:4,  img:"assets/albums/christmas-evel.jpg",
+  { year:"2021", name:"Christmas EveL",    badge:"Mini Álbum · Natal",           type:"ep",          track:"Christmas EveL", tracks:4,  img:"assets/albums/christmas-evel.jpg",
     tracklist:["Christmas EveL","24 to 25","Winter Falls","DOMINO (English Version)"],
     desc:"Single álbum especial de fim de ano com o clássico natalino Christmas EveL e Winter Falls." },
   { year:"2021", name:"NOEASY",            badge:"Álbum",                        type:"full",        track:"Thunderous",     tracks:14, img:"assets/albums/noeasy.jpg",
@@ -160,18 +192,18 @@ const albums=[
   { year:"2021", name:"SKZ2021",           badge:"Compilação",                   type:"compilation", track:"Scars",          tracks:14, img:"assets/albums/skz2021.jpg",
     tracklist:["Scars","Awaken","ROCK","3rd Eye","Placebo","Insomnia","Behind the Light","My Side","N/S","0325","For You","Maze of Memories","Broken Compass","Hoodie Season"],
     desc:"Segunda compilação reunindo músicas antigas regravadas com a formação atual de 8 membros." },
-  { year:"2020", name:"IN生 (IN LIFE)",    badge:"Repackage",                    type:"full",        track:"Back Door",      tracks:9,  img:"assets/albums/in-life.jpg",
-    tracklist:["The Tortoise and the Hare","Back Door","B Me","Any","Ex","We Go (Bang Chan, Changbin & Han)","Wow (Lee Know, Hyunjin & Felix)","My Universe (Seungmin & I.N)","+ faixas de GO LIVE"],
-    desc:"Repackage de GO LIVE com 5 faixas novas, incluindo Back Door — um dos maiores hits do grupo." },
+  { year:"2020", name:"IN生 (IN LIFE)",    badge:"Repackage",                    type:"full",        track:"Back Door",      tracks:17, img:"assets/albums/in-life.jpg",
+    tracklist:["The Tortoise and the Hare","Back Door","B Me","Any","Ex","We Go (Bang Chan, Changbin & Han)","Wow (Lee Know, Hyunjin & Felix)","My Universe (Seungmin & I.N)","God's Menu","Easy","Pacemaker","Airplane","Another Day","Phobia","Blueprint","TA","Haven"],
+    desc:"Repackage de GO LIVE com 17 faixas no total, incluindo cinco inéditas e três faixas de unidades. Back Door se tornou um dos maiores hits do grupo." },
   { year:"2020", name:"ALL IN",            badge:"EP · Japonês",                 type:"japanese",    track:"ALL IN",         tracks:7,  img:"assets/albums/all-in.jpg",
     tracklist:["ALL IN","FAM","One Day","God's Menu (Japanese Version)","Back Door (Japanese Version)","TOP (Japanese Version)","SLUMP (Japanese Version)"],
-    desc:"Primeiro miniálbum japonês e debut oficial no Japão, reunindo versões japonesas dos primeiros hits." },
+    desc:"Primeiro mini álbum japonês do grupo, reunindo faixas inéditas e versões japonesas dos primeiros hits. A estreia oficial no Japão havia sido o álbum de compilação SKZ2020, lançado em março do mesmo ano." },
   { year:"2020", name:"GO LIVE",           badge:"Álbum",                        type:"full",        track:"God's Menu",     tracks:14, img:"assets/albums/go-live.jpg",
     tracklist:["GO LIVE","God's Menu","Easy","Pacemaker","Airplane","Another Day","Phobia","Blueprint","TA","Haven","TOP","SLUMP","Gone Days","On Track"],
     desc:"Primeiro álbum completo coreano. God's Menu definiu a identidade sonora do Stray Kids e marcou o início de uma nova era." },
   { year:"2020", name:"SKZ2020",           badge:"Compilação",                   type:"compilation", track:"Double Knot",    tracks:27, img:"assets/albums/skz2020.jpg",
     tracklist:["Hellevator","Grrr","Spread My Wings","YAYAYA","District 9","Mirror","Grow Up","My Pace","Voices","Question","M.I.A.","Awkward Silence","I am YOU","Get Cool","MIROH","Victory Song","Boxer","Chronosaurus","19","Side Effects","TMT","Double Knot","Levanter","Astronaut","My Pace (Japanese Ver.)","Double Knot (Japanese Ver.)","Levanter (Japanese Ver.)"],
-    desc:"Primeira compilação e debut japonês, reunindo 27 músicas dos primeiros anos do grupo." },
+    desc:"Primeira compilação do grupo e estreia oficial no mercado japonês, reunindo 27 faixas dos primeiros anos regravadas com a formação de oito integrantes." },
   { year:"2019", name:"Clé: Levanter",    badge:"Mini Álbum",                   type:"ep",          track:"Levanter",       tracks:7,  img:"assets/albums/cle-levanter.jpg",
     tracklist:["STOP","Double Knot","Levanter","Booster","Astronaut","Sunshine","You Can STAY"],
     desc:"Quinto miniálbum encerrando a trilogia Clé. Levanter é uma das músicas mais emotivas e amadas pelos STAYs." },
@@ -189,10 +221,10 @@ const albums=[
     desc:"Segundo miniálbum com My Pace — mensagem de autoconfiança que ressoou com fãs ao redor do mundo." },
   { year:"2018", name:"I am NOT",        badge:"Mini Álbum · Debut",            type:"ep",          track:"District 9",     tracks:7,  img:"assets/albums/i-am-not.jpg",
     tracklist:["NOT!","District 9","Mirror","Awaken","ROCK","Grow Up","3rd Eye"],
-    desc:"Debut oficial em março de 2018 com District 9. O grupo já estreou com identidade de self-production." },
+    desc:"Estreia oficial do grupo em 25 de março de 2018, com District 9 como faixa principal." },
   { year:"2018", name:"Mixtape",          badge:"Mini Álbum · Pré-debut",       type:"ep",          track:"Hellevator",     tracks:7,  img:"assets/albums/mixtape.jpg",
     tracklist:["Hellevator","Grrr — 총량의 법칙","Spread My Wings — 어린 날개","YAYAYA","GLOW","School Life","4419"],
-    desc:"Pré-debut lançado em janeiro de 2018. Hellevator foi o primeiro vislumbre do som que definiria o grupo." },
+    desc:"Mini álbum de pré-estreia lançado em janeiro de 2018. Hellevator foi o primeiro vislumbre do som que definiria o grupo." },
   { year:"2023", name:"THE SOUND",        badge:"Álbum · Japonês",              type:"japanese",    track:"THE SOUND",      tracks:10, img:"assets/albums/the-sound.jpg",
     tracklist:["THE SOUND","Battle Ground","Lost Me","DLMLU","Novel","CASE 143 (Japanese Version)","CHILL (Japanese Version)","Scars","Thunderous (Japanese Version)","There"],
     desc:"Primeiro álbum completo japonês com 10 faixas, incluindo versões japonesas de hits coreanos." },
@@ -200,30 +232,32 @@ const albums=[
 
 /* ── DADOS — Timeline ── */
 const timelineEvents=[
-  { year:"2017", event:"Nasce o Stray Kids", desc:"A JYP Entertainment anuncia o reality show onde trainees competem por uma vaga no grupo. Bang Chan, Lee Know, Changbin, Hyunjin, Han, Felix, Seungmin e I.N são selecionados.", badge:"Origem" },
-  { year:"Mar 2018", event:"Debut Oficial", desc:"O grupo faz seu debut com o mini-álbum Mixtape. A identidade de self-production já aparece desde o primeiro dia.", badge:"Marco histórico", gold:true },
-  { year:"2019", event:"MIROH — Primeiro Grande Hit", desc:"Clé 1: MIROH marca a virada do grupo. A faixa título se torna um hit internacional. Lee Know retorna após lesão.", badge:"Breakthrough" },
+  { year:"2017", event:"Nasce o Stray Kids", desc:"A JYP Entertainment anuncia o reality show onde trainees competem por uma vaga no grupo. Nove integrantes são selecionados: Bang Chan, Woojin, Lee Know, Changbin, Hyunjin, Han, Felix, Seungmin e I.N.", badge:"Origem" },
+  { year:"Jan 2018", event:"Mixtape — Pré-estreia", desc:"O grupo lança o mini álbum Mixtape antes da estreia oficial. Hellevator apresenta ao público o som que definiria a identidade do Stray Kids.", badge:"Pré-estreia" },
+  { year:"Mar 2018", event:"Estreia Oficial — I am NOT", desc:"Estreia oficial em 25 de março com o primeiro mini álbum I am NOT e a faixa District 9. A identidade de self-production já aparece desde o primeiro dia.", badge:"Marco histórico", gold:true },
+  { year:"2019", event:"MIROH — Primeiro Grande Hit", desc:"Clé 1: MIROH marca a virada do grupo. A faixa título se torna o primeiro grande hit internacional e consolida a presença do Stray Kids fora da Coreia.", badge:"Breakthrough" },
   { year:"Out 2019", event:"Saída do Woojin", desc:"Woojin anuncia sua saída por motivos pessoais. O grupo continua como octeto.", badge:"Mudança" },
   { year:"2020", event:"God's Menu — A Era da Identidade", desc:"GO LIVE com God's Menu define o som característico do SKZ. Identidade musical consolidada.", badge:"Identidade" },
-  { year:"2021", event:"NOEASY — Billboard Top 5", desc:"NOEASY entra no Top 5 do Billboard 200. Thunderous vira viral.", badge:"Billboard Top 5", gold:true },
-  { year:"2022", event:"ODDINARY — Primeiro #1 no Billboard", desc:"ODDINARY estreia em #1 no Billboard 200 — segundo grupo de K-pop da história.", badge:"Billboard #1", gold:true },
+  { year:"2021", event:"NOEASY e Kingdom", desc:"NOEASY se torna o primeiro álbum do grupo a ultrapassar um milhão de cópias e Thunderous viraliza mundialmente. No mesmo ano, o grupo vence o programa Kingdom: Legendary War.", badge:"Primeiro milhão", gold:true },
+  { year:"2022", event:"ODDINARY — Primeiro #1 no Billboard", desc:"ODDINARY é a primeira entrada do grupo na Billboard 200 e estreia direto em #1, tornando o Stray Kids o terceiro grupo de K-pop a liderar a parada, depois de BTS e SuperM.", badge:"Billboard #1", gold:true },
   { year:"2022", event:"MAXIDENT & MANIAC World Tour", desc:"MAXIDENT estreia em #1 — segundo consecutivo. MANIAC World Tour com shows sold out.", badge:"Billboard #1", gold:true },
-  { year:"2023", event:"5-STAR Dome Tour & Lollapalooza", desc:"Dois álbuns em #1 no Billboard. Realizam o 5-STAR Dome Tour e headlinam o Lollapalooza Chicago — primeiros K-pop a fazer isso.", badge:"Lollapalooza", gold:true },
-  { year:"2024", event:"Met Gala & ATE", desc:"Vão ao Met Gala — primeiros artistas K-pop juntos. ATE: 5º álbum consecutivo em #1. Iniciam o dominATE World Tour.", badge:"Met Gala", gold:true },
+  { year:"2023", event:"5-STAR e Lollapalooza Paris", desc:"Dois álbuns em #1 no Billboard no mesmo ano. Realizam o 5-STAR Dome Tour e headlinam o Lollapalooza Paris — primeiro ato de K-pop a headlinear uma edição do festival.", badge:"Lollapalooza Paris", gold:true },
+  { year:"2024", event:"Met Gala, ATE e Lollapalooza Chicago", desc:"Vão ao Met Gala — primeiros artistas K-pop juntos. ATE marca o quinto álbum consecutivo em #1. Headlinam o Lollapalooza Chicago, I-Days em Milão e BST Hyde Park em Londres. Iniciam o dominATE World Tour.", badge:"Lollapalooza Chicago", gold:true },
   { year:"2025", event:"KARMA & Recorde Mundial", desc:"KARMA: 7º álbum em #1. O dominATE Tour fatura US$185,9M com +1,3 milhão de ingressos — maior tour K-pop da história.", badge:"Maior tour K-pop", gold:true },
-  { year:"Jun 2026", event:"Governors Ball e Recording Academy", desc:"Primeiro grupo de K-pop a headlinear o Governors Ball em Nova York. No mesmo período, os oito membros são convidados como membros votantes da Recording Academy, podendo votar no Grammy a partir de 2027.", badge:"Grammy", gold:true },
+  { year:"Jun–Jul 2026", event:"Governors Ball e Recording Academy", desc:"Em junho tornam-se o primeiro grupo de K-pop a headlinear o Governors Ball em Nova York. Em 14 de julho, os oito membros são convidados como membros votantes da Recording Academy, podendo votar no Grammy a partir de 2027.", badge:"Grammy", gold:true },
   { year:"Ago 2026", event:"THIS & THAT — Nono #1 Consecutivo", desc:"O décimo mini álbum estreia em #1 na Billboard 200 com 369 mil unidades, a maior semana da carreira nos Estados Unidos. O grupo torna-se o primeiro da história a estrear seus nove primeiros álbuns no topo e empata com os Rolling Stones.", badge:"Recorde histórico", gold:true },
-  { year:"Set 2026", event:"Rock in Rio e STRAYCITY", desc:"Headliner do Palco Mundo do Rock in Rio para cerca de 130 mil pessoas — primeiro ato de K-pop em 41 anos de festival. No mesmo mês estreia o STRAYCITY, festival próprio criado com a Live Nation, passando por Bogotá, Buenos Aires e Cidade do México.", badge:"Rock in Rio", gold:true },
+  { year:"Set 2026", event:"Rock in Rio e STRAYCITY", desc:"Headliner do Palco Mundo do Rock in Rio para um público estimado em mais de 100 mil pessoas — primeiro ato de K-pop em 41 anos de festival. No mesmo mês estreia o STRAYCITY, festival próprio criado com a Live Nation, passando por Bogotá, Buenos Aires e Cidade do México.", badge:"Rock in Rio", gold:true },
 ];
 
 /* ── DADOS — Tours ── */
 const tours=[
   { era:"2026–2027", name:"RUN IT World Tour", desc:"Quarta world tour do grupo, em suporte a THIS & THAT e ao EP japonês SUIATSU. Começou em Seul com cinco shows no KSPO Dome entre 25 de julho e 2 de agosto. Segue por Hong Kong e Taipei em dezembro, Bangkok em janeiro e encerra em Singapura em 7 de março de 2027. Etapas na América do Norte e Europa previstas para 2027.", badges:["Em andamento","Seul · Japão · Ásia","Encerra em março de 2027"], gold:true },
   { era:"Ago–Nov 2026", name:"RUN IT Japan", desc:"Etapa japonesa da turnê. Nos dias 29 e 30 de agosto o grupo se apresentou no MUFG Stadium, tornando-se o primeiro artista masculino estrangeiro a realizar show solo no Estádio Nacional de Tóquio. Três datas extras foram anunciadas no Tokyo Dome para 6, 7 e 8 de novembro.", badges:["Estádio Nacional de Tóquio","Primeiro ato masculino estrangeiro","Tokyo Dome · 3 datas"], gold:true },
-  { era:"Set 2026", name:"Rock in Rio", desc:"Headliner do Palco Mundo na madrugada de 12 de setembro, das 0h05 à 1h45. Primeiro ato de K-pop a headlinear o festival em 41 anos de história, para um público de cerca de 130 mil pessoas. Ingressos esgotados desde julho.", badges:["Primeiro K-pop headliner","130 mil pessoas","Palco Mundo"], gold:true },
+  { era:"Set 2026", name:"Rock in Rio", desc:"Headliner do Palco Mundo na madrugada de 12 de setembro, das 0h05 à 1h45. Primeiro ato de K-pop a headlinear o festival em 41 anos de história, para um público estimado em mais de 100 mil pessoas. Ingressos esgotados desde julho.", badges:["Primeiro K-pop headliner","Mais de 100 mil pessoas","Palco Mundo"], gold:true },
   { era:"Set 2026", name:"STRAYCITY", desc:"Festival próprio criado pela JYP em parceria com a Live Nation, com o grupo como atração central. Estreou em Bogotá em 9 de setembro, seguiu para Buenos Aires em 14 e 15 e encerra na Cidade do México em 25 e 26. A demanda por ingressos dobrou as datas de Argentina e México.", badges:["Bogotá","Buenos Aires · 2 noites","Cidade do México · 2 noites"], gold:true },
-  { era:"2024–2025", name:"dominATE World Tour", desc:"Terceira world tour e a maior da história do K-pop até então. 56 shows em 35 cidades, mais de 1,3 milhão de ingressos e US$185,7 milhões faturados. Encerrou no Incheon Asiad Main Stadium em outubro de 2025.", badges:["56 shows · 35 cidades","+1,3M ingressos","US$185,7M"], gold:true },
-  { era:"2023", name:"5-STAR Dome Tour", desc:"Primeira turnê inteiramente em domes, pelo Japão e Ásia, com 341 mil espectadores. No mesmo ano headlinaram o Lollapalooza Chicago.", badges:["Japão","341 mil espectadores","Lollapalooza Chicago"], gold:false },
+  { era:"2024–2025", name:"dominATE World Tour", desc:"Terceira world tour e a maior da história do K-pop até então, com 56 shows em 35 cidades. Os números reportados à Billboard cobrem 31 desses shows: mais de 1,3 milhão de ingressos e US$185,7 milhões faturados. Encerrou no Incheon Asiad Main Stadium em outubro de 2025.", badges:["56 shows · 35 cidades","+1,3M ingressos em 31 shows","US$185,7M reportados"], gold:true },
+  { era:"2024", name:"Circuito de Festivais", desc:"Ano em que o grupo headlinou três grandes festivais internacionais pela primeira vez: I-Days em Milão e BST Hyde Park em Londres, em julho, e o Lollapalooza Chicago em 2 de agosto.", badges:["I-Days Milão","BST Hyde Park","Lollapalooza Chicago"], gold:true },
+  { era:"2023", name:"5-STAR Dome Tour", desc:"Primeira turnê inteiramente em domes, pelo Japão e Ásia, com 341 mil espectadores. No mesmo ano headlinaram o Lollapalooza Paris, tornando-se o primeiro ato de K-pop a headlinear uma edição do festival.", badges:["Japão","341 mil espectadores","Lollapalooza Paris"], gold:false },
   { era:"2022–2023", name:"MANIAC World Tour", desc:"Segunda turnê e primeiro grande retorno aos palcos após a pandemia. 42 shows pela Ásia, América do Norte e Austrália.", badges:["42 shows","América do Norte","Europa e Ásia"], gold:false },
   { era:"2019–2020", name:"District 9: Unlock", desc:"Primeira world tour do grupo. A maioria das datas foi cancelada ou adiada pela pandemia, encerrando com o show online Unlock: Go Live In Life.", badges:["Primeira world tour","24 shows previstos","Encerrada online"], gold:false },
 ];
@@ -242,7 +276,7 @@ const factsData={
     { tag:"Billboard", text:"O Stray Kids é o <strong>primeiro ato da história do Billboard 200</strong> a estrear com seus nove primeiros álbuns em #1. A sequência vai de ODDINARY (2022) a THIS & THAT (2026). Com nove #1, empataram com os <strong>Rolling Stones</strong> em segundo lugar entre grupos na história da parada, atrás apenas dos Beatles." },
     { tag:"Met Gala 2024", text:"Em maio de 2024, o Stray Kids se tornou o <strong>primeiro grupo K-pop</strong> cujos todos os membros compareceram juntos ao Met Gala." },
     { tag:"dominATE Tour", text:"O dominATE World Tour (2024–2025) é o <strong>maior tour K-pop da história</strong>: US$185,9M com +1,3 milhão de ingressos. #2 no ranking global da Pollstar." },
-    { tag:"Festivais", text:"Em 2023 headlinaram o <strong>Lollapalooza Chicago</strong>. Em junho de 2026 foram os primeiros de K-pop a headlinear o <strong>Governors Ball</strong> em Nova York. Em setembro de 2026 tornaram-se o <strong>primeiro ato de K-pop a headlinear o Rock in Rio</strong> em 41 anos de festival, para cerca de 130 mil pessoas." },
+    { tag:"Festivais", text:"Em julho de 2023 headlinaram o <strong>Lollapalooza Paris</strong>, primeiros de K-pop a conseguir isso em qualquer edição do festival. Em 2024 headlinaram <strong>I-Days Milão</strong>, <strong>BST Hyde Park</strong> e <strong>Lollapalooza Chicago</strong>. Em junho de 2026 foram os primeiros de K-pop no <strong>Governors Ball</strong> e, em setembro, os primeiros a headlinear o <strong>Rock in Rio</strong> em 41 anos." },
     { tag:"Spotify", text:"Em 2025, o SKZ se tornou o <strong>terceiro artista coreano</strong> a atingir 10 bilhões de streams no Spotify, após BTS e BLACKPINK." },
     { tag:"Hot 100", text:"A faixa <strong>This & That</strong> estreou na <strong>38ª posição da Billboard Hot 100</strong> em agosto de 2026 — a melhor colocação do grupo na parada de singles dos Estados Unidos até hoje." },
     { tag:"Tóquio", text:"Em agosto de 2026, o Stray Kids tornou-se o <strong>primeiro artista masculino estrangeiro</strong> a realizar show solo no <strong>Estádio Nacional de Tóquio</strong>, com duas apresentações no MUFG Stadium." },
@@ -253,7 +287,7 @@ const factsData={
     { tag:"Chan's Room", text:"De 2019 a 2023, <strong>Bang Chan</strong> realizava lives semanais chamadas <em>'Chan's Room'</em>. A série foi encerrada em agosto de 2023." },
     { tag:"Lee Know & gatos", text:"<strong>Lee Know</strong> tem 3 gatos chamados Soonie, Doongie e Dori — tão famosos entre os STAYs que têm fã-clube próprio." },
     { tag:"Han letrista", text:"<strong>Han</strong> cresceu na Malásia e voltou à Coreia para perseguir o sonho — experiência que inspira suas letras sobre solidão e pertencimento." },
-    { tag:"Seungmin & beisebol", text:"<strong>Seungmin</strong> praticou beisebol profissionalmente antes de se tornar trainee. Torce pelo time Doosan Bears." },
+    { tag:"Seungmin & beisebol", text:"<strong>Seungmin</strong> praticou beisebol na infância e chegou a sonhar em seguir carreira no esporte. Já foi convidado como arremessador cerimonial em jogos profissionais e continua acompanhando o Doosan Bears." },
     { tag:"I.N & trot", text:"<strong>I.N</strong>, o maknae, sabe cantar trot — gênero musical coreano tradicional. Surpreende fãs e membros sempre que demonstra essa habilidade." },
     { tag:"Changbin & rap", text:"<strong>Changbin</strong> é famoso por seu rap extremamente rápido. Apesar de ser o menor do grupo (167cm), tem presença de palco avassaladora." },
   ]
@@ -271,19 +305,19 @@ const mvs=[
   { title:"Walkin On Water",year:"2024", views:"100M+", id:"ovHoY8UBIu8" },
   { title:"CASE 143",       year:"2022", views:"240M+", id:"jYSlpC6Ud2A" },
   { title:"Back Door",      year:"2020", views:"400M+", id:"X-uJtV8ScYk" },
-  { title:"Topline",        year:"2024", views:"90M+",  id:"b3GYcA7j5mg" },
+  { title:"Topline",        year:"2023", views:"90M+",  id:"b3GYcA7j5mg" },
   { title:"God's Menu",     year:"2020", views:"570M+", id:"TQTlCHxyuu8" },
   { title:"MIROH",          year:"2019", views:"200M+", id:"Dab4EENTW5I" },
   { title:"THUNDEROUS",     year:"2021", views:"450M+", id:"EaswWiwMVs8" },
   { title:"MANIAC",         year:"2022", views:"340M+", id:"OvioeS1ZZ7o" },
   { title:"S-CLASS",        year:"2023", views:"300M+", id:"JsOOis4bBFg" },
-  { title:"LOSE MY BREATH", year:"2023", views:"80M+",  id:"SQ1yPMTIwCU" },
+  { title:"LOSE MY BREATH", year:"2024", views:"80M+",  id:"SQ1yPMTIwCU" },
   { title:"SOCIAL PATH",    year:"2023", views:"80M+",  id:"M0c04xfBtyc" },
   { title:"CHK CHK BOOM",   year:"2024", views:"200M+", id:"0P0aQreFs8w" },
   { title:"LALALALA",       year:"2023", views:"340M+", id:"dBDkYofMUs4" },
   { title:"VENOM",          year:"2022", views:"150M+", id:"pM-jOfy_1jM" },
   { title:"Red Lights",     year:"2021", views:"170M+", id:"k8Y6ZTjmCXs" },
-  { title:"CHEESE",         year:"2022", views:"115M+", id:"YLtEc-kvOqA" },
+  { title:"CHEESE",         year:"2021", views:"115M+", id:"YLtEc-kvOqA" },
   { title:"Hellevator",     year:"2017", views:"125M+", id:"AdfIfFGCqgo" },
   { title:"Christmas EveL", year:"2021", views:"190M+", id:"57n4dZAPxNY" },
 ];
@@ -354,6 +388,15 @@ function openMemberDetail(idx){
 
   modal.classList.remove('hidden');
   document.body.style.overflow = 'hidden';
+
+  const closeBtn = document.getElementById('modalCloseBtn');
+  const liberar = trapFocus(modal, () => {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+    liberar();
+  });
+  modal._liberarFoco = liberar;
+  if(closeBtn) closeBtn.focus();
 }
 
 function openAlbumDetail(a){
@@ -394,13 +437,20 @@ function openAlbumDetail(a){
   document.body.appendChild(modal);
   document.body.style.overflow = 'hidden';
 
-  document.getElementById('albumModalClose').addEventListener('click', () => {
+  const fechar = () => {
+    liberar();
     modal.remove();
     document.body.style.overflow = '';
-  });
+  };
+  const liberar = trapFocus(modal, fechar);
+  modal._fechar = fechar;
+
+  document.getElementById('albumModalClose').addEventListener('click', fechar);
   modal.addEventListener('click', e => {
-    if(e.target === modal){ modal.remove(); document.body.style.overflow = ''; }
+    if(e.target === modal) fechar();
   });
+
+  document.getElementById('albumModalClose')?.focus();
 }
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -664,8 +714,12 @@ function renderDiscografia(){
   build();
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       showAll = false;
       build();
     });
@@ -804,11 +858,12 @@ function renderGallery(){
     item.setAttribute('role', 'button');
     item.setAttribute('tabindex', '0');
     item.setAttribute('aria-label', `Ampliar foto de ${g.alt}`);
-    item.addEventListener('click',()=>{ document.getElementById('lbImg').src=g.url; document.getElementById('lightbox').classList.remove('hidden'); });
+    item.addEventListener('click',()=>{ document.getElementById('lbImg').src=g.url; document.getElementById('lbImg').alt = `Foto ampliada de ${g.alt}`; document.getElementById('lightbox').classList.remove('hidden'); });
     item.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         document.getElementById('lbImg').src = g.url;
+        document.getElementById('lbImg').alt = `Foto ampliada de ${g.alt}`;
         document.getElementById('lightbox').classList.remove('hidden');
       }
     });
@@ -912,11 +967,10 @@ function renderNewStays(){
     { title:'Por onde começar', text:'Comece pelo MV de <strong>God\'s Menu</strong> (2020). Depois ouça <strong>MIROH</strong> e <strong>Thunderous</strong>. Para o álbum completo, vá direto para o <strong>5-STAR</strong>.' },
     { title:'O que assistir', text:'Assista <strong>SKZ CODE</strong> no YouTube para conhecer a personalidade de cada membro. Depois experimente o <strong>2 Kids Room</strong> para conversas mais íntimas.' },
     { title:'Como apoiar', text:'Stream nas plataformas conta para os charts. Vote no <strong>MAMA Awards</strong> durante o período de votação. Compre álbuns em lojas certificadas <strong>Hanteo</strong>.' },
-    { title:'Glossário STAY', glossary:[{word:'STAY',def:'Nome oficial do fandom'},{word:'OT8',def:'Original Eight — os 8 membros'},{word:'3RACHA',def:'Sub-grupo produtor'},{word:'Racha',def:'As 3 unidades do grupo'},{word:'Maknae',def:'O mais jovem — I.N'},{word:'SKZoo',def:'Personagens animais oficiais'},{word:'Self-prod',def:'O grupo produz suas músicas'},{word:'Daesang',def:'Maior prêmio do K-pop'},{word:'TASY',def:'Personagem oficial do fandom STAY — anagrama de STAY'}] },
+    { title:'Glossário STAY', glossary:[{word:'STAY',def:'Nome oficial do fandom'},{word:'OT8',def:'Referência à formação atual de oito integrantes'},{word:'3RACHA',def:'Sub-grupo produtor'},{word:'Racha',def:'As 3 unidades do grupo'},{word:'Maknae',def:'O mais jovem — I.N'},{word:'SKZoo',def:'Personagens animais oficiais'},{word:'Self-prod',def:'O grupo produz suas músicas'},{word:'Daesang',def:'Maior prêmio do K-pop'},{word:'TASY',def:'Personagem oficial do fandom STAY — anagrama de STAY'}] },
     { title:'Discografia em ordem', text:'<strong>2018:</strong> Mixtape → I Am NOT → WHO → YOU<br><strong>2019:</strong> Clé 1-2-Levanter<br><strong>2020:</strong> GO LIVE<br><strong>2021:</strong> NOEASY<br><strong>2022:</strong> ODDINARY → MAXIDENT<br><strong>2023:</strong> 5-STAR → ROCK-STAR<br><strong>2024:</strong> ATE → HOP<br><strong>2025:</strong> KARMA → DO IT<br><strong>2026:</strong> Endless Sun · RUN IT · THIS & THAT' },
-    { title:'Sobre o grupo', text:'8 membros, fundado em 2018 pela <strong>JYP Entertainment</strong>. O sub-grupo <strong>3RACHA</strong> produz quase tudo. Já venderam <strong>mais de 40 milhões de álbuns</strong> e têm <strong>8 álbuns consecutivos #1 no Billboard 200</strong>.' },
-    { title:'Unidades do grupo', text:'<strong>3RACHA</strong> — Bang Chan, Han e Changbin (produção e rap)<br><strong>Dance Racha</strong> — Lee Know, Hyunjin e Felix (dança)<br><strong>Vocal Racha</strong> — Seungmin e I.N (vocais)' },
-    { title:'Conquistas históricas', text:'Headlinaram o <strong>Lollapalooza Chicago</strong> (2023) e o <strong>Governors Ball</strong> em Nova York (2026) — primeiro K-pop headliner. Foram ao <strong>Met Gala 2024</strong> juntos. O dominATE Tour foi o <strong>maior tour K-pop da história</strong>. Os 8 membros são <strong>membros votantes da Recording Academy</strong> (Grammy).' },
+    { title:'Sobre o grupo', text:'8 membros, fundado em 2018 pela <strong>JYP Entertainment</strong>. O sub-grupo <strong>3RACHA</strong> produz quase tudo. Já venderam <strong>mais de 40 milhões de álbuns</strong> somando lançamentos coreanos e japoneses, e têm <strong>9 álbuns consecutivos #1 no Billboard 200</strong>.' },
+    { title:'Conquistas históricas', text:'Headlinaram o <strong>Lollapalooza Paris</strong> (2023) e o <strong>Lollapalooza Chicago</strong> (2024). Foram ao <strong>Met Gala 2024</strong> juntos. O dominATE Tour foi o <strong>maior tour K-pop da história</strong>. Os 8 membros são <strong>membros votantes da Recording Academy</strong>.' },
   ];
   cards.forEach(c=>{
     const card=document.createElement('div');
@@ -939,11 +993,14 @@ function initReveal(){
 
 /* ── MODAL MEMBRO ── */
 document.getElementById('modalCloseBtn')?.addEventListener('click', ()=>{
-  document.getElementById('memberModal')?.classList.add('hidden');
+  const modal = document.getElementById('memberModal');
+  modal?._liberarFoco?.();
+  modal?.classList.add('hidden');
   document.body.style.overflow='';
 });
 document.getElementById('memberModal')?.addEventListener('click', e=>{
   if(e.target===e.currentTarget){
+    e.target._liberarFoco?.();
     e.target.classList.add('hidden');
     document.body.style.overflow='';
   }
@@ -976,9 +1033,17 @@ document.addEventListener('keydown',e=>{
   if(e.key==='/'&&document.activeElement.tagName!=='INPUT'){ e.preventDefault(); document.getElementById('searchWrap')?.classList.add('open'); document.getElementById('searchInput')?.focus(); document.body.style.overflow='hidden'; }
   if (e.key === 'Escape') {
     document.getElementById('searchWrap')?.classList.remove('open');
-    document.getElementById('memberModal')?.classList.add('hidden');
+    const memberModal = document.getElementById('memberModal');
+    if(memberModal && !memberModal.classList.contains('hidden')){
+      memberModal._liberarFoco?.();
+      memberModal.classList.add('hidden');
+    }
     document.getElementById('lightbox')?.classList.add('hidden');
-    document.getElementById('albumModal')?.remove();
+    const albumModal = document.getElementById('albumModal');
+    if(albumModal){
+      if(albumModal._fechar) albumModal._fechar();
+      else albumModal.remove();
+    }
     document.body.style.overflow = '';
   }
 });
@@ -1053,7 +1118,7 @@ function renderPremios(){
   const tbody = document.getElementById('premiosTbody');
   if(!tbody) return;
   const premios = [
-    { cerimonia:"Asia Artist Awards",         vitorias:"16", destaque:"5 Daesangs (2021–2025) · Performance, Album, Stage, Artist of the Year · 3RACHA e membros individuais premiados", gold:true },
+    { cerimonia:"Asia Artist Awards",         vitorias:"16", destaque:"5 Daesangs entre 2021 e 2025 — Performance of the Year, Album of the Year duas vezes, Stage of the Year e Artist of the Year. 3RACHA e membros individuais também premiados.", gold:true },
     { cerimonia:"Golden Disc Awards",         vitorias:"10", destaque:"Daesang Album of the Year 2026 por KARMA · 5 Bonsangs consecutivos (2022–2026) · Rookie 2019", gold:true },
     { cerimonia:"Hanteo Music Awards",        vitorias:"12", destaque:"Daesang Best Album 2026 por KARMA · 2 Daesangs Best Performance (2023–2024) · 4 prêmios continentais 2026", gold:true },
     { cerimonia:"The Fact Music Awards",      vitorias:"13", destaque:"2 Daesangs 2025: Honor of the Year + Record of the Year · Artist Bonsang 2021–2025", gold:true },
@@ -1077,15 +1142,27 @@ function renderPremios(){
   ];
   premios.forEach((p, i) => {
     const tr = document.createElement('tr');
-    tr.style.cssText = `background:${i%2===0?'var(--bg-2)':'var(--bg-3)'};border-bottom:1px solid var(--bd);transition:background .15s`;
+    tr.style.cssText = 'border-bottom:1px solid var(--bd);transition:background .15s';
+
+    const corRepouso = p.cerimonia.includes('Programas Musicais')
+      ? 'var(--bg-3)'
+      : (i % 2 === 0 ? 'var(--bg-2)' : 'var(--bg-3)');
+
+    tr.style.background = corRepouso;
+
+    if(p.cerimonia.includes('Programas Musicais')){
+      tr.style.borderTop = '2px solid var(--bdh)';
+    }
+
     tr.innerHTML = `
       <td style="padding:.875rem 1.25rem;color:var(--t1);font-weight:${p.gold?'600':'400'}">
         ${p.cerimonia}
       </td>
       <td style="padding:.875rem 1.25rem;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--ac)">${p.vitorias}</td>
       <td style="padding:.875rem 1.25rem;color:var(--t2);font-size:.8rem;line-height:1.5">${p.destaque}</td>`;
-    tr.addEventListener('mouseenter', ()=> tr.style.background='var(--glass)');
-    tr.addEventListener('mouseleave', ()=> tr.style.background= i%2===0?'var(--bg-2)':'var(--bg-3)');
+
+    tr.addEventListener('mouseenter', () => tr.style.background = 'var(--glass)');
+    tr.addEventListener('mouseleave', () => tr.style.background = corRepouso);
     tbody.appendChild(tr);
   });
 }
@@ -1117,7 +1194,7 @@ function renderUniverso(){
     },
     {
       title:'O que significa OT8?',
-      text:'<strong>OT8</strong> significa "Original Eight" — os 8 membros do Stray Kids. O grupo estreou com 9 integrantes, mas Woojin saiu em outubro de 2019 por motivos pessoais. Desde então, Bang Chan, Lee Know, Changbin, Hyunjin, Han, Felix, Seungmin e I.N formam o OT8.'
+      text:'<strong>OT8</strong> é como o fandom se refere à formação atual de oito integrantes do Stray Kids. O grupo estreou em 2018 com nove membros, e Woojin deixou o grupo em outubro de 2019. Desde então, Bang Chan, Lee Know, Changbin, Hyunjin, Han, Felix, Seungmin e I.N formam o OT8.'
     },
     {
       title:'Comeback, title track, b-side e era',
@@ -1125,7 +1202,7 @@ function renderUniverso(){
     },
     {
       title:'Daesang — o maior prêmio',
-      text:'<strong>Daesang</strong> significa "Grande Prêmio" em coreano — é o equivalente ao Grammy de Álbum do Ano no K-pop. O Stray Kids acumula <strong>19 Daesangs</strong> em cerimônias como MAMA, Golden Disc Awards, Asia Artist Awards e The Fact Music Awards. KARMA (2025) foi o álbum mais premiado da carreira.'
+      text:'<strong>Daesang</strong> significa "Grande Prêmio" em coreano e é a principal categoria das cerimônias de premiação sul-coreanas, acima dos prêmios por categoria. O Stray Kids acumula daesangs em cerimônias como MAMA, Golden Disc Awards, Asia Artist Awards e The Fact Music Awards. KARMA foi o álbum mais premiado da carreira.'
     },
     {
       title:'Kingdom: Legendary War',
@@ -1161,7 +1238,7 @@ function renderUniverso(){
           ‹
         </button>
         <div id="universoDots" style="display:flex;gap:.4rem">
-          ${cards.map((_,i) => `<div class="universo-dot" data-idx="${i}" style="width:6px;height:6px;border-radius:50%;background:${i===0?'var(--ac)':'var(--bd)'};cursor:pointer;transition:background .2s"></div>`).join('')}
+          ${cards.map((_,i) => `<button class="universo-dot" type="button" data-idx="${i}" aria-label="Ir para o item ${i+1}" aria-current="${i===0?'true':'false'}" style="width:10px;height:10px;padding:0;border-radius:50%;background:${i===0?'var(--ac)':'var(--bd)'};border:none;cursor:pointer;transition:background .2s"></button>`).join('')}
         </div>
         <button id="universoNext" type="button" aria-label="Próximo"
           style="width:36px;height:36px;border-radius:50%;background:var(--bg-3);border:1px solid var(--bd);color:var(--t1);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s">
@@ -1178,7 +1255,10 @@ function renderUniverso(){
     current = Math.max(0, Math.min(idx, cards.length - 1));
     const cardWidth = track.querySelector('.stay-card').offsetWidth + 20;
     track.scrollTo({ left: current * cardWidth, behavior: 'smooth' });
-    dots.forEach((d,i) => d.style.background = i === current ? 'var(--ac)' : 'var(--bd)');
+    dots.forEach((d,i) => {
+      d.style.background = i === current ? 'var(--ac)' : 'var(--bd)';
+      d.setAttribute('aria-current', i === current ? 'true' : 'false');
+    });
   }
 
   document.getElementById('universoPrev')?.addEventListener('click', () => goTo(current - 1));
@@ -1202,20 +1282,18 @@ function renderAlemDaMusica(){
 
   const cards = [
     { num:"01", tag:"Self-production", title:"O grupo que constrói a própria identidade", text:"Desde os primeiros lançamentos, o Stray Kids construiu uma identidade marcada por letras sobre crescimento, inseguranças, pressão, liberdade e busca pelo próprio caminho. Grande parte desse trabalho é liderada pelo <strong>3RACHA</strong> — Bang Chan, Changbin e Han — que participam da composição, escrita e produção de grande parte da discografia." },
-    { num:"02", tag:"História", title:"O 3RACHA existia antes do debut", text:"Antes da estreia do Stray Kids, Bang Chan, Changbin e Han já lançavam músicas como <strong>3RACHA</strong>, usando os nomes artísticos <strong>CB97</strong>, <strong>SPEARB</strong> e <strong>J.ONE</strong>. Essa fase mostra que a identidade musical do grupo começou a ser desenvolvida antes mesmo da estreia oficial." },
-    { num:"03", tag:"Nome", title:"Stray Kids representa quem escolhe o próprio caminho", text:"O nome pode ser relacionado a jovens que deixam um caminho definido por outros para buscar a própria direção. Por isso <strong>estradas, labirintos, portas, chaves e caminhos</strong> aparecem tantas vezes nas músicas. Romper padrões, não se comparar e avançar mesmo sem respostas são temas centrais." },
-    { num:"04", tag:"Fandom", title:"A frase do fandom completa o nome do grupo", text:"Uma das frases mais importantes é: <em>\"You make Stray Kids stay.\"</em> Ela cria um jogo com o nome do fandom, <strong>STAY</strong>. A ideia é que os fãs são a razão para que os garotos perdidos encontrem um lugar onde possam permanecer." },
-    { num:"05", tag:"Bang Chan", title:"Bang Chan participou da escolha dos integrantes", text:"Bang Chan passou vários anos como trainee antes do debut e teve um papel incomum na formação do grupo — além de ser o líder, participou do processo de reunir os integrantes que trabalhariam juntos. Isso explica por que liderança, confiança e união são temas tão importantes para o Stray Kids." },
-    { num:"06", tag:"Logo", title:"O logotipo foi desenhado pelo próprio Bang Chan", text:"O logotipo escrito do Stray Kids foi baseado na <strong>caligrafia de Bang Chan</strong>. Esse detalhe reforça a ideia de que os integrantes participaram não apenas da música, mas também da construção visual e conceitual do grupo desde o início." },
-    { num:"07", tag:"Bang Chan & Felix", title:"Cresceram na Austrália", text:"Bang Chan e Felix cresceram em <strong>Sydney</strong> antes de se mudarem para a Coreia do Sul para seguir carreira. Por isso, ambos falam inglês fluentemente e frequentemente ajudam o grupo em entrevistas e conteúdos internacionais. Apesar da história em comum, eles <strong>não se conheceram na Austrália</strong> — a amizade começou durante o período de treinamento." },
-    { num:"08", tag:"Lee Know", title:"Dançarino profissional antes do Stray Kids", text:"Antes de estrear, Lee Know acumulou experiência como <strong>dançarino de apoio</strong>, o que contribuiu para sua precisão e consciência de palco. Essa trajetória também explica por que ele frequentemente ajuda os outros integrantes durante os ensaios." },
-    { num:"09", tag:"Han", title:"Conhecido como um 'ace'", text:"No K-pop, <strong>'ace'</strong> é usado para artistas que se destacam em várias áreas. Han é frequentemente associado a essa descrição por conseguir assumir rap, vocal, composição, produção e performance com igual habilidade em diferentes músicas." },
-    { num:"10", tag:"Changbin", title:"Contraste como identidade", text:"Changbin é conhecido pelo rap intenso e presença de palco poderosa. Ao mesmo tempo, sua personalidade fora dos palcos costuma ser divertida e afetuosa. Esse contraste inspirou o personagem <strong>Dwaekki</strong> — combinação de dwaeji (porco) e tokki (coelho)." },
-    { num:"11", tag:"Felix", title:"Taekwondo e UNICEF", text:"Antes de ser idol, Felix praticou taekwondo durante anos e participou de competições, conquistando <strong>63 medalhas</strong>. Em setembro de 2024, foi nomeado <strong>Embaixador de Boa Vontade do UNICEF Coreia</strong>, participando de ações relacionadas a nutrição e saneamento no Laos." },
-    { num:"12", tag:"Hyunjin", title:"Pintura como expressão artística", text:"Além da dança e música, Hyunjin desenvolveu forte interesse por <strong>desenho e pintura</strong>. Ele costuma compartilhar trabalhos que exploram paisagens, retratos e emoções. Sua relação com a arte também aparece em músicas solo e performances mais expressivas." },
-    { num:"13", tag:"Seungmin", title:"A paixão pelo beisebol", text:"Seungmin é um grande fã de beisebol e já demonstrou bastante conhecimento sobre o esporte. Essa paixão se tornou uma de suas características mais reconhecidas pelos fãs. Mesmo seguindo a música, ele continua acompanhando partidas e mencionando o esporte em conteúdos do grupo." },
-    { num:"14", tag:"I.N", title:"Habilidade com o trot", text:"I.N demonstrou habilidade para cantar <strong>trot</strong>, um gênero tradicional da música popular coreana. A técnica usa interpretação e ornamentação vocal bem diferentes das encontradas nas músicas do Stray Kids, mostrando outro lado de sua voz que sempre surpreende." },
-    { num:"15", tag:"Kingdom", title:"A vitória que mudou tudo", text:"Em 2021, o Stray Kids venceu o programa <strong>Kingdom: Legendary War</strong>. As apresentações ficaram conhecidas pelos cenários elaborados e pela narrativa conectada entre performance, dança e música. Essa participação apresentou o grupo a um público muito maior e marcou uma virada na carreira internacional." },
+    { num:"02", tag:"Nome", title:"Stray Kids representa quem escolhe o próprio caminho", text:"O nome pode ser relacionado a jovens que deixam um caminho definido por outros para buscar a própria direção. Por isso <strong>estradas, labirintos, portas, chaves e caminhos</strong> aparecem tantas vezes nas músicas. Romper padrões, não se comparar e avançar mesmo sem respostas são temas centrais." },
+    { num:"03", tag:"Fandom", title:"A frase do fandom completa o nome do grupo", text:"Uma das frases mais importantes é: <em>\"You make Stray Kids stay.\"</em> Ela cria um jogo com o nome do fandom, <strong>STAY</strong>. A ideia é que os fãs são a razão para que os garotos perdidos encontrem um lugar onde possam permanecer." },
+    { num:"04", tag:"Bang Chan", title:"Bang Chan participou da escolha dos integrantes", text:"Bang Chan passou vários anos como trainee antes do debut e teve um papel incomum na formação do grupo — além de ser o líder, participou do processo de reunir os integrantes que trabalhariam juntos. Isso explica por que liderança, confiança e união são temas tão importantes para o Stray Kids." },
+    { num:"05", tag:"Logo", title:"O logotipo foi desenhado pelo próprio Bang Chan", text:"O logotipo escrito do Stray Kids foi baseado na <strong>caligrafia de Bang Chan</strong>. Esse detalhe reforça a ideia de que os integrantes participaram não apenas da música, mas também da construção visual e conceitual do grupo desde o início." },
+    { num:"06", tag:"Bang Chan & Felix", title:"Cresceram na Austrália", text:"Bang Chan e Felix cresceram em <strong>Sydney</strong> antes de se mudarem para a Coreia do Sul para seguir carreira. Por isso, ambos falam inglês fluentemente e frequentemente ajudam o grupo em entrevistas e conteúdos internacionais. Apesar da história em comum, eles <strong>não se conheceram na Austrália</strong> — a amizade começou durante o período de treinamento." },
+    { num:"07", tag:"Lee Know", title:"Dançarino profissional antes do Stray Kids", text:"Antes de estrear, Lee Know acumulou experiência como <strong>dançarino de apoio</strong>, o que contribuiu para sua precisão e consciência de palco. Essa trajetória também explica por que ele frequentemente ajuda os outros integrantes durante os ensaios." },
+    { num:"08", tag:"Han", title:"Conhecido como um 'ace'", text:"No K-pop, <strong>'ace'</strong> é usado para artistas que se destacam em várias áreas. Han é frequentemente associado a essa descrição por conseguir assumir rap, vocal, composição, produção e performance com igual habilidade em diferentes músicas." },
+    { num:"09", tag:"Changbin", title:"Contraste como identidade", text:"Changbin é conhecido pelo rap intenso e presença de palco poderosa. Ao mesmo tempo, sua personalidade fora dos palcos costuma ser divertida e afetuosa. Esse contraste inspirou o personagem <strong>Dwaekki</strong> — combinação de dwaeji (porco) e tokki (coelho)." },
+    { num:"10", tag:"Felix", title:"Taekwondo e UNICEF", text:"Antes de ser idol, Felix praticou taekwondo durante anos e participou de competições, conquistando <strong>63 medalhas</strong>. Em setembro de 2024, foi nomeado <strong>Embaixador de Boa Vontade do UNICEF Coreia</strong>, participando de ações relacionadas a nutrição e saneamento no Laos." },
+    { num:"11", tag:"Hyunjin", title:"Pintura como expressão artística", text:"Além da dança e música, Hyunjin desenvolveu forte interesse por <strong>desenho e pintura</strong>. Ele costuma compartilhar trabalhos que exploram paisagens, retratos e emoções. Sua relação com a arte também aparece em músicas solo e performances mais expressivas." },
+    { num:"12", tag:"Seungmin", title:"A paixão pelo beisebol", text:"Seungmin é um grande fã de beisebol e já demonstrou bastante conhecimento sobre o esporte. Essa paixão se tornou uma de suas características mais reconhecidas pelos fãs. Mesmo seguindo a música, ele continua acompanhando partidas e mencionando o esporte em conteúdos do grupo." },
+    { num:"13", tag:"I.N", title:"Habilidade com o trot", text:"I.N demonstrou habilidade para cantar <strong>trot</strong>, um gênero tradicional da música popular coreana. A técnica usa interpretação e ornamentação vocal bem diferentes das encontradas nas músicas do Stray Kids, mostrando outro lado de sua voz que sempre surpreende." },
   ];
 
   grid.innerHTML = `
@@ -1236,7 +1314,7 @@ function renderAlemDaMusica(){
         <button id="alemPrev" type="button" aria-label="Anterior"
           style="width:36px;height:36px;border-radius:50%;background:var(--bg-3);border:1px solid var(--bd);color:var(--t1);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center">‹</button>
         <div id="alemDots" style="display:flex;gap:.4rem">
-          ${cards.map((_,i) => `<div class="alem-dot" data-idx="${i}" style="width:6px;height:6px;border-radius:50%;background:${i===0?'var(--ac)':'var(--bd)'};cursor:pointer;transition:background .2s"></div>`).join('')}
+          ${cards.map((_,i) => `<button class="alem-dot" type="button" data-idx="${i}" aria-label="Ir para o item ${i+1}" aria-current="${i===0?'true':'false'}" style="width:10px;height:10px;padding:0;border-radius:50%;background:${i===0?'var(--ac)':'var(--bd)'};border:none;cursor:pointer;transition:background .2s"></button>`).join('')}
         </div>
         <button id="alemNext" type="button" aria-label="Próximo"
           style="width:36px;height:36px;border-radius:50%;background:var(--bg-3);border:1px solid var(--bd);color:var(--t1);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center">›</button>
@@ -1251,7 +1329,10 @@ function renderAlemDaMusica(){
     current = Math.max(0, Math.min(idx, cards.length - 1));
     const cardWidth = track.querySelector('.fact-card').offsetWidth + 20;
     track.scrollTo({ left: current * cardWidth, behavior: 'smooth' });
-    dots.forEach((d,i) => d.style.background = i === current ? 'var(--ac)' : 'var(--bd)');
+    dots.forEach((d,i) => {
+      d.style.background = i === current ? 'var(--ac)' : 'var(--bd)';
+      d.setAttribute('aria-current', i === current ? 'true' : 'false');
+    });
   }
 
   document.getElementById('alemPrev')?.addEventListener('click', () => goTo(current - 1));
@@ -1348,7 +1429,7 @@ function renderGuiaConteudo(){
         <button id="guiaPrev" type="button" aria-label="Anterior"
           style="width:36px;height:36px;border-radius:50%;background:var(--bg-3);border:1px solid var(--bd);color:var(--t1);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center">‹</button>
         <div id="guiaDots" style="display:flex;gap:.4rem">
-          ${trilhas.map((_,i) => `<div class="guia-dot" data-idx="${i}" style="width:6px;height:6px;border-radius:50%;background:${i===0?'var(--ac)':'var(--bd)'};cursor:pointer;transition:background .2s"></div>`).join('')}
+          ${trilhas.map((_,i) => `<button class="guia-dot" type="button" data-idx="${i}" aria-label="Ir para o item ${i+1}" aria-current="${i===0?'true':'false'}" style="width:10px;height:10px;padding:0;border-radius:50%;background:${i===0?'var(--ac)':'var(--bd)'};border:none;cursor:pointer;transition:background .2s"></button>`).join('')}
         </div>
         <button id="guiaNext" type="button" aria-label="Próximo"
           style="width:36px;height:36px;border-radius:50%;background:var(--bg-3);border:1px solid var(--bd);color:var(--t1);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center">›</button>
@@ -1364,7 +1445,10 @@ function renderGuiaConteudo(){
     const card = track.querySelector('div');
     const cardWidth = card.offsetWidth + 20;
     track.scrollTo({ left: current * cardWidth, behavior:'smooth' });
-    dots.forEach((d,i) => d.style.background = i===current ? 'var(--ac)' : 'var(--bd)');
+    dots.forEach((d,i) => {
+      d.style.background = i === current ? 'var(--ac)' : 'var(--bd)';
+      d.setAttribute('aria-current', i === current ? 'true' : 'false');
+    });
   }
 
   document.getElementById('guiaPrev')?.addEventListener('click', () => goTo(current - 1));
